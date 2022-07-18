@@ -1,0 +1,53 @@
+/* Cabeçalho */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: #FCFFD7;
+    height: 3rem;
+}
+
+.cabecalho__logo {
+    display: flex;
+    justify-content: center;
+}
+
+.icones-cabecalho {
+    height: 48cdpx;
+    width: 48px;
+}
+
+.botao-pesquisa {
+    width: 360px;
+    height: 22px;
+    border-radius: 30px;
+    border: solid #323232 1px;
+}
+
+.botao-menu {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: #515151;
+
+    margin: 0 10px 0 10px;
+}
+
+.logo-menu {
+    height: 48px;
+    width: 48px;
+}
+
+
+/* Rodapé */
+
+.rodape {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
