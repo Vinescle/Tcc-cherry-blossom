@@ -6,6 +6,28 @@
     <link href="./css/reset.css" rel="stylesheet">
     <link href="./css/estilo-home.css" rel="stylesheet">
     <title>Cherry Blossom - Home</title>
+
+    <style>
+        .main-banner {
+            position: relative;
+        }
+
+        .div-botoes {
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .icones-carrossel {
+            height: 40px;
+            width: 40px;
+        }
+
+        .botoes {
+            border: none;
+            background: transparent;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,16 +35,27 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <!-- Cabeçalho da home -->
+
     <?php
     include 'cabecalho/cabecalhoHome.php'
     ?>
 
     <!-- Main da home -->
     <main>
-
+        <div class="main-banner">
+            <!-- <img src="./imagens/site/banner.png" class="imagem-banner"> -->
+            <div class="div-botoes">
+                <button class="botoes">
+                    <ion-icon name="arrow-back-circle-outline" class="icones-carrossel"></ion-icon>
+                </button>
+                <button class="botoes">
+                    <ion-icon name="arrow-forward-circle-outline" class="icones-carrossel"></ion-icon>
+                </button>
+            </div>
+        </div>
     </main>
 
-    <!-- Rodapé da home -->
+    <!-- Rodapé da home
     <footer class="rodape">
         <div>
             <h3>Sugestão de Produto</h3>
@@ -49,6 +82,7 @@
             <input type="TEXT" name="email-noticias">
         </div>
     </footer>
+-->
 </body>
 
 </html>

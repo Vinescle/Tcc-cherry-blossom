@@ -87,8 +87,21 @@
     border: none;
     background: transparent;
 }
+/* Main */
 
+.imagem-banner {
+    width: 100%;
+}
 
+.div-botoes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.botoes {
+    border: none;
+    color: transparent;
+}
 /* Rodapé */
 
 .rodape {
