@@ -27,7 +27,7 @@
             flex-direction: column;
             align-items: center;
             gap: 15px;
-            margin: 15% 25% 10% 25%;
+            margin: 5% 25% 10% 25%;
             border-radius: 20px;
             box-shadow: 4px 4px 10px -1px rgba(0, 0, 0, 0.32)
         }
@@ -62,7 +62,7 @@
             font-family: 'Inter', sans-serif;
         }
 
-        .input-corpo{
+        .input-corpo {
             position: relative;
             align-items: center;
         }
@@ -80,14 +80,11 @@
             gap: 5px;
         }
 
-        .icon-config{
+        .icon-config {
             width: 40px;
             height: 40px;
         }
 
-        /* .carta{
-            margin:2.5px 0.5px 0 0;
-        } */
 
         .input-button {
             width: 62px;
@@ -101,6 +98,52 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .div-checkbox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .checkbox{
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            font-family:'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+        }
+
+        .checkbox input[type="checkbox"]{
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            appearance: none;
+            -webkit-appearance: none;
+            border: 1px solid #FF97F2;
+            border-radius: 10px;
+            background-color: #FFFFFF;
+
+        }
+
+        .checkbox input[type="checkbox"]:checked:after{
+            display: block;
+            font-size: 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            content: "x";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+
+        .checkbox a{
+            color: #1467FF;
+            font-weight: 400;
         }
 
         .form-end {
@@ -119,10 +162,11 @@
             border: none;
             border-radius: 20px;
             cursor: pointer;
+            transition: 0.40S;
 
         }
 
-        .form-end-submit input:hover{
+        .form-end-submit input:hover {
             background-color: #EC55D9;
             cursor: pointer;
         }
@@ -133,7 +177,8 @@
         }
 
         .form-end-text a {
-            color: #2271FD;
+            color: #1467FF;
+            font-weight: 400;
         }
     </style>
 </head>
@@ -144,9 +189,20 @@
 
     <div class="conteiner">
         <div class="conteiner-titulo">
-            <p>Login</p>
+            <p>Cadastro</p>
         </div>
         <form action="#" method="post">
+            <div class="input">
+                <div>
+                    <label class="input-text">Nome Completo</label>
+                </div>
+                <div class="input-corpo">
+                    <button class="input-button" type="submit" disabled>
+                        <ion-icon class="icon-config carta" name="person-circle-outline"></ion-icon>
+                    </button>
+                    <input class="config-tamanho" type="email" name="email">
+                </div>
+            </div>
             <div class="input">
                 <div>
                     <label class="input-text">E-mail</label>
@@ -169,12 +225,56 @@
                     <input class="config-tamanho" type="password" name="senha">
                 </div>
             </div>
+            <div class="input">
+                <div>
+                    <label class="input-text">Confirmar Senha</label>
+                </div>
+                <div class="input-corpo">
+                    <button class="input-button" disabled>
+                        <ion-icon class="icon-config" name="lock-closed-outline"></ion-icon>
+                    </button>
+                    <input class="config-tamanho" type="password" name="senha">
+                </div>
+            </div>
+            <div class="input">
+                <div>
+                    <label class="input-text">Data de Nascimento</label>
+                </div>
+                <div class="input-corpo">
+                    <button class="input-button" disabled>
+                        <ion-icon class="icon-config" name="calendar-outline"></ion-icon>
+                    </button>
+                    <input class="config-tamanho" type="text" name="senha">
+                </div>
+            </div>
+            <div class="input">
+                <div>
+                    <label class="input-text">CPF</label>
+                </div>
+                <div class="input-corpo">
+                    <button class="input-button" disabled>
+                        <ion-icon class="icon-config" name="document-text-outline"></ion-icon>
+                    </button>
+                    <input class="config-tamanho" type="text" name="senha">
+                </div>
+            </div>
+            <div class="div-checkbox">
+                <div class="checkbox">
+                    <input type="checkbox">
+                    <span>Desejo receber emails sobre futuras ofertas e novos produtos.</span>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox">
+                    <span>Declaro que li e concordo com os <a href="#">termos de uso </a>e <a href="#">políticas de<br>
+                    privacidade.</a></span>
+                </div>
+            </div>
             <div class="form-end">
                 <div class="form-end-submit">
-                    <input type="submit" value="Entrar" name="senha">
+                    <input type="submit" value="Cadastrar" name="senha">
                 </div>
                 <div class="form-end-text">
-                    <p>Ainda não tem uma conta? <a href="#">Cadastre-se</a></p>
+                    <p>Já tem uma conta? Faça <a href="#">login</a></p>
                 </div>
             </div>
         </form>
