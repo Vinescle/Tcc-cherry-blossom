@@ -15,17 +15,31 @@
         .div-botoes {
             position: absolute;
             display: flex;
-            justify-content: space-between;
-        }
 
-        .icones-carrossel {
-            height: 40px;
-            width: 40px;
+            position: absolute;
+            top: 17vh;
+            gap: 86vw;
+            width: 100%;
         }
 
         .botoes {
             border: none;
             background: transparent;
+            justify-content: space-around;
+        }
+
+        .icones-carrossel {
+            height: 38px;
+            width: 38px;
+
+            color: #FFF;
+        }
+
+        .icones-sombra {
+            height: 40px;
+            width: 40px;
+
+            color: #000;
         }
     </style>
 </head>
@@ -43,7 +57,15 @@
     <!-- Main da home -->
     <main>
         <div class="main-banner">
-            <!-- <img src="./imagens/site/banner.png" class="imagem-banner"> -->
+            <img src="./imagens/site/banner.png" class="imagem-banner">
+            <div class="div-botoes">
+                <button class="botoes">
+                    <ion-icon name="arrow-back-circle-outline" class="icones-sombra"></ion-icon>
+                </button>
+                <button class="botoes">
+                    <ion-icon name="arrow-forward-circle-outline" class="icones-sombra"></ion-icon>
+                </button>
+            </div>
             <div class="div-botoes">
                 <button class="botoes">
                     <ion-icon name="arrow-back-circle-outline" class="icones-carrossel"></ion-icon>
