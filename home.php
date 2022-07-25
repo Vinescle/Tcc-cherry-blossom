@@ -68,7 +68,7 @@
     <!-- Cabeçalho da home -->
 
     <?php
-        include 'Componentes/cabecalhoHome.php'
+        include './Componentes/cabecalhoHome.php'
     ?>
 
     <!-- Main da home / Carrossel -->
