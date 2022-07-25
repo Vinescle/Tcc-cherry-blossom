@@ -3,44 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link href="./css/reset.css" rel="stylesheet">
     <link href="./css/estilo-home.css" rel="stylesheet">
+
     <title>Cherry Blossom - Home</title>
 
     <style>
-        .main-banner {
-            position: relative;
-        }
 
-        .div-botoes {
-            position: absolute;
-            display: flex;
-
-            position: absolute;
-            top: 17vh;
-            gap: 86vw;
-            width: 100%;
-        }
-
-        .botoes {
-            border: none;
-            background: transparent;
-            justify-content: space-around;
-        }
-
-        .icones-carrossel {
-            height: 38px;
-            width: 38px;
-
-            color: #FFF;
-        }
-
-        .icones-sombra {
-            height: 40px;
-            width: 40px;
-
-            color: #000;
-        }
     </style>
 </head>
 
@@ -54,28 +24,34 @@
     include 'cabecalho/cabecalhoHome.php'
     ?>
 
-    <!-- Main da home -->
+    <!-- Main da home / Carrossel -->
     <main>
-        <div class="main-banner">
-            <img src="./imagens/site/banner.png" class="imagem-banner">
-            <div class="div-botoes">
-                <button class="botoes">
-                    <ion-icon name="arrow-back-circle-outline" class="icones-sombra"></ion-icon>
-                </button>
-                <button class="botoes">
-                    <ion-icon name="arrow-forward-circle-outline" class="icones-sombra"></ion-icon>
-                </button>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./imagens/site/banner.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./imagens/site/banner.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./imagens/site/banner.png" class="d-block w-100" alt="...">
+                </div>
             </div>
-            <div class="div-botoes">
-                <button class="botoes">
-                    <ion-icon name="arrow-back-circle-outline" class="icones-carrossel"></ion-icon>
-                </button>
-                <button class="botoes">
-                    <ion-icon name="arrow-forward-circle-outline" class="icones-carrossel"></ion-icon>
-                </button>
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </main>
+
+    <!-- Marcas -->
+        
+    
 
     <!-- Rodapé da home
     <footer class="rodape">
@@ -105,6 +81,8 @@
         </div>
     </footer>
 -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 
 </html>

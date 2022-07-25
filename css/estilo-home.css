@@ -16,6 +16,10 @@
     z-index: 80;
 }
 
+.imagem-banner {
+    width: 100%;
+}
+
 .cabecalho-logo {
     display: flex;
     flex-direction: row;
@@ -85,29 +89,10 @@
     position: absolute;
     margin-top: 6px;
     margin-left: 8px;
-    
+
     border: none;
     background: transparent;
 }
-/* Main */
 
-.imagem-banner {
-    width: 100%;
-}
+/* Main Banner */
 
-.div-botoes {
-    display: flex;
-    justify-content: space-around;
-}
-
-.botoes {
-    border: none;
-    color: transparent;
-}
-/* Rodapé */
-
-.rodape {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
