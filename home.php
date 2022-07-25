@@ -44,7 +44,7 @@
         .imagem-marcas {
             width: 100%;
             height: 100%;
-            transform: translate(0, 20px);
+            transform: translate(0, 0px);
         }
 
         .titulo-marcas {
@@ -68,7 +68,7 @@
     <!-- Cabeçalho da home -->
 
     <?php
-    include 'cabecalho/cabecalhoHome.php'
+        include 'Componentes/cabecalhoHome.php'
     ?>
 
     <!-- Main da home / Carrossel -->
