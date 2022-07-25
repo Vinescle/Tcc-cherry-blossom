@@ -16,6 +16,10 @@
             text-decoration: none;
         }
 
+        a:hover{
+            color: #000000;
+        }
+
         .rodape {
             margin: 200px 0px 0px 0px;
             padding: 30px 0px 0px 0px;
@@ -23,7 +27,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 180px;
+            gap: 10%;
         }
 
         .coluna-um {
@@ -42,6 +46,7 @@
             color: #FFFFFF;
 
         }
+
 
         .coluna-um-link {
             padding: 5px 15px;
