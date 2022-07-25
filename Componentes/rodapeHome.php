@@ -16,18 +16,18 @@
             text-decoration: none;
         }
 
-        a:hover{
+        a:hover {
             color: #000000;
         }
 
         .rodape {
-            margin: 200px 0px 0px 0px;
-            padding: 30px 0px 0px 0px;
+            margin: 0px 0px 0px 0px;
+            padding: 5px 130px 30px 130px;
             border-top: 1px solid #A3B3CC;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10%;
+            justify-content: space-evenly;
+            gap: 5%;
         }
 
         .coluna-um {
@@ -35,16 +35,20 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 5px;
+
         }
 
-        .logo{
-            max-width: 98px;
+        .coluna-um-redes-sociais {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .logo {
+            max-width: 70px;
         }
 
         .coluna-um-link a {
             color: #FFFFFF;
-
         }
 
 
@@ -53,7 +57,10 @@
             background-color: #FF83EF;
             border-radius: 85px;
             transition: 0.20s;
+            margin: 4px 0 0 0;
 
+            font-size: 15px;
+            font-weight: 600;
         }
 
         .coluna-um-link:hover {
@@ -71,10 +78,11 @@
             gap: 20px;
         }
 
-        .texto-coluna-dois{
+        .texto-coluna-dois {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             gap: 5px;
         }
 
@@ -85,25 +93,24 @@
             gap: 20px;
         }
 
-        .conteudo-coluna-tres{
+        .conteudo-coluna-tres {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 5px;
         }
 
-        .noticias-coluna-tres{
-            margin: 50px 0px 0px 0px;
+        .noticias-coluna-tres {
+            margin: 0px 0px 0px 0px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
 
         }
 
-        .noticias-coluna-tres input{
-            width:418px; 
-            height:38px;
+        .noticias-coluna-tres input {
+            width: 300px;
+            height: 28px;
             background-color: #FFEFFD;
             border: 1px solid #FF83EF;
             border-radius: 105px;
@@ -115,6 +122,30 @@
 
         }
 
+        .colunas-titulos {
+            font-size: 17px;
+            font-weight: 700;
+            margin: 0px;
+        }
+
+        .texto-colunas {
+            font-size: 15px;
+            margin: 0px;
+            font-weight: 500;
+        }
+
+        .texto-footer-input {
+            font-size: 14px;
+            font-weight: 700;
+            margin: 0px;
+        }
+
+        .coluna-institucional {
+            font-size: 17px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+        }
+
         /* .noticias-coluna-tres input:hover{
             background-color: #FFEFFD;
             border: 1px solid #FF83EF;
@@ -122,7 +153,6 @@
             font-family: 'Inter', sans-serif;
             color: #323232;
         } */
-
     </style>
 </head>
 
@@ -134,9 +164,9 @@
     <footer class="rodape">
         <div class="coluna-um">
             <img class="logo" src="./imagens/site/Logo_PNG_normal.png" alt="logo-cherry-blossom" width="98px">
-            <h3 class="coluna-um-link"><a href="#">Sugestão de Produto</a></h3>
-            <h3 class="coluna-um-link"><a href="#">Fale com o Vendedor</a></h3>
-            <h4>Acompanhe nossas redes sociais</h4>
+            <h3 class="coluna-um-link"><a href="#">SUGESTÃO DO PRODUTO</a></h3>
+            <h3 class="coluna-um-link"><a href="#">FALE COM O VENDEDOR</a></h3>
+            <h4 class="coluna-um-redes-sociais">Acompanhe nossas redes sociais</h4>
             <div class="redes-sociais">
                 <ion-icon class="icone" name="logo-instagram"></ion-icon>
                 <ion-icon class="icone" name="logo-facebook"></ion-icon>
@@ -146,29 +176,29 @@
         </div>
         <div class="coluna-dois">
             <div class="titulo-coluna-dois">
-                <h3>Ajuda e Suporte</h3>
+                <h3 class="colunas-titulos">AJUDA E SUPORTE</h3>
             </div>
             <div class="texto-coluna-dois">
-                <p><a href="#">Como comprar</a></p>
-                <p><a href="#">Cuidados Com os Produtos</a></p>
-                <p><a href="#">Visualização 3D</a></p>
-                <p><a href="#">O que é Papercraft?</a></p>
-                <p><a href="#">O que é Hama Beads?</a></p>
-                <p><a href="#">O que é Macramê?</a></p>
-                <p><a href="#">O que é miçanga?</a></p>
+                <p class="texto-colunas"><a href="#">Como comprar</a></p>
+                <p class="texto-colunas"><a href="#">Cuidados Com os Produtos</a></p>
+                <p class="texto-colunas"><a href="#">Visualização 3D</a></p>
+                <p class="texto-colunas"><a href="#">O que é Papercraft?</a></p>
+                <p class="texto-colunas"><a href="#">O que é Hama Beads?</a></p>
+                <p class="texto-colunas"><a href="#">O que é Macramê?</a></p>
+                <p class="texto-colunas"><a href="#">O que é miçanga?</a></p>
             </div>
         </div>
         <div class="coluna-tres">
             <div class="titulo-coluna-tres">
-                <h3>Institucional</h3>
+                <h3 class="coluna-institucional">INSTITUCIONAL</h3>
             </div>
             <div class="conteudo-coluna-tres">
-                <p><a href="#">Sobre Nós</a></p>
-                <p><a href="#">Política de Privacidade</a></p>
-                <p><a href="#">Termos de Uso e Navegação</a></p> 
+                <p class="texto-colunas"><a href="#">Sobre Nós</a></p>
+                <p class="texto-colunas"><a href="#">Política de Privacidade</a></p>
+                <p class="texto-colunas"><a href="#">Termos de Uso e Navegação</a></p>
             </div>
             <div class="noticias-coluna-tres">
-                <h4>SE INSCREVA PARA RECEBER NOVIDADES!</h4>
+                <h4 class="texto-footer-input">SE INSCREVA PARA RECEBER NOVIDADES!</h4>
                 <input type="email" name="email-noticias" placeholder="Digite seu email">
             </div>
         </div>
