@@ -44,7 +44,7 @@
         .imagem-marcas {
             width: 100%;
             height: 100%;
-            transform: translate(0, 0px);
+            transform: translate(0, 20px);
         }
 
         .titulo-marcas {
