@@ -260,11 +260,11 @@
             </div>
             <div class="div-checkbox">
                 <div class="checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" name="receberEmails">
                     <span>Desejo receber emails sobre futuras ofertas e novos produtos.</span>
                 </div>
                 <div class="checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" name="Termos">
                     <span>Declaro que li e concordo com os <a href="#">termos de uso </a>e <a href="#">políticas de<br>
                     privacidade.</a></span>
                 </div>
