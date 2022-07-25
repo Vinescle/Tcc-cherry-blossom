@@ -96,3 +96,7 @@
 
 /* Main Banner */
 
+.botao-verTodos {
+    border: none;
+    background: transparent;
+}

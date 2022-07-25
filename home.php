@@ -10,7 +10,54 @@
     <title>Cherry Blossom - Home</title>
 
     <style>
+        .texto-marcas {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
 
+
+            margin: 30px 170px 0 170px;
+        }
+
+        .botao-verTodos {
+            border: none;
+            background: transparent;
+        }
+
+        .marcas-container {
+            margin: 0px 170px 0 170px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .bolas-marcas {
+            border-radius: 1000px;
+            width: 100px;
+            height: 100px;
+            background: #08cfaa;
+            overflow: hidden;
+        }
+
+        .imagem-marcas {
+            width: 100%;
+            height: 100%;
+            transform: translate(0, 20px);
+        }
+
+        .titulo-marcas {
+            color: #323232;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+
+        .ver-todos {
+            color: blue;
+            font-family: 'Inter', sans-serif;
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -50,9 +97,34 @@
     </main>
 
     <!-- Marcas -->
-        
-    
-
+    <div class="texto-marcas">
+        <div>
+            <h2 class="titulo-marcas">Marcas</h2>
+        </div>
+        <div>
+            <button class="botao-verTodos"><a class="ver-todos">Ver todos</a></button>
+        </div>
+    </div>
+    <div class="marcas-container">
+        <div class="bolas-marcas">
+            <div><img src="./imagens/site/minecraft.png" class="imagem-marcas"></div>
+        </div>
+        <div class="bolas-marcas">
+            <div><img src="./imagens/site/frozen.png" class="imagem-marcas"></div>
+        </div>
+        <div class="bolas-marcas">
+            <div><img src="./imagens/site/my-little-pony.png" class="imagem-marcas"></div>
+        </div>
+        <div class="bolas-marcas">
+            <div><img src="./imagens/site/Hora-de-aventura.png" class="imagem-marcas"></div>
+        </div>
+        <div class="bolas-marcas">
+            <div><img src="./imagens/site/vocaloid.png" class="imagem-marcas"></div>
+        </div>
+        <div class="bolas-marcas">
+            <div><img src="./imagens/site/splatoon.png" class="imagem-marcas"></div>
+        </div>
+    </div>
     <!-- Rodapé da home
     <footer class="rodape">
         <div>
