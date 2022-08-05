@@ -11,6 +11,8 @@
         * {
             color: #323232;
             font-family: 'Inter', sans-serif;
+            margin: 0px;
+            padding: 0px;
         }
 
         body {
@@ -81,6 +83,7 @@
         }
 
         .icon-config {
+            color: #FFFFFF;
             width: 40px;
             height: 40px;
         }
@@ -89,7 +92,7 @@
         .input-button {
             width: 62px;
             height: 54px;
-            border-radius: 18px;
+            border-radius: 18px 0px 0px 18px;
             border: none;
             background-color: #FF97F2;
             position: absolute;
@@ -156,6 +159,7 @@
         .form-end-submit input {
             font-size: 24px;
             font-weight: bold;
+            color: #FFFFFF;
             width: 200px;
             height: 44px;
             background-color: #FF97F2;
