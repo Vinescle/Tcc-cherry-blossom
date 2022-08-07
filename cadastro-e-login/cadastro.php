@@ -190,12 +190,13 @@
 <body>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
 
     <div class="conteiner">
         <div class="conteiner-titulo">
             <p>Cadastro</p>
         </div>
-        <form action="#" method="post">
+        <form name="form" action="cadastroGrava.php" method="post">
             <div class="input">
                 <div>
                     <label class="input-text">Nome Completo</label>
@@ -204,7 +205,7 @@
                     <button class="input-button" type="submit" disabled>
                         <ion-icon class="icon-config carta" name="person-circle-outline"></ion-icon>
                     </button>
-                    <input class="config-tamanho" type="email" name="email">
+                    <input class="config-tamanho" type="text" name="nome" required autocomplete="disabled">
                 </div>
             </div>
             <div class="input">
@@ -215,7 +216,7 @@
                     <button class="input-button" type="submit" disabled>
                         <ion-icon class="icon-config carta" name="mail-outline"></ion-icon>
                     </button>
-                    <input class="config-tamanho" type="email" name="email">
+                    <input class="config-tamanho" type="email" name="email" required>
                 </div>
             </div>
             <div class="input">
@@ -226,7 +227,7 @@
                     <button class="input-button" disabled>
                         <ion-icon class="icon-config" name="lock-open-outline"></ion-icon>
                     </button>
-                    <input class="config-tamanho" type="password" name="senha">
+                    <input id="senha" class="config-tamanho" type="password" name="senha" required>
                 </div>
             </div>
             <div class="input">
@@ -237,7 +238,7 @@
                     <button class="input-button" disabled>
                         <ion-icon class="icon-config" name="lock-closed-outline"></ion-icon>
                     </button>
-                    <input class="config-tamanho" type="password" name="senha">
+                    <input id="senhaConfirma" class="config-tamanho" type="password" name="senhaConfirma" required>
                 </div>
             </div>
             <div class="input">
@@ -248,7 +249,7 @@
                     <button class="input-button" disabled>
                         <ion-icon class="icon-config" name="calendar-outline"></ion-icon>
                     </button>
-                    <input class="config-tamanho" type="text" name="senha">
+                    <input class="config-tamanho" type="text" name="nascimento" required>
                 </div>
             </div>
             <div class="input">
@@ -259,7 +260,7 @@
                     <button class="input-button" disabled>
                         <ion-icon class="icon-config" name="document-text-outline"></ion-icon>
                     </button>
-                    <input class="config-tamanho" type="text" name="senha">
+                    <input class="config-tamanho" type="text" name="cpf" minlength="14" maxlength="14" required>
                 </div>
             </div>
             <div class="div-checkbox">
@@ -283,6 +284,7 @@
             </div>
         </form>
     </div>
+    <script src="./validacaoCadastro.js"></script>
 </body>
 
 </html>
