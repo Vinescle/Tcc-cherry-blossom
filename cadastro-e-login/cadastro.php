@@ -65,6 +65,10 @@
             outline: none;
         }
 
+        .nome::first-letter{
+            text-transform: uppercase;
+        }
+
         .input-text {
             font-size: 24px;
             font-weight: 700;
@@ -229,7 +233,7 @@
                         <button class="input-button" type="submit" disabled>
                             <ion-icon class="icon-config carta" name="person-circle-outline"></ion-icon>
                         </button>
-                        <input class="config-tamanho" type="text" name="nome" required autocomplete="disabled">
+                        <input class="config-tamanho nome" type="text" name="nome" required autocomplete="disabled">
                     </div>
                 </div>
                 <div class="input">
