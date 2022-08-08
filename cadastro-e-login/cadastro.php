@@ -17,8 +17,16 @@
 
         body {
             background-image: url(../imagens/background/papel1.jpg);
-            background-repeat: no-repeat;
+            background-repeat: repeat-y;
+            background-size: cover;
             background-size: 100%;
+        }
+
+        main{
+            margin: 5% 0 8% 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .conteiner {
@@ -29,7 +37,7 @@
             flex-direction: column;
             align-items: center;
             gap: 15px;
-            margin: 5% 25% 10% 25%;
+            /* margin: 5% 25% 10% 25%; */
             border-radius: 20px;
             box-shadow: 4px 4px 10px -1px rgba(0, 0, 0, 0.32)
         }
@@ -110,16 +118,16 @@
             gap: 2px;
         }
 
-        .checkbox{
+        .checkbox {
             display: flex;
             align-items: center;
             gap: 2px;
-            font-family:'Inter', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 400;
             font-size: 20px;
         }
 
-        .checkbox input[type="checkbox"]{
+        .checkbox input[type="checkbox"] {
             cursor: pointer;
             width: 30px;
             height: 30px;
@@ -131,7 +139,7 @@
 
         }
 
-        .checkbox input[type="checkbox"]:checked:after{
+        .checkbox input[type="checkbox"]:checked:after {
             display: block;
             font-size: 20px;
             font-family: 'Inter', sans-serif;
@@ -144,7 +152,7 @@
         }
 
 
-        .checkbox a{
+        .checkbox a {
             color: #1467FF;
             font-weight: 400;
         }
@@ -153,7 +161,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 3px;
+            gap: 10px;
         }
 
         .form-end-submit input {
@@ -190,101 +198,102 @@
 <body>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    
 
-    <div class="conteiner">
-        <div class="conteiner-titulo">
-            <p>Cadastro</p>
+    <main>
+        <div class="conteiner">
+            <div class="conteiner-titulo">
+                <p>Cadastro</p>
+            </div>
+            <form name="form" action="cadastroGrava.php" method="post">
+                <div class="input">
+                    <div>
+                        <label class="input-text">Nome Completo</label>
+                    </div>
+                    <div class="input-corpo">
+                        <button class="input-button" type="submit" disabled>
+                            <ion-icon class="icon-config carta" name="person-circle-outline"></ion-icon>
+                        </button>
+                        <input class="config-tamanho" type="text" name="nome" required autocomplete="disabled">
+                    </div>
+                </div>
+                <div class="input">
+                    <div>
+                        <label class="input-text">E-mail</label>
+                    </div>
+                    <div class="input-corpo">
+                        <button class="input-button" type="submit" disabled>
+                            <ion-icon class="icon-config carta" name="mail-outline"></ion-icon>
+                        </button>
+                        <input class="config-tamanho" type="email" name="email" required>
+                    </div>
+                </div>
+                <div class="input">
+                    <div>
+                        <label class="input-text">Senha</label>
+                    </div>
+                    <div class="input-corpo">
+                        <button class="input-button" disabled>
+                            <ion-icon class="icon-config" name="lock-open-outline"></ion-icon>
+                        </button>
+                        <input id="senha" class="config-tamanho" type="password" name="senha" required>
+                    </div>
+                </div>
+                <div class="input">
+                    <div>
+                        <label class="input-text">Confirmar Senha</label>
+                    </div>
+                    <div class="input-corpo">
+                        <button class="input-button" disabled>
+                            <ion-icon class="icon-config" name="lock-closed-outline"></ion-icon>
+                        </button>
+                        <input id="senhaConfirma" class="config-tamanho" type="password" name="senhaConfirma" required>
+                    </div>
+                </div>
+                <div class="input">
+                    <div>
+                        <label class="input-text">Data de Nascimento</label>
+                    </div>
+                    <div class="input-corpo">
+                        <button class="input-button" disabled>
+                            <ion-icon class="icon-config" name="calendar-outline"></ion-icon>
+                        </button>
+                        <input class="config-tamanho" type="text" name="nascimento" required>
+                    </div>
+                </div>
+                <div class="input">
+                    <div>
+                        <label class="input-text">CPF</label>
+                    </div>
+                    <div class="input-corpo">
+                        <button class="input-button" disabled>
+                            <ion-icon class="icon-config" name="document-text-outline"></ion-icon>
+                        </button>
+                        <input class="config-tamanho" type="text" name="cpf" minlength="14" maxlength="14" required>
+                    </div>
+                </div>
+                <div class="div-checkbox">
+                    <div class="checkbox">
+                        <input type="checkbox" name="receberEmails">
+                        <span>Desejo receber emails sobre futuras ofertas e novos produtos.</span>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="Termos">
+                        <span>Declaro que li e concordo com os <a href="#">termos de uso </a>e <a href="#">políticas de<br>
+                                privacidade.</a></span>
+                    </div>
+                </div>
+                <div class="form-end">
+                    <div class="form-end-submit">
+                        <input type="submit" value="Cadastrar" name="senha">
+                    </div>
+                    <div class="form-end-text">
+                        <p>Já tem uma conta? Faça <a href="#">login</a></p>
+                    </div>
+                </div>
+            </form>
         </div>
-        <form name="form" action="cadastroGrava.php" method="post">
-            <div class="input">
-                <div>
-                    <label class="input-text">Nome Completo</label>
-                </div>
-                <div class="input-corpo">
-                    <button class="input-button" type="submit" disabled>
-                        <ion-icon class="icon-config carta" name="person-circle-outline"></ion-icon>
-                    </button>
-                    <input class="config-tamanho" type="text" name="nome" required autocomplete="disabled">
-                </div>
-            </div>
-            <div class="input">
-                <div>
-                    <label class="input-text">E-mail</label>
-                </div>
-                <div class="input-corpo">
-                    <button class="input-button" type="submit" disabled>
-                        <ion-icon class="icon-config carta" name="mail-outline"></ion-icon>
-                    </button>
-                    <input class="config-tamanho" type="email" name="email" required>
-                </div>
-            </div>
-            <div class="input">
-                <div>
-                    <label class="input-text">Senha</label>
-                </div>
-                <div class="input-corpo">
-                    <button class="input-button" disabled>
-                        <ion-icon class="icon-config" name="lock-open-outline"></ion-icon>
-                    </button>
-                    <input id="senha" class="config-tamanho" type="password" name="senha" required>
-                </div>
-            </div>
-            <div class="input">
-                <div>
-                    <label class="input-text">Confirmar Senha</label>
-                </div>
-                <div class="input-corpo">
-                    <button class="input-button" disabled>
-                        <ion-icon class="icon-config" name="lock-closed-outline"></ion-icon>
-                    </button>
-                    <input id="senhaConfirma" class="config-tamanho" type="password" name="senhaConfirma" required>
-                </div>
-            </div>
-            <div class="input">
-                <div>
-                    <label class="input-text">Data de Nascimento</label>
-                </div>
-                <div class="input-corpo">
-                    <button class="input-button" disabled>
-                        <ion-icon class="icon-config" name="calendar-outline"></ion-icon>
-                    </button>
-                    <input class="config-tamanho" type="text" name="nascimento" required>
-                </div>
-            </div>
-            <div class="input">
-                <div>
-                    <label class="input-text">CPF</label>
-                </div>
-                <div class="input-corpo">
-                    <button class="input-button" disabled>
-                        <ion-icon class="icon-config" name="document-text-outline"></ion-icon>
-                    </button>
-                    <input class="config-tamanho" type="text" name="cpf" minlength="14" maxlength="14" required>
-                </div>
-            </div>
-            <div class="div-checkbox">
-                <div class="checkbox">
-                    <input type="checkbox" name="receberEmails">
-                    <span>Desejo receber emails sobre futuras ofertas e novos produtos.</span>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" name="Termos">
-                    <span>Declaro que li e concordo com os <a href="#">termos de uso </a>e <a href="#">políticas de<br>
-                    privacidade.</a></span>
-                </div>
-            </div>
-            <div class="form-end">
-                <div class="form-end-submit">
-                    <input type="submit" value="Cadastrar" name="senha">
-                </div>
-                <div class="form-end-text">
-                    <p>Já tem uma conta? Faça <a href="#">login</a></p>
-                </div>
-            </div>
-        </form>
-    </div>
-    <script src="./validacaoCadastro.js"></script>
+        <script src="./validacaoCadastro.js"></script>
+    </main>
 </body>
 
 </html>
