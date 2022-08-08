@@ -22,7 +22,7 @@
             background-size: 100%;
         }
 
-        main{
+        main {
             margin: 5% 0 8% 0;
             display: flex;
             align-items: center;
@@ -96,6 +96,11 @@
             height: 40px;
         }
 
+        .icon-eyes {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
 
         .input-button {
             width: 62px;
@@ -106,6 +111,17 @@
             position: absolute;
             top: 1px;
             left: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input-eyes {
+            border: none;
+            background: transparent;
+            position: absolute;
+            top: 12px;
+            left: 670px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -235,7 +251,11 @@
                         <button class="input-button" disabled>
                             <ion-icon class="icon-config" name="lock-open-outline"></ion-icon>
                         </button>
-                        <input id="senha" class="config-tamanho" type="password" name="senha" required>
+                        <input id="senha" class="config-tamanho" type="password" name="senha" required minlength="8" maxlength="35">
+                        <button class="input-eyes">
+                            <ion-icon id="senhaIcon" class="icon-eyes" name="eye-off-outline"></ion-icon>
+                            <!-- <ion-icon  class="icon-eyes" name="eye-outline"></ion-icon> -->
+                        </button>
                     </div>
                 </div>
                 <div class="input">
@@ -257,7 +277,7 @@
                         <button class="input-button" disabled>
                             <ion-icon class="icon-config" name="calendar-outline"></ion-icon>
                         </button>
-                        <input class="config-tamanho" type="text" name="nascimento" required>
+                        <input id="data" class="config-tamanho" type="text" name="nascimento" required minlength="10" maxlength="10">
                     </div>
                 </div>
                 <div class="input">
@@ -268,7 +288,7 @@
                         <button class="input-button" disabled>
                             <ion-icon class="icon-config" name="document-text-outline"></ion-icon>
                         </button>
-                        <input class="config-tamanho" type="text" name="cpf" minlength="14" maxlength="14" required>
+                        <input id="cpf" class="config-tamanho" type="text" name="cpf" minlength="14" maxlength="14" required>
                     </div>
                 </div>
                 <div class="div-checkbox">
@@ -284,7 +304,7 @@
                 </div>
                 <div class="form-end">
                     <div class="form-end-submit">
-                        <input type="submit" value="Cadastrar" name="senha">
+                        <input type="submit" value="Cadastrar">
                     </div>
                     <div class="form-end-text">
                         <p>Já tem uma conta? Faça <a href="#">login</a></p>
@@ -292,7 +312,9 @@
                 </div>
             </form>
         </div>
-        <script src="./validacaoCadastro.js"></script>
+        <script src="./senhaIcon.js"></script>
+        <script src="./mascaraData.js"></script>
+        <script src="./mascaraSenha.js"></script>
     </main>
 </body>
 
