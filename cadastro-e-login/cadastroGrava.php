@@ -16,13 +16,6 @@ if($receberEmails == "on"){
     $receberEmails = 0;
 }
 
-echo $receberEmails;
-exit();
-
-// if($senha != $senhaConfirma){
-//     //Terminar a checagem de senha
-//     // header('location:./cadastro.php');
-// }
 
 $sql = "INSERT INTO tb_usuarios(email_usuario, senha_usuario, nome_usuario, dt_nascimento, cpf_usuario, fk_id_endereco, permissao_adm, receber_email) 
 VALUES ('$email','$senha','$nome','$nascimento','$cpf',0,1,$receberEmails)";
