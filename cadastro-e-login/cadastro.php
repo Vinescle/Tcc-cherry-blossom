@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+<?php
+
+session_start();
+
+
+if ($_SESSION['nome']) {
+    $nome = $_SESSION['nome'];
+    $email = $_SESSION['email'];
+    $senha = $_SESSION['senha'];
+    $nascimento = $_SESSION['nascimento'];
+    $cpf = $_SESSION['cpf'];
+    $receberEmails = $_SESSION['receberEmails'];
+    
+}else{
+    $nome = "";
+    $email = "";
+    $senha = "";
+    $nascimento = "";
+    $cpf = "";
+    $receberEmails = "";
+}
+
+
+
+?>
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/reset.css">
@@ -65,7 +91,7 @@
             outline: none;
         }
 
-        .nome::first-letter{
+        .nome::first-letter {
             text-transform: uppercase;
         }
 
@@ -214,8 +240,7 @@
         }
     </style>
 </head>
-
-<body>
+<body onload="checar()">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
@@ -233,7 +258,7 @@
                         <button class="input-button" type="submit" disabled>
                             <ion-icon class="icon-config carta" name="person-circle-outline"></ion-icon>
                         </button>
-                        <input class="config-tamanho nome" type="text" name="nome" required autocomplete="disabled">
+                        <input class="config-tamanho nome" type="text" value='<?php echo $nome ?>' name="nome" required autocomplete="disabled">
                     </div>
                 </div>
                 <div class="input">
@@ -244,7 +269,7 @@
                         <button class="input-button" type="submit" disabled>
                             <ion-icon class="icon-config carta" name="mail-outline"></ion-icon>
                         </button>
-                        <input class="config-tamanho" type="email" name="email" required>
+                        <input class="config-tamanho" type="email" value='<?php echo $email ?>' name="email" required>
                     </div>
                 </div>
                 <div class="input">
@@ -255,7 +280,7 @@
                         <button class="input-button" disabled>
                             <ion-icon class="icon-config" name="lock-open-outline"></ion-icon>
                         </button>
-                        <input id="senha" class="config-tamanho" type="password" name="senha" required minlength="8" maxlength="35">
+                        <input id="senha" class="config-tamanho" type="password"  value='<?php echo $senha ?>' name="senha" required minlength="8" maxlength="35">
                         <button class="input-eyes">
                             <ion-icon id="senhaIcon" class="icon-eyes" name="eye-off-outline"></ion-icon>
                             <!-- <ion-icon  class="icon-eyes" name="eye-outline"></ion-icon> -->
@@ -270,7 +295,7 @@
                         <button class="input-button" disabled>
                             <ion-icon class="icon-config" name="lock-closed-outline"></ion-icon>
                         </button>
-                        <input id="senhaConfirma" class="config-tamanho" type="password" name="senhaConfirma" required>
+                        <input id="senhaConfirma" class="config-tamanho"  type="password" name="senhaConfirma" required>
                     </div>
                 </div>
                 <div class="input">
@@ -281,7 +306,7 @@
                         <button class="input-button" disabled>
                             <ion-icon class="icon-config" name="calendar-outline"></ion-icon>
                         </button>
-                        <input id="data" class="config-tamanho" type="text" name="nascimento" required minlength="10" maxlength="10">
+                        <input id="data" class="config-tamanho" type="text" value='<?php echo $nascimento ?>' name="nascimento" required minlength="10" maxlength="10">
                     </div>
                 </div>
                 <div class="input">
@@ -292,7 +317,7 @@
                         <button class="input-button" disabled>
                             <ion-icon class="icon-config" name="document-text-outline"></ion-icon>
                         </button>
-                        <input id="cpf" class="config-tamanho" type="text" name="cpf" minlength="14" maxlength="14" required>
+                        <input id="cpf" class="config-tamanho" type="text" value='<?php echo $cpf ?>' name="cpf" minlength="14" maxlength="14" required>
                     </div>
                 </div>
                 <div class="div-checkbox">
@@ -319,7 +344,12 @@
         <script src="./senhaIcon.js"></script>
         <script src="./mascaraData.js"></script>
         <script src="./mascaraSenha.js"></script>
+        <script src="./checagemSenha.js"></script>
     </main>
 </body>
+
+<?php
+session_destroy();
+?>
 
 </html>
