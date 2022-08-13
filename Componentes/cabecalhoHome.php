@@ -17,6 +17,10 @@
             gap: 10px;
         }
 
+        .lista-menu {
+            display: none;
+        }
+
         .menu-checkbox:checked~.lista-menu {
             display: block;
         }
@@ -72,8 +76,8 @@
             <ul class="lista-menu">
                 <li class="titulo-lista">Perfil</li>
                 <div class="lista-texto">
-                    <li class="titulo-texto"><a href="./cadastro-e-login/login.php">Login</a></li>
-                    <li class="titulo-texto"><a href="./cadastro-e-login/cadastro.php">Registrar</a></li>
+                    <li class="titulo-texto"><a href="../cadastro-e-login/php/login.php">Login</a></li>
+                    <li class="titulo-texto"><a href="../cadastro-e-login/php/cadastro.php">Registrar</a></li>
                 </div>
             </ul>
         </div>
