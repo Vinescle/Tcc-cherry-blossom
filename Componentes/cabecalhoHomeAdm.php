@@ -74,10 +74,10 @@
                 <ion-icon name="person-circle-outline" class="icones-cabecalho icone-cabecalho_pesquisa"></ion-icon>
             </label>
             <ul class="lista-menu">
-                <li class="titulo-lista">Perfil</li>
+                <li class="titulo-lista">Administrador</li>
                 <div class="lista-texto">
-                    <li class="titulo-texto"><a href="./cadastro-e-login/php/login.php">Login</a></li>
-                    <li class="titulo-texto"><a href="./cadastro-e-login/php/cadastro.php">Registrar</a></li>
+                    <li class="titulo-texto"><a href="./cadastro-e-login/php/login.php">Painel</a></li>
+                    <li class="titulo-texto"><a href="./cadastro-e-login/php/cadastro.php">Sair</a></li>
                 </div>
             </ul>
         </div>

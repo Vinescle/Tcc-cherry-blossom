@@ -140,7 +140,17 @@
     <!-- Cabeçalho da home -->
 
     <?php
-    include './Componentes/cabecalhoHome.php'
+        session_start();
+        if($_session['permissao_Adm'] == false){
+            include './Componentes/cabecalhoHome.php';
+        }else{
+            if($_session['permissao_Adm'] == 2){
+                include './Componentes/cabecalhoHomeAdm.php';
+            }else{
+                include './Componentes/cabecalhoHome.php';
+            }
+        }
+
     ?>
 
     <!-- Main da home / Carrossel -->

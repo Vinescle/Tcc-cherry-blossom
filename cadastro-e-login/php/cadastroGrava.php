@@ -1,6 +1,6 @@
 <?php
 
-include '../conexao/conexao.php';
+include '../../conexao/conexao.php';
 session_start();
 
 $nome = $_POST['nome'];
@@ -31,7 +31,7 @@ if ($senha != $senhaConfirma) {
     VALUES ('$email','$senha','$nome','$nascimento','$cpf',0,1,$receberEmails)";
 
     mysqli_query($conexao, $sql);
-    header('location:../home.php');
+    header('location:../../home.php');
 }
 
 //Ainda está incompleto!!
