@@ -1,6 +1,8 @@
 <?php
 
 include '../../conexao/conexao.php';
+include "./checagemSenha.php";
+
 session_start();
 
 $nome = $_POST['nome'];

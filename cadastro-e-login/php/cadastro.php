@@ -4,17 +4,17 @@
 <?php
 
 session_start();
+$verifica = false;
 
-
-if ($_SESSION['nome']) {
+if (isset($_SESSION['nome'])) {
     $nome = $_SESSION['nome'];
     $email = $_SESSION['email'];
     $senha = $_SESSION['senha'];
     $nascimento = $_SESSION['nascimento'];
     $cpf = $_SESSION['cpf'];
     $receberEmails = $_SESSION['receberEmails'];
-    
-}else{
+    $verifica = true;
+} else {
     $nome = "";
     $email = "";
     $senha = "";
@@ -23,12 +23,14 @@ if ($_SESSION['nome']) {
     $receberEmails = "";
 }
 ?>
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/reset.css">
     <title>Cherry Blossom - Cadastro</title>
     <link rel="stylesheet" href="../style/cadastro.css">
 </head>
+
 <body onload="checar()">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -69,7 +71,7 @@ if ($_SESSION['nome']) {
                         <button class="input-button" disabled>
                             <ion-icon class="icon-config" name="lock-open-outline"></ion-icon>
                         </button>
-                        <input id="senha" class="config-tamanho" type="password"  value='<?php echo $senha ?>' name="senha" required minlength="8" maxlength="35">
+                        <input id="senha" class="config-tamanho" type="password" value='<?php echo $senha ?>' name="senha" required minlength="8" maxlength="35">
                         <button class="input-eyes">
                             <ion-icon id="senhaIcon" class="icon-eyes" name="eye-off-outline"></ion-icon>
                             <!-- <ion-icon  class="icon-eyes" name="eye-outline"></ion-icon> -->
@@ -77,15 +79,34 @@ if ($_SESSION['nome']) {
                     </div>
                 </div>
                 <div class="input">
-                    <div>
-                        <label class="input-text">Confirmar Senha</label>
-                    </div>
-                    <div class="input-corpo">
-                        <button class="input-button" disabled>
-                            <ion-icon class="icon-config" name="lock-closed-outline"></ion-icon>
-                        </button>
-                        <input id="senhaConfirma" class="config-tamanho"  type="password" name="senhaConfirma" required>
-                    </div>
+                    <?php
+
+                    if ($verifica) {
+                    ?>
+                        <div>
+                            <label class="input-text">Confirmar Senha</label>
+                        </div>
+                        <div class="input-corpo">
+                            <button class="input-button" disabled>
+                                <ion-icon class="icon-config" name="lock-closed-outline"></ion-icon>
+                            </button>
+                            <input id="senhaConfirma" class="config-tamanho" type="password" name="senhaConfirma" autofocus required>
+                        </div>
+                    <?php
+                    } else {
+                    ?>
+                        <div>
+                            <label class="input-text">Confirmar Senha</label>
+                        </div>
+                        <div class="input-corpo">
+                            <button class="input-button" disabled>
+                                <ion-icon class="icon-config" name="lock-closed-outline"></ion-icon>
+                            </button>
+                            <input id="senhaConfirma" class="config-tamanho" type="password" name="senhaConfirma" required>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <div class="input">
                     <div>
@@ -130,15 +151,18 @@ if ($_SESSION['nome']) {
                 </div>
             </form>
         </div>
+        <?php
+        if($verifica){
+        ?>
+            <script src="../js/checagemSenha.js"></script>
+        <?php
+        }
+        ?>
         <script src="../js/senhaIcon.js"></script>
         <script src="../js/mascaraData.js"></script>
         <script src="../js/mascaraSenha.js"></script>
         <script src="../js/checagemSenha.js"></script>
     </main>
 </body>
-
-<?php
-session_destroy();
-?>
 
 </html>

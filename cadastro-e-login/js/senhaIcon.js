@@ -1,5 +1,5 @@
-const senhaIcon = document.querySelector("#senhaIcon");
-const senha = document.querySelector("#senha");
+const senhaIcon = document.getElementById("senhaIcon");
+const senha = document.getElementById("senha");
 
 senhaIcon.addEventListener("click", function () {
     this.classList.toggle("eye-off-outline");
