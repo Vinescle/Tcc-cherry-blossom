@@ -17,6 +17,7 @@
         }
 
         .popup {
+            display: none;
             background-color: rgba(0, 0, 0, .5);
             box-shadow: 4px 4px 10px -1px rgba(0, 0, 0, 0.32);
             position: fixed;
@@ -29,8 +30,8 @@
         .popup-conteudo {
             position: relative;
             background-color: #FCFFD7;
-            width: 42vw;
-            height: 40vh;
+            width: 50%;
+            height: 50%;
             border-radius: 30px;
             margin: 60px;
 
@@ -108,7 +109,7 @@
             font-weight: bold;
             color: #FFFFFF;
             width: 10.5vw;
-            height: 4.5vh;
+            height: 4.5m;
             background-color: #FF97F2;
             border: none;
             border-radius: 20px;

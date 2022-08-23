@@ -6,135 +6,14 @@
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link href="./css/reset.css" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">
     <link href="./css/estilo-home.css" rel="stylesheet">
 
     <title>Cherry Blossom - Home</title>
-
-    <style>
-        .texto {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-
-
-            margin: 30px 205px 0 205px;
-        }
-
-        .botao-verTodos {
-            border: none;
-            background: transparent;
-        }
-
-        .marcas-container {
-            margin: 0px 205px 0 205px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-
-        .bolas-marcas {
-            border-radius: 1000px;
-            width: 110px;
-            height: 110px;
-            background: #08cfaa;
-            overflow: hidden;
-        }
-
-        .imagem-marcas {
-            width: 100%;
-            height: 100%;
-            transform: translate(0, 20px);
-        }
-
-        .titulo {
-            color: #323232;
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            margin-bottom: 0px;
-        }
-
-        .ver-todos {
-            color: #1467FF;
-            font-family: 'Inter', sans-serif;
-            text-decoration: underline;
-        }
-
-        .secao-destaques {
-            margin: 5px 205px 30px 205px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .destaques-produtos {
-            display: inline-block;
-
-            border: 1px solid #A3B3CC;
-            border-radius: 30px;
-            overflow: hidden;
-        }
-
-        .foto-produtos {
-            max-width: 200px;
-            min-height: 150px;
-            border-bottom: 1px solid #A3B3CC;
-            width: auto;
-            height: auto;
-        }
-
-        .tag-produto {
-            font-weight: 400;
-            color: #838FAE;
-            font-size: 9px;
-            font-family: 'Inter', sans-serif;
-            margin: 0px;
-        }
-
-        .titulo-produto {
-            font-size: 20px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 17px;
-            margin-bottom: 5px;
-            color: #323232;
-        }
-
-        .conjunto-preco-comprar {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-
-            padding-bottom: 5px;
-        }
-
-        .preco-produto {
-            color: #323232;
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            margin: 0px;
-            font-size: 12px;
-        }
-
-        .botao-comprar {
-            font-family: 'Inter', sans-serif;
-            background-color: transparent;
-            border: none;
-            color: #1467FF;
-            font-size: 12px;
-        }
-
-        .espacamento-produto {
-            margin: 10px 15px 10px 15px;
-        }
-
-    </style>
 </head>
 
 <body>
+    <div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
@@ -142,16 +21,16 @@
 
     <?php
         session_start();
-        if($_session['permissao_Adm'] == false){
-            include './Componentes/cabecalhoHome.php';
-        }else{
+
+        if(isset($_session['permissao_Adm'])){
             if($_session['permissao_Adm'] == 2){
                 include './Componentes/cabecalhoHomeAdm.php';
             }else{
                 include './Componentes/cabecalhoHome.php';
             }
+        }else{
+            include './Componentes/cabecalhoHome.php';
         }
-
     ?>
 
     <!-- Main da home / Carrossel -->
@@ -376,8 +255,12 @@
 
             <?php
             include './Componentes/rodapeHome.php';
+            include './Componentes/sugestaoProduto.php';
             ?>
+            <script src="./Componentes/js/sugestaoProduto.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    </div>
+    
 </body>
 
 </html>
