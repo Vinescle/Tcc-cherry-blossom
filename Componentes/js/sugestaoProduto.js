@@ -1,7 +1,12 @@
-const sugestaoProduto = document.querySelector["#sugestaoProduto"];
-const popup = document.querySelector[".popup"];
 
-popup.onclick = function() {
-    popup.style.display = "block";
+function inicialPopUp(popUpID){
+    const popUp = document.getElementById(popUpID);
+    console.log(popUp);
+    popUp.classList.add('mostrar');
 }
-//termina
+
+const botao = document.querySelector('.clickSugestao');
+botao.addEventListener('click', function(){
+    inicialPopUp('sugestaoProduto');
+});
+

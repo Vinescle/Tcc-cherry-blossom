@@ -146,6 +146,8 @@
             margin: 0 0 15px 0;
         }
 
+        
+
         /* .noticias-coluna-tres input:hover{
             background-color: #FFEFFD;
             border: 1px solid #FF83EF;
@@ -164,8 +166,7 @@
     <footer class="rodape">
         <div class="coluna-um">
             <img class="logo" src="./imagens/site/Logo_PNG_normal.png" alt="logo-cherry-blossom" width="98px">
-            <h3 class="coluna-um-link" onclick="sugestao()"><a href="#" onclick="sugestao()">SUGESTÃO DO PRODUTO</a></h3>
-            <button id="sugestaoProduto" onclick="sugestao()"></button>
+            <h3 class="coluna-um-link"><a class="clickSugestao" href="#">SUGESTÃO DO PRODUTO</a></h3>
             <h3 class="coluna-um-link"><a href="#">FALE COM O VENDEDOR</a></h3>
             <h4 class="coluna-um-redes-sociais">Acompanhe nossas redes sociais</h4>
             <div class="redes-sociais">

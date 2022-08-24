@@ -27,6 +27,10 @@
             height: 100%;
         }
 
+        .popup.mostrar{
+            display: flex;
+        }
+
         .popup-conteudo {
             position: relative;
             background-color: #FCFFD7;
@@ -130,7 +134,7 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 
-    <div class="popup">
+    <div id="sugestaoProduto" class="popup">
         <div class="popup-conteudo">
             <div class="popup-fechar"><ion-icon class="popup-icone-close" name="close-outline"></ion-icon></div>
             <div class="popup-config">
@@ -143,7 +147,7 @@
                 </div>
                 <form class="popup-form">
                     <input class="config-tamanho" type="text" name="sugestao" placeholder="Digite sua sugestão">
-                    <input class="popup-form-button" type="submit">
+                    <input class="popup-form-button" type="submit" value="Enviar">
                 </form>
             </div>
 
