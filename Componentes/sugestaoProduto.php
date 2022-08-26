@@ -25,17 +25,20 @@
             left: 0;
             width: 100%;
             height: 100%;
+
         }
 
         .popup.mostrar{
             display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .popup-conteudo {
             position: relative;
             background-color: #FCFFD7;
-            width: 50%;
-            height: 50%;
+            width: 730px;
+            height: 400px;
             border-radius: 30px;
             margin: 60px;
 
@@ -45,15 +48,15 @@
         .popup-icone-close{
             font-size: 40px;
             position: absolute;
-            top: 2vh;
-            left: 38vw;
+            top: 5%;
+            left: 92%;
         }
 
         .popup-config {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 5px;
         }
 
         .popup-cabecalho {
@@ -80,6 +83,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-bottom: 0px;
         }
 
         .popup-texto {
@@ -87,6 +91,7 @@
             font-family: 'Inter', sans-serif;
             font-size: 24px;
             font-weight: normal;
+            margin-bottom: 10px;
         }
 
         .popup-form {
@@ -109,11 +114,12 @@
         }
 
         .popup-form-button {
+            font-family: 'Inter', sans-serif;
             font-size: 22px;
             font-weight: bold;
             color: #FFFFFF;
-            width: 10.5vw;
-            height: 4.5m;
+            width: 200px;
+            height: 45px;
             background-color: #FF97F2;
             border: none;
             border-radius: 20px;
