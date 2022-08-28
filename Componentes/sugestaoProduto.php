@@ -151,8 +151,8 @@
                     <p class="popup-titulo">Sugestão de Produto</p>
                     <p class="popup-texto">Compartilhe suas ideias para temas e produtos!</p>
                 </div>
-                <form class="popup-form">
-                    <input class="config-tamanho" type="text" name="sugestao" placeholder="Digite sua sugestão">
+                <form class="popup-form" action="./src-sugestaoProduto/enviaSugestaoProduto.php" method="POST">
+                    <input class="config-tamanho" type="text" name="sugestaoProduto" placeholder="Digite sua sugestão">
                     <input class="popup-form-button" type="submit" value="Enviar">
                 </form>
             </div>
