@@ -46,6 +46,8 @@
 
 
         .popup-icone-close{
+            border: none;
+            background-color: transparent;
             font-size: 40px;
             position: absolute;
             top: 5%;
@@ -142,7 +144,7 @@
 
     <div id="sugestaoProduto" class="popup">
         <div class="popup-conteudo">
-            <div class="popup-fechar"><button id='fechar'><ion-icon class="popup-icone-close" name="close-outline"></button></ion-icon></div>
+            <div class="popup-fechar" ><button class="popup-icone-close"><ion-icon id='fechar' name="close-outline"></button></ion-icon></div>
             <div class="popup-config">
                 <div class="popup-cabecalho">
                     <div class="popup-icone">

@@ -5,6 +5,7 @@ function inicialPopUp(popUpID){
     popUp.classList.add('mostrar');
     document.addEventListener('click', (e) => {
         console.log(e.target.id);
+        console.log(e.target);
         if(e.target.id == popUpID || e.target.id == 'fechar'){
             popUp.classList.remove('mostrar');
         }
