@@ -5,6 +5,6 @@ define('USUARIO','root');
 define('SENHA','');
 define('DB','cherry_blossom');
 
-$conexao = mysqli_connect(HOST,USUARIO,SENHA,DB) or die ('Não foi possível conectar!');
+$conexao = mysqli_connect(HOST,USUARIO,SENHA,DB) or die (header('location:../../httpExceptions/404NotFound.html'));
 
 ?>

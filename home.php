@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link href="./css/reset.css" rel="stylesheet">
+    <link href="../imagens/site/Logo_PNG_normal.png" rel="shortcut icon" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="./css/index.css" rel="stylesheet">
     <link href="./css/estilo-home.css" rel="stylesheet">
 

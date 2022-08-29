@@ -4,6 +4,7 @@
 <?php
 
 session_start();
+
 $verifica = false;
 
 if (isset($_SESSION['nome'])) {
@@ -164,5 +165,8 @@ if (isset($_SESSION['nome'])) {
         <script src="../js/checagemSenha.js"></script>
     </main>
 </body>
+<?php
+    session_destroy();
+?>
 
 </html>

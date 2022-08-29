@@ -2,6 +2,8 @@
 <html lang="pt-br">
 
 <head>
+<link href="../imagens/site/Logo_PNG_normal.png" rel="shortcut icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;700&display=swap');
 
