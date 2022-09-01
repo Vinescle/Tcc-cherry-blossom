@@ -15,12 +15,13 @@ $conteudoSugestao = $_POST['sugestaoProduto'];
 $mail = new PHPMailer(true);
 
 try{
+    // Essa parte está pronta, só precisamos do email que irá gerar as mensagens!!!
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username ='rafael.florianoc9@gmail.com';//Meu email 
-    $mail->Password ='vahauagjfwkvnuoy';//Minha senha 
+    $mail->Username ='';//Insira o email de testes 
+    $mail->Password ='';//Insira sua senha de testes 
     $mail->Port = 587;
 
     //EMAIL - FROM
