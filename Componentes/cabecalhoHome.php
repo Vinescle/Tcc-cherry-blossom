@@ -2,12 +2,13 @@
 <html lang="pt-br">
 
 <head>
-<link href="../imagens/site/Logo_PNG_normal.png" rel="shortcut icon" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../imagens/site/Logo_PNG_normal.png" rel="shortcut icon" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;700&display=swap');
 
-        .lista-menu {
+        .login-menu {
+            box-shadow: 5px 5px 5px 0px #515151;
             background-color: #FCFFD7;
             display: flex;
             flex-direction: column;
@@ -19,34 +20,62 @@
             gap: 10px;
         }
 
-        .lista-menu {
+        .categorias-menu {
+            box-shadow: 5px 5px 5px 0px #515151;
+            background-color: #FCFFD7;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            padding: 0.7em;
+            border-radius: 16px;
+            gap: 10px;
+        }
+
+        .login-menu, .categorias-menu {
             display: none;
         }
 
-        .menu-checkbox:checked~.lista-menu {
+        .login-checkbox:checked~.login-menu, .categorias-checkbox:checked~.categorias-menu {
             display: block;
         }
 
-        .menu-checkbox {
+        .login-checkbox, .categorias-checkbox {
             display: none;
         }
 
-        .titulo-lista {
+        .titulo-login, .titulo-categorias {
             font-family: 'Inter';
             font-weight: 700;
             font-size: 18px;
             color: #515151;
+            padding-bottom: 0.5em;
         }
 
         .titulo-texto {
             font-family: 'Inter';
             font-weight: 400;
+            padding-bottom: 0.25em;
         }
 
-        .lista-texto {
+        .login-texto, .categorias-texto {
             display: flex;
             flex-direction: column;
             gap: 5px;
+        }
+
+        .formulario-pesquisa {
+            display: flex;
+            background-color: white;
+            font-family: 'Inter';
+            font-size: 13px
+        }
+
+        .botao-pesquisa {
+            background: url('./src-icons/lupa.svg');
+            background-position: 0.5em;
+            background-size: 16px;
+            background-repeat: no-repeat;
         }
     </style>
 </head>
@@ -56,7 +85,20 @@
         <div class="cabecalho-logo">
             <img src="./imagens/site/Logo_PNG_normal.png" class="logo-menu">
             <div class="cabecalho-menu">
-                <ion-icon class="icones-cabecalho_menu" name="menu"></ion-icon>
+                <input type="checkbox" id="menu-categorias" class="categorias-checkbox">
+                <label for="menu-categorias">
+                    <img src="./src-icons/menu.svg" class="icones-cabecalho_menu">
+                </label>
+
+                <ul class="categorias-menu">
+                    <li class="titulo-categorias">Categorias</li>
+                    <div class="categorias-texto">
+                        <li class="titulo-texto">Papercraft</li>
+                        <li class="titulo-texto">Hama Beads</li>
+                        <li class="titulo-texto">Macramê</li>
+                        <li class="titulo-texto">Miçangas</li>
+                    </div>
+                </ul>
                 <h2 class="botao-menu">MENU</h2>
             </div>
         </div>
@@ -64,20 +106,20 @@
             <form>
                 <div class="formulario-pesquisa">
                     <button class="botao-enviar" type="submit">
-                        <ion-icon size="small" name="search"></ion-icon>
                     </button>
                     <input class="botao-pesquisa" type="TEXT">
                 </div>
             </form>
-            <ion-icon name="cart-outline" class="icones-cabecalho icone-cabecalho_pesquisa"></ion-icon>
+            <img src="./src-icons/carrinho.svg" class="icones-cabecalho icone-cabecalho_pesquisa">
 
-            <input type="checkbox" id="menu" class="menu-checkbox">
-            <label for="menu">
-                <ion-icon name="person-circle-outline" class="icones-cabecalho icone-cabecalho_pesquisa"></ion-icon>
+            <input type="checkbox" id="menu-login" class="login-checkbox">
+            <label for="menu-login">
+                <img src="./src-icons/pessoa.svg" class="icones-cabecalho icone-cabecalho_pesquisa">
             </label>
-            <ul class="lista-menu">
-                <li class="titulo-lista">Perfil</li>
-                <div class="lista-texto">
+
+            <ul class="login-menu">
+                <li class="titulo-login">Perfil</li>
+                <div class="login-texto">
                     <li class="titulo-texto"><a href="./cadastro-e-login/php/login.php">Login</a></li>
                     <li class="titulo-texto"><a href="./cadastro-e-login/php/cadastro.php">Registrar</a></li>
                 </div>
