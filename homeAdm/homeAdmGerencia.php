@@ -114,10 +114,29 @@
             border-radius: 25px;
         }
 
+        .tabela-principal{
+            margin-top: 2%;
+
+        }
+
+        .titulo-tabela-principal{
+            border: 2px solid #FF84F0;
+            padding: 0.4%;
+
+            color: #FF84F0;
+            background-color: #FFCEF9;
+        }
+
+        .conteudo-tabela-principal {
+            padding: .5%;
+            text-align: center;
+        }
+
         .icone-selecionado{
             background-color: #EC55D9;
             color: #FFFFFF;
         }
+        
     </style>
 </head>
 
@@ -189,6 +208,89 @@
 
                 </table>
             </div>
+            <table class="tabela-principal">
+                <tr>
+                    <th class="titulo-tabela-principal"><input type="checkbox" name="" id=""></th>
+                    <th class="titulo-tabela-principal">ID</th>
+                    <th class="titulo-tabela-principal">Nome</th>
+                    <th class="titulo-tabela-principal">Marca</th>
+                    <th class="titulo-tabela-principal">Categoria</th>
+                    <th class="titulo-tabela-principal">Preço</th>
+                    <th class="titulo-tabela-principal">Estoque</th>
+                </tr>
+                <tr>
+                    <td class="conteudo-tabela-principal"><input type="checkbox" name="" id=""></td>
+                    <td class="conteudo-tabela-principal">1</td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class=conteudo-tabela-principal></td>
+                </tr>
+                <tr>
+                    <td class="conteudo-tabela-principal"><input type="checkbox" name="" id=""></td>
+                    <td class="conteudo-tabela-principal">2</td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                </tr>
+                <tr>
+                    <td class="conteudo-tabela-principal"><input type="checkbox" name="" id=""></td>
+                    <td class="conteudo-tabela-principal">3</td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                </tr>
+                <tr>
+                    <td class="conteudo-tabela-principal"><input type="checkbox" name="" id=""></td>
+                    <td class="conteudo-tabela-principal">4</td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                </tr>
+                <tr>
+                    <td class="conteudo-tabela-principal"><input type="checkbox" name="" id=""></td>
+                    <td class="conteudo-tabela-principal">5</td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                </tr>
+                <tr>
+                    <td class="conteudo-tabela-principal"><input type="checkbox" name="" id=""></td>
+                    <td class="conteudo-tabela-principal">6</td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                </tr>
+                <tr>
+                    <td class="conteudo-tabela-principal"><input type="checkbox" name="" id=""></td>
+                    <td class="conteudo-tabela-principal">7</td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                </tr>
+                <tr>
+                    <td class="conteudo-tabela-principal"><input type="checkbox" name="" id=""></td>
+                    <td class="conteudo-tabela-principal">8</td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                    <td class="conteudo-tabela-principal"></td>
+                </tr>
+            </table>
         </main>
 
 
