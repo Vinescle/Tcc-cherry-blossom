@@ -52,7 +52,7 @@
 <body>
     <header class="cabecalho">
         <div class="cabecalho-logo">
-            <img src="./imagens/site/Logo_PNG_normal.png" class="logo-menu">
+            <img src="../imagens/site/Logo_PNG_normal.png" class="logo-menu">
             <div class="cabecalho-menu">
                 <ion-icon class="icones-cabecalho_menu" name="menu"></ion-icon>
                 <h2 class="botao-menu">MENU</h2>

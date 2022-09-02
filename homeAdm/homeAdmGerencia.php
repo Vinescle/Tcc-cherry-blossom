@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="./css/reset.css" rel="stylesheet">
-    <link href="./css/estilo-home.css" rel="stylesheet">
-    <link href="./css/menuAdm.css" rel="stylesheet">
+    <link href="../css/reset.css" rel="stylesheet">
+    <link href="../css/estilo-home.css" rel="stylesheet">
+    <link href="../css/menuAdm.css" rel="stylesheet">
     <title>Gerenciamento -- ADM</title>
 
     <style>
@@ -122,10 +122,10 @@
 </head>
 
 <body>
-    <?php include './Componentes/cabecalhoHomeAdm.php'; ?>
+    <?php include '../Componentes/cabecalhoHomeAdm.php'; ?>
     <div class="conteudo-principal">
         <div style="display: flex;">
-            <?php include './Componentes/menuAdm.php'; ?>
+            <?php include '../Componentes/menuAdm.php'; ?>
         </div>
         <main>
             <div class="conteudo-acoes">
@@ -195,7 +195,7 @@
     </div>
     <input type="text" value="2" id="pagina-verificacao" style="display:none;">
 
-    <script src="./Js-homeAdm/verificaIconPagina.js"></script>
+    <script src="../Js-homeAdm/verificaIconPagina.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
