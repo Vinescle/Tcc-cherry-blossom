@@ -31,13 +31,14 @@
         
         <a href="./homeAdmGerencia.php"><ion-icon name="color-palette-outline" id="color-palette" class="icones-menu"></ion-icon></a>
         
+        <a href="./homeAdmCategoria.php"><ion-icon name="pricetag-outline" id="pricetag" class="icones-menu"></ion-icon></a>
 
-        <ion-icon name="pricetag-outline" class="icones-menu"></ion-icon>
+        <a href="./homeAdmMarca.php"><ion-icon name="balloon-outline" id="balloon" class="icones-menu"></ion-icon></a>
 
-        <ion-icon name="balloon-outline" class="icones-menu"></ion-icon>
     </div>
 
-    <ion-icon name="settings-outline" class="icone-engrenagem"></ion-icon>
+    <a href="./homeAdmConfig.php"><ion-icon name="settings-outline" id="settings" class="icone-engrenagem"></ion-icon></a>
+
 </div>
 </body>
 </html>
