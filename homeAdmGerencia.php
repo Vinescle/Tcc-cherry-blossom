@@ -113,6 +113,11 @@
             -moz-border-radius: 25px;
             border-radius: 25px;
         }
+
+        .icone-selecionado{
+            background-color: #EC55D9;
+            color: #FFFFFF;
+        }
     </style>
 </head>
 
@@ -188,7 +193,9 @@
 
 
     </div>
+    <input type="text" value="2" id="pagina-verificacao" style="display:none;">
 
+    <script src="./Js-homeAdm/verificaIconPagina.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

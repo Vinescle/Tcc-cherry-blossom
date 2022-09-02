@@ -94,6 +94,11 @@
             border: solid 1px #FF84F0;
             border-radius: 10px;
         }
+        
+        .icone-selecionado{
+            background-color: #EC55D9;
+            color: #FFFFFF;
+        }
     </style>
 </head>
 
@@ -154,7 +159,9 @@
             </div>
         </div>
     </div>
+    <input type="text" value="1" id="pagina-verificacao" style="display:none;">
 
+    <script src="./Js-homeAdm/verificaIconPagina.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

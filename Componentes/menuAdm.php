@@ -27,9 +27,10 @@
 <body>
 <div class="menu">
     <div class="icones-principais">
-        <ion-icon name="home-outline" class="icones-menu"></ion-icon>
-
-        <ion-icon name="color-palette-outline" class="icones-menu"></ion-icon>
+        <a href="./homeAdm.php"><ion-icon name="home-outline" id="home" class="icones-menu"></ion-icon></a>
+        
+        <a href="./homeAdmGerencia.php"><ion-icon name="color-palette-outline" id="color-palette" class="icones-menu"></ion-icon></a>
+        
 
         <ion-icon name="pricetag-outline" class="icones-menu"></ion-icon>
 
