@@ -77,6 +77,11 @@
             background-size: 16px;
             background-repeat: no-repeat;
         }
+
+        .robertinho{
+            display: block;
+        }
+
     </style>
 </head>
 
@@ -87,7 +92,7 @@
             <div class="cabecalho-menu">
                 <input type="checkbox" id="menu-categorias" class="categorias-checkbox">
                 <label for="menu-categorias">
-                    <img src="./src-icons/menu.svg" class="icones-cabecalho_menu">
+                    <img src="./src-icons/menu.svg" class="icones-cabecalho_menu" id="checkboxMenu">
                 </label>
 
                 <ul class="categorias-menu">
@@ -114,7 +119,7 @@
 
             <input type="checkbox" id="menu-login" class="login-checkbox">
             <label for="menu-login">
-                <img src="./src-icons/pessoa.svg" class="icones-cabecalho icone-cabecalho_pesquisa">
+                <img src="./src-icons/pessoa.svg" class="icones-cabecalho icone-cabecalho_pesquisa" id="checkboxUser">
             </label>
 
             <ul class="login-menu">
