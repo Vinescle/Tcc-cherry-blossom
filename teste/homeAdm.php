@@ -99,17 +99,15 @@
             background-color: #EC55D9;
             color: #FFFFFF;
         }
+
+        .icone-selecionado ion-icon{
+            color: #FFFFFF;
+        }
     </style>
 </head>
 
 <body>
-    <?php
-        include '../Componentes/cabecalhoHomeAdm.php';
-    ?>
     <div class="conteudo-principal">
-        <div style="display: flex;">
-            <?php include '../Componentes/menuAdm.php'; ?>
-        </div>
         <div class="estatisticas">
             <div class="card-estatisticas">
                 <div class="card-estatisticas-dados">
