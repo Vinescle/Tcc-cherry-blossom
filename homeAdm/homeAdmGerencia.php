@@ -14,7 +14,7 @@
         .conteudo-principal {
             display: flex;
             flex-direction: row;
-            gap: 200px;
+            gap: 100px;
         }
 
         .conteudo-tabela {
@@ -48,12 +48,12 @@
             border: none;
         }
 
-        .conteudo-acoes{
+        .conteudo-acoes {
             display: flex;
 
         }
 
-        .conteudo-acoes-cadastrar{
+        .conteudo-acoes-cadastrar {
             background-color: #FF84F0;
             color: #FFFFFF;
             font-family: 'Inter';
@@ -66,8 +66,15 @@
 
         }
 
-        .conteudo-acoes-cadastrar:hover{
+        .conteudo-acoes-cadastrar:hover {
             background-color: #EC55D9;
+            color: #FFFFFF;
+        }
+
+        .botoes-acoes {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* th{
@@ -114,12 +121,12 @@
             border-radius: 25px;
         }
 
-        .tabela-principal{
+        .tabela-principal {
             margin-top: 2%;
 
         }
 
-        .titulo-tabela-principal{
+        .titulo-tabela-principal {
             border: 2px solid #FF84F0;
             padding: 0.4%;
 
@@ -132,11 +139,25 @@
             text-align: center;
         }
 
-        .icone-selecionado{
-            background-color: #EC55D9;
+        .botao-opcoes {
+            display: flex;
+            flex-direction: row;
+            gap: 10%;
+        }
+
+        .botao-texto {
+            background-color: #FF84F0;
+            border-radius: 40px;
+            padding: 0.25em 0.5em;
+
+            display: flex;
+            flex-direction: row;
+
+            font-family: Inter;
+            font-size: 15px;
+            font-weight: 700;
             color: #FFFFFF;
         }
-        
     </style>
 </head>
 
@@ -158,7 +179,30 @@
                         </div>
                     </form>
                 </div>
-                <a class="conteudo-acoes-cadastrar" href="#">+ Cadastrar</a>
+
+                <div class="botao-opcoes">
+                    <div class="botao-icone">
+                        <a class="botao-texto">
+                            <ion-icon name="add-outline"></ion-icon>
+                            Cadastrar
+                        </a>
+                    </div>
+
+                    <div class="botao-icone">
+                        <a class="botao-texto">
+                            <ion-icon name="brush-outline"></ion-icon>
+                            Editar
+                        </a>
+                    </div>
+
+                    <div class="botao-icone">
+                        <a class="botao-texto">
+                            <ion-icon name="trash-outline"></ion-icon>
+                            Apagar
+                        </a>
+                    </div>
+                </div>
+
             </div>
             <div class="conteudo-tabela">
                 <table class="corpo-tabela">
