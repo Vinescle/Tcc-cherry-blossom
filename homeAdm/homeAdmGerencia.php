@@ -14,7 +14,7 @@
         .conteudo-principal {
             display: flex;
             flex-direction: row;
-            gap: 100px;
+            gap: 125px;
         }
 
         .conteudo-tabela {
@@ -50,7 +50,6 @@
 
         .conteudo-acoes {
             display: flex;
-
         }
 
         .conteudo-acoes-cadastrar {
@@ -84,12 +83,17 @@
         } */
 
         .titulo-tabela {
+            font-family: 'Inter';
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFFFFF;
+
             text-align: center;
             color: #FFFFFF;
             background-color: #FF84F0;
-            height: 40px;
+            height: 20px;
 
-            padding: 2% 0 0 0;
+            padding: 1% 0 1% 0;
         }
 
         .id-tabela {
@@ -105,7 +109,7 @@
         table,
         td {
 
-            font-size: 24px;
+            font-size: 16px;
             font-family: 'Inter';
             font-weight: bold;
 
@@ -114,7 +118,7 @@
         }
 
         .corpo-tabela {
-            margin: 2% 0 0 0;
+            margin: 1.5rem 0 0 0;
             width: 80%;
             -webkit-border-radius: 25px;
             -moz-border-radius: 25px;
@@ -142,7 +146,7 @@
         .botao-opcoes {
             display: flex;
             flex-direction: row;
-            gap: 10%;
+            gap: 14px;
         }
 
         .botao-texto {
@@ -157,6 +161,37 @@
             font-size: 15px;
             font-weight: 700;
             color: #FFFFFF;
+        }
+
+        .botao-pesquisa {
+            height: 18px;
+            border: solid 1px #EC55D9;
+        }
+
+        .icone-pesquisa-produtos {
+            color: #FF84F0;
+            font-size: 17px;
+
+        }
+
+        .botoes-setas {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+        }
+
+        .setas {
+            color: #FFFFFF;
+            background-color: #FF84F0;
+
+            border-radius: 12px;
+
+            padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+        }
+
+        .espacamento-botoes {
+            display: flex;
+            gap: 85%;
         }
     </style>
 </head>
@@ -173,37 +208,51 @@
                     <form>
                         <div class="formulario-gerenciamento">
                             <button class="botao-enviar" type="submit">
-                                <ion-icon size="small" name="search" style="color: #FF84F0;"></ion-icon>
+                                <a>
+                                    <ion-icon class="icone-pesquisa-produtos" name="search-outline"></ion-icon>
+                                </a>
                             </button>
                             <input class="botao-pesquisa config-gerenciamento" type="TEXT">
                         </div>
                     </form>
                 </div>
 
-                <div class="botao-opcoes">
-                    <div class="botao-icone">
-                        <a class="botao-texto">
-                            <ion-icon name="add-outline"></ion-icon>
-                            Cadastrar
-                        </a>
+                <div class="espacamento-botoes">
+                    <div class="botao-opcoes">
+                        <div class="botao-icone">
+                            <a class="botao-texto">
+                                <ion-icon name="add-outline"></ion-icon>
+                                Cadastrar
+                            </a>
+                        </div>
+
+                        <div class="botao-icone">
+                            <a class="botao-texto">
+                                <ion-icon name="brush-outline"></ion-icon>
+                                Editar
+                            </a>
+                        </div>
+
+                        <div class="botao-icone">
+                            <a class="botao-texto">
+                                <ion-icon name="trash-outline"></ion-icon>
+                                Apagar
+                            </a>
+                        </div>
+
                     </div>
 
-                    <div class="botao-icone">
-                        <a class="botao-texto">
-                            <ion-icon name="brush-outline"></ion-icon>
-                            Editar
+                    <div class="botoes-setas">
+                        <a>
+                            <ion-icon class="setas" name="chevron-back-outline"></ion-icon>
                         </a>
-                    </div>
-
-                    <div class="botao-icone">
-                        <a class="botao-texto">
-                            <ion-icon name="trash-outline"></ion-icon>
-                            Apagar
+                        <a>
+                            <ion-icon class="setas" name="chevron-forward-outline"></ion-icon>
                         </a>
                     </div>
                 </div>
-
             </div>
+
             <div class="conteudo-tabela">
                 <table class="corpo-tabela">
 
@@ -231,7 +280,7 @@
                 <table class="corpo-tabela">
 
                     <tr>
-                        <th colspan="2" class="titulo-tabela">Mais Vendidos</th>
+                        <th colspan="2" class="titulo-tabela">Mais Populares</th>
                     </tr>
                     <tr>
                         <td class="id-tabela">1</td>

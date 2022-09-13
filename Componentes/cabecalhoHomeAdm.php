@@ -46,6 +46,13 @@
             flex-direction: column;
             gap: 5px;
         }
+
+        .botao-pesquisa {
+            background: url('./src-icons/lupa.svg');
+            background-position: 0.5em;
+            background-size: 16px;
+            background-repeat: no-repeat;
+        }
     </style>
 </head>
 
@@ -62,7 +69,7 @@
             <form>
                 <div class="formulario-pesquisa">
                     <button class="botao-enviar" type="submit">
-                        <ion-icon size="small" name="search"></ion-icon>
+        
                     </button>
                     <input class="botao-pesquisa" type="TEXT">
                 </div>
