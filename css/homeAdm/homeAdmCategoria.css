@@ -1,0 +1,221 @@
+.conteudo-principal {
+    width: 100%;
+
+    display: flex;
+    gap: 140px;
+}
+
+/* Filtros */
+
+.conjunto-tabela-filtro {
+    width: 100%;
+}
+
+.filtros {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 2rem;
+
+    width: 50%;
+}
+
+.conjunto-filtro-botoes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.cabecalho-pesquisa {
+    margin: 0;
+}
+
+.botao-pesquisa_produtos {
+    height: 20px;
+
+    border: solid 1px #FF84F0;
+    border-radius: 15px;
+
+    padding-left: 25px;
+
+    background: url('../../src-icons/lupaRosa.svg');
+    background-position: 0.5em;
+    background-size: 16px;
+    background-repeat: no-repeat;
+}
+
+.espacamento-botoes {
+    display: flex;
+    flex-direction: row;
+
+    gap: 10px;
+}
+
+.botao-opcoes {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.botao-texto {
+    display: flex;
+    flex-direction: row;
+
+    color: #FFFFFF;
+    background-color: #FF84F0;
+
+    border-radius: 12px;
+
+    height: 20px;
+
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+}
+
+.botoes-setas {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.setas {
+    color: #FFFFFF;
+    background-color: #FF84F0;
+
+    border-radius: 12px;
+
+    height: 20px;
+
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+}
+
+/* Tabelas */
+
+.conjunto-tabelas_categorias {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100%;
+    height: 80vh;
+}
+
+.tabela-categorias {
+    width: 100%;
+}
+
+.tabela-principal {
+    margin: 1rem 0 0 0;
+    border: solid 1px #FF84F0;
+    border-radius: 10px;
+
+    width: 50%;
+
+    overflow: hidden;
+}
+
+.tabela-principal_titulo {
+    border: solid 1px #FF84F0;
+
+    background-color: #FFCEF9;
+
+    padding: 0.5rem 0;
+
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 20px;
+    color: #FF84F0;
+}
+
+.tabela-principal_id {
+    border: solid 1px #FF84F0;
+
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0.75rem 0 0.8rem 0;
+
+    text-align: center;
+
+    color: #323232;
+    font-weight: 700;
+}
+
+.tabela-principal_conteudo {
+    border: solid 1px #FF84F0;
+
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0.75rem 0.5rem 0.8rem 0.5rem;
+
+    color: #323232;
+    font-weight: 700;
+}
+
+/* Checkbox */
+
+.tabela-principal_checkbox {
+    border: solid 1px #FF84F0;
+
+    text-align: center;
+}
+
+/* Checkbox Cabeçalho titulo*/
+
+.tabela-checkbox_titulo input {
+    display: none;
+}
+
+.tabela-checkbox_titulo input+label:before {
+    content: '';
+    width: 1rem;
+    height: 1rem;
+
+    background-color: #FFFFFF;
+
+    border-radius: 5px;
+    border: solid 2px #FF84F0;
+
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tabela-principal_titulo input:checked+label:before {
+    background-image: url('../../src-icons/checked.svg');
+    background-color: #FF84F0;
+}
+
+/* Checkbox Cabeçalho conteúdo*/
+
+.tabela-checkbox_conteudo input {
+    display: none;
+}
+
+.tabela-checkbox_conteudo input+label:before {
+    content: '';
+    width: 1rem;
+    height: 1rem;
+
+    background-color: #FFFFFF;
+
+    border-radius: 5px;
+    border: solid 2px #FF84F0;
+
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tabela-checkbox_conteudo input:checked+label:before {
+    background-image: url('../../src-icons/checked.svg');
+    background-color: #FF84F0;
+}
+
+/* Porcentagem tabela */
+
+.tabela-principal_tituloProduto {
+    width: 85%;
+}

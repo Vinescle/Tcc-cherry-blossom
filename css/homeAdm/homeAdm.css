@@ -1,0 +1,91 @@
+.conteudo-principal {
+    display: flex;
+    gap: 10%;
+}
+
+/* Configuração Tabelas */
+
+h3, p {
+    margin: 0;
+}
+
+.dados {
+    margin: 1rem 1.5rem 0 0;
+    width: 100%;
+}
+
+.dados-tabelas {
+    display: flex;
+    flex-direction: row;
+}
+
+.tabela {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    background-color: #ff84f0;
+    border-radius: 8px;
+
+    width: 25%;
+    height: auto;
+    margin: 1rem;
+
+    font-family: 'Inter';
+    color: #FFF;
+}
+
+.tabela-numero {
+    margin: 1rem 0;
+
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.tabela-titulo {
+    font-size: 18px;
+    font-weight: 500;
+
+    width: 100%;
+    padding: 0 0 1rem 0;
+
+    border-bottom: solid 2px #FFF;
+}
+
+.tabela-conjunto_porcentagem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.tabela-icone_porcentagem {
+    margin: 0.3rem 0 0 0;
+    font-size: 30px;
+}
+
+.tabela-porcentagem {
+    font-size: 18px;
+    font-weight: 700;
+
+    padding: 1rem 0 0.6rem 0;
+}
+
+/* Gráficos */
+
+.dados-graficos {
+    display: flex;
+    flex-direction: row;
+
+    gap: 3%;
+    margin: 1rem;
+}
+
+.grafico {
+    width: 50%;
+    height: 50vh;
+    border-radius: 10px;
+
+    border: solid 2px #ff84f0;
+}

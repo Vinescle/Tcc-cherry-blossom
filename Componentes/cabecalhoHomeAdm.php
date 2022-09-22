@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
 <head>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;700&display=swap');
@@ -48,7 +45,7 @@
         }
 
         .botao-pesquisa {
-            background: url('./src-icons/lupa.svg');
+            background: url('../src-icons/lupa.svg');
             background-position: 0.5em;
             background-size: 16px;
             background-repeat: no-repeat;
@@ -56,39 +53,35 @@
     </style>
 </head>
 
-<body>
-    <header class="cabecalho">
-        <div class="cabecalho-logo">
-            <img src="../imagens/site/Logo_PNG_normal.png" class="logo-menu">
-            <div class="cabecalho-menu">
-                <ion-icon class="icones-cabecalho_menu" name="menu"></ion-icon>
-                <h2 class="botao-menu">MENU</h2>
+<header class="cabecalho">
+    <div class="cabecalho-logo">
+        <img src="../imagens/site/Logo_PNG_normal.png" class="logo-menu">
+        <div class="cabecalho-menu">
+            <ion-icon class="icones-cabecalho_menu" name="menu"></ion-icon>
+            <h2 class="botao-menu">MENU</h2>
+        </div>
+    </div>
+    <div class="cabecalho-pesquisa">
+        <form>
+            <div class="formulario-pesquisa">
+                <button class="botao-enviar" type="submit">
+
+                </button>
+                <input class="botao-pesquisa" type="TEXT">
             </div>
-        </div>
-        <div class="cabecalho-pesquisa">
-            <form>
-                <div class="formulario-pesquisa">
-                    <button class="botao-enviar" type="submit">
-        
-                    </button>
-                    <input class="botao-pesquisa" type="TEXT">
-                </div>
-            </form>
-            <ion-icon name="cart-outline" class="icones-cabecalho icone-cabecalho_pesquisa"></ion-icon>
+        </form>
+        <ion-icon name="cart-outline" class="icones-cabecalho icone-cabecalho_pesquisa"></ion-icon>
 
-            <input type="checkbox" id="menu" class="menu-checkbox">
-            <label for="menu">
-                <ion-icon name="person-circle-outline" class="icones-cabecalho icone-cabecalho_pesquisa"></ion-icon>
-            </label>
-            <ul class="lista-menu">
-                <li class="titulo-lista">Administrador</li>
-                <div class="lista-texto">
-                    <li class="titulo-texto"><a href="./cadastro-e-login/php/login.php">Painel</a></li>
-                    <li class="titulo-texto"><a href="./cadastro-e-login/php/cadastro.php">Sair</a></li>
-                </div>
-            </ul>
-        </div>
-    </header>
-</body>
-
-</html>
+        <input type="checkbox" id="menu" class="menu-checkbox">
+        <label for="menu">
+            <ion-icon name="person-circle-outline" class="icones-cabecalho icone-cabecalho_pesquisa"></ion-icon>
+        </label>
+        <ul class="lista-menu">
+            <li class="titulo-lista">Administrador</li>
+            <div class="lista-texto">
+                <li class="titulo-texto"><a href="./cadastro-e-login/php/login.php">Painel</a></li>
+                <li class="titulo-texto"><a href="./cadastro-e-login/php/cadastro.php">Sair</a></li>
+            </div>
+        </ul>
+    </div>
+</header>

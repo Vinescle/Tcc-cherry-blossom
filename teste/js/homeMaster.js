@@ -12,7 +12,6 @@ const homeAdmConfig = document.getElementById('homeAdmConfig');
 const homeAdmGerencia = document.getElementById('homeAdmGerencia');
 const homeAdmMarca = document.getElementById('homeAdmMarca');
 
-
 // FAZER O DO BOTÃO CONFIG
 
 
@@ -80,4 +79,5 @@ botaoBalao.addEventListener('click',function(){
     botaoBalao.classList.add('icone-selecionado');
     botaoConfig.classList.remove('icone-selecionado');
 })
+
 

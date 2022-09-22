@@ -1,0 +1,22 @@
+.hidden {
+    display: none;
+}
+
+.alinhamento {
+    display: flex;
+    flex-direction: row;
+    gap: 160px;
+}
+
+/* ADM CATEGORIA */
+.conteudo-principal {
+    width: 1080px;
+}
+
+/* ADM HOME */
+.conteudo-principal-adm-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

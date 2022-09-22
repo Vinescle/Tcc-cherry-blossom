@@ -7,13 +7,7 @@
     <link href="../css/reset.css" rel="stylesheet">
     <link href="../css/estilo-home.css" rel="stylesheet">
     <link href="../css/menuAdm.css" rel="stylesheet">
-
-    <style>        
-        .icone-selecionado{
-            background-color: #EC55D9;
-            color: #FFFFFF;
-        }
-    </style>
+    <link href="../css/homeAdm/homeAdmConfig.css" rel="stylesheet">
 </head>
 
 <body>

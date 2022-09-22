@@ -29,8 +29,9 @@
         }
 
         .botao-icone{
+            cursor: pointer;
             background-color: #FFCEF9;
-            padding: 12px 15px;
+            padding: 8px 10px;
             border-radius: 50px;
             border: none;
         }
@@ -39,7 +40,7 @@
 <body>
 <div class="menu">
     <div class="icones-principais">
-        <button id="home" class="botao-icone" ><ion-icon name="home-outline" class="icone"></ion-icon></button>
+        <button id="home" class="botao-icone icone-selecionado" ><ion-icon name="home-outline" class="icone"></ion-icon></button>
 
         <button id="color-palette" class="botao-icone" ><ion-icon name="color-palette-outline" class="icone"></ion-icon></button>
        
