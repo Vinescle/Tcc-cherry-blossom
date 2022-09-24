@@ -1,14 +1,25 @@
 .conteudo-principal {
-    width: 100%;
-
     display: flex;
-    gap: 140px;
+
+    width: calc(100% - 107px);
+    margin-left: 107px;
 }
+
+.main {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    
+    width: 100%;
+    padding: 0 40px;
+}
+
 
 /* Filtros */
 
 .conjunto-tabela-filtro {
-    width: 100%;
+    display: inline-block;
+    flex: 1;
 }
 
 .filtros {
@@ -19,7 +30,7 @@
 
     margin-top: 2rem;
 
-    width: 50%;
+    width: 100%;
 }
 
 .conjunto-filtro-botoes {
@@ -88,8 +99,6 @@
     border-radius: 12px;
 
     height: 20px;
-
-    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
 }
 
 /* Tabelas */
@@ -103,16 +112,12 @@
     height: 80vh;
 }
 
-.tabela-categorias {
-    width: 100%;
-}
-
 .tabela-principal {
     margin: 1rem 0 0 0;
     border: solid 1px #FF84F0;
     border-radius: 10px;
 
-    width: 50%;
+    width: 100%;
 
     overflow: hidden;
 }
@@ -154,6 +159,14 @@
 
     color: #323232;
     font-weight: 700;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.seta-abreCategorias {
+    color: #FF84F0;
 }
 
 /* Checkbox */
