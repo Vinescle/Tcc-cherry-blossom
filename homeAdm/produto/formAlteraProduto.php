@@ -1,11 +1,10 @@
+<?php
+    include '../../conexao/conexao.php';
+?>
+
 <!DOCTYPE html>
-<html lang="PT-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastro de produtos</title>
-</head>
 <body>
-    <form action="cadastroGravaProduto.php" method="POST" enctype="multipart/form-data" >
+    <form action="cadastroGravaProduto.php" method="POST">
         <label>Nome do produto</label>
         <input type="text" name="nomeProduto"><br><br>
         <label>Descrição do produto</label>
@@ -24,9 +23,8 @@
         <input type="text" name="larguraProduto"><br><br>
         <label>Profundidade/comprimento do produto</label>
         <input type="text" name="profundidadeProduto"><br><br>
-        <input type="file" method="POST" name="imagemProduto-1"><input type="file" method="POST" name="imagemProduto-2"><br><br>
-        <input type="file" method="POST" name="imagemProduto-3"><input type="file" method="POST" name="imagemProduto-4"><br><br>
-        <input type="file" method="POST" name="imagemProduto-5"><br><br>
+        <input type="file" name="imagemProduto-1"><input type="file" name="imagemProduto-2"><br><br>
+        <input type="file" name="imagemProduto-3"><input type="file" name="imagemProduto-4"><br><br>
         <input type="submit" value="Cadastrar">
     </form>
 </body>
