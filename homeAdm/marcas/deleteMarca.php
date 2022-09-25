@@ -16,5 +16,4 @@ try{
 $sqlDeletaMarca = "DELETE FROM tb_marcas where id_marca = $id";
 mysqli_query($conexao,$sqlDeletaMarca);
  
-
 ?>

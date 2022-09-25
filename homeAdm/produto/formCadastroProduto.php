@@ -1,3 +1,16 @@
+<?php
+include '../../conexao/conexao.php';
+$sql = "SELECT * FROM tb_marcas";
+$resultadoMarcas = mysqli_query($conexao,$sql);
+
+$sql = "SELECT * FROM tb_categoria";
+$resultadoCategorias = mysqli_query($conexao,$sql);
+
+$sql = "SELECT * FROM tb_sub_categoria";
+$resultadoSubCategoria = mysqli_query($conexao,$sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="PT-br">
 <head>
@@ -10,6 +23,39 @@
         <input type="text" name="nomeProduto"><br><br>
         <label>Descrição do produto</label>
         <textarea name="descricaoProduto"  cols="30" rows="10"></textarea><br><br>
+        <label>Marca</label>
+        <select name="idmarca" >
+            <option selected></option>
+            <?php 
+                while($resultado = mysqli_fetch_array($resultadoMarcas)){
+                ?>
+                    <option value="<?php echo $resultado['id_marca'];?>"><?php echo $resultado['nome_marca'];?></option>
+                <?php
+                }
+            ?>
+        </select>
+        <label>Categoria</label>
+        <select name="idcategoria" >
+            <option selected></option>
+            <?php 
+                while($resultado = mysqli_fetch_array($resultadoCategorias)){
+                ?>
+                <option value="<?php echo $resultado['id_categoria'];?>"><?php echo $resultado['nome_categoria'];?></option>
+                <?php
+                }
+            ?>
+        </select>
+        <label>Subcategoria</label>
+        <select name="idsubcategoria" >
+            <option selected></option>
+            <?php 
+                while($resultado = mysqli_fetch_array($resultadoSubCategoria)){
+                ?>
+                <option value="<?php echo $resultado['id_sub_categoria'];?>"><?php echo $resultado['nome_sub_categoria'];?></option>
+                <?php
+                }
+            ?>
+        </select><br><br>
         <label>Preço do produto</label>
         <input type="text" name="precoProduto"><br><br>
         <label>Quantidade do produto</label>
