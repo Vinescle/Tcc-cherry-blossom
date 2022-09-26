@@ -5,7 +5,6 @@ $nomeMarca = $_POST['nomeMarca'];
 $corMarca = $_POST['corMarca'];
 $iconUrl = [];
 $iconUrl= $_FILES['iconUrl'];
-var_dump($iconUrl);
 $nomeIcone = addslashes(md5($iconUrl['tmp_name'])."-".$iconUrl['name']);
 
 $sql = "INSERT INTO tb_marcas(nome_marca, icon_url,cor_marca) VALUES ('$nomeMarca','$nomeIcone','$corMarca')";

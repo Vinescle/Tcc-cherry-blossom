@@ -136,16 +136,21 @@
 
         <div class="marcas">
                 <?php
-                    while($resultadoBolas = mysqli_fetch_array($resultado)){
-                        ?>
-                        <div class="marca-bolas">
-                            <div class="marca-circulo" style="background-color:<?php echo $resultadoBolas['icon_url'];?>;">
-                                <img src="../imagemBancoDeDados/marcas/<?php echo $resultadoBolas['cor_marca']?>" class="marca-imagem" value="<?php ?>">
+                    try {
+                        while($resultadoBolas = mysqli_fetch_array($resultado)){
+                            ?>
+                            <div class="marca-bolas">
+                                <div class="marca-circulo" style="background-color:<?php echo $resultadoBolas['icon_url'];?>;">
+                                    <img src="../imagemBancoDeDados/marcas/<?php echo $resultadoBolas['cor_marca']?>" class="marca-imagem" value="<?php ?>">
+                                </div>
                             </div>
-                        </div>
-                    <?php
+                        <?php
+                        }
+                    } catch (Exception $e) {
+                        // Fazer o tratamento de warning
                     }
-                ?>
+                    ?>
+
         </div>
     </div>
     <input type="text" value="4" id="pagina-verificacao" style="display:none;">

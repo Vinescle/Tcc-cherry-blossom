@@ -8,7 +8,7 @@
     <form action="cadastroGravaCategoria.php" method="POST">
         <label>Nome Categoria</label>
         <input type="text" name="nomeCategoria">
-        <input type="submit" value="Cadatrar">
+        <input type="submit" value="Salvar">
     </form>
 </body>
 </html>

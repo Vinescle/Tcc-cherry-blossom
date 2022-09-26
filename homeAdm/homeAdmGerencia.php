@@ -56,7 +56,7 @@ $resultadoProdutos = mysqli_query($conexao, $sql);
                     <div class="espacamento-botoes">
                         <div class="botao-opcoes">
                             <div class="botao-icone">
-                                <a class="botao-texto">
+                                <a class="botao-texto" href="./produto/formCadastroProduto.php">
                                     <ion-icon name="add-outline"></ion-icon>
                                     Cadastrar
                                 </a>
