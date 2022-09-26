@@ -2,3 +2,105 @@
     background-color: #EC55D9;
     color: #FFFFFF;
 }
+
+.conteudo-acoes
+
+/* Barra de pesquisa */
+
+.config-gerenciamento {
+    outline: none;
+    border: 2px solid #FF84F0;
+    background-color: #FFFFFF;
+    width: 420px;
+    height: 30px;
+}
+
+.config-gerenciamento ion-icon {
+    color: #FF84F0;
+    border: none;
+}
+
+.conteudo-acoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.grupo-filtro {
+    display: flex;
+    flex-direction: row;
+}
+
+.conteudo-acoes-cadastrar {
+    background-color: #FF84F0;
+    color: #FFFFFF;
+    font-family: 'Inter';
+    padding: .4% 2% .4% 2%;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 600;
+
+    transition: .6s;
+
+}
+
+.conteudo-acoes-cadastrar:hover {
+    background-color: #EC55D9;
+    color: #FFFFFF;
+}
+
+.botao-opcoes {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+}
+
+.botao-texto {
+    background-color: #FF84F0;
+    border-radius: 40px;
+    padding: 0.25em 0.5em;
+
+    display: flex;
+    flex-direction: row;
+
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.botao-pesquisa_produtos {
+    height: 18px;
+
+    border: solid 2px #EC55D9;
+    border-radius: 15px;
+
+    padding-left: 25px;
+
+    background: url('../../src-icons/lupaRosa.svg');
+    background-position: 0.5em;
+    background-size: 16px;
+    background-repeat: no-repeat;
+}
+
+.botoes-setas {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.setas {
+    color: #FFFFFF;
+    background-color: #FF84F0;
+
+    border-radius: 12px;
+
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+}
+
+.espacamento-botoes {
+    display: flex;
+}
+
