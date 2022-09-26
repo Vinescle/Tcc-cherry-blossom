@@ -1,3 +1,15 @@
+<?php
+include '../conexao/conexao.php';
+$sql = "SELECT a.id_produtos, a.nome_produto, a.preco_produto, a.qtd_produto, b.nome_marca, c.nome_categoria FROM tb_produtos a
+    INNER JOIN tb_marcas_produtos marcasRE ON a.id_produtos = marcasRE.fk_id_produtos
+    INNER JOIN tb_marcas b ON b.id_marca = marcasRE.fk_id_marcas
+    INNER JOIN tb_produtos_sub_categorias subcategoriasRE ON a.id_produtos = subcategoriasRE.fk_id_produtos
+    INNER JOIN tb_sub_categoria subcategorias  ON subcategorias.id_sub_categoria = subcategoriasRE.fk_id_sub_categorias
+    INNER JOIN tb_categoria c ON c.id_categoria = subcategorias.fk_id_categoria";
+$resultadoProdutos = mysqli_query($conexao, $sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,7 +26,7 @@
             margin-top: 1.5%;
             margin-right: 2%;
         }
-        
+
         .icone-selecionado {
             background-color: #EC55D9;
             color: #FFFFFF;
@@ -148,7 +160,26 @@
                         <th class="tabela-principal_titulo tabela-principal_tituloPreco">Preço</th>
                         <th class="tabela-principal_titulo tabela-principal_tituloEstoque">Estoque</th>
                     </tr>
-
+                    <?php
+                    while ($resultadoTabelaPrincipal = mysqli_fetch_array($resultadoProdutos)) {
+                    ?>
+                        <tr>
+                            <td class="tabela-principal_checkbox">
+                                <div class="tabela-checkbox_conteudo">
+                                    <input id="checkbox-conteudo1" type="checkbox">
+                                    <label for="checkbox-conteudo1"></label>
+                                </div>
+                            </td>
+                            <td class="tabela-principal_id"><?php echo $resultadoTabelaPrincipal['id_produtos'];?></td>
+                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_produto'];?></td>
+                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_marca'];?></td>
+                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_categoria'];?></td>
+                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['preco_produto'];?></td>
+                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['qtd_produto'];?></td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
                     <tr>
                         <td class="tabela-principal_checkbox">
                             <div class="tabela-checkbox_conteudo">

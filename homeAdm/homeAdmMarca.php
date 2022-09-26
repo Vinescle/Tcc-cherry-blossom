@@ -70,7 +70,12 @@
 
 <body>
     <?php
-    include '../Componentes/cabecalhoHomeAdm.php';
+        include '../Componentes/cabecalhoHomeAdm.php';
+
+    //Back-end
+        include '../conexao/conexao.php';
+        $sql = "SELECT * FROM tb_marcas";
+        $resultado = mysqli_query($conexao,$sql);
     ?>
 
     <div style="display: flex;">
@@ -130,179 +135,17 @@
         </div>
 
         <div class="marcas">
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
-
-            <div class="marca-bolas">
-                <div class="marca-circulo">
-                    <img src="../imagens/site/minecraft.png" class="marca-imagem">
-                </div>
-            </div>
+                <?php
+                    while($resultadoBolas = mysqli_fetch_array($resultado)){
+                        ?>
+                        <div class="marca-bolas">
+                            <div class="marca-circulo" style="background-color:<?php echo $resultadoBolas['icon_url'];?>;">
+                                <img src="../imagemBancoDeDados/marcas/<?php echo $resultadoBolas['cor_marca']?>" class="marca-imagem" value="<?php ?>">
+                            </div>
+                        </div>
+                    <?php
+                    }
+                ?>
         </div>
     </div>
     <input type="text" value="4" id="pagina-verificacao" style="display:none;">

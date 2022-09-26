@@ -24,7 +24,7 @@ $resultadoSubCategoria = mysqli_query($conexao,$sql);
         <label>Descrição do produto</label>
         <textarea name="descricaoProduto"  cols="30" rows="10"></textarea><br><br>
         <label>Marca</label>
-        <select name="idmarca" >
+        <select name="idmarca">
             <option selected></option>
             <?php 
                 while($resultado = mysqli_fetch_array($resultadoMarcas)){
@@ -35,7 +35,7 @@ $resultadoSubCategoria = mysqli_query($conexao,$sql);
             ?>
         </select>
         <label>Categoria</label>
-        <select name="idcategoria" >
+        <select name="idcategoria">
             <option selected></option>
             <?php 
                 while($resultado = mysqli_fetch_array($resultadoCategorias)){
@@ -46,7 +46,7 @@ $resultadoSubCategoria = mysqli_query($conexao,$sql);
             ?>
         </select>
         <label>Subcategoria</label>
-        <select name="idsubcategoria" >
+        <select name="idsubcategoria">
             <option selected></option>
             <?php 
                 while($resultado = mysqli_fetch_array($resultadoSubCategoria)){
