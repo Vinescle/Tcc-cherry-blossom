@@ -1,9 +1,28 @@
-.icone-selecionado{
+.icone-selecionado {
     background-color: #EC55D9;
     color: #FFFFFF;
 }
 
-.conteudo-acoes
+.conteudo-principal {
+    display: flex;
+    flex-wrap: wrap;
+
+    width: calc(100% - 107px);
+    margin-left: 107px;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+
+    width: 100%;
+    padding: 0 40px;
+}
+
+.conteudo-acoes {
+    margin-top: 2rem;
+}
 
 /* Barra de pesquisa */
 
@@ -72,7 +91,7 @@
 }
 
 .botao-pesquisa_produtos {
-    height: 18px;
+    height: 15px;
 
     border: solid 2px #EC55D9;
     border-radius: 15px;
@@ -104,3 +123,32 @@
     display: flex;
 }
 
+/* Bolas */
+
+.marcas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 29px;
+
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0 40px;
+}
+
+.marca-circulo {
+    display: flex;
+    align-items: center;
+
+    border-radius: 1000px;
+    width: 100px;
+    height: 100px;
+    background: #A5FF7B;
+    overflow: hidden;
+}
+
+.marca-imagem {
+    width: 110%;
+    height: auto;
+    transform: translate(-5px, 5px);
+}

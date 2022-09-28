@@ -7,7 +7,7 @@
     border: 2px solid #FF84F0;
     background-color: #FFFFFF;
     width: 420px;
-    height: 30px;
+    height: 18px;
 }
 
 .config-gerenciamento ion-icon {
@@ -97,8 +97,6 @@
 
 .espacamento-botoes {
     display: flex;
-
-    /* gap: 85%; */
 }
 
 /* Tabelas */

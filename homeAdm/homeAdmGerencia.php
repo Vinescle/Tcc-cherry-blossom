@@ -22,25 +22,41 @@ $resultadoProdutos = mysqli_query($conexao, $sql);
     <title>Gerenciamento -- ADM</title>
 
     <style>
-        main {
-            margin-top: 1.5%;
-            margin-right: 2%;
+        .conteudo-principal {
+            display: flex;
+            flex-wrap: wrap;
+
+            width: calc(100% - 107px);
+            margin-left: 107px;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+
+            width: 100%;
+            padding: 0 40px;
         }
 
         .icone-selecionado {
             background-color: #EC55D9;
             color: #FFFFFF;
         }
+
+        .conteudo-acoes {
+            margin-top: 2rem;
+        }
     </style>
 </head>
 
 <body>
     <?php include '../Componentes/cabecalhoHomeAdm.php'; ?>
+    <div style="display: flex;">
+        <?php include '../Componentes/menuAdm.php'; ?>
+    </div>
     <div class="conteudo-principal">
-        <div style="display: flex;">
-            <?php include '../Componentes/menuAdm.php'; ?>
-        </div>
-        <main>
+        <div class="main">
             <div class="conteudo-acoes">
                 <div class="grupo-filtro">
                     <div class="cabecalho-pesquisa">
@@ -170,12 +186,12 @@ $resultadoProdutos = mysqli_query($conexao, $sql);
                                     <label for="checkbox-conteudo1"></label>
                                 </div>
                             </td>
-                            <td class="tabela-principal_id"><?php echo $resultadoTabelaPrincipal['id_produtos'];?></td>
-                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_produto'];?></td>
-                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_marca'];?></td>
-                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_categoria'];?></td>
-                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['preco_produto'];?></td>
-                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['qtd_produto'];?></td>
+                            <td class="tabela-principal_id"><?php echo $resultadoTabelaPrincipal['id_produtos']; ?></td>
+                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_produto']; ?></td>
+                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_marca']; ?></td>
+                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_categoria']; ?></td>
+                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['preco_produto']; ?></td>
+                            <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['qtd_produto']; ?></td>
                         </tr>
                     <?php
                     }
@@ -301,6 +317,7 @@ $resultadoProdutos = mysqli_query($conexao, $sql);
                     </tr>
                 </table>
             </div>
+        </div>
     </div>
 
     </main>
