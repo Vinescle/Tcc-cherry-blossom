@@ -39,15 +39,22 @@ $resultadoMaisVendidos = mysqli_query($conexao, $sqlMaisVendidos);
         <?php
         session_start();
 
-        if (isset($_session['permissao_Adm'])) {
-            if ($_session['permissao_Adm'] == 2) {
-                include './Componentes/cabecalhoHomeAdm.php';
-            } else {
-                include './Componentes/cabecalhoHome.php';
-            }
-        } else {
+        if(isset($_SESSION['logado'])){
+            include './Componentes/cabecalhoHomeLogado.php';
+
+        }else if(!isset($_SESSION['logado'])){
             include './Componentes/cabecalhoHome.php';
         }
+
+        // if (isset($_session['permissao_Adm'])) {
+        //     if ($_session['permissao_Adm'] == 2) {
+        //         include './Componentes/cabecalhoHomeAdm.php';
+        //     } else {
+        //         include './Componentes/cabecalhoHome.php';
+        //     }
+        // } else {
+        //     include './Componentes/cabecalhoHome.php';
+        // }
         ?>
 
         <!-- Main da home / Carrossel -->
