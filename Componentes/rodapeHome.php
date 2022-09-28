@@ -185,7 +185,6 @@
             <div class="texto-coluna-dois">
                 <p class="texto-colunas"><a href="#">Como comprar</a></p>
                 <p class="texto-colunas"><a href="#">Cuidados Com os Produtos</a></p>
-                <p class="texto-colunas"><a href="#">Visualização 3D</a></p>
                 <p class="texto-colunas"><a href="#">O que é Papercraft?</a></p>
                 <p class="texto-colunas"><a href="#">O que é Hama Beads?</a></p>
                 <p class="texto-colunas"><a href="#">O que é Macramê?</a></p>

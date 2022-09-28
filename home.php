@@ -88,9 +88,6 @@ $resultadoMaisVendidos = mysqli_query($conexao, $sqlMaisVendidos);
                 <div>
                     <h2 class="titulo">Marcas</h2>
                 </div>
-                <div>
-                    <button class="botao-verTodos"><a class="ver-todos">Ver todos</a></button>
-                </div>
             </div>
             <div class="marcas-container">
                 <?php
@@ -134,9 +131,6 @@ $resultadoMaisVendidos = mysqli_query($conexao, $sqlMaisVendidos);
             <div class="texto">
                 <div>
                     <h2 class="titulo">Destaque</h2>
-                </div>
-                <div>
-                    <button class="botao-verTodos"><a class="ver-todos">Ver todos</a></button>
                 </div>
             </div>
             <div class="secao-destaques">
@@ -254,9 +248,6 @@ $resultadoMaisVendidos = mysqli_query($conexao, $sqlMaisVendidos);
                 <div class="texto">
                     <div>
                         <h2 class="titulo">Mais vendidos</h2>
-                    </div>
-                    <div>
-                        <button class="botao-verTodos"><a class="ver-todos">Ver todos</a></button>
                     </div>
                 </div>
                 <div class="secao-destaques">

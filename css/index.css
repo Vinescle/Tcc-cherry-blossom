@@ -8,11 +8,6 @@
     margin: 30px 205px 0 205px;
 }
 
-.botao-verTodos {
-    border: none;
-    background: transparent;
-}
-
 .marcas-container {
     margin: 0px 205px 0 205px;
     display: flex;
@@ -116,9 +111,4 @@
 
 .espacamento-produto {
     margin: 10px 15px 10px 15px;
-}
-
-.botao-verTodos {
-    border: none;
-    background: transparent;
 }
