@@ -6,7 +6,12 @@ $sql = "SELECT a.id_produtos, a.nome_produto, a.preco_produto, a.qtd_produto, b.
     INNER JOIN tb_produtos_sub_categorias subcategoriasRE ON a.id_produtos = subcategoriasRE.fk_id_produtos
     INNER JOIN tb_sub_categoria subcategorias  ON subcategorias.id_sub_categoria = subcategoriasRE.fk_id_sub_categorias
     INNER JOIN tb_categoria c ON c.id_categoria = subcategorias.fk_id_categoria";
-$resultadoProdutos = mysqli_query($conexao, $sql);
+try {
+    $resultadoProdutos = mysqli_query($conexao, $sql);
+} catch (\Throwable $th) {
+    //throw $th;
+}
+
 
 ?>
 
