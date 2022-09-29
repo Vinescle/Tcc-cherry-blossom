@@ -74,7 +74,7 @@
 
     <div class="conteudo-principal">
         <div class="main">
-            <form style="width: 100%;">
+            <form style="width: 100%;" action="./admConfig/configAdmGrava.php" method="POST" enctype="multipart/form-data">
                 <div class="form-configuracoes">
                     <div class="form-input">
                         <div>
@@ -84,7 +84,7 @@
                             <button class="botao-input" disabled>
                                 <ion-icon class="icone-input" name="mail-outline"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-email" type="text">
+                            <input class="input-conjunto input-email" name="email" type="text">
                         </div>
                     </div>
 
@@ -96,7 +96,7 @@
                             <button class="botao-input" disabled>
                                 <ion-icon class="icone-input" name="logo-whatsapp"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-whatsapp" type="text">
+                            <input class="input-conjunto input-whatsapp" name="whatsapp" type="text"> 
                         </div>
                     </div>
 
@@ -108,7 +108,7 @@
                             <button class="botao-input" disabled>
                                 <ion-icon class="icone-input" name="logo-instagram"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-instagram" type="text">
+                            <input class="input-conjunto input-instagram" name="instagram" type="text">
                         </div>
                     </div>
 
@@ -120,7 +120,7 @@
                             <button class="botao-input" disabled>
                                 <ion-icon class="icone-input" name="logo-facebook"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-facebook" type="text">
+                            <input class="input-conjunto input-facebook" name="facebook" type="text">
                         </div>
                     </div>
 
@@ -132,7 +132,7 @@
                             <button class="botao-input" disabled>
                                 <ion-icon class="icone-input" name="logo-twitter"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-twitter" type="text">
+                            <input class="input-conjunto input-twitter" name="twitter" type="text">
                         </div>
                     </div>
 
@@ -144,7 +144,7 @@
                             <button class="botao-input" disabled>
                                 <ion-icon class="icone-input" name="logo-tiktok"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-tiktok" type="text">
+                            <input class="input-conjunto input-tiktok" name="tiktok" type="text">
                         </div>
                     </div>
 
@@ -156,7 +156,7 @@
                             <button type="button" class="botao-banner">
                                 <ion-icon class="icone-botao" name="download-outline"></ion-icon>
                                 Clique para fazer upload de imagens
-                                <input type="file">
+                                <input type="file" name="banner">
                             </button>
                         </div>
                     </div>

@@ -5,13 +5,15 @@ include './conexao/conexao.php';
 $sqlMarcas = "SELECT * FROM tb_marcas LIMIT 7";
 $resultadoMarcas = mysqli_query($conexao, $sqlMarcas);
 
-$sqlDestaques = "SELECT * FROM tb_produtos a INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto 
-WHERE id_produtos";
+$sqlDestaques = "SELECT * FROM tb_produtos a INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto GROUP BY id_produtos";
 $resultadoDestaques = mysqli_query($conexao, $sqlDestaques);
 
 $sqlMaisVendidos = "SELECT * FROM tb_produtos a INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto GROUP BY id_produtos";
 $resultadoMaisVendidos = mysqli_query($conexao, $sqlMaisVendidos);
 
+$sqlConfigAdm = "SELECT * FROM tb_adm_config";
+$resultadoConfigAdm = mysqli_query($conexao, $sqlConfigAdm);
+$configAdm = mysqli_fetch_array($resultadoConfigAdm);
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +31,7 @@ $resultadoMaisVendidos = mysqli_query($conexao, $sqlMaisVendidos);
 
     <title>Cherry Blossom - Home</title>
 </head>
-
+    
 <body class="corpo">
     <div>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -66,7 +68,7 @@ $resultadoMaisVendidos = mysqli_query($conexao, $sqlMaisVendidos);
                         <img src="./imagens/site/banner.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./imagens/site/banner.png" class="d-block w-100" alt="...">
+                        <img src="./imagemBancoDeDados/banners/<?php echo $configAdm['url_banner'];?>" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                         <img src="./imagens/site/banner.png" class="d-block w-100" alt="...">
