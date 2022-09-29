@@ -34,7 +34,7 @@ $ultimoIdProdutos = mysqli_insert_id($conexao);
 foreach($imagensProduto as $imagemProduto){
     $nomeImagem = addslashes(md5($imagemProduto['tmp_name'])."-".$imagemProduto['name']);
 
-    $sql = "INSERT INTO tb_imagem_produtos (fk_id_produto,url) VALUES ($ultimoIdProdutos,'$nomeImagem')";
+    $sql = "INSERT INTO tb_imagem_produtos(fk_id_produto, url) VALUES ($ultimoIdProdutos,'$nomeImagem')";
 
     $queryImagem = mysqli_query($conexao,$sql);
 

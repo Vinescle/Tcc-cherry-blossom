@@ -148,13 +148,13 @@
 
     <div class="conteudo-principal">
         <div class="main">
-            <form>
+            <form  action="cadastroGravaCategoria.php" method="POST">
                 <div class="formulario-funcoes">
                     <div class="input-conjunto">
                         <label class="label-texto">Nome da categoria</label>
                         <div class="formulario-texto">
                             <ion-icon class="botao-icone" name="pricetag-outline"></ion-icon>
-                            <input class="botao-texto" type="text">
+                            <input class="botao-texto" type="text" name="nomeCategoria">
                         </div>
                     </div>
 

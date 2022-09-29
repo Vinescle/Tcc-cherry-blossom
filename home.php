@@ -5,7 +5,8 @@ include './conexao/conexao.php';
 $sqlMarcas = "SELECT * FROM tb_marcas LIMIT 7";
 $resultadoMarcas = mysqli_query($conexao, $sqlMarcas);
 
-$sqlDestaques = "SELECT * FROM tb_produtos a INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto GROUP BY id_produtos";
+$sqlDestaques = "SELECT * FROM tb_produtos a INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto 
+WHERE id_produtos";
 $resultadoDestaques = mysqli_query($conexao, $sqlDestaques);
 
 $sqlMaisVendidos = "SELECT * FROM tb_produtos a INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto GROUP BY id_produtos";
