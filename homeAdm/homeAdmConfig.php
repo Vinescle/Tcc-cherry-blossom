@@ -1,3 +1,12 @@
+<?php
+
+include '../conexao/conexao.php';
+
+$sqlHomeAdmConfig = "SELECT * FROM tb_adm_config";
+$resultadoConfigAdm = mysqli_query($conexao, $sqlHomeAdmConfig);
+$configAdm = mysqli_fetch_array($resultadoConfigAdm);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -61,6 +70,21 @@
 
             overflow: hidden;
         }
+
+        .botao-input{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .botao-banner{
+            transition: 0.5s;
+            opacity: 0.90;
+        }
+
+        .botao-banner:hover{
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -84,7 +108,19 @@
                             <button class="botao-input" disabled>
                                 <ion-icon class="icone-input" name="mail-outline"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-email" name="email" type="text">
+                            <input class="input-conjunto input-email" name="email" required value="<?php echo $configAdm['email_sugestoes'] ?>" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-input">
+                        <div>
+                            <label class="input-texto">Senha Google</label>
+                        </div>
+                        <div>
+                            <button class="botao-input" disabled>
+                                <ion-icon class="icone-input" name="logo-google"></ion-icon>
+                            </button>
+                            <input class="input-conjunto input-whatsapp" name="senha" required value="<?php echo $configAdm['senha'] ?>" type="text"> 
                         </div>
                     </div>
 
@@ -96,7 +132,7 @@
                             <button class="botao-input" disabled>
                                 <ion-icon class="icone-input" name="logo-whatsapp"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-whatsapp" name="whatsapp" type="text"> 
+                            <input class="input-conjunto input-whatsapp" name="whatsapp" required value="<?php echo $configAdm['url_whatsapp'] ?>" type="text"> 
                         </div>
                     </div>
 
@@ -108,7 +144,7 @@
                             <button class="botao-input" disabled>
                                 <ion-icon class="icone-input" name="logo-instagram"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-instagram" name="instagram" type="text">
+                            <input class="input-conjunto input-instagram" name="instagram" required value="<?php echo $configAdm['url_instagram'] ?>" type="text">
                         </div>
                     </div>
 
@@ -120,7 +156,7 @@
                             <button class="botao-input" disabled>
                                 <ion-icon class="icone-input" name="logo-facebook"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-facebook" name="facebook" type="text">
+                            <input class="input-conjunto input-facebook" name="facebook" required value="<?php echo $configAdm['url_facebook'] ?>" type="text">
                         </div>
                     </div>
 
@@ -132,7 +168,7 @@
                             <button class="botao-input" disabled>
                                 <ion-icon class="icone-input" name="logo-twitter"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-twitter" name="twitter" type="text">
+                            <input class="input-conjunto input-twitter" name="twitter" required value="<?php echo $configAdm['url_twitter'] ?>" type="text">
                         </div>
                     </div>
 
@@ -144,7 +180,7 @@
                             <button class="botao-input" disabled>
                                 <ion-icon class="icone-input" name="logo-tiktok"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-tiktok" name="tiktok" type="text">
+                            <input class="input-conjunto input-tiktok" name="tiktok" required value="<?php echo $configAdm['url_tiktok'] ?>" type="text">
                         </div>
                     </div>
 
@@ -153,10 +189,10 @@
                             <label class="input-texto">Banner</label>
                         </div>
                         <div class="input-banner">
-                            <button type="button" class="botao-banner">
+                            <button type="button" class="botao-banner" style="background-image: url(../imagemBancoDeDados/banners/<?php echo $configAdm['url_banner'] ?>);">
                                 <ion-icon class="icone-botao" name="download-outline"></ion-icon>
                                 Clique para fazer upload de imagens
-                                <input type="file" name="banner">
+                                <input type="file" name="banner" required value="../imagemBancoDeDados/banners/<?php echo $configAdm['url_banner']?>">
                             </button>
                         </div>
                     </div>

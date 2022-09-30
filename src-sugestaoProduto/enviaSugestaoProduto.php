@@ -1,5 +1,11 @@
 <?php
 
+//SQL PARA DESCOBRIR O EMAIL
+include '../conexao/conexao.php';
+$sqlHomeAdmConfig = "SELECT * FROM tb_adm_config";
+$resultadoConfigAdm = mysqli_query($conexao, $sqlHomeAdmConfig);
+$configAdm = mysqli_fetch_array($resultadoConfigAdm);
+
 // NOT FOUND RESOLVIDO UHUHUHUHUHUHU
 
 require_once('src/PHPMailer.php');
@@ -20,13 +26,13 @@ try{
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username ='';//Insira o email de testes 
-    $mail->Password ='';//Insira sua senha de testes 
+    $mail->Username =$configAdm['email_sugestoes'];//Insira o email de testes 
+    $mail->Password =$configAdm['senha'];//Insira sua senha de testes 
     $mail->Port = 587;
 
     //EMAIL - FROM
-    $mail->setFrom('rafael.florianoc9@gmail.com');
-    $mail->addAddress('rafael.florianoc9@gmail.com');
+    $mail->setFrom($configAdm['email_sugestoes']);
+    $mail->addAddress($configAdm['email_sugestoes']);
 
     $mail->isHTML(true);
     $mail->Subject = 'Sugestao de produtos para a loja - Cherry Blossom';

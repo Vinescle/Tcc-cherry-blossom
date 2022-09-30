@@ -169,13 +169,14 @@
         <div class="coluna-um">
             <img class="logo" src="./imagens/site/Logo_PNG_normal.png" alt="logo-cherry-blossom" width="98px">
             <h3 class="coluna-um-link"><a class="clickSugestao" href="#">SUGESTÃO DO PRODUTO</a></h3>
-            <h3 class="coluna-um-link"><a href="#">FALE COM O VENDEDOR</a></h3>
+            <h3 class="coluna-um-link"><a href="<?php echo $configAdm['url_whatsapp']; ?>">FALE COM O VENDEDOR</a></h3>
             <h4 class="coluna-um-redes-sociais">Acompanhe nossas redes sociais</h4>
             <div class="redes-sociais">
-                <ion-icon class="icone" name="logo-instagram"></ion-icon>
-                <ion-icon class="icone" name="logo-facebook"></ion-icon>
-                <ion-icon class="icone" name="logo-twitter"></ion-icon>
-                <ion-icon class="icone" name="logo-tiktok"></ion-icon>
+                <a href="<?php echo $configAdm['url_instagram']; ?>"><ion-icon class="icone" name="logo-instagram"></ion-icon></a>
+                <a href="<?php echo $configAdm['url_facebook']; ?>"><ion-icon class="icone" name="logo-facebook"></ion-icon></a>
+                <a href="<?php echo $configAdm['url_twitter']; ?>"><ion-icon class="icone" name="logo-twitter"></ion-icon></a>
+                <a href="<?php echo $configAdm['url_tiktok']; ?>"><ion-icon class="icone" name="logo-tiktok"></ion-icon></a>
+ 
             </div>
         </div>
         <div class="coluna-dois">
