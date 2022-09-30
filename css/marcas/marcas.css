@@ -1,4 +1,16 @@
+.conteudo-principal {
+    display: flex;
+    flex-wrap: wrap;
 
+    width: calc(100% - 107px);
+    margin-left: 107px;
+    margin-top: 2rem;
+}
+
+.main {
+    width: 100%;
+    padding: 0 40px;
+}
 
 /* Input ícone */
 
@@ -29,7 +41,7 @@ ion-icon {
 }
 
 .label-texto {
-    margin: 0 0 0 10px;
+    margin: 0 0 10px 10px;
 
     font-size: 15px;
     font-family: 'Inter';
@@ -42,5 +54,76 @@ ion-icon {
     height: 23px;
 
     border: solid 1px #FF84F0;
-    border-radius: 10px; 
+    border-radius: 10px;
+}
+
+/* Input conjunto cor */
+
+.input-caixa_cor {
+    background: #FFEEFD;
+
+    border-radius: 20px;
+    border: solid 1px #FF84F0;
+
+    height: 70vh;
+
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;  
+}
+
+/* Botao de arquivo redondo */
+
+.input-arquivo_botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40%;
+}
+
+.input-icone_botao {
+    font-size: 75px;
+}
+
+.botao-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    color: #EC55D9;
+
+    background-color: #FFCEF9;
+    border: solid 2px #EC55D9;
+    border-radius: 1000px;
+
+    width: 25rem;
+    height: 25rem;
+}
+
+.botao-banner input[type="file"] {
+    cursor: pointer;
+    opacity: 0;
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 1000px;
+}
+
+
+
+
+
+/* Conjunto seleciona a cor */
+
+.conjunto-seleciona_cor {
+    width: 40%;
 }
