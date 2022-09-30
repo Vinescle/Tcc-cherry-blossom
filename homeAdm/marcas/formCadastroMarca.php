@@ -12,34 +12,44 @@
 </head>
 
 <body>
-    <!-- <?php
-            include '../../Componentes/cabecalhoHomeAdm.php';
-            ?> -->
+    <?php
+    include '../../Componentes/cabecalhoHomeAdm.php';
+    ?>
 
-    <!-- <div style="display: flex;">
+    <div style="display: flex;">
         <?php include '../../Componentes/menuAdm.php'; ?>
-    </div> -->
+    </div>
 
-    <div class="main">
-        <form action="cadastroGravaMarca.php" method="POST" enctype="multipart/form-data">
-            <div class="input-marca">
-                <label class="label-texto">Nome da marca</label>
-                <div>
-                    <ion-icon class="botao-icone" name="balloon-outline"></ion-icon>
-                    <input class="input-campo" type="text" name="nomeMarca"><br><br>
+    <div class="conteudo-principal">
+        <div class="main">
+            <form action="cadastroGravaMarca.php" method="POST" enctype="multipart/form-data">
+                <div class="input-marca">
+                    <label class="label-texto">Nome da marca</label>
+                    <div>
+                        <ion-icon class="botao-icone" name="balloon-outline"></ion-icon>
+                        <input class="input-campo" type="text" name="nomeMarca"><br><br>
+                    </div>
                 </div>
-            </div>
 
-            <div class="input-caixa_cor">
                 <label class="label-texto">Ícone</label>
-                <div>
-                    <input type="file" name="iconUrl"><br><br>
-                    <input type="color" name="corMarca" value="#ff0000">
-                    <input type="text" value="#ff0000">
+                <div class="input-conjunto_cor">
+                    <div class="input-caixa_cor">
+                        <div class="input-arquivo_botao">
+                            <button class="botao-banner">
+                                <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
+                                <input type="file" name="iconUrl">
+                            </button>
+                        </div>
+
+                        <div class="conjunto-seleciona_cor">
+                            <input type="color" name="corMarca" value="#ff0000">
+                            <input type="text" value="#ff0000">
+                        </div>
+                    </div>
                     <input type="submit" value="Salvar">
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
     <!-- <script src="./js/verificaIconPagina.js"></script> -->
