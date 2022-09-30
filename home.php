@@ -31,7 +31,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
 
     <title>Cherry Blossom - Home</title>
 </head>
-    
+
 <body class="corpo">
     <div>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -42,10 +42,9 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
         <?php
         session_start();
 
-        if(isset($_SESSION['logado'])){
+        if (isset($_SESSION['logado'])) {
             include './Componentes/cabecalhoHomeLogado.php';
-
-        }else if(!isset($_SESSION['logado'])){
+        } else if (!isset($_SESSION['logado'])) {
             include './Componentes/cabecalhoHome.php';
         }
 
@@ -68,7 +67,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                         <img src="./imagens/site/banner.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./imagemBancoDeDados/banners/<?php echo $configAdm['url_banner'];?>" class="d-block w-100" alt="...">
+                        <img src="./imagemBancoDeDados/banners/<?php echo $configAdm['url_banner']; ?>" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                         <img src="./imagens/site/banner.png" class="d-block w-100" alt="...">
@@ -91,14 +90,17 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                 <div>
                     <h2 class="titulo">Marcas</h2>
                 </div>
+                <div>
+                    <button class="botao-verTodos"><a class="ver-todos">Ver todos</a></button>
+                </div>
             </div>
             <div class="marcas-container">
                 <?php
                 while ($resultadoMarcasFinal = mysqli_fetch_array($resultadoMarcas)) {
-                    
+
                 ?>
-                    <div class="bolas-marcas" style="background-color: <?php echo $resultadoMarcasFinal['cor_marca']?>;">
-                        <div><img src="./imagemBancoDeDados/marcas/<?php echo $resultadoMarcasFinal['icon_url']?>" class="imagem-marcas"></div>
+                    <div class="bolas-marcas" style="background-color: <?php echo $resultadoMarcasFinal['cor_marca'] ?>;">
+                        <div><img src="./imagemBancoDeDados/marcas/<?php echo $resultadoMarcasFinal['icon_url'] ?>" class="imagem-marcas"></div>
                     </div>
                 <?php
                 }
@@ -126,35 +128,35 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                 <div class="bolas-marcas">
                     <div><img src="./imagens/site/splatoon.png" class="imagem-marcas"></div>
                 </div> -->
+        </div>
+    </div>
+
+    <!-- Destques -->
+    <div>
+        <div class="texto">
+            <div>
+                <h2 class="titulo">Destaque</h2>
             </div>
         </div>
-
-        <!-- Destques -->
-        <div>
-            <div class="texto">
-                <div>
-                    <h2 class="titulo">Destaque</h2>
-                </div>
-            </div>
-            <div class="secao-destaques">
-                <?php
-                    while ($resultadoDestaquesFinal = mysqli_fetch_array($resultadoDestaques)) {
-                    ?>
-                        <div class="destaques-produtos">
-                            <img class="foto-produtos" src="./imagemBancoDeDados/produtos/<?php echo $resultadoDestaquesFinal[11]; ?>">
-                            <div class="espacamento-produto">
-                                <!-- <p class="tag-produto">Macramê > Pulseiras</p> -->
-                                <h3 class="titulo-produto"><?php echo $resultadoDestaquesFinal['nome_produto']?></h3>
-                                <div class="conjunto-preco-comprar">
-                                    <p class="preco-produto">R$<?php echo $resultadoDestaquesFinal['preco_produto']?></p>
-                                    <button class="botao-comprar"><a href="#">Comprar</a></button>
-                                </div>
-                            </div>
+        <div class="secao-destaques">
+            <?php
+            while ($resultadoDestaquesFinal = mysqli_fetch_array($resultadoDestaques)) {
+            ?>
+                <div class="destaques-produtos">
+                    <img class="foto-produtos" src="./imagemBancoDeDados/produtos/<?php echo $resultadoDestaquesFinal[11]; ?>">
+                    <div class="espacamento-produto">
+                        <!-- <p class="tag-produto">Macramê > Pulseiras</p> -->
+                        <h3 class="titulo-produto"><?php echo $resultadoDestaquesFinal['nome_produto'] ?></h3>
+                        <div class="conjunto-preco-comprar">
+                            <p class="preco-produto">R$<?php echo $resultadoDestaquesFinal['preco_produto'] ?></p>
+                            <button class="botao-comprar"><a href="#">Comprar</a></button>
                         </div>
-                    <?php
-                    }
-                    ?>
-                <!-- <div class="destaques-produtos">
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+            <!-- <div class="destaques-produtos">
                     <img class="foto-produtos" src="./imagens/produtos/Pulseira-animal.png">
                     <div class="espacamento-produto">
                         <p class="tag-produto">Macramê > Pulseiras</p>
@@ -242,36 +244,36 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                         </div>
                     </div>
                 </div> -->
-            </div>
         </div>
+    </div>
 
-        <!-- Mais vendidos -->
+    <!-- Mais vendidos -->
+    <div>
         <div>
-            <div>
-                <div class="texto">
-                    <div>
-                        <h2 class="titulo">Mais vendidos</h2>
-                    </div>
+            <div class="texto">
+                <div>
+                    <h2 class="titulo">Mais vendidos</h2>
                 </div>
-                <div class="secao-destaques">
-                    <?php
-                        while ($resultadoMaisVendidosFinal = mysqli_fetch_array($resultadoMaisVendidos)) {
-                    ?>
-                        <div class="destaques-produtos">
-                            <img class="foto-produtos" src="./imagemBancoDeDados/produtos/<?php echo $resultadoMaisVendidosFinal[11]; ?>">
-                            <div class="espacamento-produto">
-                                <!-- <p class="tag-produto">Macramê > Pulseiras</p> -->
-                                <h3 class="titulo-produto"><?php echo $resultadoMaisVendidosFinal['nome_produto']?></h3>
-                                <div class="conjunto-preco-comprar">
-                                    <p class="preco-produto">R$<?php echo $resultadoMaisVendidosFinal['preco_produto']?></p>
-                                    <button class="botao-comprar"><a href="#">Comprar</a></button>
-                                </div>
+            </div>
+            <div class="secao-destaques">
+                <?php
+                while ($resultadoMaisVendidosFinal = mysqli_fetch_array($resultadoMaisVendidos)) {
+                ?>
+                    <div class="destaques-produtos">
+                        <img class="foto-produtos" src="./imagemBancoDeDados/produtos/<?php echo $resultadoMaisVendidosFinal[11]; ?>">
+                        <div class="espacamento-produto">
+                            <!-- <p class="tag-produto">Macramê > Pulseiras</p> -->
+                            <h3 class="titulo-produto"><?php echo $resultadoMaisVendidosFinal['nome_produto'] ?></h3>
+                            <div class="conjunto-preco-comprar">
+                                <p class="preco-produto">R$<?php echo $resultadoMaisVendidosFinal['preco_produto'] ?></p>
+                                <button class="botao-comprar"><a href="#">Comprar</a></button>
                             </div>
                         </div>
-                    <?php
-                    }
-                    ?>
-                    <!-- <div class="destaques-produtos">
+                    </div>
+                <?php
+                }
+                ?>
+                <!-- <div class="destaques-produtos">
                         <img class="foto-produtos" src="./imagens/produtos/Pulseira-animal.png">
                         <div class="espacamento-produto">
                             <p class="tag-produto">Macramê > Pulseiras</p>
@@ -315,16 +317,16 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                             </div>
                         </div>
                     </div> -->
-                </div>
-
-                <?php
-                include './Componentes/rodapeHome.php';
-                include './Componentes/sugestaoProduto.php';
-                ?>
-                <script src="./Componentes/js/sugestaoProduto.js"></script>
-                <script src="./Componentes/js/checkboxMenu.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
             </div>
+
+            <?php
+            include './Componentes/rodapeHome.php';
+            include './Componentes/sugestaoProduto.php';
+            ?>
+            <script src="./Componentes/js/sugestaoProduto.js"></script>
+            <script src="./Componentes/js/checkboxMenu.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+        </div>
 
 </body>
 

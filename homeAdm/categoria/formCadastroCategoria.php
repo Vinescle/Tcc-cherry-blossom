@@ -148,7 +148,7 @@
 
     <div class="conteudo-principal">
         <div class="main">
-            <form  action="cadastroGravaCategoria.php" method="POST">
+            <form action="cadastroGravaCategoria.php" method="POST">
                 <div class="formulario-funcoes">
                     <div class="input-conjunto">
                         <label class="label-texto">Nome da categoria</label>

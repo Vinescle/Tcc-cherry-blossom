@@ -74,6 +74,8 @@
 
     padding-left: 25px;
 
+    outline: none;
+
     background: url('../../src-icons/lupaRosa.svg');
     background-position: 0.5em;
     background-size: 16px;
