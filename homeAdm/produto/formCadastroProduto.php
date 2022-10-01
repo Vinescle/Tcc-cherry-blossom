@@ -162,7 +162,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                         <div class="conjunto-gerais">
                             <label class="input-texto">Peso</label>
                             <div class="conjunto-icone-input">
-                                <label class="botao-icone_texto">KG</label>
+                                <label class="botao-icone_kg">Kg</label>
                                 <input class="input-label-gerais" type="text" name="pesoProduto">
                             </div>
                         </div>
