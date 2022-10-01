@@ -5,6 +5,7 @@
     width: calc(100% - 107px);
     margin-left: 107px;
     margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 .main {
@@ -72,52 +73,4 @@ ion-icon {
 .botao-icone {
     color: #FFF;
     background-color: #FF84F0;
-}
-
-/* Botão Salvar */
-
-.input-salvar {
-    margin-top: 23px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.input-salvar input[type="submit"] {
-    cursor: pointer;
-    position: absolute;
-
-    opacity: 0;
-
-    width: 131px;
-    height: 26px;
-
-    left: 0;
-    top: 0;
-}
-
-.botao-salvar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    gap: 5px;
-
-    position: relative;
-
-    font-size: 16px;
-    font-weight: 500;
-    font-family: 'Inter';
-    color: #FFF;
-
-    width: 130px;
-    height: 25px;
-
-    background-color: #FF84F0;
-    border: solid 2px #FF84F0;
-    border-radius: 13px;
-
-    overflow: hidden;
 }

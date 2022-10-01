@@ -41,7 +41,7 @@
                     <div class="espacamento-botoes">
                         <div class="botao-opcoes">
                             <div class="botao-icone">
-                                <a class="botao-texto">
+                                <a href="./marcas/formCadastroMarca.php" class="botao-texto">
                                     <ion-icon name="add-outline"></ion-icon>
                                     Cadastrar
                                 </a>
