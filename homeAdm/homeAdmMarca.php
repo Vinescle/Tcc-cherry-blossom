@@ -18,6 +18,10 @@
         include '../conexao/conexao.php';
         $sql = "SELECT * FROM tb_marcas";
         $resultado = mysqli_query($conexao, $sql);
+        // $resultadoBolas = mysqli_fetch_array($resultado);
+        // var_dump($resultadoBolas);
+        // exit();
+        
     ?>
 
     <div style="display: flex;">
@@ -82,8 +86,8 @@
                 while ($resultadoBolas = mysqli_fetch_array($resultado)) {
             ?>
                     <div class="marca-bolas">
-                        <div class="marca-circulo" style="background-color:<?php echo $resultadoBolas['icon_url']; ?>;">
-                            <img src="../imagemBancoDeDados/marcas/<?php echo $resultadoBolas['cor_marca'] ?>" class="marca-imagem" value="<?php ?>">
+                        <div class="marca-circulo" style="background-color:<?php echo $resultadoBolas['cor_marca']; ?>">
+                        <div><img src="../imagemBancoDeDados/marcas/<?php echo $resultadoMarcasFinal['icon_url']; ?>" class="imagem-marcas"></div>
                         </div>
                     </div>
             <?php

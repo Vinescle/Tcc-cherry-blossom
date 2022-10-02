@@ -5,15 +5,16 @@ include './conexao/conexao.php';
 $sqlMarcas = "SELECT * FROM tb_marcas LIMIT 7";
 $resultadoMarcas = mysqli_query($conexao, $sqlMarcas);
 
-$sqlDestaques = "SELECT * FROM tb_produtos a INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto GROUP BY id_produtos";
+$sqlDestaques = "SELECT * FROM tb_produtos a INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto GROUP BY id_produtos LIMIT 8";
 $resultadoDestaques = mysqli_query($conexao, $sqlDestaques);
 
-$sqlMaisVendidos = "SELECT * FROM tb_produtos a INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto GROUP BY id_produtos";
+$sqlMaisVendidos = "SELECT * FROM tb_produtos a INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto GROUP BY id_produtos LIMIT 4";
 $resultadoMaisVendidos = mysqli_query($conexao, $sqlMaisVendidos);
 
 $sqlConfigAdm = "SELECT * FROM tb_adm_config";
 $resultadoConfigAdm = mysqli_query($conexao, $sqlConfigAdm);
 $configAdm = mysqli_fetch_array($resultadoConfigAdm);
+
 ?>
 
 <!DOCTYPE html>
@@ -97,13 +98,12 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
             <div class="marcas-container">
                 <?php
                 while ($resultadoMarcasFinal = mysqli_fetch_array($resultadoMarcas)) {
-
                 ?>
                     <div class="bolas-marcas" style="background-color: <?php echo $resultadoMarcasFinal['cor_marca'] ?>;">
                         <div><img src="./imagemBancoDeDados/marcas/<?php echo $resultadoMarcasFinal['icon_url'] ?>" class="imagem-marcas"></div>
                     </div>
                 <?php
-                }
+                    }
                 ?>
             </div>
             <!-- <div class="marcas-container">
@@ -145,7 +145,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                 <div class="destaques-produtos">
                     <img class="foto-produtos" src="./imagemBancoDeDados/produtos/<?php echo $resultadoDestaquesFinal[11]; ?>">
                     <div class="espacamento-produto">
-                        <!-- <p class="tag-produto">Macramê > Pulseiras</p> -->
+                        <<p class="tag-produto">Macramê > Pulseiras</p>
                         <h3 class="titulo-produto"><?php echo $resultadoDestaquesFinal['nome_produto'] ?></h3>
                         <div class="conjunto-preco-comprar">
                             <p class="preco-produto">R$<?php echo $resultadoDestaquesFinal['preco_produto'] ?></p>

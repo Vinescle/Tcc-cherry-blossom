@@ -43,11 +43,11 @@
 
                         <div class="conjunto-escolherCor">
                             <!-- elemento do color picker com a cor padrão #ffffff -->
-                            <hex-color-picker class="selecionador-cor" color="#ffff"></hex-color-picker>
+                            <hex-color-picker class="selecionador-cor" name="corMarca" color="#ffff"></hex-color-picker>
                             <!-- inout para poder digitar a cor caso não quera escolher pelo color picker -->
-                            <input class="botao-digitaCor" type="text" id="input-cor" onpaste="atualizarColorPicker()" />
+                            <input class="botao-digitaCor" type="text" id="input-cor" name="corMarca"  onpaste="atualizarColorPicker()" />
                             <!-- botão que vc clica pra atualizar dps que digita a cor no campo acima, fiz isso pra ser mais fácil e evitar dor de cabeça -->
-                            <button type="button" class="botao-atualizaCor" onclick="atualizarColorPicker()">Atualizar</button>
+                            <button type="button" class="botao-atualizaCor" name="corMarca"  onclick="atualizarColorPicker()">Atualizar</button>
                         </div>
                     </div>
 

@@ -1,9 +1,8 @@
 <?php
-
 include '../../conexao/conexao.php';
 $nomeMarca = $_POST['nomeMarca'];
 $corMarca = $_POST['corMarca'];
-$iconUrl = [];
+//$iconUrl = [];
 $iconUrl= $_FILES['iconUrl'];
 $nomeIcone = addslashes(md5($iconUrl['tmp_name'])."-".$iconUrl['name']);
 
@@ -12,5 +11,7 @@ $sql = "INSERT INTO tb_marcas(nome_marca, icon_url,cor_marca) VALUES ('$nomeMarc
 mysqli_query($conexao,$sql);
 
 move_uploaded_file($iconUrl['tmp_name'],"../../imagemBancoDeDados/marcas/$nomeIcone");
+
+header('location:../homeAdmMarca.php');
 
 ?>
