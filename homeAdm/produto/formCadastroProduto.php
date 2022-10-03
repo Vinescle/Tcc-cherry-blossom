@@ -31,7 +31,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
     ?>
 
     <div style="display: flex;">
-        <?php include '../../Componentes/menuAdm.php'; ?>
+        <?php include '../../Componentes/formMenuAdm.php'; ?>
     </div>
 
     <div class="conteudo-principal">

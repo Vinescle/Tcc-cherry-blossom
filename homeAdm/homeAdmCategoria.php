@@ -192,7 +192,7 @@
                         <div class="espacamento-botoes">
                             <div class="botao-opcoes">
                                 <div class="botao-icone">
-                                    <a class="botao-texto" href="./subCategoria//formCadastroSubCategoria.php">
+                                    <a class="botao-texto" href="./subCategoria/formCadastroSubCategoria.php">
                                         <ion-icon name="add-outline"></ion-icon>
                                     </a>
                                 </div>
