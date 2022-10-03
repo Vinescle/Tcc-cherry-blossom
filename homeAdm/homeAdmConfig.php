@@ -85,6 +85,16 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
         .botao-banner:hover{
             opacity: 1;
         }
+
+        .input-google{
+            /* position: relative; */
+        }
+
+        .icon{
+            position: absolute;
+            top: 172px;
+            right: 50px;
+        }
     </style>
 </head>
 
@@ -120,8 +130,12 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                             <button class="botao-input" disabled>
                                 <ion-icon class="icone-input" name="logo-google"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-whatsapp" name="senha" required value="<?php echo $configAdm['senha'] ?>" type="text"> 
+                            <input id="senha" class="input-conjunto input-google" name="senha" required value="<?php echo $configAdm['senha'] ?>" type="password">
+                            <div class="icon" style="cursor:pointer;">
+                                <ion-icon id="senhaIcon" class="icon-eyes" name="eye-off-outline"></ion-icon>
+                            </div>
                         </div>
+                        
                     </div>
 
                     <div class="form-input">
@@ -210,6 +224,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
     <input type="text" value="5" id="pagina-verificacao" style="display:none;">
 
     <script src="./js/verificaIconPagina.js"></script>
+    <script src="./js/senhaIcon.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
