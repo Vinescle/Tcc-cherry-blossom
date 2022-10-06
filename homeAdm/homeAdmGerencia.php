@@ -23,7 +23,7 @@ try {
     <link href="../css/reset.css" rel="stylesheet">
     <link href="../css/estilo-home.css" rel="stylesheet">
     <link href="../css/menuAdm.css" rel="stylesheet">
-    <link href="../css/homeAdm/homeAdmGerencia.css" rel="stylesheet">
+    <!-- <link href="../css/homeAdm/homeAdmGerencia.css" rel="stylesheet">   -->
     <title>Gerenciamento -- ADM</title>
 
     <style>
@@ -56,7 +56,7 @@ try {
 </head>
 
 <body>
-    <?php include '../Componentes/cabecalhoHomeAdm.php'; ?>
+        <?php include '../Componentes/cabecalhoHomeAdm.php'; ?>
     <div style="display: flex;">
         <?php include '../Componentes/menuAdm.php'; ?>
     </div>

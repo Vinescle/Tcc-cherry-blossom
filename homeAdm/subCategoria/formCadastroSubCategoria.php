@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <title>Cadastro sub Categoria</title>
 
-    <link href="../../../css/reset.css" rel="stylesheet">
-    <link href="../../../css/estilo-home.css" rel="stylesheet">
-    <link href="../../../css/menuAdm.css" rel="stylesheet">
+    <link href="../../css/reset.css" rel="stylesheet">
+    <link href="../../css/estilo-home.css" rel="stylesheet">
+    <link href="../../css/menuAdm.css" rel="stylesheet">
 
     <style>
         .conteudo-principal {
@@ -170,7 +170,7 @@
     ?>
 
     <div style="display: flex;">
-        <?php include '../../Componentes/menuAdm.php'; ?>
+        <?php include '../../Componentes/formMenuAdm.php'; ?>
     </div>
 
     <div class="conteudo-principal">
