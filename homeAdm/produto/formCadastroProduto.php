@@ -57,9 +57,9 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
 
                         <div class="conjunto-precoLabel">
                             <label class="input-texto">Preço Promocional</label>
-                            <div class="conjunto-icone-input">
+                            <div class="conjunto-icone-input" >
                                 <ion-icon class="botao-icone" name="wallet-outline"></ion-icon>
-                                <input class="input-label-nome" type="text" name="precoPromocional">
+                                <input class="input-label-nome" type="text" name="precoPromocional" disabled>
                             </div>
                         </div>
                     </div>

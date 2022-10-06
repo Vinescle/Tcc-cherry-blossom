@@ -29,6 +29,7 @@
 
         <a href="./homeAdmMarca.php"><ion-icon name="balloon-outline" id="balloon" class="icones-menu"></ion-icon></a>
 
+        <a href="./homeAdmEncomendas.php"><ion-icon name="bag-outline" id="bag" class="icones-menu"></ion-icon></a>
     </div>
 
     <a href="./homeAdmConfig.php"><ion-icon name="settings-outline" id="settings" class="icone-engrenagem"></ion-icon></a>

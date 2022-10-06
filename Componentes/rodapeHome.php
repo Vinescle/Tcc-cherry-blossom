@@ -24,7 +24,7 @@
 
         .rodape {
             margin: 0px 0px 0px 0px;
-            padding: 5px 130px 30px 130px;
+            padding: 10px 130px 10px 130px;
             border-top: 1px solid #A3B3CC;
             display: flex;
             align-items: center;
@@ -92,7 +92,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 10px;
         }
 
         .conteudo-coluna-tres {
@@ -145,7 +145,7 @@
         .coluna-institucional {
             font-size: 17px;
             font-weight: 700;
-            margin: 0 0 15px 0;
+            margin: 0 0 0 0;
         }
 
         
@@ -184,8 +184,6 @@
                 <h3 class="colunas-titulos">AJUDA E SUPORTE</h3>
             </div>
             <div class="texto-coluna-dois">
-                <p class="texto-colunas"><a href="#">Como comprar</a></p>
-                <p class="texto-colunas"><a href="#">Cuidados Com os Produtos</a></p>
                 <p class="texto-colunas"><a href="#">O que é Papercraft?</a></p>
                 <p class="texto-colunas"><a href="#">O que é Hama Beads?</a></p>
                 <p class="texto-colunas"><a href="#">O que é Macramê?</a></p>
@@ -197,9 +195,9 @@
                 <h3 class="coluna-institucional">INSTITUCIONAL</h3>
             </div>
             <div class="conteudo-coluna-tres">
-                <p class="texto-colunas"><a href="#">Sobre Nós</a></p>
-                <p class="texto-colunas"><a href="#">Política de Privacidade</a></p>
-                <p class="texto-colunas"><a href="#">Termos de Uso e Navegação</a></p>
+                <p class="texto-colunas"><a href="/rodape-itens/sobre-nos.php">Sobre Nós</a></p>
+                <p class="texto-colunas"><a href="rodape-itens/politicaPrivacidade.php">Política de Privacidade</a></p>
+                <p class="texto-colunas"><a href="rodape-itens/termos.php">Termos de Uso e Navegação</a></p>
             </div>
             <div class="noticias-coluna-tres">
                 <h4 class="texto-footer-input">SE INSCREVA PARA RECEBER NOVIDADES!</h4>
