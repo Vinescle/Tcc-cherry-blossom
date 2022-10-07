@@ -45,7 +45,7 @@
         }
 
         .botao-pesquisa {
-            background: url('../src-icons/lupa.svg');
+            background: url('http://localhost/tcc/tcc-cherry-blossom/src-icons/lupa.svg');
             background-position: 0.5em;
             background-size: 16px;
             background-repeat: no-repeat;
@@ -55,7 +55,7 @@
 
 <header class="cabecalho">
     <div class="cabecalho-logo">
-        <img src="../imagens/site/Logo_PNG_normal.png" class="logo-menu">
+        <img src="http://localhost/tcc/tcc-cherry-blossom/imagens/site/Logo_PNG_normal.png" class="logo-menu">
         <div class="cabecalho-menu">
             <ion-icon class="icones-cabecalho_menu" name="menu"></ion-icon>
             <h2 class="botao-menu">MENU</h2>

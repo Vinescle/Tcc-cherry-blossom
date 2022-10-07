@@ -51,8 +51,11 @@ ion-icon {
 }
 
 .input-campo {
-    width: 100%;
+    width: calc(100% - 36px);
     height: 23px;
+
+    padding-left: 35px;
+    outline: none;
 
     border: solid 1px #FF84F0;
     border-radius: 10px;

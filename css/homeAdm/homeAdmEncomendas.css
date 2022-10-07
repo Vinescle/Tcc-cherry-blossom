@@ -15,6 +15,8 @@ main {
 .conteudo-principal {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    
     gap: 50px;
 
     width: 100%;
@@ -26,11 +28,14 @@ main {
 .card-detalhes {
     width: 100%;
     background-color: #F3F3F3;
-    padding: 2rem;
 
     display: flex;
     flex-direction: column;
+
+    padding: 2rem 2rem;
     gap: 2rem;
+
+    border-radius: 15PX;
 }
 
 .detalhes-principais {
@@ -39,31 +44,28 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
 }
 
 .secoes-detalhes-principais {
-    width: 15%;
+    width: 20%;
 
     display: flex;
     flex-direction: column;
 
     gap: 20%;
 
-    text-align: left;
+    text-align: center;
 }
 
-.secoes-detalhes-botao {
-    width: 15%;
+.secoes-detalhes-checkbox {
+    width: 20%;
 
     display: flex;
     flex-direction: column;
 
-    text-align: right;
-}
+    gap: 20%;
 
-.tabela-checkbox_titulo {
-    margin-left: 2rem;   
+    text-align: center;
 }
 
 /* Checkbox Concluído */
@@ -71,7 +73,6 @@ main {
 .secoes-detalhes-principais input[type="checkbox"] {
     display: inline-block;
 }
-
 
 /* Texto Card */
 
@@ -136,12 +137,57 @@ main {
     flex-direction: column;
 }
 
+.detalhes-produto {
+    width: 100%;
+}
+
 /* Detalhes Produto */
 
 .detalhes-produto {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 100px;
+
+    margin: 0 0 2rem 0;
+    padding: 2rem 0 0 0;
+
+    border-top: solid 1px #C9C9C9;
+}
+
+.produtos-comprados {
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+}
+
+.div-compras {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.valor-produtos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.div-valor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    gap: 10%;
+    height: 80%
+}
+
+.div-total {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5%;
+    height: 20%
 }
 
 /* Detalhes Endereço */
@@ -150,4 +196,14 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    padding: 2rem 0 0 0;
+
+    border-top: solid 1px #C9C9C9;
+}
+
+.div-frete {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
 }

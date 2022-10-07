@@ -45,7 +45,7 @@
 }
 
 .input-conjunto {
-    height: 24px;
+    height: 27px;
 
     border: solid 2px #FF84F0;
     border-radius: 13px;
@@ -70,7 +70,7 @@ ion-icon {
     border: none;
     border-radius: 13px 0 0 13px;
 
-    height: 30px;
+    height: 27px;
 }
 
 .icone-input {

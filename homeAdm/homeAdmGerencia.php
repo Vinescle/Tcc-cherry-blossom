@@ -23,7 +23,7 @@ try {
     <link href="../css/reset.css" rel="stylesheet">
     <link href="../css/estilo-home.css" rel="stylesheet">
     <link href="../css/menuAdm.css" rel="stylesheet">
-    <!-- <link href="../css/homeAdm/homeAdmGerencia.css" rel="stylesheet">   -->
+    <link href="../css/homeAdm/homeAdmGerencia.css" rel="stylesheet">  
     <title>Gerenciamento -- ADM</title>
 
     <style>

@@ -86,10 +86,6 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
             opacity: 1;
         }
 
-        .input-google{
-            /* position: relative; */
-        }
-
         .icon{
             position: absolute;
             top: 172px;

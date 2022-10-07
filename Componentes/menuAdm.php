@@ -33,7 +33,6 @@
     </div>
 
     <a href="./homeAdmConfig.php"><ion-icon name="settings-outline" id="settings" class="icone-engrenagem"></ion-icon></a>
-
 </div>
 </body>
 
