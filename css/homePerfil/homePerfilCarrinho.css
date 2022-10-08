@@ -1,0 +1,288 @@
+/* Formulário */
+
+.agrupamento {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+}
+
+.conjunto-dadosBasicos {
+    display: flex;
+    flex-direction: row;
+
+    background-color: #F3F3F3;
+
+    border-radius: 15px;
+
+    padding: 1rem 1rem;
+}
+
+.conjunto-divs {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.label-titulo {
+    color: #323232;
+    font-family: 'Inter';
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* Texto */
+
+.input-texto {
+    margin: 0 0 0 10px;
+
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 700;
+    color: #323232;
+}
+
+.conjunto-informacoes {
+    display: flex;
+    flex-direction: column;
+
+    width: 60%;
+}
+
+.conjunto-precoLabel {
+    display: flex;
+    flex-direction: column;
+
+    width: 20%;
+}
+
+.conjunto-icone-input {
+    width: 100%;
+
+    margin-top: 5px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.input-nome-preco {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    gap: 3rem;
+}
+
+.input-label-nome {
+    border: solid 1px #FF84F0;
+    border-radius: 10px;
+    height: 23px;
+    width: calc(100% - 35px);
+
+    padding-left: 35px;
+
+    outline: none;
+}
+
+/* Ícone Formulario */
+
+ion-icon {
+    font-size: 20px;
+}
+
+.botao-icone {
+    position: absolute;
+    background-color: #FF84F0;
+    border: none;
+    border-radius: 10px 0 0 10px;
+
+    padding: 0px 6px;
+    height: 26px;
+
+    text-align: center;
+
+    color: #FFF;
+    background-color: #FF84F0;
+}
+
+/* Endereços */
+
+.enderecos {
+    width: 40%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+}
+
+.texto-label {
+    color: #323232;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Pedidos */
+
+.div-pedidos {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecalho-pedidos {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    padding: 0 0 1rem 0;
+
+    border-bottom: solid 1px #C9C9C9;
+}
+
+/* Produtos */
+
+.produto-dados {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    margin: 1rem 0;
+}
+
+.produto-imagemNome {
+    width: 40%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+.produto-quantidade {
+    width: 20%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+.produto-preco {
+    width: 20%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.produto-apagar {
+    width: 20%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.produto-label {
+    color: #323232;
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.produtos {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.imagem-produto {
+    width: 70px;
+    height: 70px;
+
+    border: solid 1px #323232;
+    border-radius: 15px;
+
+    overflow: hidden;
+}
+
+/* Total carrinho */
+
+.total {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    margin: 1rem 0;
+}
+
+.total-label {
+    width: 20%;
+
+    display: flex;
+    justify-content: center;
+}
+
+/* Botão Salvar */
+
+.input-salvar {
+    margin-top: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 30px;
+}
+
+.input-salvar input[type="submit"] {
+    cursor: pointer;
+    position: absolute;
+
+    opacity: 0;
+
+    width: 131px;
+    height: 30px;
+
+    left: 0;
+    top: 0;
+}
+
+.botao-salvar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    position: relative;
+
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Inter';
+    color: #FFF;
+
+    width: 130px;
+    height: 28px;
+
+    background-color: #FF84F0;
+    border: solid 2px #FF84F0;
+    border-radius: 13px;
+
+    overflow: hidden;
+}
