@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+main {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    margin: 1.5rem 0 2.5rem 0;
+}
+
+.conteudo-principal {
+    width: 70%;
+
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+}
+
+/* Conteudo */
+
+.filtros {
+    width: 20%;
+    height: fit-content;
+
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    border-radius: 15px;
+    background-color: #FFF2FD;
+}
+
+.label-titulo-filtro {
+    color: #323232;
+    font-family: 'Inter';
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.label-categorias-filtro {
+    color: #323232;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.label-conteudo-filtro {
+    color: #323232;
+    font-family: 'Inter';
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Botão Salvar */
+
+.input-salvar {
+    margin-top: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 30px;
+}
+
+.input-salvar input[type="submit"] {
+    cursor: pointer;
+    position: absolute;
+
+    opacity: 0;
+
+    width: 131px;
+    height: 30px;
+
+    left: 0;
+    top: 0;
+}
+
+.botao-salvar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    position: relative;
+
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Inter';
+    color: #FFF;
+
+    width: 130px;
+    height: 28px;
+
+    background-color: #FF84F0;
+    border: solid 2px #FF84F0;
+    border-radius: 13px;
+
+    overflow: hidden;
+}
+
+/* Produtos */
+
+.produtos {
+    width: 75%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.destaques-produtos {
+    display: inline-block;
+
+    border: 1px solid #A3B3CC;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.foto-produtos {
+    max-width: 200px;
+    min-height: 150px;
+    border-bottom: 1px solid #A3B3CC;
+    width: auto;
+    height: auto;
+}
+
+.tag-produto {
+    font-weight: 400;
+    color: #838FAE;
+    font-size: 9px;
+    font-family: 'Inter', sans-serif;
+    margin: 0px;
+}
+
+.titulo-produto {
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 5px;
+    color: #323232;
+}
+
+.conjunto-preco-comprar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 5px;
+}
+
+.preco-produto {
+    color: #323232;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    margin: 0px;
+    font-size: 12px;
+}
+
+.botao-comprar {
+    font-family: 'Inter', sans-serif;
+    background-color: transparent;
+    border: none;
+    color: #1467FF;
+    font-size: 12px;
+}
+
+.espacamento-produto {
+    margin: 10px 15px 10px 15px;
+}
