@@ -59,13 +59,19 @@ include '../conexao.php';
                         </div>
 
                         <div class="enderecos">
-                            <div>
-                                <input type="checkbox">
+                            <div class="center">
+                                <div class="tabela-checkbox_conteudo">
+                                    <input id="checkbox-conteudo1" type="checkbox">
+                                    <label for="checkbox-conteudo1" class="center"></label>
+                                </div>
                                 <label class="texto-label">R$ 21,58 - Correios PAC (1 a 8 dias úteis)</label>
                             </div>
 
-                            <div>
-                                <input type="checkbox">
+                            <div class="center">
+                                <div class="tabela-checkbox_conteudo">
+                                    <input id="checkbox-conteudo2" type="checkbox">
+                                    <label for="checkbox-conteudo2" class="center"></label>
+                                </div>
                                 <label class="texto-label">R$ 21,58 - SEDEX (1 a 8 dias úteis)</label>
                             </div>
                         </div>

@@ -17,10 +17,35 @@
 
   outline: none;
 
-  background: url('http://localhost/novo/assets/icones/lupaRosa.svg');
+  background: url('http://localhost/tcc/tcc-cherry-blossom/novo/assets/icones/lupaRosa.svg');
   background-position: 0.5em;
   background-size: 16px;
   background-repeat: no-repeat;
+}
+
+/* Checkbox Cabeçalho conteúdo*/
+
+.tabela-checkbox_conteudo input {
+  display: none;
+}
+
+.tabela-checkbox_conteudo input+label:before {
+  content: '';
+  width: 1rem;
+  height: 1rem;
+
+  background-color: #FFFFFF;
+
+  border-radius: 5px;
+  border: solid 2px #FF84F0;
+
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.tabela-checkbox_conteudo input:checked+label:before {
+  background-image: url('http://localhost/tcc/tcc-cherry-blossom/novo/assets/icones/checked.svg');
+  background-color: #FF84F0;
 }
 
 .botao-texto {
@@ -161,4 +186,9 @@
 .espaco-entre {
   display: flex;
   justify-content: space-between;
+}
+
+.center {
+  display: flex;
+  align-items: center;
 }

@@ -181,31 +181,6 @@
   background-color: #FF84F0;
 }
 
-/* Checkbox Cabeçalho conteúdo*/
-
-.tabela-checkbox_conteudo input {
-  display: none;
-}
-
-.tabela-checkbox_conteudo input+label:before {
-  content: '';
-  width: 1rem;
-  height: 1rem;
-
-  background-color: #FFFFFF;
-
-  border-radius: 5px;
-  border: solid 2px #FF84F0;
-
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.tabela-checkbox_conteudo input:checked+label:before {
-  background-image: url('../../src-icons/checked.svg');
-  background-color: #FF84F0;
-}
-
 /* Porcentagem tabela */
 
 .tabela-principal_tituloProduto {
