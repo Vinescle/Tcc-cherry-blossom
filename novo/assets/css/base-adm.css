@@ -1,0 +1,152 @@
+.conteudo-principal {
+  gap: 10%;
+  width: 100%;
+}
+
+.main {
+  margin: 2.25rem;
+}
+
+.botao-pesquisa_produtos {
+  font-size: 15px;
+
+  border: solid 2px #EC55D9;
+  border-radius: 15px;
+
+  padding-left: 25px;
+
+  outline: none;
+
+  background: url('http://localhost/novo/assets/icones/lupaRosa.svg');
+  background-position: 0.5em;
+  background-size: 16px;
+  background-repeat: no-repeat;
+}
+
+.botao-texto {
+  background-color: #FF84F0;
+  border-radius: 40px;
+  padding: 0.25em 0.5em;
+
+  display: flex;
+  flex-direction: row;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  border: 0;
+}
+
+.botao-texto ion-icon {
+  color: #FFFFFF;
+  font-size: 20px;
+}
+
+.setas {
+  color: #FFFFFF;
+  border-radius: 12px;
+}
+
+.botoes-setas {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.botao-opcoes {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+}
+
+.input-container {
+  display: flex;
+  width: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-160 {
+  width: 160%;
+}
+
+.botao-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FF84F0;
+  border: none;
+  border-radius: 13px 0 0 13px;
+}
+
+.icone-input {
+  color: #FFF;
+  background-color: #FF84F0;
+}
+
+.input-conjunto {
+  border-radius: 0 13px 13px 0;
+  border: solid 2px #FF84F0;
+
+  width: 100%;
+
+  outline: none;
+}
+
+.conjunto-imagens {
+  width: 100%;
+}
+
+.botao-texto:hover {
+  background: #EC55D9;
+  color: #fff;
+}
+
+.input-texto {
+  margin: 0 0 0 10px;
+  color: #323232;
+  font-family: 'Inter';
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.centralizar {
+  margin: auto;
+}
+
+.margem-topo {
+  margin-top: 1rem;
+}
+
+.cantos-quadrados {
+  border-radius: 0;
+}
+
+.sem-borda-esquerda {
+  border-top: solid 2px #FF84F0;
+  border-bottom: solid 2px #FF84F0;
+  border-left: solid 2px #FF84F0;
+  border-right: 0;
+}
+
+.icon-input-final {
+  border-radius: 0 13px 13px 0;
+  border-top: solid 2px #FF84F0;
+  border-bottom: solid 2px #FF84F0;
+  border-right: solid 2px #FF84F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 0.5rem;
+}
+
+.min-width-botao {
+  min-width: 6rem;
+}

@@ -1,0 +1,206 @@
+.login-menu {
+  box-shadow: 5px 5px 5px 0px #515151;
+  background-color: #FCFFD7;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  margin-left: 28%;
+  padding: 0.7em;
+  border-radius: 16px;
+  gap: 10px;
+}
+
+.categorias-menu {
+  box-shadow: 5px 5px 5px 0px #515151;
+  background-color: #FCFFD7;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  padding: 0.7em;
+  border-radius: 16px;
+  gap: 10px;
+}
+
+.login-menu,
+.categorias-menu {
+  display: none;
+}
+
+.login-checkbox:checked~.login-menu,
+.categorias-checkbox:checked~.categorias-menu {
+  display: block;
+}
+
+.login-checkbox,
+.categorias-checkbox {
+  display: none;
+}
+
+.titulo-login,
+.titulo-categorias {
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 18px;
+  color: #515151;
+  padding-bottom: 0.1em;
+}
+
+.titulo-texto {
+  font-family: 'Inter';
+  font-weight: 400;
+  padding-top: 0.25em;
+}
+
+.login-texto,
+.categorias-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.formulario-pesquisa {
+  display: flex;
+  background-color: white;
+  font-family: 'Inter';
+  font-size: 13px;
+  border-radius: 500px;
+}
+
+.botao-pesquisa {
+  background: url('../../icones/lupa.svg');
+  background-position: 0.5em;
+  background-size: 16px;
+  background-repeat: no-repeat;
+}
+
+.cabecalho {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: #FCFFD7;
+  height: 3rem;
+
+  box-shadow: 0px 1px 2px gray;
+
+  z-index: 80;
+  position: sticky;
+  top: 0px;
+}
+
+.imagem-banner {
+  width: 100%;
+}
+
+.cabecalho-logo {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+
+  align-items: center;
+}
+
+.cabecalho-menu {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+}
+
+.icones-cabecalho_menu {
+  height: 34px;
+  width: 40px;
+
+  color: #515151;
+}
+
+.cabecalho-pesquisa {
+  margin-right: 23px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icone-cabecalho_pesquisa {
+  height: 26px;
+  width: 24px;
+
+  color: #323232;
+}
+
+.botao-pesquisa {
+  width: 370px;
+  height: 22px;
+
+  padding-left: 30px;
+
+  background-color: #FCFCF5;
+  border: solid 2px #323232;
+  border-radius: 30px;
+}
+
+.botao-menu {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: #515151;
+  font-size: 16px;
+
+  margin: 0 10px 0 1px;
+}
+
+.logo-menu {
+  margin-left: 15px;
+
+  width: 35px;
+}
+
+.botao-enviar {
+  position: absolute;
+  margin-top: 2px;
+  margin-left: 8px;
+
+  border: none;
+  background: transparent;
+}
+
+.menu-dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  width: auto;
+  box-shadow: 5px 5px 5px 0px #515151;
+  background: #FCFFD7;
+  border-radius: 16px;
+  gap: 10px;
+  padding: .75rem;
+  border: 0px solid black;
+  min-width: auto;
+}
+
+.dropdown-menu>a {
+  color: #323232;
+  text-decoration: none;
+  flex-wrap: wrap;
+}
+
+.dropdown-menu>span {
+  font-weight: 700;
+  color: #323232;
+}
+
+.limpa-botao {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

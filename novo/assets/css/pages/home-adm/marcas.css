@@ -1,0 +1,88 @@
+.icone-selecionado {
+  background-color: #EC55D9;
+  color: #FFFFFF;
+}
+
+.conteudo-acoes {
+  margin-top: 2rem;
+}
+
+/* Barra de pesquisa */
+
+.config-gerenciamento {
+  outline: none;
+  border: 2px solid #FF84F0;
+  background-color: #FFFFFF;
+  width: 420px;
+  height: 30px;
+}
+
+.config-gerenciamento ion-icon {
+  color: #FF84F0;
+  border: none;
+}
+
+.conteudo-acoes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.grupo-filtro {
+  display: flex;
+  flex-direction: row;
+}
+
+.conteudo-acoes-cadastrar {
+  background-color: #FF84F0;
+  color: #FFFFFF;
+  font-family: 'Inter';
+  padding: .4% 2% .4% 2%;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 600;
+
+  transition: .6s;
+
+}
+
+.conteudo-acoes-cadastrar:hover {
+  background-color: #EC55D9;
+  color: #FFFFFF;
+}
+
+.espacamento-botoes {
+  display: flex;
+}
+
+/* Bolas */
+
+.marcas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 29px;
+
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0 40px;
+}
+
+.marca-circulo {
+  display: flex;
+  align-items: center;
+
+  border-radius: 1000px;
+  width: 100px;
+  height: 100px;
+  background: #A5FF7B;
+  overflow: hidden;
+}
+
+.marca-imagem {
+  width: 110%;
+  height: auto;
+  transform: translate(-5px, 5px);
+}

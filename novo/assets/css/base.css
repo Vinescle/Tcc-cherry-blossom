@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;700&display=swap');
+
+html,
+body {
+  min-height: 100%;
+}
+
+* {
+  color: #515151;
+}
+
+a {
+  text-decoration: none;
+  color: #515151;
+}
+
+a:hover {
+  color: #515151;
+}
+
+.coluna {
+  margin-left: 8%;
+}
+
+.branco {
+  color: #fff;
+}
+
+/* Componentes focados no menu admin */

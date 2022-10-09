@@ -1,0 +1,229 @@
+.icone-selecionado {
+  background-color: #EC55D9;
+  color: #FFFFFF;
+}
+
+
+/* Botões */
+.config-gerenciamento {
+  outline: none;
+  border: 2px solid #FF84F0;
+  background-color: #FFFFFF;
+  width: 420px;
+}
+
+.config-gerenciamento ion-icon {
+  color: #FF84F0;
+  border: none;
+}
+
+.conteudo-acoes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.grupo-filtro {
+  display: flex;
+  flex-direction: row;
+}
+
+.conteudo-acoes-cadastrar {
+  background-color: #FF84F0;
+  color: #FFFFFF;
+  font-family: 'Inter';
+  padding: .4% 2% .4% 2%;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 600;
+
+  transition: .6s;
+
+}
+
+.conteudo-acoes-cadastrar:hover {
+  background-color: #EC55D9;
+  color: #FFFFFF;
+}
+
+.espacamento-botoes {
+  display: flex;
+}
+
+/* Tabelas */
+
+.conjunto-tabelas {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 0;
+  width: 100%;
+  gap: 5%;
+}
+
+.tabela-destaques {
+  border: solid 1px #FF84F0;
+  border-radius: 10px;
+
+  width: 100%;
+
+  font-family: 'Inter';
+
+  overflow: hidden;
+}
+
+.tabela-destaques_titulo {
+  width: 100%;
+  padding: 10px;
+
+  font-weight: 700;
+  font-size: 20px;
+
+  background-color: #FF84F0;
+  color: white;
+}
+
+.tabela-destaques_id {
+  font-size: 15px;
+  font-weight: 700;
+
+  border: solid 1px #FF84F0;
+
+  padding: 10px 2px 10px 2px;
+
+  text-align: center;
+}
+
+.tabela-destaques_conteudo {
+  font-size: 15px;
+  font-weight: 700;
+
+  border: solid 1px #FF84F0;
+
+  padding: 10px;
+}
+
+/* Tabela Principal */
+
+.tabela-principal {
+  border: solid 1px #FF84F0;
+  border-radius: 10px;
+
+  width: 100%;
+
+  overflow: hidden;
+}
+
+.tabela-principal_titulo {
+  border: solid 1px #FF84F0;
+
+  background-color: #FFCEF9;
+
+  padding: 0.5rem 0;
+
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 20px;
+  color: #FF84F0;
+}
+
+.tabela-principal_id {
+  border: solid 1px #FF84F0;
+
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.25em 0;
+
+  text-align: center;
+}
+
+.tabela-principal_conteudo {
+  border: solid 1px #FF84F0;
+
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.5rem 0.5rem;
+}
+
+/* Checkbox */
+
+.tabela-principal_checkbox {
+  border: solid 1px #FF84F0;
+
+  text-align: center;
+}
+
+/* Checkbox Cabeçalho titulo*/
+
+.tabela-checkbox_titulo input {
+  display: none;
+}
+
+.tabela-checkbox_titulo input+label:before {
+  content: '';
+  width: 1rem;
+  height: 1rem;
+
+  background-color: #FFFFFF;
+
+  border-radius: 5px;
+  border: solid 2px #FF84F0;
+
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.tabela-principal_titulo input:checked+label:before {
+  background-image: url('../../src-icons/checked.svg');
+  background-color: #FF84F0;
+}
+
+/* Checkbox Cabeçalho conteúdo*/
+
+.tabela-checkbox_conteudo input {
+  display: none;
+}
+
+.tabela-checkbox_conteudo input+label:before {
+  content: '';
+  width: 1rem;
+  height: 1rem;
+
+  background-color: #FFFFFF;
+
+  border-radius: 5px;
+  border: solid 2px #FF84F0;
+
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.tabela-checkbox_conteudo input:checked+label:before {
+  background-image: url('../../src-icons/checked.svg');
+  background-color: #FF84F0;
+}
+
+/* Porcentagem tabela */
+
+.tabela-principal_tituloProduto {
+  width: 43%;
+}
+
+.tabela-principal_tituloMarca {
+  width: 12.5%;
+}
+
+.tabela-principal_tituloCategoria {
+  width: 12.5%;
+}
+
+.tabela-principal_tituloPreco {
+  width: 12.5%;
+}
+
+.tabela-principal_tituloEstoque {
+  width: 12.5%;
+}
