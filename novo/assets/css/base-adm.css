@@ -150,3 +150,15 @@
 .min-width-botao {
   min-width: 6rem;
 }
+
+.icone-label {
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  padding-left: 0.5rem;
+}
+
+.espaco-entre {
+  display: flex;
+  justify-content: space-between;
+}

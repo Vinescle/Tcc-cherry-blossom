@@ -1,6 +1,6 @@
 <footer class="rodape">
     <div class="coluna-um">
-        <img class="logo" src="./assets/imagens/logo.png" alt="logo-cherry-blossom" width="98px">
+        <img class="logo" src="<?php echo $rota; ?>/assets/imagens/logo.png" alt="logo-cherry-blossom" width="98px">
         <h3 class="coluna-um-link"><a class="clickSugestao" href="#">SUGESTÃO DO PRODUTO</a></h3>
         <h3 class="coluna-um-link"><a href="<?php echo $configAdm['url_whatsapp']; ?>">FALE COM O VENDEDOR</a></h3>
         <h4 class="coluna-um-redes-sociais">Acompanhe nossas redes sociais</h4>
