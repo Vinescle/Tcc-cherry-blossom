@@ -41,7 +41,7 @@ $resultadoMaisVendidos = mysqli_query($conexao, $sqlMaisVendidos);
 
 $sqlConfigAdm = "SELECT * FROM tb_adm_config";
 $resultadoConfigAdm = mysqli_query($conexao, $sqlConfigAdm);
-//$configAdm = mysqli_fetch_array($resultadoConfigAdm);
+$configAdm = mysqli_fetch_array($resultadoConfigAdm);
 
 ?>
 
@@ -70,13 +70,7 @@ $resultadoConfigAdm = mysqli_query($conexao, $sqlConfigAdm);
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="./imagens/site/banner.png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="./imagemBancoDeDados/banners/<?php echo $configAdm['url_banner']; ?>" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="./imagens/site/banner.png" class="d-block w-100" alt="...">
+                    <img src="../imagemBancoDeDados/banners/<?php echo $configAdm['url_banner']; ?>" class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -104,7 +98,7 @@ $resultadoConfigAdm = mysqli_query($conexao, $sqlConfigAdm);
             while ($resultadoMarcasFinal = mysqli_fetch_array($resultadoMarcas)) {
             ?>
                 <div class="bolas-marcas" style="background-color: <?php echo $resultadoMarcasFinal['cor_marca'] ?>;">
-                    <div><img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoMarcasFinal['icon_url'] ?>" class="imagem-marcas"></div>
+                    <div><img src="<?php echo $rotaAntigaTeste; ?>/imagemBancoDeDados/marcas/<?php echo $resultadoMarcasFinal['icon_url'] ?>" class="imagem-marcas"></div>
                 </div>
             <?php
             }
