@@ -51,18 +51,18 @@ include './conexao.php';
                     <div class="conjunto-precos">
                         <div class="precos">
                             <div>
-                                <label>R$2.000,00</label>
+                                <label class="preco-original">R$2.000,00</label>
                             </div>
 
                             <div>
-                                <label>RS$1.000,00</label>
+                                <label class="preco-promocional">R$1.000,00</label>
                             </div>
                         </div>
 
-                        <label>Em 10x R$100,00 (Sem juros)</label>
+                        <label class="texto-parcela">Em 10x R$100,00 (Sem juros)</label>
                     </div>
 
-                    <div>
+                    <div class="conjunto-input-frete">
                         <label>Calcule o Frete:</label>
                         <div>
                             <input type="text" value="Insira um CEP">
