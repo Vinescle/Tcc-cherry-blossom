@@ -5,10 +5,38 @@ include './conexao.php';
 $sqlMarcas = "SELECT * FROM tb_marcas LIMIT 7";
 $resultadoMarcas = mysqli_query($conexao, $sqlMarcas);
 
-$sqlDestaques = "SELECT * FROM tb_produtos a INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto GROUP BY id_produtos LIMIT 8";
+$sqlDestaques = "SELECT a.id_produtos,
+a.nome_produto,
+a.descricao_produto,
+a.preco_produto,
+a.qtd_produto,
+b.url,
+e.nome_categoria,
+d.nome_sub_categoria
+FROM tb_produtos a
+INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto
+INNER JOIN tb_produtos_sub_categorias c ON c.fk_id_produtos = a.id_produtos
+INNER JOIN tb_sub_categoria d ON d.id_sub_categoria = c.fk_id_sub_categorias
+INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria
+GROUP BY id_produtos
+LIMIT 8";
 $resultadoDestaques = mysqli_query($conexao, $sqlDestaques);
 
-$sqlMaisVendidos = "SELECT * FROM tb_produtos a INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto GROUP BY id_produtos LIMIT 4";
+$sqlMaisVendidos = "SELECT a.id_produtos,
+a.nome_produto,
+a.descricao_produto,
+a.preco_produto,
+a.qtd_produto,
+b.url,
+e.nome_categoria,
+d.nome_sub_categoria
+FROM tb_produtos a
+INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto
+INNER JOIN tb_produtos_sub_categorias c ON c.fk_id_produtos = a.id_produtos
+INNER JOIN tb_sub_categoria d ON d.id_sub_categoria = c.fk_id_sub_categorias
+INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria 
+GROUP BY id_produtos
+LIMIT 4";
 $resultadoMaisVendidos = mysqli_query($conexao, $sqlMaisVendidos);
 
 $sqlConfigAdm = "SELECT * FROM tb_adm_config";
@@ -120,9 +148,9 @@ $resultadoConfigAdm = mysqli_query($conexao, $sqlConfigAdm);
             while ($resultadoDestaquesFinal = mysqli_fetch_array($resultadoDestaques)) {
             ?>
                 <div class="destaques-produtos">
-                    <img class="foto-produtos" src="./imagemBancoDeDados/produtos/<?php echo $resultadoDestaquesFinal[11]; ?>">
+                    <img class="foto-produtos" src="../imagemBancoDeDados/produtos/<?php echo $resultadoDestaquesFinal[5]; ?>">
                     <div class="espacamento-produto">
-                        <<p class="tag-produto">Macramê > Pulseiras</p>
+                        <p class="tag-produto"><?php echo $resultadoDestaquesFinal['nome_categoria']?> > <?php echo $resultadoDestaquesFinal['nome_sub_categoria']?></p>
                             <h3 class="titulo-produto"><?php echo $resultadoDestaquesFinal['nome_produto'] ?></h3>
                             <div class="conjunto-preco-comprar">
                                 <p class="preco-produto">R$<?php echo $resultadoDestaquesFinal['preco_produto'] ?></p>
@@ -237,9 +265,9 @@ $resultadoConfigAdm = mysqli_query($conexao, $sqlConfigAdm);
                 while ($resultadoMaisVendidosFinal = mysqli_fetch_array($resultadoMaisVendidos)) {
                 ?>
                     <div class="destaques-produtos">
-                        <img class="foto-produtos" src="./imagemBancoDeDados/produtos/<?php echo $resultadoMaisVendidosFinal[11]; ?>">
+                        <img class="foto-produtos" src="../imagemBancoDeDados/produtos/<?php echo $resultadoMaisVendidosFinal[5]; ?>">
                         <div class="espacamento-produto">
-                            <!-- <p class="tag-produto">Macramê > Pulseiras</p> -->
+                            <p class="tag-produto"><?php echo $resultadoMaisVendidosFinal['nome_categoria']?> > <?php echo $resultadoMaisVendidosFinal['nome_sub_categoria']?></p>
                             <h3 class="titulo-produto"><?php echo $resultadoMaisVendidosFinal['nome_produto'] ?></h3>
                             <div class="conjunto-preco-comprar">
                                 <p class="preco-produto">R$<?php echo $resultadoMaisVendidosFinal['preco_produto'] ?></p>

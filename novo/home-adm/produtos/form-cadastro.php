@@ -48,7 +48,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                             <div class="w-160">
                                 <label class="input-texto">Nome do Produto</label>
                                 <div class="input-container">
-                                    <button class="botao-input" disabled="">
+                                    <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="color-palette-outline"></ion-icon>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="tiktok" required="" value="https://twitter.com/YukiMeiii" type="text">
@@ -58,7 +58,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                             <div class="w-100">
                                 <label class="input-texto">Preço</label>
                                 <div class="input-container">
-                                    <button class="botao-input" disabled="">
+                                    <button class="botao-input">
                                         <label class="icone-input md hydrated">$</label>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="tiktok" required="" value="https://twitter.com/YukiMeii" type="text">
@@ -67,10 +67,10 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                             <div class="w-100">
                                 <label class="input-texto">Preço Promocional</label>
                                 <div class="input-container">
-                                    <button class="botao-input" disabled="">
+                                    <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="wallet-outline"></ion-icon>
                                     </button>
-                                    <input class="input-conjunto input-tiktok" name="tiktok" required="" value="https://twitter.com/YukiMeiii     " type="text">
+                                    <input class="input-conjunto input-tiktok" disabled name="tiktok" required="" value="https://twitter.com/YukiMeiii" type="text">
                                 </div>
                             </div>
                         </div>
@@ -78,7 +78,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                             <div class="w-100">
                                 <label class="input-texto">Descrição</label>
                                 <div class="input-container">
-                                    <button class="botao-input" disabled="">
+                                    <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="newspaper-outline"></ion-icon>
                                     </button>
                                     <textarea class="input-conjunto input-tiktok" cols="30" rows="10"></textarea>
@@ -91,7 +91,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                             <div class="w-100">
                                 <label class="input-texto">Marca</label>
                                 <div class="input-container">
-                                    <button class="botao-input" disabled="">
+                                    <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="balloon-outline"></ion-icon>
                                     </button>
                                     <select class="input-conjunto input-tiktok" name="idmarca">
@@ -110,7 +110,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                             <div class="w-100">
                                 <label class="input-texto">Categoria</label>
                                 <div class="input-container">
-                                    <button class="botao-input" disabled="">
+                                    <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="pricetag-outline"></ion-icon>
                                     </button>
                                     <select class="input-conjunto input-tiktok" name="idcategoria">
@@ -130,7 +130,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                             <div class="w-100">
                                 <label class="input-texto">Subcategoria</label>
                                 <div class="input-container">
-                                    <button class="botao-input" disabled="">
+                                    <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="pricetags-outline"></ion-icon>
                                     </button>
                                     <select class="input-conjunto input-tiktok" name="idsubcategoria">
@@ -153,7 +153,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                             <div class="w-100">
                                 <label class="input-texto">Largura</label>
                                 <div class="input-container">
-                                    <button class="botao-input" disabled="">
+                                    <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="color-palette-outline"></ion-icon>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="larguraProduto" required="" type="text">
@@ -163,7 +163,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                             <div class="w-100">
                                 <label class="input-texto">Comprimento</label>
                                 <div class="input-container">
-                                    <button class="botao-input" disabled="">
+                                    <button class="botao-input">
                                         <label class="icone-input md hydrated">$</label>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="profundidadeProduto" required="" type="text">
@@ -172,7 +172,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                             <div class="w-100">
                                 <label class="input-texto">Altura</label>
                                 <div class="input-container">
-                                    <button class="botao-input" disabled="">
+                                    <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="wallet-outline"></ion-icon>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="alturaProduto" required="" type="text">
@@ -183,7 +183,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                             <div class="w-100">
                                 <label class="input-texto">Peso</label>
                                 <div class="input-container">
-                                    <button class="botao-input" disabled="">
+                                    <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="color-palette-outline"></ion-icon>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="pesoProduto" required="" type="text">
@@ -193,7 +193,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                             <div class="w-100">
                                 <label class="input-texto">Estoque</label>
                                 <div class="input-container">
-                                    <button class="botao-input" disabled="">
+                                    <button class="botao-input">
                                         <label class="icone-input md hydrated">$</label>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="quantidadeProduto" required="" type="text">
@@ -202,7 +202,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                             <div class="w-100">
                                 <label class="input-texto">Link da Visualização 3D</label>
                                 <div class="input-container">
-                                    <button class="botao-input" disabled="">
+                                    <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="wallet-outline"></ion-icon>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="URLProduto" required="" type="text">

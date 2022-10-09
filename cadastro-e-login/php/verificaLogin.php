@@ -7,7 +7,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 
 if (!empty($_POST) AND (empty($_POST['email']) OR empty($_POST['senha']))) {
-    header("Location:./login.php");exit(); // Corrigir se dar caca
+    header("Location:./login.php"); // Corrigir se dar caca
 }
 
 $sql = "SELECT email_usuario, senha_usuario, permissao_adm FROM tb_usuarios WHERE email_usuario = '$email' 
@@ -23,9 +23,9 @@ if($resultado == true){
 
     }
     if($linha['permissao_Adm'] == 2){
-        header("location:../../homeAdm/homeAdm.php"); 
+        header("location:$rota"."/index.php"); 
     }else{
-        header("location:../../home.php");
+        header("location:$rota"."/index.php");
         $_SESSION['logado'] = 1;
     }
 }

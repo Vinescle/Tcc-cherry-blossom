@@ -17,7 +17,7 @@
             <div class="conteiner-titulo">
                 <p>Login</p>
             </div>
-            <form action="verificaLogin.php" method="post">
+            <form action="./verificaLogin.php" method="post">
                 <div class="input">
                     <div>
                         <label class="input-text">E-mail</label>
