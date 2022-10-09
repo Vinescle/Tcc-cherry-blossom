@@ -2,7 +2,7 @@
 $page = 'marcas';
 include '../../conexao.php';
 
-$sqlMarca = "SELECT * FROM `tb_marcas`";
+$sqlMarca = "SELECT * FROM `tb_marcas` WHERE id_marca = 15";
 $resultadoMarca = mysqli_query($conexao,$sqlMarca);
 $resultadoMarca = mysqli_fetch_array($resultadoMarca);
 ?>
@@ -37,7 +37,7 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
 
         <div class="conteudo-principal">
             <div class="main">
-                <form action="cadastroGravaMarca.php" method="POST" enctype="multipart/form-data">
+                <form action="alteraMarca.php" method="POST" enctype="multipart/form-data">
                     <div class="input-container-form-produto">
                         <div class="w-100">
                             <label class="input-texto">Nome da marca</label>
@@ -45,7 +45,7 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
                                 <button class="botao-input" disabled="">
                                     <ion-icon class="icone-input md hydrated" name="balloon-outline"></ion-icon>
                                 </button>
-                                <input class="input-conjunto input-tiktok" type="text" name="nomeMarca">
+                                <input class="input-conjunto input-tiktok" value="<?php echo $resultadoMarca['nome_marca']; ?>" type="text" name="nomeMarca">
                             </div>
 
                             <label class="input-texto">Ícone</label>
@@ -54,7 +54,7 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
                                     <div class="input-arquivo_botao">
                                         <button class="botao-banner">
                                             <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
-                                            <input type="file" name="iconUrl">
+                                            <input type="file" name="iconUrl" value="<?php echo $resultadoMarca['icon_url']; ?>">
                                         </button>
                                     </div>
 
@@ -83,8 +83,8 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
             // procura o input onde ele vai exibir o hexa decimal
             const input = document.querySelector("#input-cor");
             // define a primeira cor a ser exibida
-            input.value = "#ffffff";
-            // pega o color picker
+            input.value = "<?php echo $resultadoMarca['cor_marca']; ?>";
+            // pega o color picker 
             const picker = document.querySelector("hex-color-picker");
             // checa por todas as vezes que ele atualizar
             picker.addEventListener("color-changed", (event) => {
@@ -93,11 +93,13 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
                 // coloca ela no input
                 input.value = newColor;
             });
-
             // atualiza quando colar uma cor no campo ou clicar no botão "Atualizar"
             function atualizarColorPicker() {
                 picker.color = input.value;
             }
+            window.onload = () => {
+                atualizarColorPicker();
+            };
         </script>
         <?php
         include('../../imports.php');

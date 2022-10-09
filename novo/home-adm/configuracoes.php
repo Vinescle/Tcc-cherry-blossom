@@ -54,7 +54,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                             <button class="botao-input" disabled="">
                                 <ion-icon class="icone-input md hydrated" name="logo-google"></ion-icon>
                             </button>
-                            <input id="senha" class="input-conjunto input-tiktok cantos-quadrados sem-borda-esquerda" type="password" name="text" required value="<?php echo $configAdm['senha'] ?>">
+                            <input id="senha" class="input-conjunto input-tiktok cantos-quadrados sem-borda-esquerda" type="password" name="senha" required value="<?php echo $configAdm['senha'] ?>">
                             <div class="icon-input-final" style="cursor:pointer;">
                                 <ion-icon id="senhaIcon" class="icon-eyes" name="eye-off-outline"></ion-icon>
                             </div>
