@@ -59,7 +59,6 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
     <link href="<?php echo $rota; ?>/assets/css/componentes/menu-cabecalho.css" rel="stylesheet">
     <link href="<?php echo $rota; ?>/assets/css/componentes/rodape.css" rel="stylesheet">
 
-
     <title>Cherry Blossom - Home</title>
 </head>
 

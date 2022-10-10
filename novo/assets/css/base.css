@@ -26,4 +26,84 @@ a:hover {
   color: #fff;
 }
 
-/* Componentes focados no menu admin */
+.botao-texto {
+  background-color: #FF84F0;
+  border-radius: 40px;
+  padding: 0.25em 0.5em;
+
+  display: flex;
+  flex-direction: row;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  border: 0;
+}
+
+.botao-texto ion-icon {
+  color: #FFFFFF;
+  font-size: 20px;
+}
+
+.botao-texto:hover {
+  background: #EC55D9;
+  color: #fff;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-160 {
+  width: 160%;
+}
+
+.centralizar {
+  margin: auto;
+}
+
+.margem-topo {
+  margin-top: 1rem;
+}
+
+.cantos-quadrados {
+  border-radius: 0;
+}
+
+.espaco-entre {
+  display: flex;
+  justify-content: space-between;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+}
+
+.limpa-style {
+  all: unset;
+}
+
+.limpa-borda {
+  border: 0
+}
+
+.flex {
+  display: flex;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
