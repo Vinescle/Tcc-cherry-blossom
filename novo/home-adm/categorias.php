@@ -1,9 +1,21 @@
 <?php
 $page = 'categorias';
+$limit = 0;
+if (isset($pagina) || isset($_GET['pagina'])){
+    $pagina = $_GET['pagina'];
+    if($pagina < 0){
+        header('location:../home-adm/categorias.php');
+    }
+    $limit = 4 * $pagina;
+}else{
+    $pagina = 0;
+}
+
 include '../conexao.php';
-$sqlCategorias = "SELECT * FROM tb_categorias LIMIT 0,4";
-$resultadoCategoria = mysqli_query($conexao,$sqlCategorias);
-$resultadoCategoria = mysqli_fetch_array($resultadoCategoria);
+$sqlCategorias = "SELECT * FROM tb_categoria LIMIT $limit,4";
+$resultadoCategoria = mysqli_query($conexao, $sqlCategorias);
+
+// $sqlsubCategorias = "SELECT * FROM "; --> PRA LINDONA
 
 ?>
 
@@ -74,10 +86,10 @@ $resultadoCategoria = mysqli_fetch_array($resultadoCategoria);
                         </div>
 
                         <div class="botoes-setas">
-                            <a class="botao-texto">
+                            <a class="botao-texto" href="./categorias.php?pagina=<?php echo $pagina-1?>">
                                 <ion-icon class="setas" name="chevron-back-outline"></ion-icon>
                             </a>
-                            <a class="botao-texto">
+                            <a class="botao-texto" href="./categorias.php?pagina=<?php echo $pagina+1?>">
                                 <ion-icon class="setas" name="chevron-forward-outline"></ion-icon>
                             </a>
                         </div>
@@ -95,52 +107,25 @@ $resultadoCategoria = mysqli_fetch_array($resultadoCategoria);
                             <th class="tabela-principal_titulo tabela-principal_tituloProduto">Categorias</th>
                         </tr>
 
-                        <tr>
+                        <?php while ($resultado = mysqli_fetch_array($resultadoCategoria)) {
+                        ?>
                             <td class="tabela-principal_checkbox">
                                 <div class="tabela-checkbox_conteudo">
                                     <input id="checkbox-conteudo1" type="checkbox">
                                     <label for="checkbox-conteudo1"></label>
                                 </div>
                             </td>
-                            <td class="tabela-principal_id">1</td>
+                            <td class="tabela-principal_id"><?php echo $resultado['id_categoria']?></td>
                             <td class="tabela-principal_conteudo">
-                                Papercraft
-                                <ion-icon class="seta-abreCategorias" name="chevron-forward-outline"></ion-icon>
+                                <?php echo $resultado['nome_categoria'] ?>
+                                <a href="./categorias.php?pagina=<?php echo $pagina?>&id_categoria=<?php echo $resultado['id_categoria'] ?>">
+                                    <ion-icon class="seta-abreCategorias" name="chevron-forward-outline"></ion-icon>
+                                </a>
                             </td>
-                        </tr>
-
+                            </tr>
+                        <?php
+                        } ?>
                         <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo2" type="checkbox">
-                                    <label for="checkbox-conteudo2"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">2</td>
-                            <td class="tabela-principal_conteudo">Hama Beads</td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo3" type="checkbox">
-                                    <label for="checkbox-conteudo3"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">3</td>
-                            <td class="tabela-principal_conteudo">Macramê</td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo4" type="checkbox">
-                                    <label for="checkbox-conteudo4"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">4</td>
-                            <td class="tabela-principal_conteudo">Miçangas</td>
-                        </tr>
                     </table>
                 </div>
 
@@ -213,38 +198,6 @@ $resultadoCategoria = mysqli_fetch_array($resultadoCategoria);
                             <td class="tabela-principal_conteudo">Animais</td>
                         </tr>
 
-                        <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo2" type="checkbox">
-                                    <label for="checkbox-conteudo2"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">2</td>
-                            <td class="tabela-principal_conteudo">Jogos</td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo3" type="checkbox">
-                                    <label for="checkbox-conteudo3"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">3</td>
-                            <td class="tabela-principal_conteudo">Séries</td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo4" type="checkbox">
-                                    <label for="checkbox-conteudo4"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">4</td>
-                            <td class="tabela-principal_conteudo">Animes</td>
-                        </tr>
                     </table>
                 </div>
             </div>
