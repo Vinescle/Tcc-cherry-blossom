@@ -1,6 +1,9 @@
 <?php
 $page = 'categorias';
 include '../conexao.php';
+$sqlCategorias = "SELECT * FROM tb_categorias LIMIT 0,4";
+$resultadoCategoria = mysqli_query($conexao,$sqlCategorias);
+$resultadoCategoria = mysqli_fetch_array($resultadoCategoria);
 
 ?>
 
