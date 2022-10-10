@@ -1,12 +1,23 @@
 <?php
 $page = 'gerenciar';
+$limit = 0;
+if (isset($pagina) || isset($_GET['pagina'])){
+    $pagina = $_GET['pagina'];
+    if($pagina < 0){
+        header('location:../home-adm/gerenciar.php');
+    }
+    $limit = 8 * $pagina;
+}else{
+    $pagina = 0;
+}
+
 include '../conexao.php';
 $sql = "SELECT a.id_produtos, a.nome_produto, a.preco_produto, a.qtd_produto, b.nome_marca, c.nome_categoria FROM tb_produtos a
     INNER JOIN tb_marcas_produtos marcasRE ON a.id_produtos = marcasRE.fk_id_produtos
-    INNER JOIN tb_marcas b ON b.id_marca = marcasRE.fk_id_marcas
+    LEFT JOIN tb_marcas b ON b.id_marca = marcasRE.fk_id_marcas
     INNER JOIN tb_produtos_sub_categorias subcategoriasRE ON a.id_produtos = subcategoriasRE.fk_id_produtos
     INNER JOIN tb_sub_categoria subcategorias  ON subcategorias.id_sub_categoria = subcategoriasRE.fk_id_sub_categorias
-    INNER JOIN tb_categoria c ON c.id_categoria = subcategorias.fk_id_categoria";
+    INNER JOIN tb_categoria c ON c.id_categoria = subcategorias.fk_id_categoria LIMIT $limit,8";
 try {
     $resultadoProdutos = mysqli_query($conexao, $sql);
 } catch (\Throwable $th) {
@@ -83,13 +94,14 @@ try {
                     </div>
 
                     <div class="botoes-setas">
-                        <a class="botao-texto">
+                        <a class="botao-texto" href="./gerenciar.php?pagina=<?php echo $pagina-1?>">
                             <ion-icon class="setas" name="chevron-back-outline"></ion-icon>
                         </a>
-                        <a class="botao-texto">
+                        <a class="botao-texto" href="./gerenciar.php?pagina=<?php echo $pagina+1?>">
                             <ion-icon class="setas" name="chevron-forward-outline"></ion-icon>
                         </a>
                     </div>
+                    
                 </div>
 
 
@@ -179,11 +191,12 @@ try {
                                 <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_categoria']; ?></td>
                                 <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['preco_produto']; ?></td>
                                 <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['qtd_produto']; ?></td>
+                                <td><input type="text" style="display: none;" value="<?php echo $resultadoTabelaPrincipal['id_produtos']; ?>"></td>
                             </tr>
                         <?php
                         }
                         ?>
-                        <tr>
+                        <!-- <tr>
                             <td class="tabela-principal_checkbox">
                                 <div class="tabela-checkbox_conteudo">
                                     <input id="checkbox-conteudo1" type="checkbox">
@@ -301,7 +314,7 @@ try {
                             <td class="tabela-principal_conteudo"></td>
                             <td class="tabela-principal_conteudo"></td>
                             <td class="tabela-principal_conteudo"></td>
-                        </tr>
+                        </tr> -->
                     </table>
                 </div>
             </div>

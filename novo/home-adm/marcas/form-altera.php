@@ -2,7 +2,7 @@
 $page = 'marcas';
 include '../../conexao.php';
 
-$sqlMarca = "SELECT * FROM `tb_marcas` WHERE id_marca = 15";
+$sqlMarca = "SELECT * FROM `tb_marcas` WHERE id_marca = 21";
 $resultadoMarca = mysqli_query($conexao,$sqlMarca);
 $resultadoMarca = mysqli_fetch_array($resultadoMarca);
 ?>

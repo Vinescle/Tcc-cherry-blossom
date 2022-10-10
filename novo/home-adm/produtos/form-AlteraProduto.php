@@ -11,7 +11,7 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
 $sql = "SELECT * FROM tb_sub_categoria";
 $resultadoSubCategoria = mysqli_query($conexao, $sql);
 
-$id = 31;
+$id = 32;
 $sqlProduto = "SELECT a.id_produtos,
 a.nome_produto,
 a.descricao_produto,
@@ -31,11 +31,10 @@ INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto
 INNER JOIN tb_produtos_sub_categorias c ON c.fk_id_produtos = a.id_produtos
 INNER JOIN tb_sub_categoria d ON d.id_sub_categoria = c.fk_id_sub_categorias
 INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria
-INNER JOIN tb_marcas_produtos f ON f.fk_id_produtos = a.id_produtos 
+INNER JOIN tb_marcas_produtos f ON f.fk_id_produtos = a.id_produtos
 WHERE a.id_produtos = $id";
 $resultadoProduto = mysqli_query($conexao,$sqlProduto);
 $resultadoProduto = mysqli_fetch_array($resultadoProduto);
-var_dump($resultadoProduto);
 
 ?>
 
@@ -123,7 +122,7 @@ var_dump($resultadoProduto);
                                     </button>
                                     <select class="input-conjunto input-tiktok" name="idmarca">
                                         <?php while ($resultado = mysqli_fetch_array($resultadoMarcas)) { 
-                                            if($resultado['id_marca'] == $resultadoProduto['fk_id_marca']){
+                                            if($resultado['id_marca'] == $resultadoProduto['fk_id_marcas']){
                                                 ?>
                                             <option selected value="<?php echo $resultado['id_marca']; ?>">
                                                 <?php echo $resultado['nome_marca']; ?>
@@ -182,7 +181,7 @@ var_dump($resultadoProduto);
                                     <select class="input-conjunto input-tiktok" name="idsubcategoria">
                                         <?php
                                         while ($resultado = mysqli_fetch_array($resultadoSubCategoria)) {
-                                            if($resultado == $resultadoProduto['id_sub_categoria']){
+                                            if($resultado['id_sub_categoria'] == $resultadoProduto['id_sub_categoria']){
                                                 ?>
                                             <option selected value="<?php echo $resultado['id_sub_categoria']; ?>">
                                                 <?php echo $resultado['nome_sub_categoria']; ?>
