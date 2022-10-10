@@ -110,10 +110,10 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                             <label class="input-texto">Banner</label>
                         </div>
                         <div class="input-banner">
-                            <button type="button" class="botao-banner" style="background-image: url(../imagemBancoDeDados/banners/<?php echo $configAdm['url_banner'] ?>);">
+                            <button type="button" class="botao-banner" style="background-image: url(<?php echo $rota; ?>/assets/imagens/storage/banners/<?php echo $configAdm['url_banner'] ?>);">
                                 <ion-icon class="icone-botao" name="download-outline"></ion-icon>
                                 Clique para fazer upload de imagens
-                                <input type="file" name="banner" required value="../imagemBancoDeDados/banners/<?php echo $configAdm['url_banner'] ?>">
+                                <input type="file" name="banner" required value="<?php echo $rota; ?>/assets/imagens/storage/banners/<?php echo $configAdm['url_banner'] ?>">
                             </button>
                         </div>
                     </div>

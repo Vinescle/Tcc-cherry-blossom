@@ -70,7 +70,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../imagemBancoDeDados/banners/<?php echo $configAdm['url_banner']; ?>" class="d-block w-100" alt="...">
+                    <img src="<?php echo $rota; ?>/assets/imagens/storage/banners<?php echo $configAdm['url_banner']; ?>" class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -98,7 +98,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
             while ($resultadoMarcasFinal = mysqli_fetch_array($resultadoMarcas)) {
             ?>
                 <div class="bolas-marcas" style="background-color: <?php echo $resultadoMarcasFinal['cor_marca'] ?>;">
-                    <div><img src="<?php echo $rotaAntigaTeste; ?>/imagemBancoDeDados/marcas/<?php echo $resultadoMarcasFinal['icon_url'] ?>" class="imagem-marcas"></div>
+                    <div><img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoMarcasFinal['icon_url'] ?>" class="imagem-marcas"></div>
                 </div>
             <?php
             }
@@ -141,14 +141,14 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
             while ($resultadoDestaquesFinal = mysqli_fetch_array($resultadoDestaques)) {
             ?>
                 <div class="destaques-produtos">
-                    <img class="foto-produtos" src="../imagemBancoDeDados/produtos/<?php echo $resultadoDestaquesFinal[5]; ?>">
+                    <img class="foto-produtos" src="<?php echo $rota; ?>/assets/imagens/storage/produtos/<?php echo $resultadoDestaquesFinal[5]; ?>">
                     <div class="espacamento-produto">
-                        <p class="tag-produto"><?php echo $resultadoDestaquesFinal['nome_categoria']?> > <?php echo $resultadoDestaquesFinal['nome_sub_categoria']?></p>
-                            <h3 class="titulo-produto"><?php echo $resultadoDestaquesFinal['nome_produto'] ?></h3>
-                            <div class="conjunto-preco-comprar">
-                                <p class="preco-produto">R$<?php echo $resultadoDestaquesFinal['preco_produto'] ?></p>
-                                <button class="botao-comprar"><a href="#">Comprar</a></button>
-                            </div>
+                        <p class="tag-produto"><?php echo $resultadoDestaquesFinal['nome_categoria'] ?> > <?php echo $resultadoDestaquesFinal['nome_sub_categoria'] ?></p>
+                        <h3 class="titulo-produto"><?php echo $resultadoDestaquesFinal['nome_produto'] ?></h3>
+                        <div class="conjunto-preco-comprar">
+                            <p class="preco-produto">R$<?php echo $resultadoDestaquesFinal['preco_produto'] ?></p>
+                            <button class="botao-comprar"><a href="#">Comprar</a></button>
+                        </div>
                     </div>
                 </div>
             <?php
@@ -258,9 +258,9 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                 while ($resultadoMaisVendidosFinal = mysqli_fetch_array($resultadoMaisVendidos)) {
                 ?>
                     <div class="destaques-produtos">
-                        <img class="foto-produtos" src="../imagemBancoDeDados/produtos/<?php echo $resultadoMaisVendidosFinal[5]; ?>">
+                        <img class="foto-produtos" src="<?php echo $rota; ?>/assets/imagens/storage/produtos/<?php echo $resultadoMaisVendidosFinal[5]; ?>">
                         <div class="espacamento-produto">
-                            <p class="tag-produto"><?php echo $resultadoMaisVendidosFinal['nome_categoria']?> > <?php echo $resultadoMaisVendidosFinal['nome_sub_categoria']?></p>
+                            <p class="tag-produto"><?php echo $resultadoMaisVendidosFinal['nome_categoria'] ?> > <?php echo $resultadoMaisVendidosFinal['nome_sub_categoria'] ?></p>
                             <h3 class="titulo-produto"><?php echo $resultadoMaisVendidosFinal['nome_produto'] ?></h3>
                             <div class="conjunto-preco-comprar">
                                 <p class="preco-produto">R$<?php echo $resultadoMaisVendidosFinal['preco_produto'] ?></p>

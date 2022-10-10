@@ -93,7 +93,7 @@ $resultado = mysqli_query($conexao, $sql);
                 ?>
                         <div class="marca-bolas">
                             <div class="marca-circulo" style="background-color:<?php echo $resultadoBolas['cor_marca']; ?>">
-                                <div><img src="<?php echo $rotaAntigaTeste; ?>/imagemBancoDeDados/marcas/<?php echo $resultadoBolas['icon_url']; ?>" class="imagem-marcas"></div>
+                                <div><img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoBolas['icon_url']; ?>" class="imagem-marcas"></div>
                             </div>
                         </div>
                 <?php

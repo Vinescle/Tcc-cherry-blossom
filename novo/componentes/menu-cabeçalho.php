@@ -34,8 +34,8 @@
             </button>
             <ul class="dropdown-menu">
                 <label class="titulo-login">Perfil</label>
-                <label class="titulo-texto"><a href="<?php echo $rotaAntigaTeste ?>/cadastro-e-login/php/login.php">Login</a></label>
-                <label class="titulo-texto"><a href="<?php echo $rotaAntigaTeste ?>/cadastro-e-login/php/cadastro.php">Registrar</a></label>
+                <label class="titulo-texto"><a href="<?php echo $rota ?>/cadastro-e-login/php/login.php">Login</a></label>
+                <label class="titulo-texto"><a href="<?php echo $rota ?>/cadastro-e-login/php/cadastro.php">Registrar</a></label>
             </ul>
         </div>
     </div>

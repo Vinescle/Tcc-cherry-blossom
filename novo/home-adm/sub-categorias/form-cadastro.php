@@ -1,6 +1,8 @@
 <?php
 $page = 'categorias';
 include '../../conexao.php';
+$sql = "SELECT * FROM tb_categoria";
+$categorias = mysqli_query($conexao, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +34,7 @@ include '../../conexao.php';
 
         <div class="conteudo-principal">
             <div class="main">
-                <form action="cadastroGravaCategoria.php" method="POST">
+                <form action="cadastroGravaSubCategoria.php" method="POST">
                     <div class="input-container-form-produto">
 
                         <div class="w-100">
@@ -42,11 +44,10 @@ include '../../conexao.php';
                                     <ion-icon class="icone-input md hydrated" name="balloon-outline"></ion-icon>
                                 </button>
                                 <select class="input-conjunto input-tiktok" name="idcategoria">
-                                    <option selected></option>
-                                    <?php while ($resultado = mysqli_fetch_array($resultadoMarcas)) { ?>
-                                        <option value="<?php echo $resultado['id_marca']; ?>">
-                                            <?php echo $resultado['nome_marca']; ?>
-                                        </option>
+                                    <?php
+                                    while ($resultado = mysqli_fetch_array($categorias)) {
+                                    ?>
+                                        <option value="<?php echo $resultado['id_categoria']; ?>"><?php echo $resultado['nome_categoria']; ?></option>
                                     <?php
                                     }
                                     ?>
@@ -59,7 +60,7 @@ include '../../conexao.php';
                                 <button class="botao-input" disabled="">
                                     <ion-icon class="icone-input md hydrated" name="pricetag-outline"></ion-icon>
                                 </button>
-                                <input class="input-conjunto input-tiktok" type="text" name="nomeCategoria">
+                                <input class="input-conjunto input-tiktok" type="text" name="subcategoria">
                             </div>
                         </div>
                     </div>

@@ -12,7 +12,7 @@ define('DB', 'ist');
 
 $conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) or die(header('location:../../httpExceptions/404NotFound.html'));
 
-$rotaAntigaTeste = 'http://localhost/tcc-cherry-blossom';
+$rota = 'http://localhost/tcc-cherry-blossom';
 $rotaAntigaAntigaTeste = 'http://localhost/tcc/tcc-cherry-blossom/novo';
 $rota = 'http://localhost/novo';
 // alterar rota também no arquivo /assets/css/base-adm.css
