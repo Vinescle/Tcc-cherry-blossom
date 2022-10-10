@@ -45,7 +45,7 @@ include '../../conexao.php';
                     </div>
 
                     <div class="input-salvar">
-                        <button type="submit" class="botao-texto  min-width-botao centralizar margem-topo">
+                        <button type="submit" class="botao-texto min-width-botao centralizar margem-topo">
                             Salvar
                         </button>
                     </div>
