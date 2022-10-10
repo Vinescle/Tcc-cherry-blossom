@@ -1,6 +1,6 @@
 <header class="cabecalho">
     <div class="cabecalho-logo">
-        <img src="<?php echo $rota; ?>/assets/imagens/logo.png" class="logo-menu">
+        <a href="<?php echo $rota; ?>"><img src="<?php echo $rota; ?>/assets/imagens/logo.png" class="logo-menu"></a>
         <div class="cabecalho-menu">
             <div class="dropdown-center">
                 <button class="limpa-botao" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
