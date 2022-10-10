@@ -18,7 +18,6 @@ INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto
 INNER JOIN tb_produtos_sub_categorias c ON c.fk_id_produtos = a.id_produtos
 INNER JOIN tb_sub_categoria d ON d.id_sub_categoria = c.fk_id_sub_categorias
 INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria
-GROUP BY id_produtos
 LIMIT 8";
 $resultadoDestaques = mysqli_query($conexao, $sqlDestaques);
 
