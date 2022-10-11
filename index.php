@@ -145,7 +145,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                 <div class="destaques-produtos">
                     <img class="foto-produtos" src="./imagemBancoDeDados/produtos/<?php echo $resultadoDestaquesFinal[11]; ?>">
                     <div class="espacamento-produto">
-                        <<p class="tag-produto">Macramê > Pulseiras</p>
+                        <p class="tag-produto">Macramê > Pulseiras</p>
                         <h3 class="titulo-produto"><?php echo $resultadoDestaquesFinal['nome_produto'] ?></h3>
                         <div class="conjunto-preco-comprar">
                             <p class="preco-produto">R$<?php echo $resultadoDestaquesFinal['preco_produto'] ?></p>
@@ -156,94 +156,6 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
             <?php
             }
             ?>
-            <!-- <div class="destaques-produtos">
-                    <img class="foto-produtos" src="./imagens/produtos/Pulseira-animal.png">
-                    <div class="espacamento-produto">
-                        <p class="tag-produto">Macramê > Pulseiras</p>
-                        <h3 class="titulo-produto">Pulseira Pet</h3>
-                        <div class="conjunto-preco-comprar">
-                            <p class="preco-produto">R$15,00</p>
-                            <button class="botao-comprar"><a href="#">Comprar</a></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="destaques-produtos">
-                    <img class="foto-produtos" src="./imagens/produtos/Chaveiro-palhaço.png">
-                    <div class="espacamento-produto">
-                        <p class="tag-produto">Hama Beads > Chaveiros</p>
-                        <h3 class="titulo-produto">Pulseira Palhaçu</h3>
-                        <div class="conjunto-preco-comprar">
-                            <p class="preco-produto">R$2000,00</p>
-                            <button class="botao-comprar"><a href="#">Comprar</a></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="destaques-produtos">
-                    <img class="foto-produtos" src="./imagens/produtos/Escultura-mão.png">
-                    <div class="espacamento-produto">
-                        <p class="tag-produto">Papercraft > Decorações</p>
-                        <h3 class="titulo-produto">Escultura de mão</h3>
-                        <div class="conjunto-preco-comprar">
-                            <p class="preco-produto">R$500,00</p>
-                            <button class="botao-comprar"><a href="#">Comprar</a></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="destaques-produtos">
-                    <img class="foto-produtos" src="./imagens/produtos/Pulseira-dedo-verde.png">
-                    <div class="espacamento-produto">
-                        <p class="tag-produto">Macramê > Pulseiras</p>
-                        <h3 class="titulo-produto">Pulseira Dedo Verde</h3>
-                        <div class="conjunto-preco-comprar">
-                            <p class="preco-produto">R$15,00</p>
-                            <button class="botao-comprar"><a href="#">Comprar</a></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="destaques-produtos">
-                    <img class="foto-produtos" src="./imagens/produtos/Pulseira-animal.png">
-                    <div class="espacamento-produto">
-                        <p class="tag-produto">Macramê > Pulseiras</p>
-                        <h3 class="titulo-produto">Pulseira Pet</h3>
-                        <div class="conjunto-preco-comprar">
-                            <p class="preco-produto">R$15,00</p>
-                            <button class="botao-comprar"><a href="#">Comprar</a></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="destaques-produtos">
-                    <img class="foto-produtos" src="./imagens/produtos/Chaveiro-palhaço.png">
-                    <div class="espacamento-produto">
-                        <p class="tag-produto">Hama Beads > Chaveiros</p>
-                        <h3 class="titulo-produto">Pulseira Palhaçu</h3>
-                        <div class="conjunto-preco-comprar">
-                            <p class="preco-produto">R$2000,00</p>
-                            <button class="botao-comprar"><a href="#">Comprar</a></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="destaques-produtos">
-                    <img class="foto-produtos" src="./imagens/produtos/Escultura-mão.png">
-                    <div class="espacamento-produto">
-                        <p class="tag-produto">Papercraft > Decorações</p>
-                        <h3 class="titulo-produto">Escultura de mão</h3>
-                        <div class="conjunto-preco-comprar">
-                            <p class="preco-produto">R$500,00</p>
-                            <button class="botao-comprar"><a href="#">Comprar</a></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="destaques-produtos">
-                    <img class="foto-produtos" src="./imagens/produtos/Pulseira-dedo-verde.png">
-                    <div class="espacamento-produto">
-                        <p class="tag-produto">Macramê > Pulseiras</p>
-                        <h3 class="titulo-produto">Pulseira Dedo Verde</h3>
-                        <div class="conjunto-preco-comprar">
-                            <p class="preco-produto">R$15,00</p>
-                            <button class="botao-comprar"><a href="#">Comprar</a></button>
-                        </div>
-                    </div>
-                </div> -->
         </div>
     </div>
 
@@ -262,7 +174,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                     <div class="destaques-produtos">
                         <img class="foto-produtos" src="./imagemBancoDeDados/produtos/<?php echo $resultadoMaisVendidosFinal[11]; ?>">
                         <div class="espacamento-produto">
-                            <!-- <p class="tag-produto">Macramê > Pulseiras</p> -->
+                            <p class="tag-produto">Macramê > Pulseiras</p>
                             <h3 class="titulo-produto"><?php echo $resultadoMaisVendidosFinal['nome_produto'] ?></h3>
                             <div class="conjunto-preco-comprar">
                                 <p class="preco-produto">R$<?php echo $resultadoMaisVendidosFinal['preco_produto'] ?></p>

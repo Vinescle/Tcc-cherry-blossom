@@ -25,7 +25,7 @@ if($resultado == true){
     if($linha['permissao_Adm'] == 2){
         header("location:$rota"."/index.php"); 
     }else{
-        header("location:$rota"."/index.php");
+        header("location:../../novo/index.php");
         $_SESSION['logado'] = 1;
     }
 }

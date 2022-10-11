@@ -1,13 +1,13 @@
 <?php
 $page = 'categorias';
 $limit = 0;
-if (isset($pagina) || isset($_GET['pagina'])){
+if (isset($pagina) || isset($_GET['pagina'])) {
     $pagina = $_GET['pagina'];
-    if($pagina < 0){
+    if ($pagina < 0) {
         header('location:../home-adm/categorias.php');
     }
     $limit = 4 * $pagina;
-}else{
+} else {
     $pagina = 0;
 }
 
@@ -15,7 +15,16 @@ include '../conexao.php';
 $sqlCategorias = "SELECT * FROM tb_categoria LIMIT $limit,4";
 $resultadoCategoria = mysqli_query($conexao, $sqlCategorias);
 
-// $sqlsubCategorias = "SELECT * FROM "; --> PRA LINDONA
+if (!isset($_GET['id_categoria'])) {
+    $idsubcategoria = $_GET['id_categoria'];
+    $sqlsubCategorias = "SELECT * FROM tb_sub_categoria a INNER JOIN tb_categoria b ON a.fk_id_categoria = b.id_categoria WHERE b.id_categoria = $idsubcategoria LIMIT $subLimit,4";
+    $resultadoSubCategoria = mysqli_query($conexao, $sqlsubCategorias);
+
+} else {
+    $sqlsubCategorias = "SELECT * FROM tb_sub_categoria";
+    $resultadoSubCategoria = mysqli_query($conexao, $sqlsubCategorias);
+}
+
 
 ?>
 
@@ -86,10 +95,10 @@ $resultadoCategoria = mysqli_query($conexao, $sqlCategorias);
                         </div>
 
                         <div class="botoes-setas">
-                            <a class="botao-texto" href="./categorias.php?pagina=<?php echo $pagina-1?>">
+                            <a class="botao-texto" href="./categorias.php?pagina=<?php echo $pagina - 1 ?>">
                                 <ion-icon class="setas" name="chevron-back-outline"></ion-icon>
                             </a>
-                            <a class="botao-texto" href="./categorias.php?pagina=<?php echo $pagina+1?>">
+                            <a class="botao-texto" href="./categorias.php?pagina=<?php echo $pagina + 1 ?>">
                                 <ion-icon class="setas" name="chevron-forward-outline"></ion-icon>
                             </a>
                         </div>
@@ -115,10 +124,10 @@ $resultadoCategoria = mysqli_query($conexao, $sqlCategorias);
                                     <label for="checkbox-conteudo1"></label>
                                 </div>
                             </td>
-                            <td class="tabela-principal_id"><?php echo $resultado['id_categoria']?></td>
+                            <td class="tabela-principal_id"><?php echo $resultado['id_categoria'] ?></td>
                             <td class="tabela-principal_conteudo">
                                 <?php echo $resultado['nome_categoria'] ?>
-                                <a href="./categorias.php?pagina=<?php echo $pagina?>&id_categoria=<?php echo $resultado['id_categoria'] ?>">
+                                <a href="./categorias.php?pagina=<?php echo $pagina ?>&id_categoria=<?php echo $resultado['id_categoria']?>">
                                     <ion-icon class="seta-abreCategorias" name="chevron-forward-outline"></ion-icon>
                                 </a>
                             </td>
@@ -187,16 +196,21 @@ $resultadoCategoria = mysqli_query($conexao, $sqlCategorias);
                             <th class="tabela-principal_titulo tabela-principal_tituloProduto">Subcategorias</th>
                         </tr>
 
-                        <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo1" type="checkbox">
-                                    <label for="checkbox-conteudo1"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">1</td>
-                            <td class="tabela-principal_conteudo">Animais</td>
-                        </tr>
+                        <?php while ($resultadofinal = mysqli_fetch_array($resultadoSubCategoria)) {
+                        ?>
+                            <tr>
+                                <td class="tabela-principal_checkbox">
+                                    <div class="tabela-checkbox_conteudo">
+                                        <input id="checkbox-conteudo1" type="checkbox">
+                                        <label for="checkbox-conteudo1"></label>
+                                    </div>
+                                </td>
+                                <td class="tabela-principal_id"><?php echo $resultadofinal['id_sub_categoria'] ?></td>
+                                <td class="tabela-principal_conteudo"><?php echo $resultadofinal['nome_sub_categoria'] ?></td>
+                            </tr>
+                        <?php
+                        } ?>
+
 
                     </table>
                 </div>

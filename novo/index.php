@@ -71,7 +71,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="<?php echo $rota; ?>/assets/imagens/storage/banners<?php echo $configAdm['url_banner']; ?>" class="d-block w-100" alt="...">
+                        <img src="<?php echo $rota; ?>/assets/imagens/storage/banners/<?php echo $configAdm['url_banner']; ?>" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
