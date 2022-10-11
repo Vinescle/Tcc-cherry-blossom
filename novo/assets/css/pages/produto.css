@@ -22,17 +22,6 @@ main {
 
 /* Conteúdo Principal */
 
-.conteudo-principal {
-  width: 60%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  gap: 1rem;
-}
-
 .produto-conteudo {
   width: 100%;
 
@@ -79,7 +68,7 @@ main {
 
 .titulo-produto {
   color: #323232;
-  font-size: 1.55rem;
+  font-size: 1.6rem;
   font-weight: 700;
   margin: 0;
   padding: 0;
@@ -104,8 +93,8 @@ label {
 
 .conjunto-precos {
   border: 1px solid #A3B3CC;
-  border-radius: 1rem;
-  padding: 1rem;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
   width: 100%;
 
   display: flex;
@@ -122,18 +111,18 @@ label {
 }
 
 .preco-original {
-  line-height: 1px;
+  line-height: .9rem;
   text-decoration: line-through;
   color: #323232;
-  font-size: 12px;
+  font-size: .9rem;
   font-weight: 400;
 }
 
 .preco-promocional {
-  line-height: 1px;
+  line-height: 2rem;
 
   color: #323232;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
 }
 
@@ -180,42 +169,32 @@ label {
   padding: 0 0.5rem 0 0.5rem;
 }
 
-.carousel.carousel-thumbs-top {
-  padding-top: 60px;
-}
-
-.carousel.carousel-thumbs-top .carousel-indicators {
-  position: relative;
-  top: 0;
-  bottom: auto;
-}
-
-.carousel .carousel-indicators button {}
-
-.carousel-item img,
-.d-block {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-
-.carousel-indicators {
-  position: relative;
-}
-
-.carousel-thumbs {
-  display: flex;
-}
-
-.carousel-thumbs button {
-  all: unset;
-  margin: .3rem;
-}
-
 .separador-estatisticas {
   margin: 0 .5rem;
 }
 
 .titulo-descricao {
   font-size: 1.2rem;
+}
+
+.quadrado-imagem {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.carousel-indicators {
+  position: relative;
+  margin-left: 0;
+}
+
+.carousel-indicators [data-mdb-target] {
+  height: fit-content;
+}
+
+.container-compra button {
+  font-size: 1.5rem;
+}
+
+.container-compra ion-icon {
+  font-size: 1.5rem;
 }

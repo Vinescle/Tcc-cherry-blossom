@@ -26,6 +26,12 @@ a:hover {
   color: #fff;
 }
 
+
+.container-loja {
+  width: 65%;
+  margin: auto;
+}
+
 .botao-texto {
   background-color: #FF84F0;
   border-radius: 40px;
@@ -90,8 +96,13 @@ a:hover {
 }
 
 .limpa-borda {
-  border: 0
+  border: 0;
 }
+
+.arredonda-borda {
+  border-radius: 13px;
+}
+
 
 .flex {
   display: flex;

@@ -1,15 +1,16 @@
+main {
+  width: 100%;
+}
+
+
 .texto {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-
-  margin: 30px 205px 0 205px;
 }
 
 .marcas-container {
-  margin: 0px 205px 0 205px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -48,7 +49,6 @@
 }
 
 .secao-destaques {
-  margin: 5px 205px 30px 205px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

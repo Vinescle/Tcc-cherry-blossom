@@ -1,13 +1,13 @@
 <?php
 $page = 'gerenciar';
 $limit = 0;
-if (isset($pagina) || isset($_GET['pagina'])){
+if (isset($pagina) || isset($_GET['pagina'])) {
     $pagina = $_GET['pagina'];
-    if($pagina < 0){
+    if ($pagina < 0) {
         header('location:../home-adm/gerenciar.php');
     }
     $limit = 8 * $pagina;
-}else{
+} else {
     $pagina = 0;
 }
 
@@ -17,7 +17,7 @@ $sql = "SELECT a.id_produtos, a.nome_produto, a.preco_produto, a.qtd_produto, b.
     LEFT JOIN tb_marcas b ON b.id_marca = marcasRE.fk_id_marcas
     INNER JOIN tb_produtos_sub_categorias subcategoriasRE ON a.id_produtos = subcategoriasRE.fk_id_produtos
     INNER JOIN tb_sub_categoria subcategorias  ON subcategorias.id_sub_categoria = subcategoriasRE.fk_id_sub_categorias
-    INNER JOIN tb_categoria c ON c.id_categoria = subcategorias.fk_id_categoria LIMIT $limit,8";
+    INNER JOIN tb_categoria c ON c.id_categoria = subcategorias.fk_id_categoria GROUP BY a.id_produtos LIMIT $limit,8";
 try {
     $resultadoProdutos = mysqli_query($conexao, $sql);
 } catch (\Throwable $th) {
@@ -94,14 +94,14 @@ try {
                     </div>
 
                     <div class="botoes-setas">
-                        <a class="botao-texto" href="./gerenciar.php?pagina=<?php echo $pagina-1?>">
+                        <a class="botao-texto" href="./gerenciar.php?pagina=<?php echo $pagina - 1 ?>">
                             <ion-icon class="setas" name="chevron-back-outline"></ion-icon>
                         </a>
-                        <a class="botao-texto" href="./gerenciar.php?pagina=<?php echo $pagina+1?>">
+                        <a class="botao-texto" href="./gerenciar.php?pagina=<?php echo $pagina + 1 ?>">
                             <ion-icon class="setas" name="chevron-forward-outline"></ion-icon>
                         </a>
                     </div>
-                    
+
                 </div>
 
 
