@@ -97,75 +97,89 @@ include '../conexao/conexao.php';
                 </div>
             </div>
 
-            <div class="produtos">
-                <div class="destaques-produtos">
-                    <img class="foto-produtos" src="../imagens/produtos/Pulseira-animal.png">
-                    <div class="espacamento-produto">
-                        <p class="tag-produto">Macramê > Pulseiras</p>
-                        <h3 class="titulo-produto">Pulseira Pet</h3>
-                        <div class="conjunto-preco-comprar">
-                            <p class="preco-produto">R$15,00</p>
-                            <button class="botao-comprar"><a href="#">Comprar</a></button>
-                        </div>
+            <div class="conjunto-principal">
+                <div class="tags">
+                    <div class="div-tag">
+                        <label class="label-tags">Macramê > Verde</label>
+                    </div>
+
+                    <div class="div-preco">
+                        <label class="label-preco">Ordenar por</label>
+                        <label class="label-preco negrito">: Menor preço</label>
+                        <ion-icon class="icone-dropdown" name="chevron-down-outline"></ion-icon>
                     </div>
                 </div>
 
-                <div class="destaques-produtos">
-                    <img class="foto-produtos" src="../imagens/produtos/Pulseira-animal.png">
-                    <div class="espacamento-produto">
-                        <p class="tag-produto">Macramê > Pulseiras</p>
-                        <h3 class="titulo-produto">Pulseira Pet</h3>
-                        <div class="conjunto-preco-comprar">
-                            <p class="preco-produto">R$15,00</p>
-                            <button class="botao-comprar"><a href="#">Comprar</a></button>
+                <div class="produtos">
+                    <div class="destaques-produtos">
+                        <img class="foto-produtos" src="../imagens/produtos/Pulseira-animal.png">
+                        <div class="espacamento-produto">
+                            <p class="tag-produto">Macramê > Pulseiras</p>
+                            <h3 class="titulo-produto">Pulseira Pet</h3>
+                            <div class="conjunto-preco-comprar">
+                                <p class="preco-produto">R$15,00</p>
+                                <button class="botao-comprar"><a href="#">Comprar</a></button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="destaques-produtos">
-                    <img class="foto-produtos" src="../imagens/produtos/Pulseira-animal.png">
-                    <div class="espacamento-produto">
-                        <p class="tag-produto">Macramê > Pulseiras</p>
-                        <h3 class="titulo-produto">Pulseira Pet</h3>
-                        <div class="conjunto-preco-comprar">
-                            <p class="preco-produto">R$15,00</p>
-                            <button class="botao-comprar"><a href="#">Comprar</a></button>
+                    <div class="destaques-produtos">
+                        <img class="foto-produtos" src="../imagens/produtos/Pulseira-animal.png">
+                        <div class="espacamento-produto">
+                            <p class="tag-produto">Macramê > Pulseiras</p>
+                            <h3 class="titulo-produto">Pulseira Pet</h3>
+                            <div class="conjunto-preco-comprar">
+                                <p class="preco-produto">R$15,00</p>
+                                <button class="botao-comprar"><a href="#">Comprar</a></button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="destaques-produtos">
-                    <img class="foto-produtos" src="../imagens/produtos/Pulseira-animal.png">
-                    <div class="espacamento-produto">
-                        <p class="tag-produto">Macramê > Pulseiras</p>
-                        <h3 class="titulo-produto">Pulseira Pet</h3>
-                        <div class="conjunto-preco-comprar">
-                            <p class="preco-produto">R$15,00</p>
-                            <button class="botao-comprar"><a href="#">Comprar</a></button>
+                    <div class="destaques-produtos">
+                        <img class="foto-produtos" src="../imagens/produtos/Pulseira-animal.png">
+                        <div class="espacamento-produto">
+                            <p class="tag-produto">Macramê > Pulseiras</p>
+                            <h3 class="titulo-produto">Pulseira Pet</h3>
+                            <div class="conjunto-preco-comprar">
+                                <p class="preco-produto">R$15,00</p>
+                                <button class="botao-comprar"><a href="#">Comprar</a></button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="destaques-produtos">
-                    <img class="foto-produtos" src="../imagens/produtos/Pulseira-animal.png">
-                    <div class="espacamento-produto">
-                        <p class="tag-produto">Macramê > Pulseiras</p>
-                        <h3 class="titulo-produto">Pulseira Pet</h3>
-                        <div class="conjunto-preco-comprar">
-                            <p class="preco-produto">R$15,00</p>
-                            <button class="botao-comprar"><a href="#">Comprar</a></button>
+                    <div class="destaques-produtos">
+                        <img class="foto-produtos" src="../imagens/produtos/Pulseira-animal.png">
+                        <div class="espacamento-produto">
+                            <p class="tag-produto">Macramê > Pulseiras</p>
+                            <h3 class="titulo-produto">Pulseira Pet</h3>
+                            <div class="conjunto-preco-comprar">
+                                <p class="preco-produto">R$15,00</p>
+                                <button class="botao-comprar"><a href="#">Comprar</a></button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="destaques-produtos">
-                    <img class="foto-produtos" src="../imagens/produtos/Pulseira-animal.png">
-                    <div class="espacamento-produto">
-                        <p class="tag-produto">Macramê > Pulseiras</p>
-                        <h3 class="titulo-produto">Pulseira Pet</h3>
-                        <div class="conjunto-preco-comprar">
-                            <p class="preco-produto">R$15,00</p>
-                            <button class="botao-comprar"><a href="#">Comprar</a></button>
+                    <div class="destaques-produtos">
+                        <img class="foto-produtos" src="../imagens/produtos/Pulseira-animal.png">
+                        <div class="espacamento-produto">
+                            <p class="tag-produto">Macramê > Pulseiras</p>
+                            <h3 class="titulo-produto">Pulseira Pet</h3>
+                            <div class="conjunto-preco-comprar">
+                                <p class="preco-produto">R$15,00</p>
+                                <button class="botao-comprar"><a href="#">Comprar</a></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="destaques-produtos">
+                        <img class="foto-produtos" src="../imagens/produtos/Pulseira-animal.png">
+                        <div class="espacamento-produto">
+                            <p class="tag-produto">Macramê > Pulseiras</p>
+                            <h3 class="titulo-produto">Pulseira Pet</h3>
+                            <div class="conjunto-preco-comprar">
+                                <p class="preco-produto">R$15,00</p>
+                                <button class="botao-comprar"><a href="#">Comprar</a></button>
+                            </div>
                         </div>
                     </div>
                 </div>

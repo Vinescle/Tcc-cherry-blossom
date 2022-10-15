@@ -104,10 +104,53 @@ main {
     overflow: hidden;
 }
 
+/* Filtro top */
+
+.conjunto-principal {
+    display: flex;
+    flex-direction: column;
+}
+
+.tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-bottom: 1rem;
+}
+
+.label-tags {
+    color: #323232;
+    font-family: 'Inter';
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.div-preco {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.label-preco {
+    color: #323232;
+    font-family: 'Inter';
+    font-size: 15px;
+}
+
+.negrito {
+    font-weight: 700;
+}
+
+.icone-dropdown {
+    color: #FF84F0;
+    font-size: 20px;
+}
+
 /* Produtos */
 
 .produtos {
-    width: 75%;
+    width: 100%;
 
     display: flex;
     flex-direction: row;

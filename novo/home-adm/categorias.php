@@ -15,7 +15,7 @@ include '../conexao.php';
 $sqlCategorias = "SELECT * FROM tb_categoria LIMIT $limit,4";
 $resultadoCategoria = mysqli_query($conexao, $sqlCategorias);
 
-if (!isset($_GET['id_categoria'])) {
+if (!empty($_GET['id_categoria'])) {
     $idsubcategoria = $_GET['id_categoria'];
     $sqlsubCategorias = "SELECT * FROM tb_sub_categoria a INNER JOIN tb_categoria b ON a.fk_id_categoria = b.id_categoria WHERE b.id_categoria = $idsubcategoria LIMIT $subLimit,4";
     $resultadoSubCategoria = mysqli_query($conexao, $sqlsubCategorias);

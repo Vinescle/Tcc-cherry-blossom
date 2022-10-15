@@ -67,7 +67,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
     include('./componentes/menu-cabeçalho.php');
     ?>
     <main>
-        <main>
+        <main class="banner-carrossel">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -265,7 +265,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                                     <h3 class="titulo-produto"><?php echo $resultadoMaisVendidosFinal['nome_produto'] ?></h3>
                                     <div class="conjunto-preco-comprar">
                                         <p class="preco-produto">R$<?php echo $resultadoMaisVendidosFinal['preco_produto'] ?></p>
-                                        <button class="botao-comprar"><a href="<?php echo $rota . '/produto.php&produto=' . $resultadoMaisVendidosFinal['id_produto']; ?>">Comprar</a></button>
+                                        <button class="botao-comprar"><a href="<?php echo $rota . '/produto.php&produto=' . $resultadoMaisVendidosFinal['id_produtos']; ?>">Comprar</a></button>
                                     </div>
                                 </div>
                             </div>
