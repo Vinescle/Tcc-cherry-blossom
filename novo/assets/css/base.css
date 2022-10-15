@@ -32,6 +32,10 @@ a:hover {
   margin: auto;
 }
 
+.container-loja div {
+  margin-bottom: 1rem;
+}
+
 .botao-texto {
   background-color: #FF84F0;
   border-radius: 40px;
