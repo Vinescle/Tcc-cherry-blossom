@@ -9,10 +9,14 @@ INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria WHERE id_produto
 
 $sqlImagens = "SELECT * FROM tb_imagem_produtos WHERE fk_id_produto = $idProduto";
 
+$sqlMarcas = "SELECT * FROM tb_marcas_produtos d INNER JOIN tb_marcas e ON e.id_marca = d.fk_id_marcas WHERE d.fk_id_produtos = $idProduto";
+
 $resultadoProduto = mysqli_query($conexao, $sqlProduto);
 $resultadoImagens = mysqli_query($conexao, $sqlImagens);
+$resultadoMarcas = mysqli_query($conexao, $sqlMarcas);
 
 $imagens = $resultadoImagens->fetch_all(MYSQLI_ASSOC);
+$marcas = $resultadoMarcas->fetch_all(MYSQLI_ASSOC);
 
 ?>
 
@@ -163,7 +167,13 @@ $imagens = $resultadoImagens->fetch_all(MYSQLI_ASSOC);
                     <p>
                         <?php echo $produto['descricao_produto'] ?>
                     </p>
-                    <span class="titulo-descricao">Marca: Gostosa</span>
+                    <span class="titulo-descricao">Marca:
+                        <?php
+                        foreach ($marcas as $marca) {
+                            echo $marca['nome_marca'];
+                        }
+                        ?>
+                    </span>
 
                 </div>
             <?php
