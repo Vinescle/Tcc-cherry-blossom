@@ -110,9 +110,10 @@ $marcas = $resultadoMarcas->fetch_all(MYSQLI_ASSOC);
 
                         <div class="conjunto-precos">
                             <div class="precos">
-                                <div>
-                                    <label class="preco-original">R$<?php echo $produto['preco_produto'] ?></label>
-                                </div>
+                                <!-- <div>
+                                    <label class="preco-original">R$<?php //echo $produto['preco_produto'] 
+                                                                    ?></label>
+                                </div> -->
 
                                 <div>
                                     <label class="preco-promocional">R$<?php echo $produto['preco_produto'] ?></label>

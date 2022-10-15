@@ -1,3 +1,8 @@
+<?php
+$sqlCategoriasMenu = "SELECT * FROM tb_categoria";
+$resultadoCategoriasMenu = mysqli_query($conexao, $sqlCategoriasMenu);
+?>
+
 <header class="cabecalho">
     <div class="cabecalho-logo">
         <a href="<?php echo $rota; ?>"><img src="<?php echo $rota; ?>/assets/imagens/logo.png" class="logo-menu"></a>
@@ -9,10 +14,13 @@
                 </button>
                 <ul class="dropdown-menu">
                     <label class="titulo-categorias">Categorias</label>
-                    <label class="titulo-texto"><a href='#'>Papercraft</a></label>
-                    <label class="titulo-texto"><a href='#'>Hama Beads</a></label>
-                    <label class="titulo-texto"><a href='#'>Macramê</a></label>
-                    <label class="titulo-texto"><a href='#'>Miçangas</a></label>
+                    <?php
+                    while ($resultado = mysqli_fetch_array($resultadoCategoriasMenu)) {
+                    ?>
+                        <label class="titulo-texto"><a href='#<?php echo $resultado['id_categoria'] ?>'> <?php echo $resultado['nome_categoria'] ?></a></label>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
