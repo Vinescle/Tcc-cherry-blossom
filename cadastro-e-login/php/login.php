@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/reset.css">
@@ -42,7 +41,7 @@
                 </div>
                 <div class="form-end">
                     <div class="form-end-submit">
-                        <input type="submit" value="Entrar" name="senha">
+                        <input type="submit" value="Entrar">
                     </div>
                     <div class="form-end-text">
                         <p>Ainda não tem uma conta? <a href="#">Cadastre-se</a></p>

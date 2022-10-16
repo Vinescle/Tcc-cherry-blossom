@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include './conexao.php';
 
 $sqlMarcas = "SELECT * FROM tb_marcas LIMIT 7";
@@ -64,6 +65,15 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
 
 <body>
     <?php
+    if(isset($_SESSION['logado'])){
+       
+        ?>
+        <a href="./perfil/index.php">linkizao</a>
+        <p><?php  echo $_SESSION['id_cliente']; ?></p>
+        <?php
+    }else{
+        echo "deu errado";
+    }
     include('./componentes/menu-cabeçalho.php');
     ?>
     <main>

@@ -15,7 +15,8 @@ include '../conexao.php';
 $sqlCategorias = "SELECT * FROM tb_categoria LIMIT $limit,4";
 $resultadoCategoria = mysqli_query($conexao, $sqlCategorias);
 
-if (!empty($_GET['id_categoria'])) {
+if (isset($_GET['id_categoria'])) {
+    $subLimit = 0; 
     $idsubcategoria = $_GET['id_categoria'];
     $sqlsubCategorias = "SELECT * FROM tb_sub_categoria a INNER JOIN tb_categoria b ON a.fk_id_categoria = b.id_categoria WHERE b.id_categoria = $idsubcategoria LIMIT $subLimit,4";
     $resultadoSubCategoria = mysqli_query($conexao, $sqlsubCategorias);
@@ -120,8 +121,8 @@ if (!empty($_GET['id_categoria'])) {
                         ?>
                             <td class="tabela-principal_checkbox">
                                 <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo1" type="checkbox">
-                                    <label for="checkbox-conteudo1"></label>
+                                    <input id="checkbox-conteudo-cat<?php echo $resultado['id_categoria'];?>" type="checkbox">
+                                    <label for="checkbox-conteudo-cat<?php echo $resultado['id_categoria'];?>"></label>
                                 </div>
                             </td>
                             <td class="tabela-principal_id"><?php echo $resultado['id_categoria'] ?></td>
@@ -188,8 +189,8 @@ if (!empty($_GET['id_categoria'])) {
                         <tr>
                             <th class="tabela-principal_titulo">
                                 <div class="tabela-checkbox_titulo">
-                                    <input id="checkbox-titulo" type="checkbox">
-                                    <label for="checkbox-titulo"></label>
+                                    <input id="checkbox-titulo-sub-cat" type="checkbox">
+                                    <label for="checkbox-titulo-sub-cat"></label>
                                 </div>
                             </th>
                             <th class="tabela-principal_titulo tabela-principal_tituloId">ID</th>
@@ -201,8 +202,8 @@ if (!empty($_GET['id_categoria'])) {
                             <tr>
                                 <td class="tabela-principal_checkbox">
                                     <div class="tabela-checkbox_conteudo">
-                                        <input id="checkbox-conteudo1" type="checkbox">
-                                        <label for="checkbox-conteudo1"></label>
+                                        <input id="checkbox-conteudo-sub<?php echo $resultadofinal['id_sub_categoria'];?>" type="checkbox">
+                                        <label for="checkbox-conteudo-sub<?php echo $resultadofinal['id_sub_categoria'];?>"></label>
                                     </div>
                                 </td>
                                 <td class="tabela-principal_id"><?php echo $resultadofinal['id_sub_categoria'] ?></td>

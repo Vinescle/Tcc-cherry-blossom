@@ -1,7 +1,18 @@
 <?php
 $page = 'marcas';
+$limit = 0;
+if (isset($pagina) || isset($_GET['pagina'])) {
+    $pagina = $_GET['pagina'];
+    if ($pagina < 0) {
+        header('location:../home-adm/marcas.php');
+    }
+    $limit = $limit + 32;
+} else {
+    $pagina = 0;
+}
+
 include '../conexao.php';
-$sql = "SELECT * FROM tb_marcas";
+$sql = "SELECT * FROM tb_marcas LIMIT $limit,32";
 $resultado = mysqli_query($conexao, $sql);
 ?>
 
@@ -75,10 +86,10 @@ $resultado = mysqli_query($conexao, $sql);
                     </div>
 
                     <div class="botoes-setas">
-                        <a class="botao-texto">
+                        <a class="botao-texto" href="./marcas.php?pagina=<?php echo $pagina - 1 ?>">
                             <ion-icon class="setas md hydrated" name="chevron-back-outline" role="img" aria-label="chevron back outline"></ion-icon>
                         </a>
-                        <a class="botao-texto">
+                        <a class="botao-texto" href="./marcas.php?pagina=<?php echo $pagina + 1 ?>">
                             <ion-icon class="setas md hydrated" name="chevron-forward-outline" role="img" aria-label="chevron forward outline"></ion-icon>
                         </a>
                     </div>

@@ -1,6 +1,15 @@
 <?php
 include './conexao.php';
 
+session_start();
+
+if(isset($_GET['adicionar'])){
+    //Adicionando ao carrinho
+    $idProduto = (int) $_GET['adicionar'];
+    $_SESSION['carrinho'][$idProduto] = array($idProduto); 
+    echo "<script>alert('O produto foi adicionado ao carrinho!');</script>";
+}
+   
 $idProduto = $_GET['produto'];
 
 $sqlProduto = "SELECT * FROM tb_produtos a INNER JOIN tb_produtos_sub_categorias c ON c.fk_id_produtos = a.id_produtos
@@ -146,7 +155,7 @@ $marcas = $resultadoMarcas->fetch_all(MYSQLI_ASSOC);
                                 <button class="limpa-style modificar-quantidade" onclick="aumenta()">
                                     <ion-icon name="add-outline"></ion-icon>
                                 </button>
-                                <input type="number" name="" class="limpa-style quantidade" value="1" id="quantidade" min="1">
+                                <input type="number" name="quantidade" class="limpa-style quantidade" value="1" id="quantidade" min="1">
                                 <button class="limpa-style modificar-quantidade" onclick="diminui()">
                                     <ion-icon name="remove-outline"></ion-icon>
                                 </button>
@@ -155,7 +164,7 @@ $marcas = $resultadoMarcas->fetch_all(MYSQLI_ASSOC);
 
                         <div class="flex-esquerda margem-topo container-compra">
                             <button class="botao-texto min-width-botao margem-direita">
-                                <ion-icon class="icone-input md hydrated" name="cart-outline"></ion-icon> Adicionar ao Carrinho
+                                <ion-icon class="icone-input md hydrated" name="cart-outline"></ion-icon><a href="?produto=<?php echo $idProduto;?>&adicionar=<?php echo $idProduto?>&quantidade=quantidade">Adicionar ao Carrinho</a>
                             </button>
                             <button class="botao-texto min-width-botao">
                                 <ion-icon class="icone-input md hydrated" name="card-outline"></ion-icon>Comprar
@@ -204,6 +213,14 @@ $marcas = $resultadoMarcas->fetch_all(MYSQLI_ASSOC);
                 quantidade = quantidade.value--;
         }
     </script>
+
+    <?php
+
+        foreach ($_SESSION['carrinho'] as $key => $value) {
+            var_dump($_SESSION['carrinho']);
+        }
+    
+    ?>
 </body>
 
 </html>

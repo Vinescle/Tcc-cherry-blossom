@@ -181,8 +181,8 @@ try {
                             <tr>
                                 <td class="tabela-principal_checkbox">
                                     <div class="tabela-checkbox_conteudo">
-                                        <input id="checkbox-conteudo1" type="checkbox">
-                                        <label for="checkbox-conteudo1"></label>
+                                        <input id="checkbox-conteudo<?php echo $resultadoTabelaPrincipal['id_produtos'];?>" type="checkbox">
+                                        <label for="checkbox-conteudo<?php echo $resultadoTabelaPrincipal['id_produtos'];?>"></label>
                                     </div>
                                 </td>
                                 <td class="tabela-principal_id"><?php echo $resultadoTabelaPrincipal['id_produtos']; ?></td>
@@ -196,125 +196,6 @@ try {
                         <?php
                         }
                         ?>
-                        <!-- <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo1" type="checkbox">
-                                    <label for="checkbox-conteudo1"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">1</td>
-                            <td class="tabela-principal_conteudo">Produto aleatório</td>
-                            <td class="tabela-principal_conteudo">Chevrolet</td>
-                            <td class="tabela-principal_conteudo">Carro</td>
-                            <td class="tabela-principal_conteudo">89.000</td>
-                            <td class="tabela-principal_conteudo">1</td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo2" type="checkbox">
-                                    <label for="checkbox-conteudo2"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">2</td>
-                            <td class="tabela-principal_conteudo">Produto aleatório</td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo3" type="checkbox">
-                                    <label for="checkbox-conteudo3"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">3</td>
-                            <td class="tabela-principal_conteudo">Produto aleatório</td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo4" type="checkbox">
-                                    <label for="checkbox-conteudo4"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">4</td>
-                            <td class="tabela-principal_conteudo">Produto aleatório</td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo5" type="checkbox">
-                                    <label for="checkbox-conteudo5"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">5</td>
-                            <td class="tabela-principal_conteudo">Produto aleatório</td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo6" type="checkbox">
-                                    <label for="checkbox-conteudo6"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">6</td>
-                            <td class="tabela-principal_conteudo">Produto aleatório</td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo7" type="checkbox">
-                                    <label for="checkbox-conteudo7"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">7</td>
-                            <td class="tabela-principal_conteudo">Produto aleatório</td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo8" type="checkbox">
-                                    <label for="checkbox-conteudo8"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id">8</td>
-                            <td class="tabela-principal_conteudo">Produto aleatório</td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                            <td class="tabela-principal_conteudo"></td>
-                        </tr> -->
                     </table>
                 </div>
             </div>

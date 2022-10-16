@@ -2,6 +2,13 @@
 $page = 'home';
 include '../conexao.php';
 
+session_start();
+$id = $_SESSION['id_cliente'];
+$sql = "SELECT * FROM tb_usuarios WHERE id_usuario = $id";
+$resultado = mysqli_query($conexao,$sql);
+$resultado = mysqli_fetch_array($resultado);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +55,7 @@ include '../conexao.php';
                                     <button class="botao-input">
                                         <ion-icon class="icone-input" name="person-circle-outline"></ion-icon>
                                     </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto">
+                                    <input class="input-conjunto" type="text" name="nomeProduto" value="<?php echo $resultado['nome_usuario']?>">
                                 </div>
                             </div>
 
@@ -58,7 +65,7 @@ include '../conexao.php';
                                     <button class="botao-input">
                                         <ion-icon class="icone-input" name="mail-outline"></ion-icon>
                                     </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto">
+                                    <input class="input-conjunto" type="text" name="nomeProduto" value="<?php echo $resultado['email_usuario']?>">
                                 </div>
                             </div>
                         </div>
@@ -70,7 +77,7 @@ include '../conexao.php';
                                     <button class="botao-input">
                                         <ion-icon class="icone-input" name="newspaper-outline"></ion-icon>
                                     </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto">
+                                    <input class="input-conjunto" type="text" name="nomeProduto" value="<?php echo $resultado['cpf_usuario']?>">
                                 </div>
                             </div>
 
@@ -166,7 +173,6 @@ include '../conexao.php';
                                     </select>
                                 </div>
                             </div>
-
                             <div class="w-100">
                                 <label class="input-texto">Cidade</label>
                                 <div class="input-container">
