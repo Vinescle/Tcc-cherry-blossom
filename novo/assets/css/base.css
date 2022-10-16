@@ -133,3 +133,28 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+/* Checkbox Cabeçalho titulo*/
+
+.tabela-checkbox_titulo input[type="checkbox"] {
+  display: none;
+}
+
+.tabela-checkbox_titulo input+label:before {
+  content: '';
+  width: 1rem;
+  height: 1rem;
+
+  background-color: #FFFFFF;
+
+  border-radius: 5px;
+  border: solid 2px #FF84F0;
+
+  display: inline-block;
+  vertical-align: middle;
+}
+
+input:checked+label:before {
+  background-image: url('http://localhost/tcc/tcc-cherry-blossom/novo/assets/icones/checked.svg');
+  background-color: #FF84F0;
+}

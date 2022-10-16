@@ -71,32 +71,6 @@
   margin: 0;
 }
 
-/* Checkbox */
-
-.tabela-principal_checkbox {
-  border: solid 1px #FF84F0;
-
-  text-align: center;
-}
-
-.tabela-checkbox_titulo input[type="checkbox"] {
-  display: none;
-}
-
-.tabela-checkbox_titulo input+label:before {
-  content: '';
-  width: 1rem;
-  height: 1rem;
-
-  background-color: #FFFFFF;
-
-  border-radius: 5px;
-  border: solid 2px #FF84F0;
-
-  display: inline-block;
-  vertical-align: middle;
-}
-
 .secoes-detalhes-principais input:checked+label:before {
   background-image: url('../../src-icons/checked.svg');
   background-color: #FF84F0;

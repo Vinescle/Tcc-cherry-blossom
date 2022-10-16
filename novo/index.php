@@ -65,13 +65,13 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
 
 <body>
     <?php
-    if(isset($_SESSION['logado'])){
-       
-        ?>
+    if (isset($_SESSION['logado'])) {
+
+    ?>
         <a href="./perfil/index.php">linkizao</a>
-        <p><?php  echo $_SESSION['id_cliente']; ?></p>
-        <?php
-    }else{
+        <p><?php echo $_SESSION['id_cliente']; ?></p>
+    <?php
+    } else {
         echo "deu errado";
     }
     include('./componentes/menu-cabeçalho.php');
@@ -109,9 +109,11 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                     <?php
                     while ($resultadoMarcasFinal = mysqli_fetch_array($resultadoMarcas)) {
                     ?>
-                        <div class="bolas-marcas" style="background-color: <?php echo $resultadoMarcasFinal['cor_marca'] ?>;">
-                            <div><img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoMarcasFinal['icon_url'] ?>" class="imagem-marcas"></div>
-                        </div>
+                        <a href="<?php echo $rota; ?>/pesquisa.php?marca=<?php echo $resultadoMarcasFinal['id_marca']; ?>">
+                            <div class="bolas-marcas" style="background-color: <?php echo $resultadoMarcasFinal['cor_marca']; ?>;">
+                                <div><img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoMarcasFinal['icon_url'] ?>" class="imagem-marcas"></div>
+                            </div>
+                        </a>
                     <?php
                     }
                     ?>
