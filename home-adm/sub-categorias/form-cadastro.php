@@ -1,6 +1,7 @@
 <?php
 $page = 'categorias';
 include '../../conexao.php';
+include '../../verifica-logado.php';
 $sql = "SELECT * FROM tb_categoria";
 $categorias = mysqli_query($conexao, $sql);
 ?>

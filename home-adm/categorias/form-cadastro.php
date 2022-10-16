@@ -1,6 +1,7 @@
 <?php
 $page = 'categorias';
 include '../../conexao.php';
+include '../../verifica-logado.php';
 ?>
 
 <!DOCTYPE html>

@@ -1,6 +1,7 @@
 <?php
 
 include '../../conexao.php';
+include '../../verifica-logado.php';
 
 // CAMPOS INSERT PARA tb_marcas_produtos
 $idMarca = $_POST['idmarca'];

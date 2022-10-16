@@ -1,6 +1,5 @@
 <?php
-
-session_start();
+include './conexao.php';
 
 if (isset($_GET['deslogar'])) {
     unset($_SESSION['id_usuario']);
@@ -8,7 +7,6 @@ if (isset($_GET['deslogar'])) {
     session_destroy();
 }
 
-include './conexao.php';
 
 $sqlMarcas = "SELECT * FROM tb_marcas LIMIT 7";
 $resultadoMarcas = mysqli_query($conexao, $sqlMarcas);

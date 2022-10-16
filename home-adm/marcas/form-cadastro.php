@@ -1,6 +1,7 @@
 <?php
 $page = 'marcas';
 include '../../conexao.php';
+include '../../verifica-logado.php';
 ?>
 
 <!DOCTYPE html>

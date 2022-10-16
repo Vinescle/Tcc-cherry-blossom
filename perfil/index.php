@@ -1,6 +1,7 @@
 <?php
 $page = 'home';
 include '../conexao.php';
+include '../verifica-logado.php';
 
 session_start();
 $id = $_SESSION['id_usuario'];
@@ -86,7 +87,7 @@ $resultadoInfo = mysqli_fetch_array($resultado);
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="call-outline"></ion-icon>
                                         </button>
-                                        <input id="telefone" onkeyup="mascaraFone(event)" class="input-conjunto" type="text" name="telefone_usuario" maxlength="15" value="<?php echo $resultadoInfo['telefone']?>">
+                                        <input id="telefone" onkeyup="mascaraFone(event)" class="input-conjunto" type="text" name="telefone_usuario" maxlength="15" value="<?php echo $resultadoInfo['telefone'] ?>">
                                     </div>
                                 </div>
                             </div>

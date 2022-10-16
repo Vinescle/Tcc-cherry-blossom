@@ -1,5 +1,6 @@
 <?php
 include '../../conexao.php';
+include '../../verifica-logado.php';
 $id = 21;
 $nomeMarca = $_POST['nomeMarca'];
 $corMarca = $_POST['corMarca'];

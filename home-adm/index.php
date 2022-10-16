@@ -1,6 +1,7 @@
 <?php
 $page = 'home';
 include '../conexao.php';
+include '../verifica-logado.php';
 
 ?>
 

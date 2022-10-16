@@ -1,6 +1,7 @@
 <?php
 $page = 'gerenciar';
 include '../../conexao.php';
+include '../../verifica-logado.php';
 
 $sql = "SELECT * FROM tb_marcas";
 $resultadoMarcas = mysqli_query($conexao, $sql);

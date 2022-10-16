@@ -1,9 +1,10 @@
 <?php
 $page = 'marcas';
 include '../../conexao.php';
+include '../../verifica-logado.php';
 
 $sqlMarca = "SELECT * FROM `tb_marcas` WHERE id_marca = 21";
-$resultadoMarca = mysqli_query($conexao,$sqlMarca);
+$resultadoMarca = mysqli_query($conexao, $sqlMarca);
 $resultadoMarca = mysqli_fetch_array($resultadoMarca);
 ?>
 

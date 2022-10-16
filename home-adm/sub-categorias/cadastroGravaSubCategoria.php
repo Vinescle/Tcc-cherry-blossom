@@ -1,6 +1,7 @@
 <?php
 
 include '../../conexao.php';
+include '../../verifica-logado.php';
 $id_categoria = $_POST['idcategoria'];
 $nomeSubCategoria = $_POST['subcategoria'];
 

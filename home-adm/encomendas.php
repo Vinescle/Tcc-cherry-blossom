@@ -1,6 +1,7 @@
 <?php
 $page = 'encomendas';
 include '../conexao.php';
+include '../verifica-logado.php';
 
 ?>
 

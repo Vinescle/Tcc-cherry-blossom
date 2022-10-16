@@ -12,6 +12,7 @@ if (isset($pagina) || isset($_GET['pagina'])) {
 }
 
 include '../conexao.php';
+include '../verifica-logado.php';
 $sql = "SELECT * FROM tb_marcas LIMIT $limit,32";
 $resultado = mysqli_query($conexao, $sql);
 ?>

@@ -1,6 +1,7 @@
 <?php
 $page = 'historico';
 include '../conexao.php';
+include '../verifica-logado.php';
 
 ?>
 

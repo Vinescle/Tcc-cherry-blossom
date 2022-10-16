@@ -1,6 +1,7 @@
 <?php
 $page = 'gerenciar';
 include '../../conexao.php';
+include '../../verifica-logado.php';
 
 $sql = "SELECT * FROM tb_marcas";
 $resultadoMarcas = mysqli_query($conexao, $sql);
@@ -33,7 +34,7 @@ INNER JOIN tb_sub_categoria d ON d.id_sub_categoria = c.fk_id_sub_categorias
 INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria
 INNER JOIN tb_marcas_produtos f ON f.fk_id_produtos = a.id_produtos
 WHERE a.id_produtos = $id";
-$resultadoProduto = mysqli_query($conexao,$sqlProduto);
+$resultadoProduto = mysqli_query($conexao, $sqlProduto);
 $resultadoProduto = mysqli_fetch_array($resultadoProduto);
 
 ?>
@@ -121,22 +122,22 @@ $resultadoProduto = mysqli_fetch_array($resultadoProduto);
                                         <ion-icon class="icone-input md hydrated" name="balloon-outline"></ion-icon>
                                     </button>
                                     <select class="input-conjunto input-tiktok" name="idmarca">
-                                        <?php while ($resultado = mysqli_fetch_array($resultadoMarcas)) { 
-                                            if($resultado['id_marca'] == $resultadoProduto['fk_id_marcas']){
-                                                ?>
-                                            <option selected value="<?php echo $resultado['id_marca']; ?>">
-                                                <?php echo $resultado['nome_marca']; ?>
-                                            </option>
-                                            <?php
-                                            }else{
-                                                ?>
-                                                <option value="<?php echo $resultado['id_marca']; ?>">
-                                                <?php echo $resultado['nome_marca']; ?>
+                                        <?php while ($resultado = mysqli_fetch_array($resultadoMarcas)) {
+                                            if ($resultado['id_marca'] == $resultadoProduto['fk_id_marcas']) {
+                                        ?>
+                                                <option selected value="<?php echo $resultado['id_marca']; ?>">
+                                                    <?php echo $resultado['nome_marca']; ?>
                                                 </option>
                                             <?php
-                                            }
-                                            }
+                                            } else {
                                             ?>
+                                                <option value="<?php echo $resultado['id_marca']; ?>">
+                                                    <?php echo $resultado['nome_marca']; ?>
+                                                </option>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
                                     </select>
                                 </div>
 
@@ -150,22 +151,21 @@ $resultadoProduto = mysqli_fetch_array($resultadoProduto);
                                     <select class="input-conjunto input-tiktok" name="idcategoria">
                                         <?php
                                         while ($resultado = mysqli_fetch_array($resultadoCategorias)) {
-                                            if($resultado['id_categoria'] == $resultadoProduto['id_categoria']){
-                                            ?>
-                                            <option selected value="<?php echo $resultado['id_categoria']; ?>">
-                                                <?php echo $resultado['nome_categoria']; ?>
-                                            </option>
+                                            if ($resultado['id_categoria'] == $resultadoProduto['id_categoria']) {
+                                        ?>
+                                                <option selected value="<?php echo $resultado['id_categoria']; ?>">
+                                                    <?php echo $resultado['nome_categoria']; ?>
+                                                </option>
                                             <?php
-                                            }
-                                            else{
+                                            } else {
                                             ?>
                                                 <option value="<?php echo $resultado['id_categoria']; ?>">
-                                                <?php echo $resultado['nome_categoria']; ?>
+                                                    <?php echo $resultado['nome_categoria']; ?>
                                                 </option>
                                             <?php
                                             }
                                             ?>
-                                        
+
                                         <?php
                                         }
                                         ?>
@@ -181,20 +181,20 @@ $resultadoProduto = mysqli_fetch_array($resultadoProduto);
                                     <select class="input-conjunto input-tiktok" name="idsubcategoria">
                                         <?php
                                         while ($resultado = mysqli_fetch_array($resultadoSubCategoria)) {
-                                            if($resultado['id_sub_categoria'] == $resultadoProduto['id_sub_categoria']){
-                                                ?>
-                                            <option selected value="<?php echo $resultado['id_sub_categoria']; ?>">
-                                                <?php echo $resultado['nome_sub_categoria']; ?>
-                                            </option>
-                                            <?php
-                                            }else{
-                                            ?>
+                                            if ($resultado['id_sub_categoria'] == $resultadoProduto['id_sub_categoria']) {
                                         ?>
-                                            <option value="<?php echo $resultado['id_sub_categoria']; ?>">
-                                                <?php echo $resultado['nome_sub_categoria']; ?>
-                                            </option>
+                                                <option selected value="<?php echo $resultado['id_sub_categoria']; ?>">
+                                                    <?php echo $resultado['nome_sub_categoria']; ?>
+                                                </option>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                ?>
+                                                <option value="<?php echo $resultado['id_sub_categoria']; ?>">
+                                                    <?php echo $resultado['nome_sub_categoria']; ?>
+                                                </option>
                                         <?php
-                                        }
+                                            }
                                         }
                                         ?>
                                     </select>

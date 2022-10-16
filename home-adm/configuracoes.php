@@ -1,6 +1,7 @@
 <?php
 $page = 'configuracoes';
 include '../conexao.php';
+include '../verifica-logado.php';
 
 $sqlHomeAdmConfig = "SELECT * FROM tb_adm_config";
 $resultadoConfigAdm = mysqli_query($conexao, $sqlHomeAdmConfig);

@@ -12,6 +12,7 @@ if (isset($pagina) || isset($_GET['pagina'])) {
 }
 
 include '../conexao.php';
+include '../verifica-logado.php';
 $sql = "SELECT a.id_produtos, a.nome_produto, a.preco_produto, a.qtd_produto, b.nome_marca, c.nome_categoria FROM tb_produtos a
     INNER JOIN tb_marcas_produtos marcasRE ON a.id_produtos = marcasRE.fk_id_produtos
     LEFT JOIN tb_marcas b ON b.id_marca = marcasRE.fk_id_marcas
@@ -181,8 +182,8 @@ try {
                             <tr>
                                 <td class="tabela-principal_checkbox">
                                     <div class="tabela-checkbox_conteudo">
-                                        <input id="checkbox-conteudo<?php echo $resultadoTabelaPrincipal['id_produtos'];?>" type="checkbox">
-                                        <label for="checkbox-conteudo<?php echo $resultadoTabelaPrincipal['id_produtos'];?>"></label>
+                                        <input id="checkbox-conteudo<?php echo $resultadoTabelaPrincipal['id_produtos']; ?>" type="checkbox">
+                                        <label for="checkbox-conteudo<?php echo $resultadoTabelaPrincipal['id_produtos']; ?>"></label>
                                     </div>
                                 </td>
                                 <td class="tabela-principal_id"><?php echo $resultadoTabelaPrincipal['id_produtos']; ?></td>

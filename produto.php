@@ -1,8 +1,6 @@
 <?php
 include './conexao.php';
 
-session_start();
-
 if (isset($_GET['adicionar'])) {
     //Adicionando ao carrinho
     $idProduto = (int) $_GET['adicionar'];
