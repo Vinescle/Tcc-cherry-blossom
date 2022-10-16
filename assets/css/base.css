@@ -155,6 +155,6 @@ input[type=number] {
 }
 
 input:checked+label:before {
-  background-image: url('http://localhost/tcc/tcc-cherry-blossom/novo/assets/icones/checked.svg');
+  background-image: url('http://localhost/tcc/tcc-cherry-blossom/assets/icones/checked.svg');
   background-color: #FF84F0;
 }
