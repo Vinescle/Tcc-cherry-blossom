@@ -15,14 +15,9 @@ $sql = "SELECT id_usuario ,email_usuario, senha_usuario, permissao_adm FROM tb_u
 and senha_usuario = '$senha'";
 $resultado = mysqli_query($conexao, $sql);
 $linha = mysqli_fetch_array($resultado);
+  
+$_SESSION['permissao'] = $linha['permissao_adm'];
+$_SESSION['logado'] = 1;
+$_SESSION['id_usuario'] = $linha['id_usuario'];
+header("location: $rota");
 
-
-if ($linha['permissao_adm'] == 2) {
-    $_SESSION['permissao'] = 2;
-    header("location:$rota" . "/index.php");
-} else {
-    $_SESSION['permissao'] = 1;
-    $_SESSION['logado'] = 1;
-    $_SESSION['id_cliente'] = $linha['id_usuario'];
-    header("location: $rota");
-}

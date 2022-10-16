@@ -3,7 +3,7 @@ $page = 'home';
 include '../conexao.php';
 
 session_start();
-$id = $_SESSION['id_cliente'];
+$id = $_SESSION['id_usuario'];
 $sql = "SELECT * FROM tb_usuarios WHERE id_usuario = $id";
 $resultado = mysqli_query($conexao, $sql);
 $resultadoInfo = mysqli_fetch_array($resultado);
@@ -86,7 +86,7 @@ $resultadoInfo = mysqli_fetch_array($resultado);
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="call-outline"></ion-icon>
                                         </button>
-                                        <input id="telefone" onkeyup="mascaraFone(event)" class="input-conjunto" type="text" name="telefone_usuario" maxlength="15" value="<?php echo $resultadoInfo['tele']?>">
+                                        <input id="telefone" onkeyup="mascaraFone(event)" class="input-conjunto" type="text" name="telefone_usuario" maxlength="15" value="<?php echo $resultadoInfo['telefone']?>">
                                     </div>
                                 </div>
                             </div>

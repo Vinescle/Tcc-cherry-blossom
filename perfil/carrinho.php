@@ -1,6 +1,14 @@
 <?php
 $page = 'carrinho';
 include '../conexao.php';
+session_start();
+
+if(isset($_SESSION['carrinho'])){
+    var_dump($_SESSION['carrinho']);
+    
+    
+}
+
 
 ?>
 

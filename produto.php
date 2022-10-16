@@ -3,13 +3,16 @@ include './conexao.php';
 
 session_start();
 
-if(isset($_GET['adicionar'])){
+if (isset($_GET['adicionar'])) {
     //Adicionando ao carrinho
     $idProduto = (int) $_GET['adicionar'];
-    $_SESSION['carrinho'][$idProduto] = array($idProduto); 
+    $_SESSION['carrinho'][$idProduto] = array(
+        'produto' => $_GET['produto'],
+        'quantidade' => $_GET['quantidade']
+    );
     echo "<script>alert('O produto foi adicionado ao carrinho!');</script>";
 }
-   
+
 $idProduto = $_GET['produto'];
 
 $sqlProduto = "SELECT * FROM tb_produtos a INNER JOIN tb_produtos_sub_categorias c ON c.fk_id_produtos = a.id_produtos
@@ -147,29 +150,32 @@ $marcas = $resultadoMarcas->fetch_all(MYSQLI_ASSOC);
                                 </div>
                             </div>
                         </div>
+                        <form action="./produto.php" method="GET">
+                            <input type="text" hidden value="<?php echo $produto['id_produtos'] ?>" name="produto">
+                            <input type="text" hidden value="1" name="adicionar">
+                            <div class="margem-topo">
+                                <label>Quantidade</label>
 
-                        <div class="margem-topo">
-                            <label>Quantidade</label>
+                                <div class="quantidade-container">
+                                    <button type="button" class="limpa-style modificar-quantidade" onclick="diminui()">
+                                        <ion-icon name="remove-outline"></ion-icon>
+                                    </button>
+                                    <input type="number" name="quantidade" class="limpa-style quantidade" value="1" id="quantidade" min="1">
+                                    <button type="button" class="limpa-style modificar-quantidade" onclick="aumenta()">
+                                        <ion-icon name="add-outline"></ion-icon>
+                                    </button>
+                                </div>
+                            </div>
 
-                            <div class="quantidade-container">
-                                <button class="limpa-style modificar-quantidade" onclick="aumenta()">
-                                    <ion-icon name="add-outline"></ion-icon>
+                            <div class="flex-esquerda margem-topo container-compra">
+                                <button type="submit" class="botao-texto min-width-botao margem-direita">
+                                    <ion-icon class="icone-input md hydrated" name="cart-outline"></ion-icon>Adicionar ao Carrinho
                                 </button>
-                                <input type="number" name="quantidade" class="limpa-style quantidade" value="1" id="quantidade" min="1">
-                                <button class="limpa-style modificar-quantidade" onclick="diminui()">
-                                    <ion-icon name="remove-outline"></ion-icon>
+                                <button type="button" class="botao-texto min-width-botao">
+                                    <ion-icon class="icone-input md hydrated" name="card-outline"></ion-icon>Comprar
                                 </button>
                             </div>
-                        </div>
-
-                        <div class="flex-esquerda margem-topo container-compra">
-                            <button class="botao-texto min-width-botao margem-direita">
-                                <ion-icon class="icone-input md hydrated" name="cart-outline"></ion-icon><a href="?produto=<?php echo $idProduto;?>&adicionar=<?php echo $idProduto?>&quantidade=quantidade">Adicionar ao Carrinho</a>
-                            </button>
-                            <button class="botao-texto min-width-botao">
-                                <ion-icon class="icone-input md hydrated" name="card-outline"></ion-icon>Comprar
-                            </button>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <div>
@@ -216,10 +222,10 @@ $marcas = $resultadoMarcas->fetch_all(MYSQLI_ASSOC);
 
     <?php
 
-        foreach ($_SESSION['carrinho'] as $key => $value) {
-            var_dump($_SESSION['carrinho']);
-        }
-    
+    foreach ($_SESSION['carrinho'] as $key => $value) {
+        var_dump($_SESSION['carrinho']);
+    }
+
     ?>
 </body>
 
