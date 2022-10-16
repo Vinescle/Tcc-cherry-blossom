@@ -5,9 +5,8 @@ include '../conexao.php';
 session_start();
 $id = $_SESSION['id_cliente'];
 $sql = "SELECT * FROM tb_usuarios WHERE id_usuario = $id";
-$resultado = mysqli_query($conexao,$sql);
-$resultado = mysqli_fetch_array($resultado);
-
+$resultado = mysqli_query($conexao, $sql);
+$resultadoInfo = mysqli_fetch_array($resultado);
 
 ?>
 
@@ -46,82 +45,155 @@ $resultado = mysqli_fetch_array($resultado);
                     <div class="label-dadosBasicos">
                         <label class="label-titulo">Dados Básicos</label>
                     </div>
+                    <form action="./dados basicos/alteraDados.php" method="POST">
+                        <div class="conjunto-dadosBasicos">
+                            <div class="conjunto-divs">
+                                <div class="w-160">
+                                    <label class="input-texto">Nome Completo</label>
+                                    <div class="input-container">
+                                        <button class="botao-input">
+                                            <ion-icon class="icone-input" name="person-circle-outline"></ion-icon>
+                                        </button>
+                                        <input class="input-conjunto" type="text" name="nome_usuario" value="<?php echo $resultadoInfo['nome_usuario'] ?>">
+                                    </div>
+                                </div>
 
-                    <div class="conjunto-dadosBasicos">
-                        <div class="conjunto-divs">
-                            <div class="w-160">
-                                <label class="input-texto">Nome Completo</label>
-                                <div class="input-container">
-                                    <button class="botao-input">
-                                        <ion-icon class="icone-input" name="person-circle-outline"></ion-icon>
-                                    </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto" value="<?php echo $resultado['nome_usuario']?>">
+                                <div class="w-160">
+                                    <label class="input-texto">E-mail</label>
+                                    <div class="input-container">
+                                        <button class="botao-input">
+                                            <ion-icon class="icone-input" name="mail-outline"></ion-icon>
+                                        </button>
+                                        <input class="input-conjunto" type="text" name="email_usuario" value="<?php echo $resultadoInfo['email_usuario'] ?>">
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="w-160">
-                                <label class="input-texto">E-mail</label>
-                                <div class="input-container">
-                                    <button class="botao-input">
-                                        <ion-icon class="icone-input" name="mail-outline"></ion-icon>
-                                    </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto" value="<?php echo $resultado['email_usuario']?>">
+                            <div class="conjunto-divs">
+                                <div class="w-160">
+                                    <label class="input-texto">CPF</label>
+                                    <div class="input-container">
+                                        <button class="botao-input">
+                                            <ion-icon class="icone-input" name="newspaper-outline"></ion-icon>
+                                        </button>
+                                        <input class="input-conjunto" type="text" name="cpf_usuario" value="<?php echo $resultadoInfo['cpf_usuario'] ?>">
+                                    </div>
+                                </div>
+
+                                <div class="w-160">
+                                    <label class="input-texto">Telefone</label>
+                                    <div class="input-container">
+                                        <button class="botao-input">
+                                            <ion-icon class="icone-input" name="call-outline"></ion-icon>
+                                        </button>
+                                        <input id="telefone" onkeyup="mascaraFone(event)" class="input-conjunto" type="text" name="telefone_usuario" maxlength="15" value="<?php echo $resultadoInfo['tele']?>">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="conjunto-divs">
-                            <div class="w-160">
-                                <label class="input-texto">CPF</label>
-                                <div class="input-container">
-                                    <button class="botao-input">
-                                        <ion-icon class="icone-input" name="newspaper-outline"></ion-icon>
-                                    </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto" value="<?php echo $resultado['cpf_usuario']?>">
-                                </div>
-                            </div>
-
-                            <div class="w-160">
-                                <label class="input-texto">Telefone</label>
-                                <div class="input-container">
-                                    <button class="botao-input">
-                                        <ion-icon class="icone-input" name="call-outline"></ion-icon>
-                                    </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto">
-                                </div>
-                            </div>
+                        <div class="input-salvar">
+                            <button type="submit" class="botao-texto  min-width-botao centralizar margem-topo">
+                                Salvar dados alterados
+                            </button>
                         </div>
-                    </div>
+                    </form>
+
                 </div>
 
                 <div class="agrupamento">
-                    <div class="label-dadosBasicos">
-                        <label class="label-titulo">Alterar Senha</label>
-                    </div>
+                    <form action="./senha/alteraSenha.php" method="POST">
+                        <div class="label-dadosBasicos">
+                            <label class="label-titulo">Alterar Senha</label>
+                        </div>
 
-                    <div class="conjunto-dadosBasicos">
-                        <div class="conjunto-divs">
-                            <div class="w-160">
-                                <label class="input-texto">Senha Atual</label>
-                                <div class="input-container">
-                                    <button class="botao-input">
-                                        <ion-icon class="icone-input" name="lock-closed-outline"></ion-icon>
-                                    </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto">
-                                </div>
-                            </div>
+                        <div class="conjunto-dadosBasicos">
+                            <div class="conjunto-divs">
+                                <?php
+                                if (isset($_GET['senhaNova'])) {
+                                    if ($_GET['senhaNova'] == 0) {
+                                ?>
+                                        <div class="w-160">
+                                            <label class="input-texto">Senha Atual</label>
+                                            <div class="input-container">
+                                                <button class="botao-input" style="background-color: red;">
+                                                    <ion-icon class="icone-input" name="lock-closed-outline" style="background-color: red;"></ion-icon>
+                                                </button>
+                                                <input class="input-conjunto" type="text" name="senhaAtual" style="border-color: red;" placeholder="*Senha incorreta*">
+                                            </div>
+                                        </div>
 
-                            <div class="w-160">
-                                <label class="input-texto">Nova Senha</label>
-                                <div class="input-container">
-                                    <button class="botao-input">
-                                        <ion-icon class="icone-input" name="lock-open-outline"></ion-icon>
-                                    </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto">
-                                </div>
+                                        <div class="w-160">
+                                            <label class="input-texto">Nova Senha</label>
+                                            <div class="input-container">
+                                                <button class="botao-input" style="background-color: red;">
+                                                    <ion-icon class="icone-input" name="lock-open-outline" style="background-color: red;"></ion-icon>
+                                                </button>
+                                                <input class="input-conjunto" type="text" name="novaSenha" style="border-color: red;">
+                                            </div>
+                                        </div>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <script>
+                                            setTimeout(function() {
+                                                alert('Sua senha foi alterada com Sucesso!');
+                                            }, 400);
+                                        </script>
+
+                                        <div class="w-160">
+                                            <label class="input-texto">Senha Atual</label>
+                                            <div class="input-container">
+                                                <button class="botao-input">
+                                                    <ion-icon class="icone-input" name="lock-closed-outline"></ion-icon>
+                                                </button>
+                                                <input class="input-conjunto" type="text" name="senhaAtual">
+                                            </div>
+                                        </div>
+
+                                        <div class="w-160">
+                                            <label class="input-texto">Nova Senha</label>
+                                            <div class="input-container">
+                                                <button class="botao-input">
+                                                    <ion-icon class="icone-input" name="lock-open-outline"></ion-icon>
+                                                </button>
+                                                <input class="input-conjunto" type="text" name="novaSenha">
+                                            </div>
+                                        </div>
+                                    <?php
+                                    }
+                                } else {
+                                    ?>
+                                    <div class="w-160">
+                                        <label class="input-texto">Senha Atual</label>
+                                        <div class="input-container">
+                                            <button class="botao-input">
+                                                <ion-icon class="icone-input" name="lock-closed-outline"></ion-icon>
+                                            </button>
+                                            <input class="input-conjunto" type="text" name="senhaAtual">
+                                        </div>
+                                    </div>
+
+                                    <div class="w-160">
+                                        <label class="input-texto">Nova Senha</label>
+                                        <div class="input-container">
+                                            <button class="botao-input">
+                                                <ion-icon class="icone-input" name="lock-open-outline"></ion-icon>
+                                            </button>
+                                            <input class="input-conjunto" type="text" name="novaSenha">
+                                        </div>
+                                    </div>
+                                <?php
+                                }
+                                ?>
                             </div>
                         </div>
-                    </div>
+                        <div class="input-salvar">
+                            <button type="submit" class="botao-texto  min-width-botao centralizar margem-topo">
+                                Salvar nova senha
+                            </button>
+                        </div>
+                    </form>
+
                 </div>
 
                 <div class="agrupamento">
@@ -137,7 +209,7 @@ $resultado = mysqli_fetch_array($resultado);
                                     <button class="botao-input">
                                         <ion-icon class="icone-input" name="person-circle-outline"></ion-icon>
                                     </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto">
+                                    <input class="input-conjunto" type="text" name="nomeRecebedor">
                                 </div>
                             </div>
 
@@ -147,7 +219,7 @@ $resultado = mysqli_fetch_array($resultado);
                                     <button class="botao-input">
                                         <ion-icon class="icone-input" name="location-outline"></ion-icon>
                                     </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto">
+                                    <input class="input-conjunto" type="text" name="CEP">
                                 </div>
                             </div>
                         </div>
@@ -159,17 +231,8 @@ $resultado = mysqli_fetch_array($resultado);
                                     <button class="botao-input" disabled="">
                                         <ion-icon class="icone-input md hydrated" name="map-outline"></ion-icon>
                                     </button>
-                                    <select class="input-conjunto input-tiktok" name="idcategoria">
+                                    <select class="input-conjunto input-tiktok" name="Estado">
                                         <option selected></option>
-                                        <?php
-                                        while ($resultado = mysqli_fetch_array($resultadoCategorias)) {
-                                        ?>
-                                            <option value="<?php echo $resultado['id_categoria']; ?>">
-                                                <?php echo $resultado['nome_categoria']; ?>
-                                            </option>
-                                        <?php
-                                        }
-                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -181,15 +244,6 @@ $resultado = mysqli_fetch_array($resultado);
                                     </button>
                                     <select class="input-conjunto input-tiktok" name="idcategoria">
                                         <option selected></option>
-                                        <?php
-                                        while ($resultado = mysqli_fetch_array($resultadoCategorias)) {
-                                        ?>
-                                            <option value="<?php echo $resultado['id_categoria']; ?>">
-                                                <?php echo $resultado['nome_categoria']; ?>
-                                            </option>
-                                        <?php
-                                        }
-                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -249,7 +303,7 @@ $resultado = mysqli_fetch_array($resultado);
             </div>
         </div>
     </div>
-
+    <script src="./js/marcaraTelefone.js"></script>
     <?php
     include('../imports.php');
     ?>

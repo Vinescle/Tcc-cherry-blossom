@@ -1,5 +1,5 @@
 <?php
-$page = 'home';
+$page = 'carrinho';
 include '../conexao.php';
 
 ?>

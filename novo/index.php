@@ -1,6 +1,13 @@
 <?php
 
 session_start();
+
+if(isset($_GET['deslogar'])){
+    unset($_SESSION['id_usuario']);
+    unset($_SESSION['logado']);
+    session_destroy();
+}
+
 include './conexao.php';
 
 $sqlMarcas = "SELECT * FROM tb_marcas LIMIT 7";
@@ -65,6 +72,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
 
 <body>
     <?php
+<<<<<<< Updated upstream
     if (isset($_SESSION['logado'])) {
 
     ?>
@@ -75,6 +83,9 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
         echo "deu errado";
     }
     include('./componentes/menu-cabeçalho.php');
+=======
+        include('./componentes/menu-cabeçalho.php');
+>>>>>>> Stashed changes
     ?>
     <main>
         <main class="banner-carrossel">

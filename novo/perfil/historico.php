@@ -1,5 +1,5 @@
 <?php
-$page = 'home';
+$page = 'historico';
 include '../conexao.php';
 
 ?>

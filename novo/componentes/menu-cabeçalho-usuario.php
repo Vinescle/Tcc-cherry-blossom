@@ -10,7 +10,7 @@ $resultadoCategoriasMenu = mysqli_query($conexao, $sqlCategoriasMenu);
             <div class="dropdown-center">
                 <button class="limpa-botao" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
                     <img src="<?php echo $rota; ?>/assets/icones/menu.svg" class="icones-cabecalho_menu" id="checkboxMenu">
-                    <h2 class="botao-menu">MENU</h2>
+                    <h2 class="botao-menu">pinto</h2>
                 </button>
                 <ul class="dropdown-menu">
                     <label class="titulo-categorias">Categorias</label>
@@ -42,16 +42,9 @@ $resultadoCategoriasMenu = mysqli_query($conexao, $sqlCategoriasMenu);
             </button>
             <ul class="dropdown-menu">
                 <label class="titulo-login">Perfil</label>
-                <?php
-                // var_dump($_SESSION['id_usuario']);
-                if (isset($_SESSION['logado'])) {
-                ?>
-                    <label class="titulo-texto"><a href="<?php echo $rota; ?>/../cadastro-e-login/php/login.php">Login</a></label>
-                    <label class="titulo-texto"><a href="<?php echo $rota; ?>/../cadastro-e-login/php/cadastro.php">Registrar</a></label>
-                <?php
-                } else {
-                }
-                ?>
+                <label class="titulo-texto"><a href="<?php echo $rota; ?>/perfil/index.php">Minha conta</a></label>
+                <label class="titulo-texto"><a href="<?php echo $rota; ?>/../cadastro-e-login/php/cadastro.php">Minhas compras</a></label>
+                <label class="titulo-texto"><a href="<?php echo $rota; ?>?deslogar=1">Sair</a></label>
             </ul>
         </div>
     </div>
