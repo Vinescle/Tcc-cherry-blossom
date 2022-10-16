@@ -1,0 +1,132 @@
+.filtros {
+  width: 20%;
+  height: fit-content;
+
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  border-radius: 15px;
+  background-color: #FFF2FD;
+  margin-right: 2rem;
+}
+
+.pesquisa {
+  display: flex;
+}
+
+.label-titulo-filtro {
+  color: #323232;
+  font-family: 'Inter';
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.label-categorias-filtro {
+  color: #323232;
+  font-family: 'Inter';
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.label-conteudo-filtro {
+  color: #323232;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Botão Salvar */
+
+.input-salvar {
+  margin-top: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 30px;
+}
+
+.input-salvar input[type="submit"] {
+  cursor: pointer;
+  position: absolute;
+
+  opacity: 0;
+
+  width: 131px;
+  height: 30px;
+
+  left: 0;
+  top: 0;
+}
+
+.botao-salvar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 5px;
+
+  position: relative;
+
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Inter';
+  color: #FFF;
+
+  width: 130px;
+  height: 28px;
+
+  background-color: #FF84F0;
+  border: solid 2px #FF84F0;
+  border-radius: 13px;
+
+  overflow: hidden;
+}
+
+/* Filtro top */
+
+.conjunto-principal {
+  display: flex;
+  flex-direction: column;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-bottom: 1rem;
+}
+
+.label-tags {
+  color: #323232;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.div-preco {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.label-preco {
+  color: #323232;
+  font-family: 'Inter';
+  font-size: 15px;
+}
+
+.negrito {
+  font-weight: 700;
+}
+
+.icone-dropdown {
+  color: #FF84F0;
+  font-size: 20px;
+}

@@ -51,25 +51,24 @@ main {
 .secao-destaques {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
 }
 
 .destaques-produtos {
   display: inline-block;
 
+  width: 24%;
+  margin: .5%;
   border: 1px solid #A3B3CC;
   border-radius: 30px;
   overflow: hidden;
 }
 
 .foto-produtos {
-  max-width: 200px;
-  min-height: 150px;
   border-bottom: 1px solid #A3B3CC;
-  width: auto;
-  height: auto;
+  width: 100%;
+  aspect-ratio: 1/1.1;
+  object-fit: cover;
 }
 
 .tag-produto {

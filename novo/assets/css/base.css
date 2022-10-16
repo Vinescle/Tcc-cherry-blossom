@@ -76,6 +76,14 @@ a:hover {
   width: 160%;
 }
 
+.w-30 {
+  width: 30%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
 .centralizar {
   margin: auto;
 }
