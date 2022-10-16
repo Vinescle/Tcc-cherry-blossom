@@ -1,7 +1,7 @@
 <footer class="rodape">
     <div class="coluna-um">
         <img class="logo" src="<?php echo $rota; ?>/assets/imagens/logo.png" alt="logo-cherry-blossom" width="98px">
-        <h3 class="coluna-um-link"><a class="clickSugestao" href="#">SUGESTÃO DO PRODUTO</a></h3>
+        <h3 class="coluna-um-link"><a class="clickSugestao" type="button" data-bs-toggle="modal" data-bs-target="#modalSugestao">SUGESTÃO DO PRODUTO</a></h3>
         <h3 class="coluna-um-link"><a href="<?php echo $configAdm['url_whatsapp']; ?>">FALE COM O VENDEDOR</a></h3>
         <h4 class="coluna-um-redes-sociais">Acompanhe nossas redes sociais</h4>
         <div class="redes-sociais">
@@ -46,3 +46,31 @@
         </div>
     </div>
 </footer>
+
+<div class="modal fade" id="modalSugestao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="popup-conteudo">
+                    <div class="popup-fechar"><button class="popup-icone-close">
+                            <ion-icon id='fechar' name="close-outline">
+                        </button></ion-icon>
+                    </div>
+                    <div class="popup-config">
+                        <div class="popup-cabecalho">
+                            <div class="popup-icone">
+                                <ion-icon class="popup-icone-svg" name="brush-outline"></ion-icon>
+                            </div>
+                            <p class="popup-titulo">Sugestão de Produto</p>
+                            <p class="popup-texto">Compartilhe suas ideias para temas e produtos!</p>
+                        </div>
+                        <form class="popup-form" action="<?php echo $rota ?>/enviaSugestaoProduto.php" method="POST">
+                            <input class="config-tamanho" type="text" name="sugestaoProduto" placeholder="Digite sua sugestão">
+                            <input class="popup-form-button" type="submit" value="Enviar">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
