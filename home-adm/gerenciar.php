@@ -77,14 +77,14 @@ try {
                                     </a>
                                 </div>
 
-                                <div class="botao-icone">
+                                <div class="botao-icone" onclick="altera()">
                                     <a class="botao-texto">
                                         <ion-icon name="brush-outline"></ion-icon>
                                         Editar
                                     </a>
                                 </div>
 
-                                <div class="botao-icone">
+                                <div class="botao-icone" onclick="excluir()">
                                     <a class="botao-texto">
                                         <ion-icon name="trash-outline"></ion-icon>
                                         Apagar
@@ -161,11 +161,12 @@ try {
                 </div>
 
                 <div>
+                    <form action="./produtos/deletaProduto.php" method="GET" id="form">
                     <table class="tabela-principal">
                         <tr>
                             <th class="tabela-principal_titulo">
                                 <div class="tabela-checkbox_titulo">
-                                    <input id="checkbox-titulo" type="checkbox">
+                                    <input class="roberto" onclick="click()" id="checkbox-titulo" type="checkbox">
                                     <label for="checkbox-titulo"></label>
                                 </div>
                             </th>
@@ -182,7 +183,7 @@ try {
                             <tr>
                                 <td class="tabela-principal_checkbox">
                                     <div class="tabela-checkbox_conteudo">
-                                        <input id="checkbox-conteudo<?php echo $resultadoTabelaPrincipal['id_produtos']; ?>" type="checkbox">
+                                        <input name="idproduto[]" class="checkbox" value="<?php echo $resultadoTabelaPrincipal['id_produtos'];?>" id="checkbox-conteudo<?php echo $resultadoTabelaPrincipal['id_produtos']; ?>" type="checkbox">
                                         <label for="checkbox-conteudo<?php echo $resultadoTabelaPrincipal['id_produtos']; ?>"></label>
                                     </div>
                                 </td>
@@ -197,10 +198,27 @@ try {
                         <?php
                         }
                         ?>
+                    </form>
                     </table>
                 </div>
             </div>
         </div>
+
+        <script>
+            const form = document.querySelector('#form');
+            const checkBox = document.querySelectorAll('.checkbox');
+
+            function excluir(){
+                form.action="./produtos/deletaProduto.php";
+                form.submit();
+                
+            }
+
+            function altera(){
+                form.action="./produtos/form-AlteraProduto.php";
+                form.submit();
+            }
+        </script>
 
         <?php
         include('../imports.php');

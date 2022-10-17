@@ -1,7 +1,12 @@
 <?php
 $page = 'gerenciar';
 include '../../conexao.php';
+if(count($_GET['idproduto']) > 1){
+    echo "<script> alert('Selecione apenas um item'); window.location.href='$rota/home-adm/gerenciar.php';</script>"; 
+    // header("location:$rota/home-adm/gerenciar.php");
+}
 include '../../verifica-logado.php';
+
 
 $sql = "SELECT * FROM tb_marcas";
 $resultadoMarcas = mysqli_query($conexao, $sql);
@@ -12,7 +17,7 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
 $sql = "SELECT * FROM tb_sub_categoria";
 $resultadoSubCategoria = mysqli_query($conexao, $sql);
 
-$id = 32;
+$id = $_GET['idproduto'][0];
 $sqlProduto = "SELECT a.id_produtos,
 a.nome_produto,
 a.descricao_produto,
