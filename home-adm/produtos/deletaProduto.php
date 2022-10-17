@@ -12,6 +12,6 @@ while($i < count($idproduto)){
     $i++;
 }
 
-header('location:./');
+header('location:./gerenciar.php');
 
 ?>

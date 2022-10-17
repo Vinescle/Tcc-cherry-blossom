@@ -162,42 +162,42 @@ try {
 
                 <div>
                     <form action="./produtos/deletaProduto.php" method="GET" id="form">
-                    <table class="tabela-principal">
-                        <tr>
-                            <th class="tabela-principal_titulo">
-                                <div class="tabela-checkbox_titulo">
-                                    <input class="roberto" onclick="click()" id="checkbox-titulo" type="checkbox">
-                                    <label for="checkbox-titulo"></label>
-                                </div>
-                            </th>
-                            <th class="tabela-principal_titulo tabela-principal_tituloId">ID</th>
-                            <th class="tabela-principal_titulo tabela-principal_tituloProduto">Produto</th>
-                            <th class="tabela-principal_titulo tabela-principal_tituloMarca">Marca</th>
-                            <th class="tabela-principal_titulo tabela-principal_tituloCategoria">Categoria</th>
-                            <th class="tabela-principal_titulo tabela-principal_tituloPreco">Preço</th>
-                            <th class="tabela-principal_titulo tabela-principal_tituloEstoque">Estoque</th>
-                        </tr>
-                        <?php
-                        while ($resultadoTabelaPrincipal = mysqli_fetch_array($resultadoProdutos)) {
-                        ?>
+                        <table class="tabela-principal">
                             <tr>
-                                <td class="tabela-principal_checkbox">
-                                    <div class="tabela-checkbox_conteudo">
-                                        <input name="idproduto[]" class="checkbox" value="<?php echo $resultadoTabelaPrincipal['id_produtos'];?>" id="checkbox-conteudo<?php echo $resultadoTabelaPrincipal['id_produtos']; ?>" type="checkbox">
-                                        <label for="checkbox-conteudo<?php echo $resultadoTabelaPrincipal['id_produtos']; ?>"></label>
+                                <th class="tabela-principal_titulo">
+                                    <div class="tabela-checkbox_titulo">
+                                        <input class="checkboxPrincipal" onclick="clickPrincipal(this)" id="checkbox-titulo" type="checkbox">
+                                        <label for="checkbox-titulo"></label>
                                     </div>
-                                </td>
-                                <td class="tabela-principal_id"><?php echo $resultadoTabelaPrincipal['id_produtos']; ?></td>
-                                <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_produto']; ?></td>
-                                <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_marca']; ?></td>
-                                <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_categoria']; ?></td>
-                                <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['preco_produto']; ?></td>
-                                <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['qtd_produto']; ?></td>
-                                <td><input type="text" style="display: none;" value="<?php echo $resultadoTabelaPrincipal['id_produtos']; ?>"></td>
+                                </th>
+                                <th class="tabela-principal_titulo tabela-principal_tituloId">ID</th>
+                                <th class="tabela-principal_titulo tabela-principal_tituloProduto">Produto</th>
+                                <th class="tabela-principal_titulo tabela-principal_tituloMarca">Marca</th>
+                                <th class="tabela-principal_titulo tabela-principal_tituloCategoria">Categoria</th>
+                                <th class="tabela-principal_titulo tabela-principal_tituloPreco">Preço</th>
+                                <th class="tabela-principal_titulo tabela-principal_tituloEstoque">Estoque</th>
                             </tr>
-                        <?php
-                        }
-                        ?>
+                            <?php
+                            while ($resultadoTabelaPrincipal = mysqli_fetch_array($resultadoProdutos)) {
+                            ?>
+                                <tr>
+                                    <td class="tabela-principal_checkbox">
+                                        <div class="tabela-checkbox_conteudo">
+                                            <input name="idproduto[]" class="checkbox" value="<?php echo $resultadoTabelaPrincipal['id_produtos']; ?>" id="checkbox-conteudo<?php echo $resultadoTabelaPrincipal['id_produtos']; ?>" type="checkbox">
+                                            <label for="checkbox-conteudo<?php echo $resultadoTabelaPrincipal['id_produtos']; ?>"></label>
+                                        </div>
+                                    </td>
+                                    <td class="tabela-principal_id"><?php echo $resultadoTabelaPrincipal['id_produtos']; ?></td>
+                                    <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_produto']; ?></td>
+                                    <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_marca']; ?></td>
+                                    <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['nome_categoria']; ?></td>
+                                    <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['preco_produto']; ?></td>
+                                    <td class="tabela-principal_conteudo"><?php echo $resultadoTabelaPrincipal['qtd_produto']; ?></td>
+                                    <td><input type="text" style="display: none;" value="<?php echo $resultadoTabelaPrincipal['id_produtos']; ?>"></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
                     </form>
                     </table>
                 </div>
@@ -206,16 +206,25 @@ try {
 
         <script>
             const form = document.querySelector('#form');
-            const checkBox = document.querySelectorAll('.checkbox');
+            const checkbox = document.querySelectorAll('.checkbox');
+            const checkboxPrincipal = document.querySelector('.checkboxPrincipal');
 
-            function excluir(){
-                form.action="./produtos/deletaProduto.php";
-                form.submit();
-                
+            function clickPrincipal(source) {
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                for (var i = 0; i < checkboxes.length; i++) {
+                    if (checkboxes[i] != source)
+                        checkboxes[i].checked = source.checked;
+                }
             }
 
-            function altera(){
-                form.action="./produtos/form-AlteraProduto.php";
+            function excluir() {
+                form.action = "./produtos/deletaProduto.php";
+                form.submit();
+
+            }
+
+            function altera() {
+                form.action = "./produtos/form-AlteraProduto.php";
                 form.submit();
             }
         </script>

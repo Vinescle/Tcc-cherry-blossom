@@ -80,13 +80,13 @@ if (isset($_GET['id_categoria'])) {
                                         </a>
                                     </div>
 
-                                    <div class="botao-icone">
+                                    <div class="botao-icone" onclick="alteraCategoria()">
                                         <a class="botao-texto">
                                             <ion-icon name="brush-outline"></ion-icon>
                                         </a>
                                     </div>
 
-                                    <div class="botao-icone">
+                                    <div class="botao-icone" onclick="excluirCategoria()">
                                         <a class="botao-texto">
                                             <ion-icon name="trash-outline"></ion-icon>
                                         </a>
@@ -104,39 +104,40 @@ if (isset($_GET['id_categoria'])) {
                             </a>
                         </div>
                     </div>
-
-                    <table class="tabela-principal">
-                        <tr>
-                            <th class="tabela-principal_titulo">
-                                <div class="tabela-checkbox_titulo">
-                                    <input id="checkbox-titulo" type="checkbox">
-                                    <label for="checkbox-titulo"></label>
-                                </div>
-                            </th>
-                            <th class="tabela-principal_titulo tabela-principal_tituloId">ID</th>
-                            <th class="tabela-principal_titulo tabela-principal_tituloProduto">Categorias</th>
-                        </tr>
-
-                        <?php while ($resultado = mysqli_fetch_array($resultadoCategoria)) {
-                        ?>
-                            <td class="tabela-principal_checkbox">
-                                <div class="tabela-checkbox_conteudo">
-                                    <input id="checkbox-conteudo-cat<?php echo $resultado['id_categoria']; ?>" type="checkbox">
-                                    <label for="checkbox-conteudo-cat<?php echo $resultado['id_categoria']; ?>"></label>
-                                </div>
-                            </td>
-                            <td class="tabela-principal_id"><?php echo $resultado['id_categoria'] ?></td>
-                            <td class="tabela-principal_conteudo">
-                                <?php echo $resultado['nome_categoria'] ?>
-                                <a href="./categorias.php?pagina=<?php echo $pagina ?>&id_categoria=<?php echo $resultado['id_categoria'] ?>">
-                                    <ion-icon class="seta-abreCategorias" name="chevron-forward-outline"></ion-icon>
-                                </a>
-                            </td>
+                    <form id="formCategoria" action="./categorias/deletaCategorias.php" method="GET">
+                        <table class="tabela-principal">
+                            <tr>
+                                <th class="tabela-principal_titulo">
+                                    <div class="tabela-checkbox_titulo">
+                                        <input onclick="clickCategoria(this)" id="checkbox-titulo" type="checkbox">
+                                        <label for="checkbox-titulo"></label>
+                                    </div>
+                                </th>
+                                <th class="tabela-principal_titulo tabela-principal_tituloId">ID</th>
+                                <th class="tabela-principal_titulo tabela-principal_tituloProduto">Categorias</th>
                             </tr>
-                        <?php
-                        } ?>
-                        <tr>
-                    </table>
+
+                            <?php while ($resultado = mysqli_fetch_array($resultadoCategoria)) {
+                            ?>
+                                <td class="tabela-principal_checkbox">
+                                    <div class="tabela-checkbox_conteudo">
+                                        <input name="idCategoria[]" value="<?php echo $resultado['id_categoria']; ?>" id="checkbox-conteudo-cat<?php echo $resultado['id_categoria']; ?>" type="checkbox">
+                                        <label for="checkbox-conteudo-cat<?php echo $resultado['id_categoria']; ?>"></label>
+                                    </div>
+                                </td>
+                                <td class="tabela-principal_id"><?php echo $resultado['id_categoria'] ?></td>
+                                <td class="tabela-principal_conteudo">
+                                    <?php echo $resultado['nome_categoria'] ?>
+                                    <a href="./categorias.php?pagina=<?php echo $pagina ?>&id_categoria=<?php echo $resultado['id_categoria'] ?>">
+                                        <ion-icon class="seta-abreCategorias" name="chevron-forward-outline"></ion-icon>
+                                    </a>
+                                </td>
+                                </tr>
+                            <?php
+                            } ?>
+                            <tr>
+                        </table>
+                    </form>
                 </div>
 
                 <div class="conjunto-tabela-filtro">
@@ -160,13 +161,13 @@ if (isset($_GET['id_categoria'])) {
                                         </a>
                                     </div>
 
-                                    <div class="botao-icone">
+                                    <div class="botao-icone" onclick="alteraSubCategoria()">
                                         <a class="botao-texto">
                                             <ion-icon name="brush-outline"></ion-icon>
                                         </a>
                                     </div>
 
-                                    <div class="botao-icone">
+                                    <div class="botao-icone" onclick="excluirSubCategoria()">
                                         <a class="botao-texto">
                                             <ion-icon name="trash-outline"></ion-icon>
                                         </a>
@@ -184,40 +185,82 @@ if (isset($_GET['id_categoria'])) {
                             </a>
                         </div>
                     </div>
-
-                    <table class="tabela-principal">
-                        <tr>
-                            <th class="tabela-principal_titulo">
-                                <div class="tabela-checkbox_titulo">
-                                    <input id="checkbox-titulo-sub-cat" type="checkbox">
-                                    <label for="checkbox-titulo-sub-cat"></label>
-                                </div>
-                            </th>
-                            <th class="tabela-principal_titulo tabela-principal_tituloId">ID</th>
-                            <th class="tabela-principal_titulo tabela-principal_tituloProduto">Subcategorias</th>
-                        </tr>
-
-                        <?php while ($resultadofinal = mysqli_fetch_array($resultadoSubCategoria)) {
-                        ?>
+                    <form id="formSubCategoria" action="./categorias/deletaCategorias.php" method="GET">
+                        <table class="tabela-principal">
                             <tr>
-                                <td class="tabela-principal_checkbox">
-                                    <div class="tabela-checkbox_conteudo">
-                                        <input id="checkbox-conteudo-sub<?php echo $resultadofinal['id_sub_categoria']; ?>" type="checkbox">
-                                        <label for="checkbox-conteudo-sub<?php echo $resultadofinal['id_sub_categoria']; ?>"></label>
+                                <th class="tabela-principal_titulo">
+                                    <div class="tabela-checkbox_titulo">
+                                        <input onclick="clickSubCategoria(this)" id="checkbox-titulo-sub-cat" type="checkbox">
+                                        <label for="checkbox-titulo-sub-cat"></label>
                                     </div>
-                                </td>
-                                <td class="tabela-principal_id"><?php echo $resultadofinal['id_sub_categoria'] ?></td>
-                                <td class="tabela-principal_conteudo"><?php echo $resultadofinal['nome_sub_categoria'] ?></td>
+                                </th>
+                                <th class="tabela-principal_titulo tabela-principal_tituloId">ID</th>
+                                <th class="tabela-principal_titulo tabela-principal_tituloProduto">Subcategorias</th>
                             </tr>
-                        <?php
-                        } ?>
+
+                            <?php while ($resultadofinal = mysqli_fetch_array($resultadoSubCategoria)) {
+                            ?>
+                                <tr>
+                                    <td class="tabela-principal_checkbox">
+                                        <div class="tabela-checkbox_conteudo">
+                                            <input name="idSubCategoria[]" class="checkbox-subcategoria" value="<?php echo $resultadofinal['id_sub_categoria']; ?>" id="checkbox-conteudo-sub<?php echo $resultadofinal['id_sub_categoria']; ?>" type="checkbox">
+                                            <label for="checkbox-conteudo-sub<?php echo $resultadofinal['id_sub_categoria']; ?>"></label>
+                                        </div>
+                                    </td>
+                                    <td class="tabela-principal_id"><?php echo $resultadofinal['id_sub_categoria'] ?></td>
+                                    <td class="tabela-principal_conteudo"><?php echo $resultadofinal['nome_sub_categoria'] ?></td>
+                                </tr>
+                            <?php
+                            } ?>
 
 
-                    </table>
+                        </table>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        const formSubCategoria = document.querySelector('#formSubCategoria');
+        const formCategoria = document.querySelector('#formCategoria');
+
+        function excluirCategoria() {
+            formCategoria.action = "./categorias/deletaCategorias.php";
+            formCategoria.submit();
+        }
+
+        function alteraCategoria() {
+            formCategoria.action = "./categorias/form-cadastro.php";
+            formCategoria.submit();
+        }
+
+        function excluirSubCategoria() {
+            formSubCategoria.action = "./sub-categorias/deletaSubCategorias.php";
+            formSubCategoria.submit();
+        }
+
+        function alteraSubCategoria() {
+            formSubCategoria.action = "./sub-categorias/form-cadastro.php";
+            formSubCategoria.submit();
+        }
+
+
+        function clickSubCategoria(source) {
+            var checkboxesSubCategoria = document.querySelectorAll('.checkbox-subcategoria');
+            for (var i = 0; i < checkboxesSubCategoria.length; i++) {
+                if (checkboxesSubCategoria[i] != source)
+                    checkboxesSubCategoria[i].checked = source.checked;
+            }
+        }
+
+        function clickCategoria(source) {
+            var checkboxesCategoria = document.querySelectorAll('.checkbox-categoria');
+            for (var i = 0; i < checkboxesCategoria.length; i++) {
+                if (checkboxesCategoria[i] != source)
+                    checkboxesCategoria[i].checked = source.checked;
+            }
+        }
+    </script>
 
     <?php
     include('../imports.php');
