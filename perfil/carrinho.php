@@ -3,12 +3,6 @@ $page = 'carrinho';
 include '../conexao.php';
 include '../verifica-logado.php';
 session_start();
-
-if (isset($_SESSION['carrinho'])) {
-    var_dump($_SESSION['carrinho']);
-}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -88,85 +82,8 @@ if (isset($_SESSION['carrinho'])) {
                         <label class="label-titulo">Produtos</label>
                     </div>
 
-                    <div class="conjunto-dadosBasicos">
-                        <div class="div-pedidos">
-                            <div class="cabecalho-pedidos">
-                                <div style="width: 40%; display: flex; justify-content: center;">
-                                    <label class="texto-label">Nome</label>
-                                </div>
-                                <div style="width: 20%; display: flex; justify-content: center;">
-                                    <label class="texto-label">Quantidade</label>
-                                </div>
+                    <div class="conjunto-dadosBasicos" id="carrinho-container">
 
-                                <div style="width: 20%; display: flex; justify-content: center;">
-                                    <label class="texto-label">Preço</label>
-                                </div>
-
-                                <div style="width: 20%; display: flex; justify-content: center;">
-                                </div>
-                            </div>
-
-                            <div class="produto-dados">
-                                <div class="produtos">
-                                    <div class="produto-imagemNome">
-                                        <div class="imagem-produto">
-                                            <img src="../../imagens/site/teemo.jpg">
-                                        </div>
-                                        <label class="produto-label">Teemo Vesgo</label>
-                                    </div>
-
-                                    <div class="produto-quantidade">
-                                        <ion-icon name="remove-outline"></ion-icon>
-                                        <label class="produto-label">22</label>
-                                        <ion-icon name="add-outline"></ion-icon>
-                                    </div>
-
-                                    <div class="produto-preco">
-                                        <label class="produto-label">22 x R$1.000</label>
-                                        <label class="produto-label">Total: R$22.000</label>
-                                    </div>
-
-                                    <div class="produto-apagar">
-                                        <ion-icon name="trash-outline"></ion-icon>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="produto-dados">
-                                <div class="produtos">
-                                    <div class="produto-imagemNome">
-                                        <div class="imagem-produto">
-                                            <img src="../../imagens/site/yasuo.png">
-                                        </div>
-                                        <label class="produto-label">Yasuo Burro</label>
-                                    </div>
-
-                                    <div class="produto-quantidade">
-                                        <ion-icon name="remove-outline"></ion-icon>
-                                        <label class="produto-label">10</label>
-                                        <ion-icon name="add-outline"></ion-icon>
-                                    </div>
-
-                                    <div class="produto-preco">
-                                        <label class="produto-label">10 x R$2.000</label>
-                                        <label class="produto-label">Total: R$20.000</label>
-                                    </div>
-
-                                    <div class="produto-apagar">
-                                        <ion-icon name="trash-outline"></ion-icon>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="total">
-                                <div style="width: 80%;">
-                                </div>
-
-                                <div class="total-label">
-                                    <label class="produto-label">Total: R$42.021,58</label>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="input-salvar">
@@ -182,6 +99,31 @@ if (isset($_SESSION['carrinho'])) {
     <?php
     include('../imports.php');
     ?>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const containerProdutosCarrinho = document.querySelector("#carrinho-container");
+
+        async function setaCarrinho() {
+            const response = await axios.get("<?php echo $rota ?>/api/carrinho/index.php");
+            containerProdutosCarrinho.innerHTML = response.data;
+        }
+        setaCarrinho();
+
+        async function reduzQuantidade(id) {
+            const response = await axios.get(`<?php echo $rota ?>/api/carrinho/reduzQuantidade.php?id=${id}`);
+            containerProdutosCarrinho.innerHTML = response.data;
+        }
+
+        async function adicionaQuantidade(id) {
+            const response = await axios.get(`<?php echo $rota ?>/api/carrinho/adicionaQuantidade.php?id=${id}`);
+            containerProdutosCarrinho.innerHTML = response.data;
+        }
+
+        async function deletaProduto(id) {
+            const response = await axios.get(`<?php echo $rota ?>/api/carrinho/deletaProduto.php?id=${id}`);
+            containerProdutosCarrinho.innerHTML = response.data;
+        }
+    </script>
 </body>
 
 </html>
