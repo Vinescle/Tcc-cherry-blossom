@@ -1,17 +1,17 @@
 <?php
 include './conexao.php';
 
+$idProduto = $_GET['produto'];
+
 if (isset($_GET['adicionar'])) {
     //Adicionando ao carrinho
-    $idProduto = (int) $_GET['adicionar'];
     $_SESSION['carrinho'][$idProduto] = array(
         'produto' => $_GET['produto'],
-        'quantidade' => $_GET['quantidade']
+        'quantidade' => intval($_GET['quantidade'])
     );
     echo "<script>alert('O produto foi adicionado ao carrinho!');</script>";
 }
 
-$idProduto = $_GET['produto'];
 
 $sqlProduto = "SELECT * FROM tb_produtos a INNER JOIN tb_produtos_sub_categorias c ON c.fk_id_produtos = a.id_produtos
 INNER JOIN tb_sub_categoria d ON d.id_sub_categoria = c.fk_id_sub_categorias
@@ -217,14 +217,6 @@ $marcas = $resultadoMarcas->fetch_all(MYSQLI_ASSOC);
                 quantidade = quantidade.value--;
         }
     </script>
-
-    <?php
-
-    foreach ($_SESSION['carrinho'] as $key => $value) {
-        var_dump($_SESSION['carrinho']);
-    }
-
-    ?>
 </body>
 
 </html>

@@ -165,6 +165,8 @@
     border-radius: 15px;
 
     overflow: hidden;
+
+    object-fit: cover;
 }
 
 /* Total carrinho */

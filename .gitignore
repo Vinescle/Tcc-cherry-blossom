@@ -1,6 +1,6 @@
 /imagemBancoDeDados/produtos/*.*
 /imagemBancoDeDados/marcas/*.*
-/novo/assets/imagens/storage/marcas/*
-/novo/assets/imagens/storage/banners/*
-/novo/assets/imagens/storage/produtos/*
+/assets/imagens/storage/marcas/*
+/assets/imagens/storage/banners/*
+/assets/imagens/storage/produtos/*
 /vendor
