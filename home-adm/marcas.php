@@ -1,4 +1,6 @@
 <?php
+
+
 $page = 'marcas';
 $limit = 0;
 if (isset($pagina) || isset($_GET['pagina'])) {
@@ -13,8 +15,6 @@ if (isset($pagina) || isset($_GET['pagina'])) {
 
 include '../conexao.php';
 include '../verifica-logado.php';
-$sql = "SELECT * FROM tb_marcas LIMIT $limit,32";
-$resultado = mysqli_query($conexao, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -100,14 +100,23 @@ $resultado = mysqli_query($conexao, $sql);
 
             <div class="marcas">
                 <?php
+                $sql = "SELECT * FROM tb_marcas LIMIT $limit,32";
+                $resultado = mysqli_query($conexao, $sql);
+
                 try {
                     while ($resultadoBolas = mysqli_fetch_array($resultado)) {
                 ?>
-                        <div class="marca-bolas">
-                            <div class="marca-circulo" style="background-color:<?php echo $resultadoBolas['cor_marca']; ?>">
-                                <div><img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoBolas['icon_url']; ?>" class="imagem-marcas"></div>
+                        <input class="marca-checkbox" type="checkbox" id="checkbox-<?php echo $resultadoBolas['id_marca'] ?>" hidden>
+                        <label for="checkbox-<?php echo $resultadoBolas['id_marca'] ?>">
+                            <div class="marca-bolas">
+
+                                <div class="marca-circulo" style="background-color:<?php echo $resultadoBolas['cor_marca']; ?>">
+                                    <div class="marca-overlay"></div>
+                                    <label class="label-marca"><?php echo $resultadoBolas['nome_marca'] ?></label>
+                                    <div><img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoBolas['icon_url']; ?>" class="imagem-marcas"></div>
+                                </div>
                             </div>
-                        </div>
+                        </label>
                 <?php
                     }
                 } catch (Exception $e) {
