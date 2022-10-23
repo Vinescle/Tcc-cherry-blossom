@@ -3,6 +3,8 @@ include './conexao.php';
 
 $idProduto = $_GET['produto'];
 
+$cep = $_GET['cep'];
+
 if (isset($_GET['adicionar'])) {
     //Adicionando ao carrinho
     $_SESSION['carrinho'][$idProduto] = array(
@@ -28,6 +30,9 @@ $resultadoMarcas = mysqli_query($conexao, $sqlMarcas);
 $imagens = $resultadoImagens->fetch_all(MYSQLI_ASSOC);
 $marcas = $resultadoMarcas->fetch_all(MYSQLI_ASSOC);
 
+if (!empty($cep)) {
+    include($rota . "/calcula-frete.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -140,12 +145,17 @@ $marcas = $resultadoMarcas->fetch_all(MYSQLI_ASSOC);
                                     <input type="text" class="limpa-style" placeholder="Insira um CEP" maxlength="8">
                                     <button class="botao-texto min-width-botao centralizar">Confirmar</button>
                                 </div>
-                                <div class="cep-container">
-                                    <select name="" id="" class="limpa-borda">
-                                        <option value="">SEDEXO - R$10,00</option>
-                                        <option value="">Pactw - R$99,00</option>
-                                    </select>
-                                </div>
+                                <?php
+                                if (!empty($cep)) {
+                                ?>
+                                    <div class="cep-container">
+                                        <select name="" id="" class="limpa-borda">
+
+                                        </select>
+                                    </div>
+                                <?php
+                                }
+                                ?>
                             </div>
                         </div>
                         <form action="./produto.php" method="GET">

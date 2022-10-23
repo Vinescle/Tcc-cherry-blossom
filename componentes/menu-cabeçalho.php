@@ -33,8 +33,9 @@ $resultadoCategoriasMenu = mysqli_query($conexao, $sqlCategoriasMenu);
                 <input class="botao-pesquisa" type="TEXT">
             </div>
         </form>
-        <img src="<?php echo $rota; ?>/assets/icones/carrinho.svg" class="icones-cabecalho icone-cabecalho_pesquisa">
-
+        <a href="<?php echo $rota; ?>/perfil/carrinho.php">
+            <img src="<?php echo $rota; ?>/assets/icones/carrinho.svg" class="icones-cabecalho icone-cabecalho_pesquisa">
+        </a>
         <div class="dropdown-center">
             <button class="limpa-botao" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
                 <img src="<?php echo $rota; ?>/assets/icones/pessoa.svg" class="icones-cabecalho icone-cabecalho_pesquisa" id="checkboxUser">
@@ -50,11 +51,11 @@ $resultadoCategoriasMenu = mysqli_query($conexao, $sqlCategoriasMenu);
                     <label class="titulo-texto"><a href="<?php echo $rota; ?>/cadastro.php">Registrar</a></label>
                 <?php
                 } else {
-                    ?>
+                ?>
                     <label class="titulo-texto"><a href="<?php echo $rota; ?>/perfil/index.php">Minha conta</a></label>
                     <label class="titulo-texto"><a href="<?php echo $rota; ?>/perfil/historico.php">Minhas compras</a></label>
                     <label class="titulo-texto"><a href="<?php echo $rota; ?>?deslogar=1">Sair</a></label>
-                    <?php
+                <?php
                 }
                 ?>
             </ul>

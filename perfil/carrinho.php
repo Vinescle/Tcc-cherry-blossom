@@ -87,9 +87,11 @@ session_start();
                     </div>
 
                     <div class="input-salvar">
-                        <button type="submit" class="botao-texto  min-width-botao centralizar margem-topo">
-                            Continuar
-                        </button>
+                        <a href="<?php echo $rota; ?>/componentes/checkot-carrinho.php">
+                            <button class="botao-texto  min-width-botao centralizar margem-topo">
+                                Continuar
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
