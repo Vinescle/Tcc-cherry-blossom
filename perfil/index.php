@@ -232,8 +232,7 @@ $resultadoInfo = mysqli_fetch_array($resultado);
                                     <button class="botao-input" disabled="">
                                         <ion-icon class="icone-input md hydrated" name="map-outline"></ion-icon>
                                     </button>
-                                    <select class="input-conjunto input-tiktok" name="Estado">
-                                        <option selected></option>
+                                    <select class="input-conjunto input-tiktok" name="idestado" id="estado" onchange="listarCidades(this)">
                                     </select>
                                 </div>
                             </div>
@@ -243,8 +242,7 @@ $resultadoInfo = mysqli_fetch_array($resultado);
                                     <button class="botao-input" disabled="">
                                         <ion-icon class="icone-input md hydrated" name="business-outline"></ion-icon>
                                     </button>
-                                    <select class="input-conjunto input-tiktok" name="idcategoria">
-                                        <option selected></option>
+                                    <select class="input-conjunto input-tiktok" name="idcidade" id="cidade">
                                     </select>
                                 </div>
                             </div>
@@ -308,6 +306,41 @@ $resultadoInfo = mysqli_fetch_array($resultado);
     <?php
     include('../imports.php');
     ?>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const selectEstado = document.querySelector("#estado");
+        const selectCidade = document.querySelector("#cidade");
+
+        async function listarEstados() {
+            const response = await axios.get(
+                "https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome"
+            );
+            response.data.forEach((estado) => {
+                const option = document.createElement("option");
+                option.innerHTML = estado.nome;
+                option.value = estado.sigla;
+                selectEstado.appendChild(option);
+            });
+        }
+
+        async function listarCidades(estado) {
+            const response = await axios.get(
+                `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estado.value}/municipios?orderBy=nome`
+            );
+            selectCidade.innerHTML = '';
+            response.data.forEach((cidade) => {
+                const option = document.createElement("option");
+                option.innerHTML = cidade.nome;
+                option.value = cidade.nome;
+                selectCidade.appendChild(option);
+            });
+        }
+
+        window.onload = async function() {
+            await listarEstados();
+            await listarCidades("AC");
+        }
+    </script>
 </body>
 
 </html>
