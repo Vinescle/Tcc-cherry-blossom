@@ -2,7 +2,7 @@
 
 include './conexao.php';
 
-session_start();
+
 
 $email = $_POST['email'];
 $senha = $_POST['senha'];
@@ -15,9 +15,19 @@ $sql = "SELECT id_usuario ,email_usuario, senha_usuario, permissao_adm FROM tb_u
 and senha_usuario = '$senha'";
 $resultado = mysqli_query($conexao, $sql);
 $linha = mysqli_fetch_array($resultado);
-  
-$_SESSION['permissao'] = $linha['permissao_adm'];
-$_SESSION['logado'] = 1;
-$_SESSION['id_usuario'] = $linha['id_usuario'];
-header("location: $rota");
+
+var_dump($linha);
+
+if($linha){
+    session_start();
+    $_SESSION['permissao'] = $linha['permissao_adm'];
+    $_SESSION['logado'] = 1;
+    $_SESSION['id_usuario'] = $linha['id_usuario'];
+    header("location: $rota");
+}else{
+    header('location:login.php');
+}
+
+
+?>
 

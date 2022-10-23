@@ -1,7 +1,12 @@
 <?php
 $page = 'categorias';
 include '../../conexao.php';
-include '../../verifica-logado.php';    
+include '../../verifica-logado.php';
+
+$idCategoria = $_GET['idCategoria'];
+$sql = "SELECT * FROM tb_categoria WHERE id_categoria = $idCategoria";
+$resultado = mysqli_query($conexao,$sql);
+$resultado = mysqli_fetch_array($resultado);
 
 ?>
 
@@ -39,10 +44,10 @@ include '../../verifica-logado.php';
                     <div class="w-100">
                         <label class="input-texto">Nome da categoria</label>
                         <div class="input-container">
-                            <button class="botao-input" disabled="">
+                            <button class="botao-input" disabled>
                                 <ion-icon class="icone-input md hydrated" name="pricetag-outline"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-tiktok" type="text" name="nomeCategoria">
+                            <input class="input-conjunto input-tiktok" type="<?php $resultado['nome_categoria']?>" name="nomeCategoria">
                         </div>
                     </div>
 

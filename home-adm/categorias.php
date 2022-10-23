@@ -230,7 +230,7 @@ if (isset($_GET['id_categoria'])) {
         }
 
         function alteraCategoria() {
-            formCategoria.action = "./categorias/form-cadastro.php";
+            formCategoria.action = "./categorias/form-altera.php";
             formCategoria.submit();
         }
 
