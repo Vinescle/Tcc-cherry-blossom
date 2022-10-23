@@ -112,7 +112,7 @@ include '../verifica-logado.php';
 
                                 <div class="marca-circulo" style="background-color:<?php echo $resultadoBolas['cor_marca']; ?>">
                                     <div class="marca-overlay"></div>
-                                    <label class="label-marca"><?php echo $resultadoBolas['nome_marca'] ?></label>
+                                    <label class="label-marca" for="checkbox-<?php echo $resultadoBolas['id_marca'] ?>"><?php echo $resultadoBolas['nome_marca'] ?></label>
                                     <div><img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoBolas['icon_url']; ?>" class="imagem-marcas"></div>
                                 </div>
                             </div>
