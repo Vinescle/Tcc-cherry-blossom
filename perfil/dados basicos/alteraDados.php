@@ -2,7 +2,7 @@
 
 include '../../conexao.php';
 session_start();
-$id = $_SESSION['id_cliente'];
+$id = $_SESSION['id_usuario'];
 $nome_usuario = $_POST['nome_usuario'];
 $email_usuario = $_POST['email_usuario'];
 $cpf_usuario = $_POST['cpf_usuario'];

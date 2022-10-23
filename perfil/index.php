@@ -9,6 +9,12 @@ $sql = "SELECT * FROM tb_usuarios WHERE id_usuario = $id";
 $resultado = mysqli_query($conexao, $sql);
 $resultadoInfo = mysqli_fetch_array($resultado);
 
+if($resultadoInfo['fk_id_endereco'] != 0){
+    $sqlEndereco = "SELECT * FROM tb_endereco where fk_id_usuario = $id LIMIT 1";
+    $resultado = mysqli_query($conexao, $sqlEndereco);
+    $resultadoInfoEndereco = mysqli_fetch_array($resultado);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -103,7 +109,7 @@ $resultadoInfo = mysqli_fetch_array($resultado);
 
                 <div class="agrupamento">
                     <form action="./senha/alteraSenha.php" method="POST">
-                        <input type="text" style="display: none;" name="email_usuario" value="<?php echo $resultadoInfo['email_usuario']?>">
+                        <input type="text" style="display: none;" name="email_usuario" value="<?php echo $resultadoInfo['email_usuario'] ?>">
                         <div class="label-dadosBasicos">
                             <label class="label-titulo">Alterar Senha</label>
                         </div>
@@ -202,103 +208,120 @@ $resultadoInfo = mysqli_fetch_array($resultado);
                     <div class="label-dadosBasicos">
                         <label class="label-titulo">Endereço</label>
                     </div>
+                    <form action="./endereco/endereco.php" method="POST">
+                        <input type="text" name="fk_id_endereco" value="<?php echo $resultadoInfo['fk_id_endereco']?>" style="display: none;">
+                        <div class="conjunto-dadosBasicos">
+                            <div class="conjunto-divs">
+                                <div class="w-160">
+                                    <label class="input-texto">Nome do Recebedor</label>
+                                    <div class="input-container">
+                                        <button class="botao-input">
+                                            <ion-icon class="icone-input" name="person-circle-outline"></ion-icon>
+                                        </button>
+                                        <input class="input-conjunto" type="text" name="nomeRecebedor" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['nm_recebedor'] : " "; ?>">
+                                    </div>
+                                </div>
 
-                    <div class="conjunto-dadosBasicos">
-                        <div class="conjunto-divs">
-                            <div class="w-160">
-                                <label class="input-texto">Nome do Recebedor</label>
-                                <div class="input-container">
-                                    <button class="botao-input">
-                                        <ion-icon class="icone-input" name="person-circle-outline"></ion-icon>
-                                    </button>
-                                    <input class="input-conjunto" type="text" name="nomeRecebedor">
+                                <div class="w-160">
+                                    <label class="input-texto">CEP</label>
+                                    <div class="input-container">
+                                        <button class="botao-input">
+                                            <ion-icon class="icone-input" name="location-outline"></ion-icon>
+                                        </button>
+                                        <input class="input-conjunto" type="text" name="CEP" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['cep'] : " "; ?>">
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="w-160">
-                                <label class="input-texto">CEP</label>
-                                <div class="input-container">
-                                    <button class="botao-input">
-                                        <ion-icon class="icone-input" name="location-outline"></ion-icon>
-                                    </button>
-                                    <input class="input-conjunto" type="text" name="CEP">
+                            <div class="conjunto-divs">
+                                <div class="w-100">
+                                    <label class="input-texto">Estado</label>
+                                    <div class="input-container">
+                                        <button class="botao-input" disabled="">
+                                            <ion-icon class="icone-input md hydrated" name="map-outline"></ion-icon>
+                                        </button>
+                                        <select class="input-conjunto input-tiktok" name="idestado" id="estado" onchange="listarCidades(this)">
+                                            <?php
+                                            if ($resultadoInfo['fk_id_endereco'] == 0) {
+                                            ?>
+                                                <option value="0" selected></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="w-100">
+                                    <label class="input-texto">Cidade</label>
+                                    <div class="input-container">
+                                        <button class="botao-input" disabled="">
+                                            <ion-icon class="icone-input md hydrated" name="business-outline"></ion-icon>
+                                        </button>
+                                        <select class="input-conjunto input-tiktok" name="idcidade" id="estado">
+                                            <?php
+                                            if ($resultadoInfo['fk_id_endereco'] == 0) {
+                                            ?>
+                                                <option value="0" selected></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="conjunto-divs">
+                                <div class="w-160">
+                                    <label class="input-texto">Bairro</label>
+                                    <div class="input-container">
+                                        <button class="botao-input">
+                                            <ion-icon class="icone-input" name="trail-sign-outline"></ion-icon>
+                                        </button>
+                                        <input class="input-conjunto" type="text" name="bairro" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['bairro'] : " "; ?>">
+                                    </div>
+                                </div>
+
+                                <div class="w-160">
+                                    <label class="input-texto">Rua</label>
+                                    <div class="input-container">
+                                        <button class="botao-input">
+                                            <ion-icon class="icone-input" name="footsteps-outline"></ion-icon>
+                                        </button>
+                                        <input class="input-conjunto" type="text" name="rua" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['rua'] : " "; ?>">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="conjunto-divs">
+                                <div class="w-160">
+                                    <label class="input-texto">Número</label>
+                                    <div class="input-container">
+                                        <button class="botao-input">
+                                            <ion-icon class="icone-input" name="home-outline"></ion-icon>
+                                        </button>
+                                        <input class="input-conjunto" type="text" name="numero" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['numero'] : " "; ?>">
+                                    </div>
+                                </div>
+
+                                <div class="w-160">
+                                    <label class="input-texto">Complemento</label>
+                                    <div class="input-container">
+                                        <button class="botao-input">
+                                            <ion-icon class="icone-input" name="flag-outline"></ion-icon>
+                                        </button>
+                                        <input class="input-conjunto" type="text" name="complemento" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['complemento'] : " ";?>">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="conjunto-divs">
-                            <div class="w-100">
-                                <label class="input-texto">Estado</label>
-                                <div class="input-container">
-                                    <button class="botao-input" disabled="">
-                                        <ion-icon class="icone-input md hydrated" name="map-outline"></ion-icon>
-                                    </button>
-                                    <select class="input-conjunto input-tiktok" name="idestado" id="estado" onchange="listarCidades(this)">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="w-100">
-                                <label class="input-texto">Cidade</label>
-                                <div class="input-container">
-                                    <button class="botao-input" disabled="">
-                                        <ion-icon class="icone-input md hydrated" name="business-outline"></ion-icon>
-                                    </button>
-                                    <select class="input-conjunto input-tiktok" name="idcidade" id="cidade">
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="conjunto-divs">
-                            <div class="w-160">
-                                <label class="input-texto">Bairro</label>
-                                <div class="input-container">
-                                    <button class="botao-input">
-                                        <ion-icon class="icone-input" name="trail-sign-outline"></ion-icon>
-                                    </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto">
-                                </div>
-                            </div>
-
-                            <div class="w-160">
-                                <label class="input-texto">Rua</label>
-                                <div class="input-container">
-                                    <button class="botao-input">
-                                        <ion-icon class="icone-input" name="footsteps-outline"></ion-icon>
-                                    </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="conjunto-divs">
-                            <div class="w-160">
-                                <label class="input-texto">Número</label>
-                                <div class="input-container">
-                                    <button class="botao-input">
-                                        <ion-icon class="icone-input" name="home-outline"></ion-icon>
-                                    </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto">
-                                </div>
-                            </div>
-
-                            <div class="w-160">
-                                <label class="input-texto">Complemento</label>
-                                <div class="input-container">
-                                    <button class="botao-input">
-                                        <ion-icon class="icone-input" name="flag-outline"></ion-icon>
-                                    </button>
-                                    <input class="input-conjunto" type="text" name="nomeProduto">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="input-salvar">
+                        <div class="input-salvar">
                         <button type="submit" class="botao-texto  min-width-botao centralizar margem-topo">
                             Salvar
                         </button>
                     </div>
+                    </form>
+
+
                 </div>
             </div>
         </div>
