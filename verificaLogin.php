@@ -15,21 +15,14 @@ $sql = "SELECT id_usuario ,email_usuario, senha_usuario, permissao_adm FROM tb_u
 $resultado = mysqli_query($conexao, $sql);
 $linha = mysqli_fetch_array($resultado);
 $senhaCriptografia = $linha['senha_usuario'];
-var_dump(password_verify($senha,$senhaCriptografia));
-if(password_verify($senha,$senhaCriptografia)){
+if (password_verify($senha, $senhaCriptografia)) {
 
-var_dump($linha);
-
-// if($linha){
+    // if($linha){
     session_start();
     $_SESSION['permissao'] = $linha['permissao_adm'];
     $_SESSION['logado'] = 1;
     $_SESSION['id_usuario'] = $linha['id_usuario'];
     header("location: $rota");
-}else{
+} else {
     header('location:login.php');
 }
-
-
-?>
-

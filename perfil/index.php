@@ -9,7 +9,7 @@ $sql = "SELECT * FROM tb_usuarios WHERE id_usuario = $id";
 $resultado = mysqli_query($conexao, $sql);
 $resultadoInfo = mysqli_fetch_array($resultado);
 
-if($resultadoInfo['fk_id_endereco'] != 0){
+if ($resultadoInfo['fk_id_endereco'] != 0) {
     $sqlEndereco = "SELECT * FROM tb_endereco where fk_id_usuario = $id LIMIT 1";
     $resultado = mysqli_query($conexao, $sqlEndereco);
     $resultadoInfoEndereco = mysqli_fetch_array($resultado);
@@ -209,7 +209,7 @@ if($resultadoInfo['fk_id_endereco'] != 0){
                         <label class="label-titulo">Endereço</label>
                     </div>
                     <form action="./endereco/endereco.php" method="POST">
-                        <input type="text" name="fk_id_endereco" value="<?php echo $resultadoInfo['fk_id_endereco']?>" style="display: none;">
+                        <input type="text" name="fk_id_endereco" value="<?php echo $resultadoInfo['fk_id_endereco'] ?>" style="display: none;">
                         <div class="conjunto-dadosBasicos">
                             <div class="conjunto-divs">
                                 <div class="w-160">
@@ -257,7 +257,7 @@ if($resultadoInfo['fk_id_endereco'] != 0){
                                         <button class="botao-input" disabled="">
                                             <ion-icon class="icone-input md hydrated" name="business-outline"></ion-icon>
                                         </button>
-                                        <select class="input-conjunto input-tiktok" name="idcidade" id="estado">
+                                        <select class="input-conjunto input-tiktok" name="idcidade" id="cidade">
                                             <?php
                                             if ($resultadoInfo['fk_id_endereco'] == 0) {
                                             ?>
@@ -309,19 +309,17 @@ if($resultadoInfo['fk_id_endereco'] != 0){
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="flag-outline"></ion-icon>
                                         </button>
-                                        <input class="input-conjunto" type="text" name="complemento" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['complemento'] : " ";?>">
+                                        <input class="input-conjunto" type="text" name="complemento" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['complemento'] : " "; ?>">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="input-salvar">
-                        <button type="submit" class="botao-texto  min-width-botao centralizar margem-topo">
-                            Salvar
-                        </button>
-                    </div>
+                            <button type="submit" class="botao-texto  min-width-botao centralizar margem-topo">
+                                Salvar
+                            </button>
+                        </div>
                     </form>
-
-
                 </div>
             </div>
         </div>
@@ -335,6 +333,9 @@ if($resultadoInfo['fk_id_endereco'] != 0){
         const selectEstado = document.querySelector("#estado");
         const selectCidade = document.querySelector("#cidade");
 
+        const estadoPreenchido = "<?php echo $resultadoInfoEndereco['estado'] ?>";
+        const cidadePreenchida = "<?php echo $resultadoInfoEndereco['cidade'] ?>";
+
         async function listarEstados() {
             const response = await axios.get(
                 "https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome"
@@ -343,6 +344,11 @@ if($resultadoInfo['fk_id_endereco'] != 0){
                 const option = document.createElement("option");
                 option.innerHTML = estado.nome;
                 option.value = estado.sigla;
+                if (estadoPreenchido != "") {
+                    if (estado.sigla == estadoPreenchido) {
+                        option.setAttribute("selected", "selected");
+                    }
+                }
                 selectEstado.appendChild(option);
             });
         }
@@ -352,17 +358,29 @@ if($resultadoInfo['fk_id_endereco'] != 0){
                 `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estado.value}/municipios?orderBy=nome`
             );
             selectCidade.innerHTML = '';
+
             response.data.forEach((cidade) => {
                 const option = document.createElement("option");
                 option.innerHTML = cidade.nome;
                 option.value = cidade.nome;
+                if (cidadePreenchida != "") {
+                    if (cidade.nome == cidadePreenchida) {
+                        option.setAttribute("selected", "selected");
+                    }
+                }
                 selectCidade.appendChild(option);
             });
         }
 
         window.onload = async function() {
             await listarEstados();
-            await listarCidades("AC");
+            if (cidadePreenchida != "")
+                await listarCidades({
+                    value: estadoPreenchido
+                });
+            else
+                await listarCidades("AC");
+
         }
     </script>
 </body>
