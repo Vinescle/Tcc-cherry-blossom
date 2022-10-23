@@ -11,14 +11,16 @@ if (!empty($_POST) and (empty($_POST['email']) or empty($_POST['senha']))) {
     header("Location:./login.php"); // Corrigir se dar caca
 }
 
-$sql = "SELECT id_usuario ,email_usuario, senha_usuario, permissao_adm FROM tb_usuarios WHERE email_usuario = '$email' 
-and senha_usuario = '$senha'";
+$sql = "SELECT id_usuario ,email_usuario, senha_usuario, permissao_adm FROM tb_usuarios WHERE email_usuario = '$email' LIMIT 1";
 $resultado = mysqli_query($conexao, $sql);
 $linha = mysqli_fetch_array($resultado);
+$senhaCriptografia = $linha['senha_usuario'];
+var_dump(password_verify($senha,$senhaCriptografia));
+if(password_verify($senha,$senhaCriptografia)){
 
 var_dump($linha);
 
-if($linha){
+// if($linha){
     session_start();
     $_SESSION['permissao'] = $linha['permissao_adm'];
     $_SESSION['logado'] = 1;

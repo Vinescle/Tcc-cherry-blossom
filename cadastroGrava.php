@@ -4,7 +4,7 @@ include './conexao.php';
 
 // include "../checagemSenha.php";
 
-session_start();
+// session_start();
 
 $nome = $_POST['nome'];
 $email = $_POST['email'];
@@ -38,11 +38,15 @@ if ($senha != $senhaConfirma) {
     header('location:cadastro.php');
 } else {
 
+    $criptografia = password_hash($senha, PASSWORD_DEFAULT);
     $sql = "INSERT INTO tb_usuarios(email_usuario, senha_usuario, nome_usuario, dt_nascimento, cpf_usuario, fk_id_endereco, termos, receber_email, permissao_adm) 
-    VALUES ('$email','$senha','$nome','$nascimento','$cpf',0,$Termos, $receberEmails, 0)";
+    VALUES ('$email','$criptografia','$nome','$nascimento','$cpf',0,$Termos, $receberEmails, 0)";
 
     mysqli_query($conexao, $sql);
+    $idUsuario = mysqli_insert_id($conexao);
     $_SESSION['logado'] = 1;
+    $_SESSION['id_usuario'] = $idUsuario;
+    $_SESSION['permissao'] = 0;
     header("location: $rota");
 }
 

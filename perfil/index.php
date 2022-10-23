@@ -3,7 +3,7 @@ $page = 'home';
 include '../conexao.php';
 include '../verifica-logado.php';
 
-session_start();
+// session_start();
 $id = $_SESSION['id_usuario'];
 $sql = "SELECT * FROM tb_usuarios WHERE id_usuario = $id";
 $resultado = mysqli_query($conexao, $sql);
@@ -103,6 +103,7 @@ $resultadoInfo = mysqli_fetch_array($resultado);
 
                 <div class="agrupamento">
                     <form action="./senha/alteraSenha.php" method="POST">
+                        <input type="text" style="display: none;" name="email_usuario" value="<?php echo $resultadoInfo['email_usuario']?>">
                         <div class="label-dadosBasicos">
                             <label class="label-titulo">Alterar Senha</label>
                         </div>

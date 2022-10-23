@@ -44,17 +44,25 @@ $resultadoCategoriasMenu = mysqli_query($conexao, $sqlCategoriasMenu);
             <ul class="dropdown-menu">
                 <label class="titulo-login">Perfil</label>
                 <?php
-                // var_dump($_SESSION['id_usuario']);
                 if (!isset($_SESSION['logado'])) {
                 ?>
                     <label class="titulo-texto"><a href="<?php echo $rota; ?>/login.php">Login</a></label>
                     <label class="titulo-texto"><a href="<?php echo $rota; ?>/cadastro.php">Registrar</a></label>
-                <?php
+                    <?php
                 } else {
-                ?>
-                    <label class="titulo-texto"><a href="<?php echo $rota; ?>/perfil/index.php">Minha conta</a></label>
-                    <label class="titulo-texto"><a href="<?php echo $rota; ?>/perfil/historico.php">Minhas compras</a></label>
-                    <label class="titulo-texto"><a href="<?php echo $rota; ?>?deslogar=1">Sair</a></label>
+                    if ($_SESSION['permissao'] == 0) {
+                    ?>
+                        <label class="titulo-texto"><a href="<?php echo $rota; ?>/perfil/index.php">Minha conta</a></label>
+                        <label class="titulo-texto"><a href="<?php echo $rota; ?>/perfil/historico.php">Minhas compras</a></label>
+                        <label class="titulo-texto"><a href="<?php echo $rota; ?>?deslogar=1">Sair</a></label>
+                    <?php
+                    } else {
+                    ?>
+                        <label class="titulo-texto"><a href="<?php echo $rota; ?>/perfil/historico.php">Painel</a></label>
+                        <label class="titulo-texto"><a href="<?php echo $rota; ?>?deslogar=1">Sair</a></label>
+                    <?php
+                    }
+                    ?>
                 <?php
                 }
                 ?>
