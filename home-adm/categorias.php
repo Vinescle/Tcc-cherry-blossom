@@ -240,7 +240,7 @@ if (isset($_GET['id_categoria'])) {
         }
 
         function alteraSubCategoria() {
-            formSubCategoria.action = "./sub-categorias/form-cadastro.php";
+            formSubCategoria.action = "./sub-categorias/form-altera.php";
             formSubCategoria.submit();
         }
 

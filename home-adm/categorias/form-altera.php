@@ -1,13 +1,16 @@
 <?php
 $page = 'categorias';
 include '../../conexao.php';
+if(count($_GET['idCategoria']) > 1){
+    echo "<script> alert('Selecione apenas um item'); window.location.href='$rota/home-adm/categorias.php';</script>"; 
+    // header("location:$rota/home-adm/gerenciar.php");
+}
 include '../../verifica-logado.php';
 
-$idCategoria = $_GET['idCategoria'];
+$idCategoria = $_GET['idCategoria'][0];
 $sql = "SELECT * FROM tb_categoria WHERE id_categoria = $idCategoria";
 $resultado = mysqli_query($conexao,$sql);
-$resultado = mysqli_fetch_array($resultado);
-
+$linha = mysqli_fetch_array($resultado);
 ?>
 
 <!DOCTYPE html>
@@ -40,14 +43,15 @@ $resultado = mysqli_fetch_array($resultado);
 
         <div class="conteudo-principal">
             <div class="main">
-                <form action="cadastroGravaCategoria.php" method="POST">
+                <form action="alteraCategoria.php" method="POST">
                     <div class="w-100">
                         <label class="input-texto">Nome da categoria</label>
                         <div class="input-container">
                             <button class="botao-input" disabled>
                                 <ion-icon class="icone-input md hydrated" name="pricetag-outline"></ion-icon>
                             </button>
-                            <input class="input-conjunto input-tiktok" type="<?php $resultado['nome_categoria']?>" name="nomeCategoria">
+                            <input class="input-conjunto input-tiktok" type="text" value="<?php echo $linha['nome_categoria']?>" name="nomeCategoria">
+                            <input class="input-conjunto input-tiktok" style="display: none;" type="text" value="<?php echo $linha['id_categoria']?>" name="idCategoria">
                         </div>
                     </div>
 
