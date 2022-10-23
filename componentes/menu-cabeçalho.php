@@ -58,7 +58,7 @@ $resultadoCategoriasMenu = mysqli_query($conexao, $sqlCategoriasMenu);
                     <?php
                     } else {
                     ?>
-                        <label class="titulo-texto"><a href="<?php echo $rota; ?>/perfil/historico.php">Painel</a></label>
+                        <label class="titulo-texto"><a href="<?php echo $rota; ?>/home-adm/index.php">Painel</a></label>
                         <label class="titulo-texto"><a href="<?php echo $rota; ?>?deslogar=1">Sair</a></label>
                     <?php
                     }
