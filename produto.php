@@ -78,7 +78,7 @@ if (!empty($cep)) {
                                 $i = 0;
                                 foreach ($imagens as $imagem) {
                                 ?>
-                                    <div class="carousel-item <?php echo $i === 1 ? 'active' : ''; ?>">
+                                    <div class="carousel-item <?php echo $i === 0 ? 'active' : ''; ?>">
                                         <img src="<?php echo $rota . '/assets/imagens/storage/produtos/' . $imagem['url']; ?>" class="d-block w-100 quadrado-imagem arredonda-borda" alt="..." />
                                     </div>
                                 <?php

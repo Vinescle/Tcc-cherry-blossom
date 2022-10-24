@@ -52,8 +52,8 @@ INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria WHERE id_produto
                     </div>
 
                     <div class="produto-preco">
-                        <label class="produto-label"><?php echo $produtoCarrinho['quantidade'] ?> x R$<?php echo $produto['preco_produto'] ?></label>
-                        <label class="produto-label">Total: R$<?php echo $produtoCarrinho['quantidade'] * $produto['preco_produto'] ?></label>
+                        <label class="produto-label"><?php echo $produtoCarrinho['quantidade'] ?> x R$<?php echo number_format($produto['preco_produto'], 2, ",", "."); ?></label>
+                        <label class="produto-label">Total: R$<?php echo number_format($produtoCarrinho['quantidade'] * $produto['preco_produto'], 2, ",", "."); ?></label>
                     </div>
 
                     <div class="produto-apagar">
@@ -74,7 +74,7 @@ INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria WHERE id_produto
         <div class="total-label">
             <?php
             if (!empty($_SESSION['carrinho'])) {
-                echo "<label class='produto-label'>Total: R$$value</label>";
+                echo "<label class='produto-label'>Total: R$" . number_format($value, 2, ",", ".") . "</label>";
             } else {
                 echo "<label class='produto-label'>Total: Carrinho vazio!</label>";
             }

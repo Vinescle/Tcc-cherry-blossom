@@ -11,26 +11,15 @@ $YOUR_DOMAIN = $rota;
 
 $carrinhoProdutos = $_SESSION['carrinho'];
 
-// $id_product = $_POST['id_product'];
-// $quantity_product = $_POST['quantity_product'];
-// $total_price = $_POST['total_price'];
-// $id_user = $_POST['id_user'];
-// $frete = $_POST['frete'];
-$date = date('Y-m-d H:i:s');
+$data = date('Y-m-d H:i:s');
 
 // $frete_price = floatval(str_replace(",", ".", $_POST['frete_price']));
 // $frete_deadline = $_POST['frete_deadline'];
 // $frete_name = $_POST['frete_name'];
-
-// $sql = "INSERT INTO user_order (user_id,total_price,frete,order_date) VALUES ('$id_user','$total_price','$frete','$date')";
-// $query = mysqli_query($connect, $sql);
-// $lastid = mysqli_insert_id($connect);
-
+$sqlProdutos = [];
+$precoTotal = 0;
 $produtos = [];
 foreach ($carrinhoProdutos as $key => $produto) {
-    // $sql = "INSERT INTO product_order (user_id,product_id,quantity,order_id) VALUES ('$id_user','$id_product[$key]','$quantity_product[$key]','$lastid')";
-    // $query = mysqli_query($connect, $sql);
-
     $sqlProduto = "SELECT * FROM tb_produtos WHERE id_produtos = $produto[produto]";
     $queryProduto = mysqli_query($conexao, $sqlProduto);
 
@@ -43,6 +32,7 @@ foreach ($carrinhoProdutos as $key => $produto) {
     }
 
     while ($row = mysqli_fetch_array($queryProduto)) {
+        $precoTotal += $row['preco_produto'] * $produto['quantidade'];
         $produtos[] = [
             'price_data' => [
                 'currency' => 'brl',
@@ -55,8 +45,18 @@ foreach ($carrinhoProdutos as $key => $produto) {
             ],
             'quantity' => $produto['quantidade'],
         ];
+
+        $sqlProdutos[] = "INSERT INTO tb_produto_pedido (id_usuario,id_produto,quantidade,fk_id_pedido) VALUES ('$_SESSION[id_usuario]','$produto[produto]',' $produto[quantidade]',";
     }
 }
+$sql = "INSERT INTO tb_usuario_pedido (id_usuario,preco_total,frete,data_pedido) VALUES ('$_SESSION[id_usuario]','$precoTotal','123456789','$data')";
+$query = mysqli_query($conexao, $sql);
+$idPedido = mysqli_insert_id($conexao);
+
+foreach ($sqlProdutos as $sqlProduto) {
+    $query = mysqli_query($conexao, $sqlProduto . "'" . $idPedido . "')");
+}
+
 
 // $checkout_session = \Stripe\Checkout\Session::create([
 //     'payment_method_types' => ['card', 'boleto'],
