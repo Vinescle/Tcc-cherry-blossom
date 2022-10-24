@@ -62,21 +62,21 @@ include '../verifica-logado.php';
 
                         <div class="espacamento-botoes">
                             <div class="botao-opcoes">
-                                <div class="botao-icone">
+                                <div class="botao-icone" style="cursor:pointer;">
                                     <a href="<?php echo $rota; ?>/home-adm/marcas/form-cadastro.php" class="botao-texto">
                                         <ion-icon name="add-outline"></ion-icon>
                                         Cadastrar
                                     </a>
                                 </div>
 
-                                <div class="botao-icone">
+                                <div class="botao-icone" onclick="altera()" style="cursor:pointer;">
                                     <a class="botao-texto">
                                         <ion-icon name="brush-outline"></ion-icon>
                                         Editar
                                     </a>
                                 </div>
 
-                                <div class="botao-icone">
+                                <div class="botao-icone" onclick="excluir()" style="cursor:pointer;">
                                     <a class="botao-texto">
                                         <ion-icon name="trash-outline"></ion-icon>
                                         Apagar
@@ -97,36 +97,62 @@ include '../verifica-logado.php';
                 </div>
 
             </div>
+            <form action="./marcas/deletemarca.php" method="GET" id="form">
+                <div class="marcas">
+                    <?php
+                    $sql = "SELECT * FROM tb_marcas LIMIT $limit,32";
+                    $resultado = mysqli_query($conexao, $sql);
 
-            <div class="marcas">
-                <?php
-                $sql = "SELECT * FROM tb_marcas LIMIT $limit,32";
-                $resultado = mysqli_query($conexao, $sql);
+                    try {
+                        while ($resultadoBolas = mysqli_fetch_array($resultado)) {
+                    ?>
+                            <input name="idcheckbox[]" class="marca-checkbox" type="checkbox" value="<?php echo $resultadoBolas['id_marca'] ?>" id="checkbox-<?php echo $resultadoBolas['id_marca'] ?>" hidden>
+                            <label for="checkbox-<?php echo $resultadoBolas['id_marca'] ?>">
+                                <div class="marca-bolas">
 
-                try {
-                    while ($resultadoBolas = mysqli_fetch_array($resultado)) {
-                ?>
-                        <input class="marca-checkbox" type="checkbox" id="checkbox-<?php echo $resultadoBolas['id_marca'] ?>" hidden>
-                        <label for="checkbox-<?php echo $resultadoBolas['id_marca'] ?>">
-                            <div class="marca-bolas">
-
-                                <div class="marca-circulo" style="background-color:<?php echo $resultadoBolas['cor_marca']; ?>">
-                                    <div class="marca-overlay"></div>
-                                    <label class="label-marca" for="checkbox-<?php echo $resultadoBolas['id_marca'] ?>"><?php echo $resultadoBolas['nome_marca'] ?></label>
-                                    <div><img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoBolas['icon_url']; ?>" class="imagem-marcas"></div>
+                                    <div class="marca-circulo" style="background-color:<?php echo $resultadoBolas['cor_marca']; ?>">
+                                        <div class="marca-overlay"></div>
+                                        <label class="label-marca" for="checkbox-<?php echo $resultadoBolas['id_marca'] ?>"><?php echo $resultadoBolas['nome_marca'] ?></label>
+                                        <div><img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoBolas['icon_url']; ?>" class="imagem-marcas"></div>
+                                    </div>
                                 </div>
-                            </div>
-                        </label>
-                <?php
+                            </label>
+                    <?php
+                        }
+                    } catch (Exception $e) {
+                        // Fazer o tratamento de warning
                     }
-                } catch (Exception $e) {
-                    // Fazer o tratamento de warning
-                }
-                ?>
+                    ?>
 
-            </div>
+                </div>
+            </form>
         </div>
     </div>
+
+    <script>
+        const form = document.querySelector('#form');
+        const checkbox = document.querySelectorAll('.checkbox');
+        const checkboxPrincipal = document.querySelector('.checkboxPrincipal');
+
+        function clickPrincipal(source) {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i] != source)
+                    checkboxes[i].checked = source.checked;
+            }
+        }
+
+        function excluir() {
+            form.action = "./marcas/deleteMarca.php";
+            form.submit();
+
+        }
+
+        function altera() {
+            form.action = "./marcas/form-altera.php";
+            form.submit();
+        }
+    </script>
 
     <?php
     include('../imports.php');

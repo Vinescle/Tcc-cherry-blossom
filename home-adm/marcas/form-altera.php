@@ -1,9 +1,14 @@
 <?php
 $page = 'marcas';
 include '../../conexao.php';
+if(count($_GET['idcheckbox']) > 1){
+    echo "<script> alert('Selecione apenas um item'); window.location.href='$rota/home-adm/marcas.php';</script>"; 
+    // header("location:$rota/home-adm/gerenciar.php");
+}
 include '../../verifica-logado.php';
 
-$sqlMarca = "SELECT * FROM `tb_marcas` WHERE id_marca = 21";
+$id = $_GET['idcheckbox'][0];
+$sqlMarca = "SELECT * FROM `tb_marcas` WHERE id_marca = $id";
 $resultadoMarca = mysqli_query($conexao, $sqlMarca);
 $resultadoMarca = mysqli_fetch_array($resultadoMarca);
 ?>
@@ -39,6 +44,7 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
         <div class="conteudo-principal">
             <div class="main">
                 <form action="alteraMarca.php" method="POST" enctype="multipart/form-data">
+                    <input type="text" value="<?php echo $id?>" name="idcheckbox" style="display: none;">
                     <div class="input-container-form-produto">
                         <div class="w-100">
                             <label class="input-texto">Nome da marca</label>

@@ -80,13 +80,13 @@ if (isset($_GET['id_categoria'])) {
                                         </a>
                                     </div>
 
-                                    <div class="botao-icone" onclick="alteraCategoria()">
+                                    <div class="botao-icone" onclick="alteraCategoria()" style="cursor:pointer;">
                                         <a class="botao-texto">
                                             <ion-icon name="brush-outline"></ion-icon>
                                         </a>
                                     </div>
 
-                                    <div class="botao-icone" onclick="excluirCategoria()">
+                                    <div class="botao-icone" onclick="excluirCategoria()" style="cursor:pointer;">
                                         <a class="botao-texto">
                                             <ion-icon name="trash-outline"></ion-icon>
                                         </a>
@@ -96,10 +96,10 @@ if (isset($_GET['id_categoria'])) {
                         </div>
 
                         <div class="botoes-setas">
-                            <a class="botao-texto" href="./categorias.php?pagina=<?php echo $pagina - 1 ?>">
+                            <a class="botao-texto" href="./categorias.php?pagina=<?php echo $pagina - 1 ?>" style="cursor:pointer;">
                                 <ion-icon class="setas" name="chevron-back-outline"></ion-icon>
                             </a>
-                            <a class="botao-texto" href="./categorias.php?pagina=<?php echo $pagina + 1 ?>">
+                            <a class="botao-texto" href="./categorias.php?pagina=<?php echo $pagina + 1 ?>" style="cursor:pointer;">
                                 <ion-icon class="setas" name="chevron-forward-outline"></ion-icon>
                             </a>
                         </div>
@@ -156,18 +156,18 @@ if (isset($_GET['id_categoria'])) {
                             <div class="espacamento-botoes">
                                 <div class="botao-opcoes">
                                     <div class="botao-icone">
-                                        <a class="botao-texto" href="<?php echo $rota; ?>/home-adm/sub-categorias/form-cadastro.php">
+                                        <a class="botao-texto" href="<?php echo $rota; ?>/home-adm/sub-categorias/form-cadastro.php" style="cursor:pointer;">
                                             <ion-icon name="add-outline"></ion-icon>
                                         </a>
                                     </div>
 
-                                    <div class="botao-icone" onclick="alteraSubCategoria()">
+                                    <div class="botao-icone" onclick="alteraSubCategoria()" style="cursor:pointer;">
                                         <a class="botao-texto">
                                             <ion-icon name="brush-outline"></ion-icon>
                                         </a>
                                     </div>
 
-                                    <div class="botao-icone" onclick="excluirSubCategoria()">
+                                    <div class="botao-icone" onclick="excluirSubCategoria()" style="cursor:pointer;">
                                         <a class="botao-texto">
                                             <ion-icon name="trash-outline"></ion-icon>
                                         </a>
@@ -176,11 +176,11 @@ if (isset($_GET['id_categoria'])) {
                             </div>
                         </div>
 
-                        <div class="botoes-setas">
+                        <div class="botoes-setas" style="cursor:pointer;">
                             <a class="botao-texto">
                                 <ion-icon class="setas" name="chevron-back-outline"></ion-icon>
                             </a>
-                            <a class="botao-texto">
+                            <a class="botao-texto" style="cursor:pointer;">
                                 <ion-icon class="setas" name="chevron-forward-outline"></ion-icon>
                             </a>
                         </div>

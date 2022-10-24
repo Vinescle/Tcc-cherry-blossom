@@ -2,8 +2,6 @@
 
 include '../../conexao.php';
 
-var_dump($_GET);
-
 $idCategoria = $_GET['idCategoria'];
 $i = 0;
 

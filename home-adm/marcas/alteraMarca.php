@@ -1,7 +1,7 @@
 <?php
 include '../../conexao.php';
 include '../../verifica-logado.php';
-$id = 21;
+$id = $_POST['idcheckbox'];
 $nomeMarca = $_POST['nomeMarca'];
 $corMarca = $_POST['corMarca'];
 if (!empty($_FILES['iconUrl']['name'])) $iconUrl = $_FILES['iconUrl'];

@@ -1,4 +1,5 @@
 <?php
+var_dump($_GET);
 $page = 'categorias';
 include '../../conexao.php';
 if(count($_GET['idCategoria']) > 1){

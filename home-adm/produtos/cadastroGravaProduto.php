@@ -48,4 +48,6 @@ mysqli_query($conexao, $sqlMarcasEProdutos);
 $sqlSubCategoriaEProdutos = "INSERT INTO tb_produtos_sub_categorias(fk_id_produtos, fk_id_sub_categorias) VALUES ($ultimoIdProdutos,$idsubcategoria)";
 mysqli_query($conexao, $sqlSubCategoriaEProdutos);
 
+
+header('location:../../componentes/notificardor-email.php');
 header('location:../gerenciar.php');

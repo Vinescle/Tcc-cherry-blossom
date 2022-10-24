@@ -77,14 +77,14 @@ try {
                                     </a>
                                 </div>
 
-                                <div class="botao-icone" onclick="altera()">
+                                <div class="botao-icone" onclick="altera()" style="cursor:pointer;">
                                     <a class="botao-texto">
                                         <ion-icon name="brush-outline"></ion-icon>
                                         Editar
                                     </a>
                                 </div>
 
-                                <div class="botao-icone" onclick="excluir()">
+                                <div class="botao-icone" onclick="excluir()" style="cursor:pointer;">
                                     <a class="botao-texto">
                                         <ion-icon name="trash-outline"></ion-icon>
                                         Apagar
