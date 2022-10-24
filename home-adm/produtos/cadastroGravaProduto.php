@@ -49,5 +49,7 @@ $sqlSubCategoriaEProdutos = "INSERT INTO tb_produtos_sub_categorias(fk_id_produt
 mysqli_query($conexao, $sqlSubCategoriaEProdutos);
 
 
-header('location:../../componentes/notificardor-email.php');
-header('location:../gerenciar.php');
+header('location:../../componentes/notificador-email.php?nomeProduto='.$nomeProduto);
+// header('location:../gerenciar.php');
+
+?>
