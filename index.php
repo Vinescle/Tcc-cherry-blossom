@@ -8,6 +8,19 @@ if (isset($_GET['deslogar'])) {
 }
 
 
+// CONFIGURAÇÕES E INSERTS DAS TABELAS DE VISITAS
+$sqlVisita = "INSERT INTO tb_log_visitas (registro,data_visita) VALUES (1,NOW())";
+mysqli_query($conexao,$sqlVisita);
+$ultimoIdVisita = mysqli_insert_id($conexao);
+$sqlUltimaVisita = "SELECT DATE_FORMAT(data_visita,'%m') FROM tb_log_visitas WHERE id_log_visita = $ultimoIdVisita";
+$resultadoUltimoId = mysqli_query($conexao, $sqlUltimaVisita);
+$resultadoUltimoId = mysqli_fetch_array($resultadoUltimoId);
+$fk_id_mes = $resultadoUltimoId[0];
+$sqlUltimaVisita = "UPDATE tb_log_visitas SET fk_id_mes = $fk_id_mes WHERE id_log_visita = $ultimoIdVisita";
+mysqli_query($conexao, $sqlUltimaVisita);
+
+
+
 $sqlMarcas = "SELECT * FROM tb_marcas LIMIT 7";
 $resultadoMarcas = mysqli_query($conexao, $sqlMarcas);
 
