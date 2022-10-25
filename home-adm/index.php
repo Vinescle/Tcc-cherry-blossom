@@ -13,11 +13,10 @@ FROM tb_log_visitas WHERE (SELECT MAX(DATE_FORMAT(data_visita,'%m')) FROM tb_log
 $resultadoMesMais = mysqli_query($conexao,$sqlMaiorMês);
 $resultadoMesMais = mysqli_fetch_array($resultadoMesMais);
 $maiorMes = $resultadoMesMais[0];
-// TERMINA ISSO RAFAEL DO FUTURO
+// ARRAY DE ULTIMOS MESES
 $sqlUltimosMeses = "SELECT * FROM tb_meses WHERE numero_mes <= $maiorMes AND numero_mes >= $maiorMes-5";
 $resultadoUltimosMeses = mysqli_query($conexao,$sqlUltimosMeses);
 $resultadoUltimosMeses = mysqli_fetch_all($resultadoUltimosMeses);
-var_dump($resultadoUltimosMeses);
 
 // SQL EMAIL DASHBOARD
 $sql = "SELECT COUNT(*) FROM tb_email_para_notificar 
