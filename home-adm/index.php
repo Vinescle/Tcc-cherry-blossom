@@ -13,6 +13,11 @@ FROM tb_log_visitas WHERE (SELECT MAX(DATE_FORMAT(data_visita,'%m')) FROM tb_log
 $resultadoMesMais = mysqli_query($conexao,$sqlMaiorMês);
 $resultadoMesMais = mysqli_fetch_array($resultadoMesMais);
 $maiorMes = $resultadoMesMais[0];
+// TERMINA ISSO RAFAEL DO FUTURO
+$sqlUltimosMeses = "SELECT * FROM tb_meses WHERE numero_mes <= $maiorMes AND numero_mes >= $maiorMes-5";
+$resultadoUltimosMeses = mysqli_query($conexao,$sqlUltimosMeses);
+$resultadoUltimosMeses = mysqli_fetch_all($resultadoUltimosMeses);
+var_dump($resultadoUltimosMeses);
 
 // SQL EMAIL DASHBOARD
 $sql = "SELECT COUNT(*) FROM tb_email_para_notificar 
@@ -42,8 +47,6 @@ FROM tb_log_visitas WHERE DATE_FORMAT(data_visita,'%m') = (SELECT MAX(DATE_FORMA
 $resultadoPorcentagemDois = mysqli_query($conexao, $sqlPorcentagem);
 $resultadoPorcentagemDois = mysqli_fetch_array($resultadoPorcentagemDois);
 $porcentagemVisita = $resultadoPorcentagemUm[0] / $resultadoPorcentagemDois[0];
-
-
 
 ?>
 
@@ -123,28 +126,18 @@ $porcentagemVisita = $resultadoPorcentagemUm[0] / $resultadoPorcentagemDois[0];
                         </div>
                         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                         <script>
+                            var UltimosMeses = <?php echo json_encode($resultadoUltimosMeses); ?>;
+                            console.log(UltimosMeses);
                             const mes = document.querySelector('#maiorMes');
                             console.log(mes.defaultValue);
-                            if(mes.defaultValue >= 7){
                                 var labels = [
-                                    'julho', 
-                                    'agosto', 
-                                    'setembro', 
-                                    'outubro', 
-                                    'novembro',
-                                    'dezembro',
+                                    UltimosMeses[0][1], 
+                                    UltimosMeses[1][1], 
+                                    UltimosMeses[2][1], 
+                                    UltimosMeses[3][1], 
+                                    UltimosMeses[4][1],
+                                    UltimosMeses[5][1],
                             ];
-                            }else{
-                                var labels = [
-                                'Janeiro',
-                                'Fevereiro',
-                                'Março',
-                                'Abril',
-                                'Maio',
-                                'Junho',
-                            ];
-                             
-                            }
                             console.log(labels); 
 
                             const data = {
@@ -200,12 +193,12 @@ $porcentagemVisita = $resultadoPorcentagemUm[0] / $resultadoPorcentagemDois[0];
                         </div>
                         <script>
                             const labelse = [
-                                'January',
-                                'February',
-                                'March',
-                                'April',
-                                'May',
-                                'June',
+                                    UltimosMeses[0][1], 
+                                    UltimosMeses[1][1], 
+                                    UltimosMeses[2][1], 
+                                    UltimosMeses[3][1], 
+                                    UltimosMeses[4][1],
+                                    UltimosMeses[5][1],
                             ];
 
                             const dataBundinha = {
