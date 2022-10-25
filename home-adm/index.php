@@ -14,22 +14,33 @@ $resultadoMesMais = mysqli_query($conexao,$sqlMaiorMês);
 $resultadoMesMais = mysqli_fetch_array($resultadoMesMais);
 $maiorMes = $resultadoMesMais[0];
 // ARRAY DE ULTIMOS MESES
-$sqlUltimosMeses = "SELECT * FROM tb_meses WHERE numero_mes <= $maiorMes AND numero_mes >= $maiorMes-5";
+$sqlUltimosMeses = "SELECT a.nome_mes,a.numero_mes, 
+CASE WHEN COUNT(a.nome_mes) = 1 THEN 0 ELSE COUNT(a.nome_mes) END 
+FROM tb_meses a 
+LEFT JOIN tb_log_visitas b ON a.id_mes = b.fk_id_mes
+WHERE numero_mes <= 10 AND numero_mes >= 10-5 group BY nome_mes ORDER BY a.numero_mes";
 $resultadoUltimosMeses = mysqli_query($conexao,$sqlUltimosMeses);
 $resultadoUltimosMeses = mysqli_fetch_all($resultadoUltimosMeses);
+// VISITAS SEMANAIS
+$sqlVisitaSemanal = "SELECT COUNT(*) AS visitaSemanal, date_format(data_visita, '%d') as dia FROM tb_log_visitas
+WHERE date_format(data_visita, '%d') <= 25 
+AND date_format(data_visita, '%d') >= date_format(data_visita, '%d')-6";
+$resultadoVisitaSemanal = mysqli_query($conexao,$sqlVisitaSemanal);
+$resultadoVisitaSemanal = mysqli_fetch_array($resultadoVisitaSemanal);
+
 
 // SQL EMAIL DASHBOARD
-$sql = "SELECT COUNT(*) FROM tb_email_para_notificar 
-WHERE fk_id_mes = (SELECT MAX(DATE_FORMAT(data_cadastro,'%m')) FROM tb_email_para_notificar)";
-$resultadoEmail = mysqli_query($conexao,$sql);
-$resultadoEmail = mysqli_fetch_array($resultadoEmail);
-$quantidadeEmail = $resultadoEmail[0];
-$PorcentagemEmail = $resultadoEmail[0]*100;
-$sqlEmailMesAnterior = "SELECT CASE WHEN count(*) = 0 THEN 1 END as valor_mes_anterior
-FROM tb_email_para_notificar WHERE DATE_FORMAT(data_cadastro,'%m') = (SELECT MAX(DATE_FORMAT(data_cadastro,'%m')) - 1 FROM tb_email_para_notificar);";
-$resultadoEmail = mysqli_query($conexao,$sqlEmailMesAnterior);
-$resultadoEmail = mysqli_fetch_array($resultadoEmail);
-$PorcentagemEmail = $PorcentagemEmail / $resultadoEmail['valor_mes_anterior'];
+// $sql = "SELECT COUNT(*) FROM tb_email_para_notificar 
+// WHERE fk_id_mes = (SELECT MAX(DATE_FORMAT(data_cadastro,'%m')) FROM tb_email_para_notificar)";
+// $resultadoEmail = mysqli_query($conexao,$sql);
+// $resultadoEmail = mysqli_fetch_array($resultadoEmail);
+// $quantidadeEmail = $resultadoEmail[0];
+// $PorcentagemEmail = $resultadoEmail[0]*100;
+// $sqlEmailMesAnterior = "SELECT CASE WHEN count(*) = 0 THEN 1 END as valor_mes_anterior
+// FROM tb_email_para_notificar WHERE DATE_FORMAT(data_cadastro,'%m') = (SELECT MAX(DATE_FORMAT(data_cadastro,'%m')) - 1 FROM tb_email_para_notificar);";
+// $resultadoEmail = mysqli_query($conexao,$sqlEmailMesAnterior);
+// $resultadoEmail = mysqli_fetch_array($resultadoEmail);
+// $PorcentagemEmail = $PorcentagemEmail / $resultadoEmail['valor_mes_anterior'];
 
 ?>
 <input type="text" id="maiorMes" style="display: none;" value="<?php echo $maiorMes ?>">
@@ -86,7 +97,7 @@ $porcentagemVisita = $resultadoPorcentagemUm[0] / $resultadoPorcentagemDois[0];
                         <p class="tabela-titulo">Visitas</p>
                         <div class="tabela-conjunto_porcentagem">
                             <ion-icon class="tabela-icone_porcentagem" name="caret-up-outline"></ion-icon>
-                            <p class="tabela-porcentagem"><?php echo $porcentagemVisita ?>%</p>
+                            <p class="tabela-porcentagem"><?php  echo $resultadoVisitaSemanal['visitaSemanal']?></p>
                         </div>
                     </div>
 
@@ -109,11 +120,11 @@ $porcentagemVisita = $resultadoPorcentagemUm[0] / $resultadoPorcentagemDois[0];
                     </div>
 
                     <div class="tabela">
-                        <h3 class="tabela-numero"><?php echo $quantidadeEmail; ?></h3>
+                        <h3 class="tabela-numero"><?php echo isset($quantidadeEmail) ? $quantidadeEmail : '0'  ?></h3>
                         <p class="tabela-titulo">Inscritos</p>
                         <div class="tabela-conjunto_porcentagem">
                             <ion-icon class="tabela-icone_porcentagem" name="caret-up-outline"></ion-icon>
-                            <p class="tabela-porcentagem"><?php echo $PorcentagemEmail?>%</p>
+                            <p class="tabela-porcentagem"><?php echo isset($PorcentagemEmail) ? $PorcentagemEmail : '0' ?>%</p>
                         </div>
                     </div>
                 </div>
@@ -130,12 +141,12 @@ $porcentagemVisita = $resultadoPorcentagemUm[0] / $resultadoPorcentagemDois[0];
                             const mes = document.querySelector('#maiorMes');
                             console.log(mes.defaultValue);
                                 var labels = [
-                                    UltimosMeses[0][1], 
-                                    UltimosMeses[1][1], 
-                                    UltimosMeses[2][1], 
-                                    UltimosMeses[3][1], 
-                                    UltimosMeses[4][1],
-                                    UltimosMeses[5][1],
+                                    UltimosMeses[0][0], 
+                                    UltimosMeses[1][0], 
+                                    UltimosMeses[2][0], 
+                                    UltimosMeses[3][0], 
+                                    UltimosMeses[4][0],
+                                    UltimosMeses[5][0],
                             ];
                             console.log(labels); 
 
@@ -145,7 +156,7 @@ $porcentagemVisita = $resultadoPorcentagemUm[0] / $resultadoPorcentagemDois[0];
                                     label: 'Visitas nos últimos 6 meses',
                                     backgroundColor: 'rgb(255, 99, 132)',
                                     borderColor: 'rgb(255, 99, 132)',
-                                    data: [20, 10, 5, 2, 80, 30, 45],
+                                    data: [UltimosMeses[0][2], UltimosMeses[1][2], UltimosMeses[2][2], UltimosMeses[3][2], UltimosMeses[4][2], UltimosMeses[5][2]],
                                     backgroundColor: [
                                         'rgba(255, 99, 132, 0.2)',
                                         'rgba(255, 159, 64, 0.2)',
