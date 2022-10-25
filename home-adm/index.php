@@ -2,7 +2,9 @@
 $page = 'home';
 include '../conexao.php';
 include '../verifica-logado.php';
-$sqlVisitasTotal = "SELECT COUNT(*) FROM tb_log_visitas";
+$sqlVisitasTotal = "SELECT COUNT(*) FROM tb_log_visitas 
+WHERE DATE_FORMAT(data_visita,'%d') = (SELECT MAX(DATE_FORMAT(data_visita,'%d')) FROM tb_log_visitas)
+AND DATE_FORMAT(data_visita,'%m') = (SELECT MAX(DATE_FORMAT(data_visita,'%m')) FROM tb_log_visitas)";
 $resultadoVisitasTotal = mysqli_query($conexao, $sqlVisitasTotal);
 $resultadoVisitasTotal = mysqli_fetch_array($resultadoVisitasTotal);
 
