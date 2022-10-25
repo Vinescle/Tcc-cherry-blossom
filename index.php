@@ -9,7 +9,7 @@ if (isset($_GET['deslogar'])) {
 
 
 // CONFIGURAÇÕES E INSERTS DAS TABELAS DE VISITAS
-$sqlVisita = "INSERT INTO tb_log_visitas (registro,data_visita) VALUES (1,NOW())";
+$sqlVisita = "INSERT INTO tb_log_visitas (data_visita) VALUES (NOW())";
 mysqli_query($conexao,$sqlVisita);
 $ultimoIdVisita = mysqli_insert_id($conexao);
 $sqlUltimaVisita = "SELECT DATE_FORMAT(data_visita,'%m') FROM tb_log_visitas WHERE id_log_visita = $ultimoIdVisita";

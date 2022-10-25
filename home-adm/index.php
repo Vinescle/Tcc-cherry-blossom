@@ -14,25 +14,30 @@ $resultadoMesMais = mysqli_query($conexao,$sqlMaiorMês);
 $resultadoMesMais = mysqli_fetch_array($resultadoMesMais);
 $maiorMes = $resultadoMesMais[0];
 
-if($maiorMes >= 7){
-    
-}else{
-
-}
+// SQL EMAIL DASHBOARD
+$sql = "SELECT COUNT(*) FROM tb_email_para_notificar 
+WHERE fk_id_mes = (SELECT MAX(DATE_FORMAT(data_cadastro,'%m')) FROM tb_email_para_notificar)";
+$resultadoEmail = mysqli_query($conexao,$sql);
+$resultadoEmail = mysqli_fetch_array($resultadoEmail);
+$quantidadeEmail = $resultadoEmail[0];
+$PorcentagemEmail = $resultadoEmail[0]*100;
+$sqlEmailMesAnterior = "SELECT CASE WHEN count(*) = 0 THEN 1 END as valor_mes_anterior
+FROM tb_email_para_notificar WHERE DATE_FORMAT(data_cadastro,'%m') = (SELECT MAX(DATE_FORMAT(data_cadastro,'%m')) - 1 FROM tb_email_para_notificar);";
+$resultadoEmail = mysqli_query($conexao,$sqlEmailMesAnterior);
+$resultadoEmail = mysqli_fetch_array($resultadoEmail);
+$PorcentagemEmail = $PorcentagemEmail / $resultadoEmail['valor_mes_anterior'];
 
 ?>
 <input type="text" id="maiorMes" style="display: none;" value="<?php echo $maiorMes ?>">
 <?php
 
 // SQLs de porcentagem
-
 $sqlPorcentagem = "SELECT COUNT(*)*100 as valor_mes_atual
 FROM tb_log_visitas WHERE (SELECT MAX(DATE_FORMAT(data_visita,'%m')) FROM tb_log_visitas) = 
 (SELECT MAX(DATE_FORMAT(data_visita,'%m')) FROM tb_log_visitas)";
 $resultadoPorcentagemUm = mysqli_query($conexao, $sqlPorcentagem);
 $resultadoPorcentagemUm = mysqli_fetch_array($resultadoPorcentagemUm);
-$sqlPorcentagem = "SELECT 
-CASE WHEN count(*) = 0 THEN 1 END as valor_mes_anterior
+$sqlPorcentagem = "SELECT CASE WHEN count(*) = 0 THEN 1 END as valor_mes_anterior
 FROM tb_log_visitas WHERE DATE_FORMAT(data_visita,'%m') = (SELECT MAX(DATE_FORMAT(data_visita,'%m')) - 1 FROM tb_log_visitas);";
 $resultadoPorcentagemDois = mysqli_query($conexao, $sqlPorcentagem);
 $resultadoPorcentagemDois = mysqli_fetch_array($resultadoPorcentagemDois);
@@ -102,11 +107,11 @@ $porcentagemVisita = $resultadoPorcentagemUm[0] / $resultadoPorcentagemDois[0];
                     </div>
 
                     <div class="tabela">
-                        <h3 class="tabela-numero">XXX</h3>
+                        <h3 class="tabela-numero"><?php echo $quantidadeEmail; ?></h3>
                         <p class="tabela-titulo">Inscritos</p>
                         <div class="tabela-conjunto_porcentagem">
                             <ion-icon class="tabela-icone_porcentagem" name="caret-up-outline"></ion-icon>
-                            <p class="tabela-porcentagem">XXX</p>
+                            <p class="tabela-porcentagem"><?php echo $PorcentagemEmail?>%</p>
                         </div>
                     </div>
                 </div>
