@@ -93,15 +93,16 @@ a:hover {
 .noticias-coluna-tres input {
   width: 300px;
   height: 28px;
-  background-color: #FFEFFD;
-  border: 1px solid #FF83EF;
-  border-radius: 105px;
   padding: 0px 0px 0px 15px;
+  
+  color: #FFFFFF;
   font-family: 'Inter', sans-serif;
   font-size: 18px;
-  color: #323232;
+  
+  border: 1px solid #FF83EF;
+  border-radius: 105px;
+  
   outline: none;
-
 }
 
 .colunas-titulos {
@@ -126,4 +127,18 @@ a:hover {
   font-size: 17px;
   font-weight: 700;
   margin: 0 0 0 0;
+}
+
+/* Form de Email */
+
+.form-enviar-email {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.botao-enviar-email {
+  background-color: #EC56D9;
+
+  font-weight: 700;
 }
