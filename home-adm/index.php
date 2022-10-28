@@ -24,25 +24,29 @@ WHERE numero_mes <= 10 AND numero_mes >= 10-5 group BY nome_mes ORDER BY a.numer
 $resultadoUltimosMeses = mysqli_query($conexao,$sqlUltimosMeses);
 $resultadoUltimosMeses = mysqli_fetch_all($resultadoUltimosMeses);
 // VISITAS SEMANAIS
+$sqlDiaMAX = "SELECT MAX(date_format(data_visita, '%d')) AS dia FROM tb_log_visitas";
+$resultadoDiaMAX = mysqli_query($conexao, $sqlDiaMAX);
+$resultadoDiaMAX = mysqli_fetch_array($resultadoDiaMAX);
+$DiaMAX = $resultadoDiaMAX['dia'];
 $sqlVisitaSemanal = "SELECT COUNT(*) AS visitaSemanal, date_format(data_visita, '%d') as dia FROM tb_log_visitas
-WHERE date_format(data_visita, '%d') <= 25 
-AND date_format(data_visita, '%d') >= date_format(data_visita, '%d')-6";
+WHERE date_format(data_visita, '%d') <= $DiaMAX 
+AND date_format(data_visita, '%d') >= $DiaMAX-6";
 $resultadoVisitaSemanal = mysqli_query($conexao,$sqlVisitaSemanal);
 $resultadoVisitaSemanal = mysqli_fetch_array($resultadoVisitaSemanal);
 
 
 // SQL EMAIL DASHBOARD
-// $sql = "SELECT COUNT(*) FROM tb_email_para_notificar 
-// WHERE fk_id_mes = (SELECT MAX(DATE_FORMAT(data_cadastro,'%m')) FROM tb_email_para_notificar)";
-// $resultadoEmail = mysqli_query($conexao,$sql);
-// $resultadoEmail = mysqli_fetch_array($resultadoEmail);
-// $quantidadeEmail = $resultadoEmail[0];
-// $PorcentagemEmail = $resultadoEmail[0]*100;
-// $sqlEmailMesAnterior = "SELECT CASE WHEN count(*) = 0 THEN 1 END as valor_mes_anterior
-// FROM tb_email_para_notificar WHERE DATE_FORMAT(data_cadastro,'%m') = (SELECT MAX(DATE_FORMAT(data_cadastro,'%m')) - 1 FROM tb_email_para_notificar);";
-// $resultadoEmail = mysqli_query($conexao,$sqlEmailMesAnterior);
-// $resultadoEmail = mysqli_fetch_array($resultadoEmail);
-// $PorcentagemEmail = $PorcentagemEmail / $resultadoEmail['valor_mes_anterior'];
+$sql = "SELECT COUNT(*) FROM tb_email_para_notificar 
+WHERE fk_id_mes = (SELECT MAX(DATE_FORMAT(data_cadastro,'%m')) FROM tb_email_para_notificar)";
+$resultadoEmail = mysqli_query($conexao,$sql);
+$resultadoEmail = mysqli_fetch_array($resultadoEmail);
+$quantidadeEmail = $resultadoEmail[0];
+$PorcentagemEmail = $resultadoEmail[0]*100;
+$sqlEmailMesAnterior = "SELECT CASE WHEN count(*) = 0 THEN 1 END as valor_mes_anterior
+FROM tb_email_para_notificar WHERE DATE_FORMAT(data_cadastro,'%m') = (SELECT MAX(DATE_FORMAT(data_cadastro,'%m')) - 1 FROM tb_email_para_notificar);";
+$resultadoEmail = mysqli_query($conexao,$sqlEmailMesAnterior);
+$resultadoEmail = mysqli_fetch_array($resultadoEmail);
+$PorcentagemEmail = $PorcentagemEmail / $resultadoEmail['valor_mes_anterior'];
 
 ?>
 <input type="text" id="maiorMes" style="display: none;" value="<?php echo $maiorMes ?>">
