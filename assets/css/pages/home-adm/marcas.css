@@ -108,7 +108,6 @@
   border-radius: 1000px;
   width: 100px;
   height: 100px;
-  background: #a5ff7b;
   overflow: hidden;
 
   transition: 0.5s;
@@ -138,6 +137,8 @@
   font-family: "Inter";
   font-size: 15px;
   font-weight: 700;
+
+  transition: 0.5s;
 }
 
 .marca-circulo:hover>.label-marca {

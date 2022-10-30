@@ -108,12 +108,16 @@ include '../verifica-logado.php';
                     ?>
                             <input name="idcheckbox[]" class="marca-checkbox" type="checkbox" value="<?php echo $resultadoBolas['id_marca'] ?>" id="checkbox-<?php echo $resultadoBolas['id_marca'] ?>" hidden>
                             <label for="checkbox-<?php echo $resultadoBolas['id_marca'] ?>">
-                                <div class="marca-bolas">
+                                <div class="marca-bolas" >
 
                                     <div class="marca-circulo" style="background-color:<?php echo $resultadoBolas['cor_marca']; ?>">
                                         <div class="marca-overlay"></div>
-                                        <label class="label-marca" for="checkbox-<?php echo $resultadoBolas['id_marca'] ?>"><?php echo $resultadoBolas['nome_marca'] ?></label>
-                                        <div><img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoBolas['icon_url']; ?>" class="imagem-marcas"></div>
+                                        <label class="label-marca" for="checkbox-<?php echo $resultadoBolas['id_marca'] ?>">
+                                            <?php echo $resultadoBolas['nome_marca'] ?>
+                                        </label>
+                                        <div>
+                                            <img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoBolas['icon_url']; ?>" class="imagem-marcas">
+                                        </div>
                                     </div>
                                 </div>
                             </label>
