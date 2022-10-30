@@ -21,6 +21,9 @@ if (!empty($iconUrl)) {
     mysqli_query($conexao, $sql);
 
     move_uploaded_file($iconUrl['tmp_name'], "../../assets/imagens/storage/marcas/$nomeIcone");
+}else{
+    $sql = "UPDATE `tb_marcas` SET `nome_marca`='$nomeMarca',`cor_marca`='$corMarca' WHERE id_marca = $id";
+    mysqli_query($conexao, $sql);
 }
 
 

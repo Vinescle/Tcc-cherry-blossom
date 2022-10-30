@@ -1,8 +1,8 @@
 <?php
 $page = 'gerenciar';
 include '../../conexao.php';
-if(count($_GET['idproduto']) > 1){
-    echo "<script> alert('Selecione apenas um item'); window.location.href='$rota/home-adm/gerenciar.php';</script>"; 
+if (count($_GET['idproduto']) > 1) {
+    echo "<script> alert('Selecione apenas um item'); window.location.href='$rota/home-adm/gerenciar.php';</script>";
     // header("location:$rota/home-adm/gerenciar.php");
 }
 include '../../verifica-logado.php';
@@ -42,6 +42,10 @@ WHERE a.id_produtos = $id";
 $resultadoProduto = mysqli_query($conexao, $sqlProduto);
 $resultadoProduto = mysqli_fetch_array($resultadoProduto);
 
+$sql = "SELECT * FROM tb_imagem_produtos WHERE fk_id_produto = $id";
+$resultadoImagemProduto = mysqli_query($conexao, $sql);
+$resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
+var_dump($resultadoImagemProduto);
 ?>
 
 <!DOCTYPE html>
@@ -273,14 +277,33 @@ $resultadoProduto = mysqli_fetch_array($resultadoProduto);
                             <div class="imagens">
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
-                                        <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
-                                        <input type="file" method="POST" name="imagemProduto-1" value="<?php echo $resultadoProduto[13] ?>">
+                                        <?php
+                                        if (!empty($resultadoProduto[13])) {
+                                            $caminhoProduto = $resultadoProduto[13];
+                                        ?>
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" alt="Imagem produto" style="width:200px;">
+                                            <input type="file" method="POST" name="imagemProduto-1" value="<?php echo $resultadoProduto[13] ?>">
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
+                                        <?php } ?>
                                     </button>
                                 </div>
 
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
-                                        <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
+                                        <?php
+                                        if (!empty($resultadoProduto[14])) {
+                                            $caminhoProduto = $resultadoProduto[14];
+                                        ?>
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" alt="Imagem produto" style="width:200px;">
+                                            <input type="file" method="POST" name="imagemProduto-2" value="<?php echo $resultadoProduto[14] ?>">
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
+                                        <?php } ?>
                                         <input type="file" method="POST" name="imagemProduto-2" value="<?php echo $resultadoProduto[14] ?>">
                                     </button>
                                 </div>
