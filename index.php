@@ -10,7 +10,7 @@ if (isset($_GET['deslogar'])) {
 
 // CONFIGURAÇÕES E INSERTS DAS TABELAS DE VISITAS
 $sqlVisita = "INSERT INTO tb_log_visitas (data_visita) VALUES (NOW())";
-mysqli_query($conexao,$sqlVisita);
+mysqli_query($conexao, $sqlVisita);
 $ultimoIdVisita = mysqli_insert_id($conexao);
 $sqlUltimaVisita = "SELECT DATE_FORMAT(data_visita,'%m') FROM tb_log_visitas WHERE id_log_visita = $ultimoIdVisita";
 $resultadoUltimoId = mysqli_query($conexao, $sqlUltimaVisita);
@@ -85,7 +85,108 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
     <?php
     include('./componentes/menu-cabeçalho.php');
     ?>
+    <main>
+        <main class="banner-carrossel">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="<?php echo $rota; ?>/assets/imagens/storage/banners/<?php echo $configAdm['url_banner']; ?>" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </main>
+        <div class="container-loja">
 
+            <div>
+                <div class="texto">
+                    <div>
+                        <h2 class="titulo">Marcas</h2>
+                    </div>
+                    <div>
+                        <button class="botao-verTodos"><a class="ver-todos">Ver todos</a></button>
+                    </div>
+                </div>
+                <div class="marcas-container">
+                    <?php
+                    while ($resultadoMarcasFinal = mysqli_fetch_array($resultadoMarcas)) {
+                    ?>
+                        <a href="<?php echo $rota; ?>/pesquisa.php?marca=<?php echo $resultadoMarcasFinal['id_marca']; ?>">
+                            <div class="bolas-marcas" style="background-color: <?php echo $resultadoMarcasFinal['cor_marca']; ?>;">
+                                <div><img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoMarcasFinal['icon_url'] ?>" class="imagem-marcas"></div>
+                            </div>
+                        </a>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <!-- Destques -->
+            <div>
+                <div class="texto">
+                    <div>
+                        <h2 class="titulo">Destaque</h2>
+                    </div>
+                </div>
+                <div class="secao-destaques">
+                    <?php
+                    while ($resultadoDestaquesFinal = mysqli_fetch_array($resultadoDestaques)) {
+                    ?>
+                        <div class="destaques-produtos">
+                            <img class="foto-produtos" src="<?php echo $rota; ?>/assets/imagens/storage/produtos/<?php echo $resultadoDestaquesFinal[5]; ?>">
+                            <div class="espacamento-produto">
+                                <p class="tag-produto"><?php echo $resultadoDestaquesFinal['nome_categoria'] ?> > <?php echo $resultadoDestaquesFinal['nome_sub_categoria'] ?></p>
+                                <h3 class="titulo-produto"><?php echo $resultadoDestaquesFinal['nome_produto'] ?></h3>
+                                <div class="conjunto-preco-comprar">
+                                    <p class="preco-produto">R$<?php echo $resultadoDestaquesFinal['preco_produto'] ?></p>
+                                    <button class="botao-comprar"><a href="<?php echo $rota . '/produto.php?produto=' . $resultadoDestaquesFinal['id_produtos'] ?>">Comprar</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <!-- Mais vendidos -->
+            <div>
+                <div>
+                    <div class="texto">
+                        <div>
+                            <h2 class="titulo">Mais vendidos</h2>
+                        </div>
+                    </div>
+                    <div class="secao-destaques">
+                        <?php
+                        while ($resultadoMaisVendidosFinal = mysqli_fetch_array($resultadoMaisVendidos)) {
+                        ?>
+                            <div class="destaques-produtos">
+                                <img class="foto-produtos" src="<?php echo $rota; ?>/assets/imagens/storage/produtos/<?php echo $resultadoMaisVendidosFinal[5]; ?>">
+                                <div class="espacamento-produto">
+                                    <p class="tag-produto"><?php echo $resultadoMaisVendidosFinal['nome_categoria'] ?> > <?php echo $resultadoMaisVendidosFinal['nome_sub_categoria'] ?></p>
+                                    <h3 class="titulo-produto"><?php echo $resultadoMaisVendidosFinal['nome_produto'] ?></h3>
+                                    <div class="conjunto-preco-comprar">
+                                        <p class="preco-produto">R$<?php echo $resultadoMaisVendidosFinal['preco_produto'] ?></p>
+                                        <button class="botao-comprar"><a href="<?php echo $rota . '/produto.php?produto=' . $resultadoMaisVendidosFinal['id_produtos'] ?>">Comprar</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+    </main>
 
     <?php
     include('./componentes/rodape.php');
