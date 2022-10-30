@@ -280,12 +280,12 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                         if (isset($resultadoImagemProduto[0][1])) {
                                             $caminhoProduto = $resultadoImagemProduto[0][1];
                                         ?>
-                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" alt="Imagem produto" style="width:200px;">
-                                            <input type="file" method="POST" name="imagemProduto-1" value="<?php echo $caminhoProduto ?>">
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output" alt="Imagem produto" style="width:200px;">
+                                            <input type="file" method="POST" name="imagemProduto-1" value="<?php echo $caminhoProduto ?>" onchange="previewImagem(event)">
                                         <?php
                                         } else {
                                         ?>
-                                            <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
+                                            <ion-icon class="input-icone_botao input-icone_botao_1" name="add-outline"></ion-icon>
                                         <?php } ?>
                                     </button>
                                 </div>
@@ -296,12 +296,12 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                         if (isset($resultadoImagemProduto[1][1])) {
                                             $caminhoProduto = $resultadoImagemProduto[1][1];
                                         ?>
-                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" alt="Imagem produto" style="width:200px;">
-                                            <input type="file" method="POST" name="imagemProduto-2" value="<?php echo $caminhoProduto ?>">
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output2" alt="Imagem produto" style="width:200px;">
+                                            <input type="file" method="POST" name="imagemProduto-2" value="<?php echo $caminhoProduto ?>" onchange="previewImagem2(event)">
                                         <?php
                                         } else {
                                         ?>
-                                            <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
+                                            <ion-icon class="input-icone_botao input-icone_botao_2" name="add-outline"></ion-icon>
                                         <?php } ?>
                                     </button>
                                 </div>
@@ -312,12 +312,12 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                         if (isset($resultadoImagemProduto[2][1])) {
                                             $caminhoProduto = $resultadoImagemProduto[2][1];
                                         ?>
-                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" alt="Imagem produto" style="width:200px;">
-                                            <input type="file" method="POST" name="imagemProduto-3" value="<?php echo $caminhoProduto ?>">
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output3" alt="Imagem produto" style="width:200px;">
+                                            <input type="file" method="POST" name="imagemProduto-3" value="<?php echo $caminhoProduto ?>" onchange="previewImagem3(event)">
                                         <?php
                                         } else {
                                         ?>
-                                            <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
+                                            <ion-icon class="input-icone_botao input-icone_botao_3" name="add-outline"></ion-icon>
                                         <?php } ?>
                                     </button>
                                 </div>
@@ -328,28 +328,28 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                         if (isset($resultadoImagemProduto[3][1])) {
                                             $caminhoProduto = $resultadoImagemProduto[3][1];
                                         ?>
-                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" alt="Imagem produto" style="width:200px;">
-                                            <input type="file" method="POST" name="imagemProduto-4" value="<?php echo $caminhoProduto ?>">
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output4" alt="Imagem produto" style="width:200px;">
+                                            <input type="file" method="POST" name="imagemProduto-4" value="<?php echo $caminhoProduto ?>" onchange="previewImagem4(event)">
                                         <?php
                                         } else {
                                         ?>
-                                            <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
+                                            <ion-icon class="input-icone_botao input-icone_botao_4" name="add-outline"></ion-icon>
                                         <?php } ?>
                                     </button>
                                 </div>
 
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
-                                    <?php
+                                        <?php
                                         if (isset($resultadoImagemProduto[4][1])) {
                                             $caminhoProduto = $resultadoImagemProduto[4][1];
                                         ?>
-                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" alt="Imagem produto" style="width:200px;">
-                                            <input type="file" method="POST" name="imagemProduto-5" value="<?php echo $caminhoProduto ?>">
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output5" alt="Imagem produto" style="width:200px;">
+                                            <input type="file" method="POST" name="imagemProduto-5" value="<?php echo $caminhoProduto ?>" onchange="previewImagem5(event)">
                                         <?php
                                         } else {
                                         ?>
-                                            <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
+                                            <ion-icon class="input-icone_botao input-icone_botao_5" name="add-outline"></ion-icon>
                                         <?php } ?>
                                     </button>
                                 </div>
@@ -366,6 +366,74 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
             </div>
         </div>
 
+        <script>
+            const input_icone_botao_1 = document.querySelector('.input-icone_botao_1');
+            const input_icone_botao_2 = document.querySelector('.input-icone_botao_2');
+            const input_icone_botao_3 = document.querySelector('.input-icone_botao_3');
+            const input_icone_botao_4 = document.querySelector('.input-icone_botao_4');
+            const input_icone_botao_5 = document.querySelector('.input-icone_botao_5');
+
+            var previewImagem = function(event) {
+                var output = document.getElementById('output');
+                output.src = URL.createObjectURL(event.target.files[0]);
+                output.onload = function() {
+                    URL.revokeObjectURL(output.src)
+                }
+            };
+            const imagemProduto_1 = document.querySelector('.imagemProduto-1');
+            imagemProduto_1.addEventListener('change', function(e) {
+                input_icone_botao_1.classList.add('oculta');
+            })
+
+
+            function previewImagem2(event) {
+                var output2 = document.getElementById('output2');
+                output2.src = URL.createObjectURL(event.target.files[0]);
+                output2.onload = function() {
+                    URL.revokeObjectURL(output2.src)
+                }
+            };
+            const imagemProduto_2 = document.querySelector('.imagemProduto-2');
+            imagemProduto_2.addEventListener('change', function(e) {
+                input_icone_botao_2.classList.add('oculta');
+            })
+
+            function previewImagem3(event)  {
+                var output3 = document.getElementById('output3');
+                output3.src = URL.createObjectURL(event.target.files[0]);
+                output3.onload = function() {
+                    URL.revokeObjectURL(output3.src)
+                }
+            };
+            const imagemProduto_3 = document.querySelector('.imagemProduto-3');
+            imagemProduto_3.addEventListener('change', function(e) {
+                input_icone_botao_3.classList.add('oculta');
+            })
+
+            function previewImagem4(event) {
+                var output4 = document.getElementById('output4');
+                output4.src = URL.createObjectURL(event.target.files[0]);
+                output4.onload = function() {
+                    URL.revokeObjectURL(output4.src)
+                }
+            };
+            const imagemProduto_4 = document.querySelector('.imagemProduto-4');
+            imagemProduto_4.addEventListener('change', function(e) {
+                input_icone_botao_4.classList.add('oculta');
+            })
+
+            function previewImagem5(event) {
+                var output5 = document.getElementById('output5');
+                output5.src = URL.createObjectURL(event.target.files[0]);
+                output5.onload = function() {
+                    URL.revokeObjectURL(output5.src)
+                }
+            };
+            const imagemProduto_5 = document.querySelector('.imagemProduto-5');
+            imagemProduto_5.addEventListener('change', function(e) {
+                input_icone_botao_5.classList.add('oculta');
+            })
+        </script>
         <?php
         include('../../imports.php');
         ?>
