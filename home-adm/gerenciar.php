@@ -19,6 +19,12 @@ $sql = "SELECT a.id_produtos, a.nome_produto, a.preco_produto, a.qtd_produto, b.
     INNER JOIN tb_produtos_sub_categorias subcategoriasRE ON a.id_produtos = subcategoriasRE.fk_id_produtos
     INNER JOIN tb_sub_categoria subcategorias  ON subcategorias.id_sub_categoria = subcategoriasRE.fk_id_sub_categorias
     INNER JOIN tb_categoria c ON c.id_categoria = subcategorias.fk_id_categoria GROUP BY a.id_produtos LIMIT $limit,8";
+
+$sqlProdutosPopulares = "SELECT fk_id_produto, b.nome_produto, COUNT(*) AS quantidade_acessos FROM tb_produto_popular a 
+INNER JOIN tb_produtos b ON a.fk_id_produto = b.id_produtos GROUP BY fk_id_produto ORDER BY COUNT(*) DESC";
+$resultadoProdutosPopulares = mysqli_query($conexao, $sqlProdutosPopulares);
+
+
 try {
     $resultadoProdutos = mysqli_query($conexao, $sql);
 } catch (\Throwable $th) {
@@ -138,25 +144,16 @@ try {
                             <th class="tabela-destaques_titulo" colspan="2">Mais Populares</th>
                         </tr>
 
-                        <tr>
-                            <td class="tabela-destaques_id">1</td>
-                            <td class="tabela-destaques_conteudo">Xiuaua mimadinho de miami</td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-destaques_id">2</td>
-                            <td class="tabela-destaques_conteudo">Pulseira pais e amo</td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-destaques_id">3</td>
-                            <td class="tabela-destaques_conteudo">Pulseira pais e amo</td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-destaques_id">4</td>
-                            <td class="tabela-destaques_conteudo">Xiuaua mimadinho de miami</td>
-                        </tr>
+                        <?php
+                        while ($ProdutosPopulares = mysqli_fetch_array($resultadoProdutosPopulares)) {
+                        ?>
+                            <tr>
+                                <td class="tabela-destaques_id"><?php echo $ProdutosPopulares['fk_id_produto']?></td>
+                                <td class="tabela-destaques_conteudo"><?php echo $ProdutosPopulares['nome_produto']?></td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
                     </table>
                 </div>
 

@@ -3,6 +3,9 @@ include './conexao.php';
 
 $idProduto = $_GET['produto'];
 
+$insertProdutoDestaque = "INSERT INTO tb_produto_popular (fk_id_produto) VALUES ($idProduto);";
+mysqli_query($conexao, $insertProdutoDestaque);
+
 $cep = $_GET['cep'];
 
 if (isset($_GET['adicionar'])) {
