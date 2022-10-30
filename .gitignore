@@ -3,6 +3,7 @@
 /assets/imagens/storage/marcas/*
 /assets/imagens/storage/banners/*
 /assets/imagens/storage/produtos/*
+/assets/imagens/storage/banner/*
 /vendor
 /node_modules/*
 /package-lock.json

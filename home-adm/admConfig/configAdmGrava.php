@@ -9,7 +9,7 @@ $resultado = mysqli_query($conexao, $sqlDeletaImagem);
 $resultadoDeletaImagem = mysqli_fetch_array($resultado);
 
 try {
-    unlink("../../assets/imagens/storage/banners/" . $resultadoDeletaImagem['url_banner']);
+    unlink("../../assets/imagens/storage/banner/" . $resultadoDeletaImagem['url_banner']);
 } catch (Exception $e) {
 }
 
@@ -18,8 +18,6 @@ try {
 
 $email = $_POST['email'];
 $senha = $_POST['senha'];
-// var_dump($senha);
-// exit();
 $whatsapp = $_POST['whatsapp'];
 $instagram = $_POST['instagram'];
 $facebook = $_POST['facebook'];
@@ -36,6 +34,6 @@ $sql = "UPDATE `tb_adm_config` SET `email_sugestoes`='$email',`senha`='$senha'
 
 mysqli_query($conexao, $sql);
 
-move_uploaded_file($banner['tmp_name'], "../../assets/imagens/storage/banners/$Nomebanner");
+move_uploaded_file($banner['tmp_name'], "../../assets/imagens/storage/banner/$Nomebanner");
 
 header('location: ../configuracoes.php');

@@ -110,11 +110,23 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                         <div>
                             <label class="input-texto">Banner</label>
                         </div>
-                        <div class="input-banner">
+                        <div class="input-banner" style="overflow:hidden; border-radius:20px;">
                             <button type="button" class="botao-banner" style="background-image: url(<?php echo $rota; ?>/assets/imagens/storage/banners/<?php echo $configAdm['url_banner'] ?>);">
-                                <ion-icon class="icone-botao" name="download-outline"></ion-icon>
-                                Clique para fazer upload de imagens
-                                <input type="file" name="banner" required value="<?php echo $rota; ?>/assets/imagens/storage/banners/<?php echo $configAdm['url_banner'] ?>">
+                                <?php
+                                if (isset($configAdm['url_banner']) and !empty($configAdm['url_banner'])) {
+                                    $imagemBanner = $configAdm['url_banner'];
+                                ?>
+                                    <img id="output" src="../assets/imagens/storage/banner/<?php echo $imagemBanner ?>" width="120%" height="120%" alt="Banner página">
+                                <?php
+                                } else {
+                                ?>
+                                    <ion-icon class="icone-botao input-icone_botao" name="download-outline"></ion-icon>
+                                    Clique para fazer upload de imagens
+                                <?php
+                                }
+                                ?>
+                                <input type="file" name="banner" required value="<?php echo $rota; ?>/assets/imagens/storage/banners/<?php echo $configAdm['url_banner']?>" onchange="previewImagem(event)">
+
                             </button>
                         </div>
                     </div>
@@ -130,6 +142,18 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
     </div>
 
     <script src="<?php echo $rota; ?>/assets/js/senhaIcon.js"></script>
+    <script>
+        const input_icone_botao = document.querySelector('.input-icone_botao');
+
+        function previewImagem(event) {
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+                URL.revokeObjectURL(output.src)
+            }
+        };
+
+    </script>
     <?php
     include('../imports.php');
     ?>
