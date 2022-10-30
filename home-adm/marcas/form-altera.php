@@ -64,14 +64,14 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
                                             if (!empty($resultadoMarca['icon_url'])) {
                                                 $iconeMarca = $resultadoMarca['icon_url']
                                             ?>
-                                                <input type="file" name="iconUrl" value="<?php echo $resultadoMarca['icon_url']; ?>">
-                                                
-                                                <img src="../../assets/imagens/storage/marcas/<?php echo $iconeMarca?>" alt="icone da marca" style="width:200px;">
+                                                <input type="file" name="iconUrl" value="<?php echo $resultadoMarca['icon_url']; ?>" class="iconImg" onchange="previewImagem(event)">
+
+                                                <img src="../../assets/imagens/storage/marcas/<?php echo $iconeMarca ?>" alt="icone da marca" style="width:200px;" id="output">
                                             <?php
-                                            }else{
+                                            } else {
                                             ?>
-                                            <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
-                                            <?php }?>
+                                                <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
+                                            <?php } ?>
                                         </button>
                                     </div>
 
@@ -120,6 +120,20 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
             window.onload = () => {
                 atualizarColorPicker();
             };
+
+            const input_icone_botao = document.querySelector('.input-icone_botao');
+
+            var previewImagem = function(event) {
+                var output = document.getElementById('output');
+                output.src = URL.createObjectURL(event.target.files[0]);
+                output.onload = function() {
+                    URL.revokeObjectURL(output.src)
+                }
+            };
+            const iconImg = document.querySelector('.iconImg');
+            iconImg.addEventListener('change', function(e) {
+                input_icone_botao.classList.add('oculta');
+            })
         </script>
         <?php
         include('../../imports.php');
