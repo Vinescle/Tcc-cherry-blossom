@@ -22,6 +22,10 @@ main {
   height: 110px;
   background: #08cfaa;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 .botao-verTodos {

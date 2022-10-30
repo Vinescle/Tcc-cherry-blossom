@@ -20,6 +20,11 @@ include '../../verifica-logado.php';
     <link href="<?php echo $rota; ?>/assets/css/pages/home-adm/marcas/form-cadastro.css" rel="stylesheet">
 
     <title>Cherry Blossom - Adm</title>
+    <style>
+        .oculta {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -49,9 +54,10 @@ include '../../verifica-logado.php';
                             <div class="input-conjunto_cor">
                                 <div class="input-caixa_cor">
                                     <div class="input-arquivo_botao">
-                                        <button class="botao-banner">
+                                        <button class="botao-banner" id="botao-banner">
+                                            <img id="output" style="width:200px;">
                                             <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
-                                            <input type="file" name="iconUrl">
+                                            <input type="file" name="iconUrl" class="iconImg" onchange="previewImagem(event)">
                                         </button>
                                     </div>
 
@@ -79,6 +85,7 @@ include '../../verifica-logado.php';
         <script>
             // procura o input onde ele vai exibir o hexa decimal
             const input = document.querySelector("#input-cor");
+            const botaoBanner = document.querySelector("#botao-banner");
             // define a primeira cor a ser exibida
             input.value = "#ffffff";
             // pega o color picker
@@ -89,12 +96,29 @@ include '../../verifica-logado.php';
                 const newColor = event.detail.value;
                 // coloca ela no input
                 input.value = newColor;
+                botaoBanner.style.background = newColor;
             });
 
             // atualiza quando colar uma cor no campo ou clicar no botão "Atualizar"
             function atualizarColorPicker() {
                 picker.color = input.value;
+                botaoBanner.style.background = input.value;
             }
+        </script>
+        <script>
+            const input_icone_botao = document.querySelector('.input-icone_botao');
+
+            var previewImagem = function(event) {
+                var output = document.getElementById('output');
+                output.src = URL.createObjectURL(event.target.files[0]);
+                output.onload = function() {
+                    URL.revokeObjectURL(output.src)
+                }
+            };
+            const iconImg = document.querySelector('.iconImg');
+            iconImg.addEventListener('change', function(e) {
+                input_icone_botao.classList.add('oculta');
+            })
         </script>
         <?php
         include('../../imports.php');

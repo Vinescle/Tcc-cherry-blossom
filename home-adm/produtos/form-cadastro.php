@@ -29,6 +29,11 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
     <link href="<?php echo $rota; ?>/assets/css/pages/home-adm/produtos/form-cadastro.css" rel="stylesheet">
 
     <title>Cherry Blossom - Adm</title>
+    <style>
+        .oculta{
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -241,37 +246,43 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                             <label class="input-texto">Imagens</label>
                             <div class="imagens">
                                 <div class="conjunto-imagens">
+
                                     <button class="botao-banner" type="button">
-                                        <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
-                                        <input type="file" method="POST" name="imagemProduto-1">
+                                        <img id="output" style="max-width: 200PX;">
+                                        <ion-icon class="input-icone_botao input-icone_botao_1" name="add-outline"></ion-icon>
+                                        <input type="file" method="POST" name="imagemProduto-1" class="imagemProduto-1" onchange="previewImagem(event)">
                                     </button>
                                 </div>
 
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
-                                        <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
-                                        <input type="file" method="POST" name="imagemProduto-2">
+                                        <img id="output2" style="max-width: 200PX;">
+                                        <ion-icon class="input-icone_botao input-icone_botao_2" name="add-outline"></ion-icon>
+                                        <input type="file" method="POST" name="imagemProduto-2" class="imagemProduto-2" accept="image/*" onchange="previewImagem2(event)">
                                     </button>
                                 </div>
 
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
-                                        <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
-                                        <input type="file" method="POST" name="imagemProduto-3">
+                                        <img id="output3" style="max-width: 200PX;">
+                                        <ion-icon class="input-icone_botao input-icone_botao_3" name="add-outline"></ion-icon>
+                                        <input type="file" method="POST" name="imagemProduto-3" class="imagemProduto-3" accept="image/*" onchange="previewImagem3(event)">
                                     </button>
                                 </div>
 
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
-                                        <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
-                                        <input type="file" method="POST" name="imagemProduto-4">
+                                        <img id="output4" style="max-width: 200PX;">
+                                        <ion-icon class="input-icone_botao input-icone_botao_4" name="add-outline"></ion-icon>
+                                        <input type="file" method="POST" name="imagemProduto-4" class="imagemProduto-4" accept="image/*" onchange="previewImagem4(event)">
                                     </button>
                                 </div>
 
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
-                                        <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
-                                        <input type="file" method="POST" name="imagemProduto-5">
+                                        <img id="output5" style="max-width: 200PX;">
+                                        <ion-icon class="input-icone_botao input-icone_botao_5" name="add-outline"></ion-icon>
+                                        <input type="file" method="POST" name="imagemProduto-5" class="imagemProduto-5" accept="image/*"  onchange="previewImagem5(event)" >
                                     </button>
                                 </div>
                             </div>
@@ -286,10 +297,79 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                 </form>
             </div>
         </div>
-
         <?php
         include('../../imports.php');
         ?>
+
+        <script>
+            const input_icone_botao_1 = document.querySelector('.input-icone_botao_1');
+            const input_icone_botao_2 = document.querySelector('.input-icone_botao_2');
+            const input_icone_botao_3 = document.querySelector('.input-icone_botao_3');
+            const input_icone_botao_4 = document.querySelector('.input-icone_botao_4');
+            const input_icone_botao_5 = document.querySelector('.input-icone_botao_5');
+
+            var previewImagem = function(event) {
+                var output = document.getElementById('output');
+                output.src = URL.createObjectURL(event.target.files[0]);
+                output.onload = function() {
+                    URL.revokeObjectURL(output.src)
+                }
+            };
+            const imagemProduto_1 = document.querySelector('.imagemProduto-1');
+            imagemProduto_1.addEventListener('change',function(e){
+                input_icone_botao_1.classList.add('oculta');
+            })
+
+
+            var previewImagem2 = function(event) {
+                var output2 = document.getElementById('output2');
+                output2.src = URL.createObjectURL(event.target.files[0]);
+                output2.onload = function() {
+                    URL.revokeObjectURL(output2.src)
+                }
+            };
+            const imagemProduto_2 = document.querySelector('.imagemProduto-2');
+            imagemProduto_2.addEventListener('change',function(e){
+                input_icone_botao_2.classList.add('oculta');
+            })
+
+            var previewImagem3 = function(event) {
+                var output3 = document.getElementById('output3');
+                output3.src = URL.createObjectURL(event.target.files[0]);
+                output3.onload = function() {
+                    URL.revokeObjectURL(output3.src)
+                }
+            };
+            const imagemProduto_3 = document.querySelector('.imagemProduto-3');
+            imagemProduto_3.addEventListener('change',function(e){
+                input_icone_botao_3.classList.add('oculta');
+            })
+
+            var previewImagem4 = function(event) {
+                var output4 = document.getElementById('output4');
+                output4.src = URL.createObjectURL(event.target.files[0]);
+                output4.onload = function() {
+                    URL.revokeObjectURL(output4.src)
+                }
+            };
+            const imagemProduto_4 = document.querySelector('.imagemProduto-4');
+            imagemProduto_4.addEventListener('change',function(e){
+                input_icone_botao_4.classList.add('oculta');
+            })
+
+            var previewImagem5 = function(event) {
+                var output5 = document.getElementById('output5');
+                output5.src = URL.createObjectURL(event.target.files[0]);
+                output5.onload = function() {
+                    URL.revokeObjectURL(output5.src)
+                }
+            };
+            const imagemProduto_5 = document.querySelector('.imagemProduto-5');
+            imagemProduto_5.addEventListener('change',function(e){
+                input_icone_botao_5.classList.add('oculta');
+            })
+            
+        </script>
 </body>
 
 </html>
