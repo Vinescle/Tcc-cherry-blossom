@@ -1,8 +1,8 @@
 <?php
 $page = 'marcas';
 include '../../conexao.php';
-if(count($_GET['idcheckbox']) > 1){
-    echo "<script> alert('Selecione apenas um item'); window.location.href='$rota/home-adm/marcas.php';</script>"; 
+if (count($_GET['idcheckbox']) > 1) {
+    echo "<script> alert('Selecione apenas um item'); window.location.href='$rota/home-adm/marcas.php';</script>";
     // header("location:$rota/home-adm/gerenciar.php");
 }
 include '../../verifica-logado.php';
@@ -44,7 +44,7 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
         <div class="conteudo-principal">
             <div class="main">
                 <form action="alteraMarca.php" method="POST" enctype="multipart/form-data">
-                    <input type="text" value="<?php echo $id?>" name="idcheckbox" style="display: none;">
+                    <input type="text" value="<?php echo $id ?>" name="idcheckbox" style="display: none;">
                     <div class="input-container-form-produto">
                         <div class="w-100">
                             <label class="input-texto">Nome da marca</label>
@@ -59,9 +59,19 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
                             <div class="input-conjunto_cor">
                                 <div class="input-caixa_cor">
                                     <div class="input-arquivo_botao">
-                                        <button class="botao-banner">
+                                        <button class="botao-banner" id="botao-banner">
+                                            <?php
+                                            if (!empty($resultadoMarca['icon_url'])) {
+                                                $iconeMarca = $resultadoMarca['icon_url']
+                                            ?>
+                                                <input type="file" name="iconUrl" value="<?php echo $resultadoMarca['icon_url']; ?>">
+                                                
+                                                <img src="../../assets/imagens/storage/marcas/<?php echo $iconeMarca?>" alt="icone da marca" style="width:200px;">
+                                            <?php
+                                            }else{
+                                            ?>
                                             <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
-                                            <input type="file" name="iconUrl" value="<?php echo $resultadoMarca['icon_url']; ?>">
+                                            <?php }?>
                                         </button>
                                     </div>
 
@@ -89,6 +99,7 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
         <script>
             // procura o input onde ele vai exibir o hexa decimal
             const input = document.querySelector("#input-cor");
+            const botaoBanner = document.querySelector("#botao-banner");
             // define a primeira cor a ser exibida
             input.value = "<?php echo $resultadoMarca['cor_marca']; ?>";
             // pega o color picker 
@@ -99,10 +110,12 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
                 const newColor = event.detail.value;
                 // coloca ela no input
                 input.value = newColor;
+                botaoBanner.style.background = newColor;
             });
             // atualiza quando colar uma cor no campo ou clicar no botão "Atualizar"
             function atualizarColorPicker() {
                 picker.color = input.value;
+                botaoBanner.style.background = input.value;
             }
             window.onload = () => {
                 atualizarColorPicker();
