@@ -3,7 +3,7 @@ $page = 'historico';
 include '../conexao.php';
 include '../verifica-logado.php';
 
-$sqlPedidos = "SELECT * FROM tb_usuario_pedido WHERE id_usuario = $_SESSION[id_usuario]";
+$sqlPedidos = "SELECT * FROM tb_usuario_pedido WHERE id_usuario = $_SESSION[id_usuario] ORDER BY id_usuario_pedido DESC";
 $resultadoPedidos = mysqli_query($conexao, $sqlPedidos);
 
 ?>

@@ -2,12 +2,10 @@
 include '../conexao.php';
 
 require_once('../vendor/stripe-php/init.php');
-// This is your test secret API key.
+
 \Stripe\Stripe::setApiKey('sk_test_51LnXU3DUGTCz2iFTXzfgE7pRUHyxZBSQP5h3tgS8vtYrgipEwGJcFqnzapjsXD58sf2lREIU2zBhHpXXOnYvd8j500a35McRy7');
 
 header('Content-Type: application/json');
-
-$YOUR_DOMAIN = $rota;
 
 $carrinhoProdutos = $_SESSION['carrinho'];
 
@@ -82,8 +80,8 @@ $checkout_session = \Stripe\Checkout\Session::create([
     'payment_method_types' => ['card', 'boleto'],
     'line_items' => $produtos,
     'mode' => 'payment',
-    'success_url' => $YOUR_DOMAIN . "/confirmOrder.php?session_id={CHECKOUT_SESSION_ID}",
-    'cancel_url' => $YOUR_DOMAIN . "/confirmOrder.php?session_id={CHECKOUT_SESSION_ID}",
+    'success_url' => $rota . "/componentes/confirma-compra.php?session_id={CHECKOUT_SESSION_ID}&id_pedido=" . $idPedido,
+    'cancel_url' => $rota . "/componentes/confirma-compra.php?session_id={CHECKOUT_SESSION_ID}id_pedido=" . $idPedido,
 ]);
 
 header("Location: " . $checkout_session->url);
