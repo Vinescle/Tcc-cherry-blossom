@@ -59,10 +59,9 @@ $resultadoPedidos = mysqli_query($conexao, $sqlPedidos);
                                 <label class="titulo-label">Data</label>
                                 <p class="texto-detalhes"><?php echo $data ?></p>
                             </div>
-
                             <div class="secoes-detalhes-principais">
                                 <label class="titulo-label">Total</label>
-                                <p class="texto-detalhes">R$<?php echo number_format($pedidos['preco_total'], 2, ",", "."); ?></p>
+                                <p class="texto-detalhes">R$<?php echo number_format(($pedidos['preco_total'] + $pedidos['preco_frete']), 2, ",", "."); ?></p>
                             </div>
 
                             <div class="secoes-detalhes-principais">
@@ -113,12 +112,12 @@ $resultadoPedidos = mysqli_query($conexao, $sqlPedidos);
                             <div class="detalhes-endereco">
                                 <div class="div-frete">
                                     <label class="titulo-label">Frete:</label>
-                                    <p class="texto-detalhes">R$10</p>
+                                    <p class="texto-detalhes"> R$<?php echo $pedidos['frete']; ?></p>
                                 </div>
 
                                 <div class="div-total">
                                     <label class="titulo-label">Total: </label>
-                                    <p class="texto-detalhes">R$<?php echo number_format($pedidos['preco_total'], 2, ",", "."); ?></p>
+                                    <p class="texto-detalhes"> R$<?php echo number_format(($pedidos['preco_total'] + $pedidos['preco_frete']), 2, ",", "."); ?></p>
                                 </div>
                             </div>
                         </div>

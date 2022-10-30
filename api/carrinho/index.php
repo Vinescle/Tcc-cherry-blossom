@@ -70,11 +70,11 @@ INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria WHERE id_produto
     <div class="total">
         <div style="width: 80%;">
         </div>
-
+        <input type="number" id="total-carrinho" value="<?php echo $value ?>" hidden>
         <div class="total-label">
             <?php
             if (!empty($_SESSION['carrinho'])) {
-                echo "<label class='produto-label'>Total: R$" . number_format($value, 2, ",", ".") . "</label>";
+                echo "<label id='preco-total-exibicao' class='produto-label'>Total: R$" . number_format($value, 2, ",", ".") . "</label>";
             } else {
                 echo "<label class='produto-label'>Total: Carrinho vazio!</label>";
             }

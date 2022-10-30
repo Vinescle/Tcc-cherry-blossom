@@ -80,6 +80,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
 
     <title>Cherry Blossom - Home</title>
 </head>
+
 <body>
     <?php
     include('./componentes/menu-cabecalho.php');
@@ -145,7 +146,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                                 <p class="tag-produto"><?php echo $resultadoDestaquesFinal['nome_categoria'] ?> > <?php echo $resultadoDestaquesFinal['nome_sub_categoria'] ?></p>
                                 <h3 class="titulo-produto"><?php echo $resultadoDestaquesFinal['nome_produto'] ?></h3>
                                 <div class="conjunto-preco-comprar">
-                                    <p class="preco-produto">R$<?php echo $resultadoDestaquesFinal['preco_produto'] ?></p>
+                                    <p class="preco-produto">R$<?php echo number_format($resultadoDestaquesFinal['preco_produto'], 2, ",", ".") ?></p>
                                     <button class="botao-comprar"><a href="<?php echo $rota . '/produto.php?produto=' . $resultadoDestaquesFinal['id_produtos'] ?>">Comprar</a></button>
                                 </div>
                             </div>

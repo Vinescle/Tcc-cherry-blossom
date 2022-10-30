@@ -93,7 +93,7 @@ a:hover {
 }
 
 .cantos-quadrados {
-  border-radius: 0;
+  border-radius: 0 !important;
 }
 
 .espaco-entre {
@@ -262,6 +262,13 @@ input:checked+label:before {
   border: 0;
 }
 
-@media screen and (max-width: 512px) {
-  
+.texto-detalhes {
+  color: #323232;
+  font-family: 'Inter';
+  font-size: 14px;
+  font-weight: 400;
+
+  margin: 0;
 }
+
+@media screen and (max-width: 512px) {}

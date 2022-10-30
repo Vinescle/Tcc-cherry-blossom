@@ -63,15 +63,6 @@
   font-weight: 700;
 }
 
-.texto-detalhes {
-  color: #323232;
-  font-family: 'Inter';
-  font-size: 14px;
-  font-weight: 400;
-
-  margin: 0;
-}
-
 .secoes-detalhes-principais input:checked+label:before {
   background-image: url('../../src-icons/checked.svg');
   background-color: #FF84F0;
@@ -152,5 +143,4 @@
 .div-frete {
   display: flex;
   flex-direction: row;
-  gap: 5%;
 }
