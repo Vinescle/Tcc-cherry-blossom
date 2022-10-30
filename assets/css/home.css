@@ -20,12 +20,12 @@ main {
   border-radius: 1000px;
   width: 110px;
   height: 110px;
-  background: #08cfaa;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   
+  transition: 0.5s;
 }
 
 .botao-verTodos {
@@ -118,4 +118,62 @@ main {
 
 .espacamento-produto {
   margin: 10px 15px 10px 15px;
+}
+
+/* BOLAS Hover */
+
+.bolas-marcas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.5s;
+}
+
+.marca-circulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 1000px;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+
+  transition: 0.5s;
+
+  position: relative;
+}
+
+.marca-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.marca-circulo:hover>.marca-overlay {
+  opacity: 0.6;
+}
+
+.label-marca {
+  position: absolute;
+  opacity: 0;
+
+  color: #ffffff;
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 700;
+
+  transition: 0.5s;
+
+  cursor: pointer;
+}
+
+.marca-circulo:hover>.label-marca {
+  opacity: 1;
+  filter: brightness(100%);
 }

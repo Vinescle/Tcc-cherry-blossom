@@ -111,7 +111,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                         <h2 class="titulo">Marcas</h2>
                     </div>
                     <div>
-                        <button class="botao-verTodos"><a class="ver-todos">Ver todos</a></button>
+                        <button class="botao-verTodos"><a class="ver-todos" href="<?php echo $rota; ?>/homeMarcas.php" ?>Ver todos</a></button>
                     </div>
                 </div>
                 <div class="marcas-container">
@@ -119,8 +119,16 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                     while ($resultadoMarcasFinal = mysqli_fetch_array($resultadoMarcas)) {
                     ?>
                         <a href="<?php echo $rota; ?>/pesquisa.php?marca=<?php echo $resultadoMarcasFinal['id_marca']; ?>">
-                            <div class="bolas-marcas" style="background-color: <?php echo $resultadoMarcasFinal['cor_marca']; ?>;">
-                                <div><img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoMarcasFinal['icon_url'] ?>" class="imagem-marcas"></div>
+                            <div class="bolas-marcas">
+                                <div class="marca-circulo" style="background-color: <?php echo $resultadoMarcasFinal['cor_marca']; ?>">
+                                    <div class="marca-overlay"></div>
+                                    <label class="label-marca" for="checkbox-<?php echo $resultadoBolas['id_marca'] ?>">
+                                        <?php echo $resultadoMarcasFinal['nome_marca'] ?>
+                                    </label>
+                                    <div>
+                                        <img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoMarcasFinal['icon_url'] ?>" class="imagem-marcas">
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     <?php
