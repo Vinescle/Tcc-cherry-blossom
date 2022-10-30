@@ -80,10 +80,9 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
 
     <title>Cherry Blossom - Home</title>
 </head>
-
 <body>
     <?php
-    include('./componentes/menu-cabeçalho.php');
+    include('./componentes/menu-cabecalho.php');
     ?>
     <main>
         <main class="banner-carrossel">
@@ -195,7 +194,6 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                 </div>
             </div>
     </main>
-
     <?php
     include('./componentes/rodape.php');
     ?>

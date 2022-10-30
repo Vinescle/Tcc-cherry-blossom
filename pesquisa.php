@@ -7,6 +7,20 @@ $resultadoCategorias = mysqli_query($conexao, $sqlCategorias);
 
 $categorias = $resultadoCategorias->fetch_all(MYSQLI_ASSOC);
 
+if (isset($_GET['pesquisaProduto'])) {
+    $sqlBuscaProduto = "SELECT b.fk_id_marcas,
+    a.id_produtos,
+    a.nome_produto
+    FROM tb_produtos a
+    INNER JOIN tb_marcas_produtos b ON b.fk_id_produtos = a.id_produtos
+    WHERE a.nome_produto LIKE '%$_GET[pesquisaProduto]%'
+    OR a.descricao_produto LIKE '%$_GET[pesquisaProduto]%'";
+    $resultadoBusca = mysqli_query($conexao, $sqlBuscaProduto);
+    $resultadoBusca = mysqli_fetch_array($resultadoBusca);
+    $sql = "SELECT * FROM tb_marcas_produtos WHERE fk_id_produtos = $resultadoBusca[1] LIMIT 1";
+    $pesquisaProduto = mysqli_query($conexao, $sql);
+    $pesquisaProduto = mysqli_fetch_assoc($pesquisaProduto);
+}
 $sqlProdutos = "SELECT a.id_produtos,
 a.nome_produto,
 a.descricao_produto,
@@ -22,8 +36,12 @@ INNER JOIN tb_sub_categoria d ON d.id_sub_categoria = c.fk_id_sub_categorias
 INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria
 INNER JOIN tb_marcas_produtos f on f.fk_id_produtos = a.id_produtos ";
 
+
+
 if (!empty($_GET['marca'])) {
     $sqlProdutos .= "WHERE f.fk_id_marcas = $_GET[marca] ";
+} else if (isset($pesquisaProduto)) {
+    $sqlProdutos .= "WHERE f.fk_id_marcas = $pesquisaProduto[fk_id_marcas] ";
 } else {
     header("Location: $rota");
 }
@@ -64,7 +82,7 @@ $resultadoProdutos = mysqli_query($conexao, $sqlProdutos);
 
 <body>
     <?php
-    include('./componentes/menu-cabeçalho.php');
+    include('./componentes/menu-cabecalho.php');
     ?>
     <main class="margem-topo">
         <div class="container-loja pesquisa">
@@ -74,7 +92,7 @@ $resultadoProdutos = mysqli_query($conexao, $sqlProdutos);
                 </div>
 
                 <form action="<?php echo $rota; ?>/pesquisa.php" method="GET">
-                    <input name="marca" value="<?php echo $_GET['marca'] ?>" hidden>
+                    <input name="marca" value="<?php echo isset($_GET['marca']) ? $_GET['marca'] : $pesquisaProduto['fk_id_marcas']  ?>" hidden>
                     <div>
                         <div>
                             <label class="label-categorias-filtro">Categorias</label>
@@ -137,7 +155,7 @@ $resultadoProdutos = mysqli_query($conexao, $sqlProdutos);
                         </button>
                     </div>
                     <div class="input-salvar">
-                        <a class="botao-salvar" href="<?php echo $rota ?>/pesquisa.php?marca=<?php echo $_GET['marca'] ?>">
+                        <a class="botao-salvar" href="<?php echo $rota ?>/pesquisa.php?marca=<?php echo isset($_GET['marca']) ? $_GET['marca'] : $pesquisaProduto['fk_id_marcas']  ?>">
                             Limpar
                         </a>
                     </div>

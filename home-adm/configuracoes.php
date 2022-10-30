@@ -29,7 +29,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
 
 <body>
     <?php
-    include('../componentes/menu-cabeçalho.php');
+    include('../componentes/menu-cabecalho.php');
     ?>
 
     <div class="coluna">

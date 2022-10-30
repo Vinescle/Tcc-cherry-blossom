@@ -38,7 +38,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
 
 <body>
     <?php
-    include('../../componentes/menu-cabeçalho.php');
+    include('../../componentes/menu-cabecalho.php');
     ?>
 
     <div class="coluna">

@@ -34,7 +34,7 @@ $linha = mysqli_fetch_array($resultado);
 
 <body>
     <?php
-    include('../../componentes/menu-cabeçalho.php');
+    include('../../componentes/menu-cabecalho.php');
     ?>
 
     <div class="coluna">

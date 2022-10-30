@@ -67,7 +67,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
 
 <body>
     <?php
-    include('../../componentes/menu-cabeçalho.php');
+    include('../../componentes/menu-cabecalho.php');
     ?>
 
     <div class="coluna">

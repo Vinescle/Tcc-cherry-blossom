@@ -29,7 +29,7 @@ $resultadoPedidos = mysqli_query($conexao, $sqlPedidos);
 
 <body>
     <?php
-    include('../componentes/menu-cabeçalho.php');
+    include('../componentes/menu-cabecalho.php');
     ?>
 
     <div class="coluna">

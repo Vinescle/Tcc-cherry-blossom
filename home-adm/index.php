@@ -33,6 +33,16 @@ WHERE date_format(data_visita, '%d') <= $DiaMAX
 AND date_format(data_visita, '%d') >= $DiaMAX-6";
 $resultadoVisitaSemanal = mysqli_query($conexao,$sqlVisitaSemanal);
 $resultadoVisitaSemanal = mysqli_fetch_array($resultadoVisitaSemanal);
+//INSCRITOS SEMANAIS
+$sqlDiaMAX = "SELECT MAX(date_format(data_cadastro, '%d')) AS dia FROM tb_email_para_notificar";
+$resultadoDiaMAX = mysqli_query($conexao, $sqlDiaMAX);
+$resultadoDiaMAX = mysqli_fetch_array($resultadoDiaMAX);
+$DiaMAX = $resultadoDiaMAX['dia'];
+$sqlInscritosSemanal = "SELECT COUNT(*) AS inscritosSemanal, date_format(data_cadastro, '%d') as dia FROM tb_email_para_notificar
+WHERE date_format(data_cadastro, '%d') <= $DiaMAX 
+AND date_format(data_cadastro, '%d') >= $DiaMAX-6";
+$resultadoInscritosSemanal = mysqli_query($conexao,$sqlInscritosSemanal);
+$resultadoInscritosSemanal = mysqli_fetch_array($resultadoInscritosSemanal);
 
 
 // SQL EMAIL DASHBOARD
@@ -50,21 +60,6 @@ $PorcentagemEmail = $PorcentagemEmail / $resultadoEmail['valor_mes_anterior'];
 
 ?>
 <input type="text" id="maiorMes" style="display: none;" value="<?php echo $maiorMes ?>">
-<?php
-
-// SQLs de porcentagem
-$sqlPorcentagem = "SELECT COUNT(*)*100 as valor_mes_atual
-FROM tb_log_visitas WHERE (SELECT MAX(DATE_FORMAT(data_visita,'%m')) FROM tb_log_visitas) = 
-(SELECT MAX(DATE_FORMAT(data_visita,'%m')) FROM tb_log_visitas)";
-$resultadoPorcentagemUm = mysqli_query($conexao, $sqlPorcentagem);
-$resultadoPorcentagemUm = mysqli_fetch_array($resultadoPorcentagemUm);
-$sqlPorcentagem = "SELECT CASE WHEN count(*) = 0 THEN 1 END as valor_mes_anterior
-FROM tb_log_visitas WHERE DATE_FORMAT(data_visita,'%m') = (SELECT MAX(DATE_FORMAT(data_visita,'%m')) - 1 FROM tb_log_visitas);";
-$resultadoPorcentagemDois = mysqli_query($conexao, $sqlPorcentagem);
-$resultadoPorcentagemDois = mysqli_fetch_array($resultadoPorcentagemDois);
-$porcentagemVisita = $resultadoPorcentagemUm[0] / $resultadoPorcentagemDois[0];
-
-?>
 
 
 <!DOCTYPE html>
@@ -87,7 +82,7 @@ $porcentagemVisita = $resultadoPorcentagemUm[0] / $resultadoPorcentagemDois[0];
 
 <body>
     <?php
-    include('../componentes/menu-cabeçalho.php');
+    include('../componentes/menu-cabecalho.php');
     ?>
 
     <div class="coluna">
@@ -130,7 +125,7 @@ $porcentagemVisita = $resultadoPorcentagemUm[0] / $resultadoPorcentagemDois[0];
                         <p class="tabela-titulo">Inscritos</p>
                         <div class="tabela-conjunto_porcentagem">
                             <ion-icon class="tabela-icone_porcentagem" name="caret-up-outline"></ion-icon>
-                            <p class="tabela-porcentagem"><?php echo isset($PorcentagemEmail) ? $PorcentagemEmail : '0' ?>%</p>
+                            <p class="tabela-porcentagem"><?php echo isset($resultadoInscritosSemanal['inscritosSemanal']) ? $resultadoInscritosSemanal['inscritosSemanal'] : '0' ?></p>
                         </div>
                     </div>
                 </div>

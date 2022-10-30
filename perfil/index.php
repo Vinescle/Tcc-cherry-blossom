@@ -38,7 +38,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
 
 <body>
     <?php
-    include('../componentes/menu-cabeçalho.php');
+    include('../componentes/menu-cabecalho.php');
     ?>
 
     <div class="coluna">

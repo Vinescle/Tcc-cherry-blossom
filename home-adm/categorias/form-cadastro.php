@@ -25,7 +25,7 @@ include '../../verifica-logado.php';
 
 <body>
     <?php
-    include('../../componentes/menu-cabeçalho.php');
+    include('../../componentes/menu-cabecalho.php');
     ?>
 
     <div class="coluna">
