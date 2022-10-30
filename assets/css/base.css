@@ -261,3 +261,7 @@ input:checked+label:before {
   background: none;
   border: 0;
 }
+
+@media screen and (max-width: 512px) {
+  
+}

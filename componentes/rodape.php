@@ -25,10 +25,10 @@
             <h3 class="colunas-titulos">AJUDA E SUPORTE</h3>
         </div>
         <div class="texto-coluna-dois">
-            <p class="texto-colunas"><a href="#">O que é Papercraft?</a></p>
-            <p class="texto-colunas"><a href="#">O que é Hama Beads?</a></p>
-            <p class="texto-colunas"><a href="#">O que é Macramê?</a></p>
-            <p class="texto-colunas"><a href="#">O que é miçanga?</a></p>
+            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php">O que é Papercraft?</a></p>
+            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php">O que é Hama Beads?</a></p>
+            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php">O que é Macramê?</a></p>
+            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php">O que é miçanga?</a></p>
         </div>
     </div>
     <div class="coluna-tres">
@@ -36,9 +36,9 @@
             <h3 class="coluna-institucional">INSTITUCIONAL</h3>
         </div>
         <div class="conteudo-coluna-tres">
-            <p class="texto-colunas"><a href="/rodape-itens/sobre-nos.php">Sobre Nós</a></p>
-            <p class="texto-colunas"><a href="rodape-itens/politicaPrivacidade.php">Política de Privacidade</a></p>
-            <p class="texto-colunas"><a href="rodape-itens/termos.php">Termos de Uso e Navegação</a></p>
+            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/sobre-nos.php">Sobre Nós</a></p>
+            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/politicaPrivacidade.php">Política de Privacidade</a></p>
+            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/termos.php">Termos de Uso e Navegação</a></p>
         </div>
         <div class="noticias-coluna-tres">
             <h4 class="texto-footer-input">SE INSCREVA PARA RECEBER NOVIDADES!</h4>
