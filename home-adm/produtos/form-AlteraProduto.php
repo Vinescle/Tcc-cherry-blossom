@@ -45,7 +45,6 @@ $resultadoProduto = mysqli_fetch_array($resultadoProduto);
 $sql = "SELECT * FROM tb_imagem_produtos WHERE fk_id_produto = $id";
 $resultadoImagemProduto = mysqli_query($conexao, $sql);
 $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
-var_dump($resultadoImagemProduto);
 ?>
 
 <!DOCTYPE html>
@@ -278,11 +277,11 @@ var_dump($resultadoImagemProduto);
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
                                         <?php
-                                        if (!empty($resultadoProduto[13])) {
-                                            $caminhoProduto = $resultadoProduto[13];
+                                        if (isset($resultadoImagemProduto[0][1])) {
+                                            $caminhoProduto = $resultadoImagemProduto[0][1];
                                         ?>
                                             <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" alt="Imagem produto" style="width:200px;">
-                                            <input type="file" method="POST" name="imagemProduto-1" value="<?php echo $resultadoProduto[13] ?>">
+                                            <input type="file" method="POST" name="imagemProduto-1" value="<?php echo $caminhoProduto ?>">
                                         <?php
                                         } else {
                                         ?>
@@ -294,38 +293,64 @@ var_dump($resultadoImagemProduto);
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
                                         <?php
-                                        if (!empty($resultadoProduto[14])) {
-                                            $caminhoProduto = $resultadoProduto[14];
+                                        if (isset($resultadoImagemProduto[1][1])) {
+                                            $caminhoProduto = $resultadoImagemProduto[1][1];
                                         ?>
                                             <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" alt="Imagem produto" style="width:200px;">
-                                            <input type="file" method="POST" name="imagemProduto-2" value="<?php echo $resultadoProduto[14] ?>">
+                                            <input type="file" method="POST" name="imagemProduto-2" value="<?php echo $caminhoProduto ?>">
                                         <?php
                                         } else {
                                         ?>
                                             <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
                                         <?php } ?>
-                                        <input type="file" method="POST" name="imagemProduto-2" value="<?php echo $resultadoProduto[14] ?>">
                                     </button>
                                 </div>
 
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
-                                        <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
-                                        <input type="file" method="POST" name="imagemProduto-3" value="<?php echo $resultadoProduto[15] ?>">
+                                        <?php
+                                        if (isset($resultadoImagemProduto[2][1])) {
+                                            $caminhoProduto = $resultadoImagemProduto[2][1];
+                                        ?>
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" alt="Imagem produto" style="width:200px;">
+                                            <input type="file" method="POST" name="imagemProduto-3" value="<?php echo $caminhoProduto ?>">
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
+                                        <?php } ?>
                                     </button>
                                 </div>
 
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
-                                        <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
-                                        <input type="file" method="POST" name="imagemProduto-4" value="<?php echo $resultadoProduto[16] ?>">
+                                        <?php
+                                        if (isset($resultadoImagemProduto[3][1])) {
+                                            $caminhoProduto = $resultadoImagemProduto[3][1];
+                                        ?>
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" alt="Imagem produto" style="width:200px;">
+                                            <input type="file" method="POST" name="imagemProduto-4" value="<?php echo $caminhoProduto ?>">
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
+                                        <?php } ?>
                                     </button>
                                 </div>
 
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
-                                        <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
-                                        <input type="file" method="POST" name="imagemProduto-5" value="<?php echo $resultadoProduto[17] ?>">
+                                    <?php
+                                        if (isset($resultadoImagemProduto[4][1])) {
+                                            $caminhoProduto = $resultadoImagemProduto[4][1];
+                                        ?>
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" alt="Imagem produto" style="width:200px;">
+                                            <input type="file" method="POST" name="imagemProduto-5" value="<?php echo $caminhoProduto ?>">
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
+                                        <?php } ?>
                                     </button>
                                 </div>
                             </div>

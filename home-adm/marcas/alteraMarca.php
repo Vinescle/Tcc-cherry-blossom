@@ -26,5 +26,4 @@ if (!empty($iconUrl)) {
     mysqli_query($conexao, $sql);
 }
 
-
 header('location:../marcas.php');
