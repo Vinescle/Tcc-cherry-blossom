@@ -44,7 +44,6 @@ AND date_format(data_cadastro, '%d') >= $DiaMAX-6";
 $resultadoInscritosSemanal = mysqli_query($conexao,$sqlInscritosSemanal);
 $resultadoInscritosSemanal = mysqli_fetch_array($resultadoInscritosSemanal);
 
-
 // SQL EMAIL DASHBOARD
 $sql = "SELECT COUNT(*) FROM tb_email_para_notificar 
 WHERE fk_id_mes = (SELECT MAX(DATE_FORMAT(data_cadastro,'%m')) FROM tb_email_para_notificar)";
@@ -57,6 +56,26 @@ FROM tb_email_para_notificar WHERE DATE_FORMAT(data_cadastro,'%m') = (SELECT MAX
 $resultadoEmail = mysqli_query($conexao,$sqlEmailMesAnterior);
 $resultadoEmail = mysqli_fetch_array($resultadoEmail);
 $PorcentagemEmail = $PorcentagemEmail / $resultadoEmail['valor_mes_anterior'];
+//Vendas por dia
+$sqlVendasDia = "SELECT COUNT(*) AS vendasDia FROM tb_produto_pedido a 
+INNER JOIN tb_produtos b ON b.id_produtos = a.id_produto
+INNER JOIN tb_usuario_pedido c ON c.id_usuario = a.id_usuario WHERE DATE_FORMAT(c.data_pedido, '%d') = (SELECT MAX(DATE_FORMAT(c.data_pedido, '%d')) FROM tb_usuario_pedido)";
+$resultadoVendasDia = mysqli_query($conexao,$sqlVendasDia);
+$resultadoVendasDia = mysqli_fetch_array($resultadoVendasDia);
+//Venda na semana
+// FAZER AMANHÃ
+//Vendas por mês
+$sqlVendasMes = "SELECT a.nome_mes,a.numero_mes, 
+CASE WHEN COUNT(b.id_usuario) = 1 THEN 1 ELSE COUNT(b.id_usuario) END 
+FROM tb_meses a 
+LEFT JOIN tb_usuario_pedido b ON a.id_mes = (SELECT MAX(DATE_FORMAT(data_pedido,'%m')) FROM tb_usuario_pedido)
+WHERE numero_mes <= 10 AND numero_mes >= 10-5 GROUP BY id_mes";
+$resultadoVendasMes = mysqli_query($conexao,$sqlVendasMes);
+$resultadoVendasMes = mysqli_fetch_all($resultadoVendasMes);
+// var_dump($resultadoVendasMes);
+// var_dump($resultadoVendasMes[0][2]);
+// exit();
+
 
 ?>
 <input type="text" id="maiorMes" style="display: none;" value="<?php echo $maiorMes ?>">
@@ -103,11 +122,11 @@ $PorcentagemEmail = $PorcentagemEmail / $resultadoEmail['valor_mes_anterior'];
                     </div>
 
                     <div class="tabela">
-                        <h3 class="tabela-numero">X.XXX</h3>
+                        <h3 class="tabela-numero"><?php echo $resultadoVendasDia['vendasDia']?></h3>
                         <p class="tabela-titulo">Vendas</p>
                         <div class="tabela-conjunto_porcentagem">
                             <ion-icon class="tabela-icone_porcentagem" name="caret-up-outline"></ion-icon>
-                            <p class="tabela-porcentagem">XXX</p>
+                            <p class="tabela-porcentagem"><?php echo $resultadoVendasDia['vendasDia']?></p>
                         </div>
                     </div>
 
@@ -203,13 +222,14 @@ $PorcentagemEmail = $PorcentagemEmail / $resultadoEmail['valor_mes_anterior'];
                             <canvas id="WeChart"></canvas>
                         </div>
                         <script>
+                            var UltimosMesesVendas = <?php echo json_encode($resultadoVendasMes); ?>;
                             const labelse = [
-                                    UltimosMeses[0][1], 
-                                    UltimosMeses[1][1], 
-                                    UltimosMeses[2][1], 
-                                    UltimosMeses[3][1], 
-                                    UltimosMeses[4][1],
-                                    UltimosMeses[5][1],
+                                UltimosMesesVendas[0][1], 
+                                UltimosMesesVendas[1][1], 
+                                UltimosMesesVendas[2][1], 
+                                UltimosMesesVendas[3][1], 
+                                UltimosMesesVendas[4][1],
+                                UltimosMesesVendas[5][1],
                             ];
 
                             const dataBundinha = {
@@ -218,7 +238,7 @@ $PorcentagemEmail = $PorcentagemEmail / $resultadoEmail['valor_mes_anterior'];
                                     label: 'Vendas nos últimos 6 meses',
                                     backgroundColor: 'rgb(255, 99, 132)',
                                     borderColor: 'rgb(255, 99, 132)',
-                                    data: [20, 10, 5, 2, 80, 30, 45],
+                                    data: [UltimosMesesVendas[0][2], UltimosMesesVendas[1][2], UltimosMesesVendas[2][2], UltimosMesesVendas[3][2], UltimosMesesVendas[4][2], UltimosMesesVendas[5][2]],
                                     backgroundColor: [
                                         'rgba(255, 99, 132, 0.2)',
                                         'rgba(255, 159, 64, 0.2)',
