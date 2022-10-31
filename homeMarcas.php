@@ -1,7 +1,11 @@
 <?php
 include './conexao.php';
 
-$sqlMarcas = "SELECT * FROM tb_marcas LIMIT 25";
+if(isset($_GET['nomeMarca'])){
+    $sqlMarcas = "SELECT * FROM tb_marcas WHERE nome_marca LIKE '%$_GET[nomeMarca]%' LIMIT 25";
+}else{
+    $sqlMarcas = "SELECT * FROM tb_marcas LIMIT 25";
+}
 $resultadoMarcas = mysqli_query($conexao, $sqlMarcas);
 ?>
 
@@ -31,8 +35,11 @@ $resultadoMarcas = mysqli_query($conexao, $sqlMarcas);
 
     <main>
         <div class="conteudo-principal">
-            <div class="input-container">      
-            <input class="input-pesquisa" type="search">
+            <div class="input-container">
+                <form action="?" method="GET">
+                    <input class="input-pesquisa" type="search" name="nomeMarca">
+                </form>
+
             </div>
 
             <div class="marcas-container">
