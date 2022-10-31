@@ -122,16 +122,28 @@ $produto = $resultadoProduto->fetch_all(MYSQLI_ASSOC)[0];
                     </div>
 
                     <div class="conjunto-precos">
-                        <div class="precos">
-                            <!-- <div>
-                                    <label class="preco-original">R$<?php //echo $produto['preco_produto'] 
-                                                                    ?></label>
-                                </div> -->
-
-                            <div>
-                                <label class="preco-promocional">R$<?php echo number_format($produto['preco_produto'], 2, ",", ".") ?></label>
+                        <?php
+                        if ($produto['preco_fora_promocao'] == null || $produto['preco_fora_promocao'] == 0) {
+                        ?>
+                            <div class="precos">
+                                <label></label>
+                                <div>
+                                    <label class="preco-promocional">R$<?php echo number_format($produto['preco_produto'], 2, ",", ".") ?></label>
+                                </div>
                             </div>
-                        </div>
+                        <?php
+                        } else {
+                        ?>
+                            <div class="precos">
+                                <label><s>R$<?php echo number_format($produto['preco_fora_promocao'], 2, ",", ".") ?></s></label>
+                                <div>
+                                    <label class="preco-promocional">R$<?php echo number_format($produto['preco_produto'], 2, ",", ".") ?></label>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+
 
                         <label class="texto-parcela">Em 10x R$<?php echo number_format($produto['preco_produto'] / 10, 2, ",", ".") ?> (Sem juros)</label>
                     </div>

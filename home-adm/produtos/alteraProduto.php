@@ -1,7 +1,8 @@
 <?php
 
 include "../../conexao.php";
-$idproduto = 32;
+
+$idproduto = $_POST['idproduto'];
 
 $idMarca = $_POST['idmarca'];
 
@@ -26,10 +27,10 @@ if ($resultadoSubCategoria['fk_id_sub_categorias'] != $idsubcategoria) {
 }
 
 // CAMPOS INSERT PARA tb_produto
-
 $nomeProduto = $_POST['nomeProduto'];
 $descricaoProduto = $_POST['descricaoProduto'];
 $precoProduto = $_POST['precoProduto'];
+$precoPromocional = $_POST['precoPromocional'];
 $quantidadeProduto = $_POST['quantidadeProduto'];
 $URLProduto = $_POST['URLProduto'];
 $quantidadeProduto = $_POST['quantidadeProduto'];
@@ -59,8 +60,8 @@ if (!empty($imagensProduto)) {
 }
 
 
-$sql = "UPDATE `tb_produtos` SET `nome_produto`='$nomeProduto',`descricao_produto`='$descricaoProduto',`preco_produto`='$precoProduto',`qtd_produto`='$quantidadeProduto',`visualizacao_url`='$URLProduto',`peso_produto`='$pesoProduto',`altura_produto`='$alturaProduto',`largura_produto`='$larguraProduto',`profundidade_produto`='$profundidadeProduto' WHERE id_produtos = $idproduto";
-
+$sql = "UPDATE `tb_produtos` SET `nome_produto`='$nomeProduto',`descricao_produto`='$descricaoProduto',`preco_produto`='$precoProduto',`qtd_produto`='$quantidadeProduto',`visualizacao_url`='$URLProduto',`peso_produto`='$pesoProduto',`altura_produto`='$alturaProduto',`largura_produto`='$larguraProduto',`profundidade_produto`='$profundidadeProduto'
+, preco_fora_promocao = $precoPromocional WHERE id_produtos = $idproduto";
 
 foreach ($imagensProduto as $imagemProduto) {
     $nomeImagem = addslashes(md5($imagemProduto['tmp_name']) . "-" . $imagemProduto['name']);
@@ -72,7 +73,7 @@ foreach ($imagensProduto as $imagemProduto) {
     move_uploaded_file($imagemProduto['tmp_name'], "../../assets/imagens/storage/produtos/$nomeImagem");
 }
 
+mysqli_query($conexao,$sql);
 
 header('Location:../gerenciar.php');
 
-// mysqli_query($conexao,$sql);

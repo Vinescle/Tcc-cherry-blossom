@@ -22,6 +22,7 @@ $sqlProduto = "SELECT a.id_produtos,
 a.nome_produto,
 a.descricao_produto,
 a.preco_produto,
+a.preco_fora_promocao,
 a.qtd_produto,
 a.largura_produto,
 a.profundidade_produto,
@@ -78,6 +79,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
         <div class="conteudo-principal">
             <div class="main">
                 <form action="alteraProduto.php" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="idproduto" value="<?php echo $id ?>" style="display:none;">
                     <div class="formulario">
                         <div class="input-container-form-produto">
                             <div class="w-160">
@@ -100,12 +102,12 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                 </div>
                             </div>
                             <div class="w-100">
-                                <label class="input-texto">Preço Promocional</label>
+                                <label class="input-texto">Preço fora de promoção</label>
                                 <div class="input-container">
                                     <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="wallet-outline"></ion-icon>
                                     </button>
-                                    <input class="input-conjunto input-tiktok" disabled name="precoPromocional" placeholder="Preço promocional" required="" type="text">
+                                    <input class="input-conjunto input-tiktok" name="precoPromocional" placeholder="Preço promocional" required="" type="text" value="<?php echo $resultadoProduto['preco_fora_promocao'] ?>">
                                 </div>
                             </div>
                         </div>
