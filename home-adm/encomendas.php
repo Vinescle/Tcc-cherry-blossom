@@ -3,9 +3,8 @@ $page = 'encomendas';
 include '../conexao.php';
 include '../verifica-logado.php';
 
-$sqlPedidos = "SELECT * FROM tb_usuario_pedido WHERE data_confirmacao = 0 AND data_cancelamento = 0 ORDER BY id_usuario_pedido DESC ";
+$sqlPedidos = "SELECT * FROM tb_usuario_pedido WHERE (data_confirmacao = 0 AND data_cancelamento = 0) or (data_confirmacao is null AND data_cancelamento is null) ORDER BY id_usuario_pedido DESC ";
 $resultadoPedidos = mysqli_query($conexao, $sqlPedidos);
-
 
 ?>
 
@@ -57,8 +56,8 @@ $resultadoPedidos = mysqli_query($conexao, $sqlPedidos);
                                 </div>
 
                                 <div class="tabela-checkbox_titulo">
-                                    <input id="checkbox-titulo" type="checkbox">
-                                    <label for="checkbox-titulo"></label>
+                                    <input id="checkbox-titulo<?php echo $pedidos['id_usuario_pedido'] ?>" type="checkbox" name="<?php echo $pedidos['id_usuario_pedido'] ?>" value="<?php echo $pedidos['id_usuario_pedido'] ?>" onclick="concluirPedido(this);">
+                                    <label for="checkbox-titulo<?php echo $pedidos['id_usuario_pedido'] ?>"></label>
                                 </div>
                             </div>
 
@@ -138,6 +137,21 @@ $resultadoPedidos = mysqli_query($conexao, $sqlPedidos);
     <?php
     include('../imports.php');
     ?>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        async function concluirPedido(input) {
+            const idPedido = input.value;
+            const confirmar = confirm("Tem certeza que deseja concluir o pedido #" + idPedido + "?");
+
+            if (confirmar) {
+                await axios.get('<?php echo $rota ?>/api/encomendas/concluir.php?pedido=' + idPedido);
+                window.location.reload();
+            } else {
+                input.checked = false;
+            }
+
+        }
+    </script>
 </body>
 
 </html>
