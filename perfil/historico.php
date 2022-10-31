@@ -106,7 +106,6 @@ $resultadoPedidos = mysqli_query($conexao, $sqlPedidos);
                                     }
 
                                     ?>
-
                                 </div>
                             </div>
                             <div class="detalhes-endereco">

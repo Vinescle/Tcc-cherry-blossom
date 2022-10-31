@@ -3,6 +3,10 @@ $page = 'encomendas';
 include '../conexao.php';
 include '../verifica-logado.php';
 
+$sqlPedidos = "SELECT * FROM tb_usuario_pedido WHERE data_confirmacao = 0 AND data_cancelamento = 0 ORDER BY id_usuario_pedido DESC ";
+$resultadoPedidos = mysqli_query($conexao, $sqlPedidos);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -35,72 +39,98 @@ include '../verifica-logado.php';
 
         <div class="conteudo-principal">
             <div class="main">
-                <div class="card-detalhes">
-                    <div class="detalhes-principais">
-                        <div class="secoes-detalhes-checkbox">
-                            <div>
-                                <label class="titulo-label">Concluído</label>
+
+                <?php
+                while ($pedidos = mysqli_fetch_array($resultadoPedidos)) {
+                    $sqlPedidoProduto = "SELECT * FROM tb_produto_pedido WHERE fk_id_pedido = $pedidos[id_usuario_pedido]";
+                    $resultadoPedidoProduto = mysqli_query($conexao, $sqlPedidoProduto);
+
+                    $data = DateTime::createFromFormat('Y-m-d H:i:s', $pedidos['data_pedido'])->format('Y/m/d H:i:s');
+
+                ?>
+
+                    <div class="card-detalhes">
+                        <div class="detalhes-principais">
+                            <div class="secoes-detalhes-checkbox">
+                                <div>
+                                    <label class="titulo-label">Concluído</label>
+                                </div>
+
+                                <div class="tabela-checkbox_titulo">
+                                    <input id="checkbox-titulo" type="checkbox">
+                                    <label for="checkbox-titulo"></label>
+                                </div>
                             </div>
 
-                            <div class="tabela-checkbox_titulo">
-                                <input id="checkbox-titulo" type="checkbox">
-                                <label for="checkbox-titulo"></label>
+                            <div class="secoes-detalhes-principais">
+                                <label class="titulo-label">Número</label>
+                                <p class="texto-detalhes">#<?php echo $pedidos['id_usuario_pedido'] ?></p>
+                            </div>
+
+                            <div class="secoes-detalhes-principais">
+                                <label class="titulo-label">Data</label>
+                                <p class="texto-detalhes"><?php echo $data ?></p>
+                            </div>
+
+                            <div class="secoes-detalhes-principais">
+                                <label class="titulo-label">Total</label>
+                                <p class="texto-detalhes">R$<?php echo number_format(($pedidos['preco_total'] + $pedidos['preco_frete']), 2, ",", "."); ?></p>
+                            </div>
+
+                            <div class="secoes-detalhes-principais detalhes">
+                                <label class="label-detalhes" data-bs-toggle="collapse" href="#produtos<?php echo $pedidos['id_usuario_pedido'] ?>" role="button" aria-expanded="false" aria-controls="collapseExample">Detalhes</label>
                             </div>
                         </div>
 
-                        <div class="secoes-detalhes-principais">
-                            <label class="titulo-label">Número</label>
-                            <p class="texto-detalhes">#0987654321</p>
-                        </div>
+                        <div class="detalhes-extras collapse" id="produtos<?php echo $pedidos['id_usuario_pedido'] ?>">
+                            <div class="detalhes-produto">
+                                <div class="produtos-comprados">
+                                    <div class="div-compras">
+                                        <label class="titulo-label">Produtos</label>
+                                        <label class="titulo-label">Valor</label>
+                                    </div>
+                                    <?php
+                                    while ($pedidoProduto = mysqli_fetch_array($resultadoPedidoProduto)) {
+                                        $sqlProduto = "SELECT * FROM tb_produtos WHERE id_produtos = $pedidoProduto[id_produto]";
+                                        $resultadoProduto = mysqli_query($conexao, $sqlProduto);
 
-                        <div class="secoes-detalhes-principais">
-                            <label class="titulo-label">Data</label>
-                            <p class="texto-detalhes">01/10/2022</p>
-                        </div>
+                                        while ($produto = mysqli_fetch_array($resultadoProduto)) {
+                                    ?>
+                                            <div class="div-compras">
+                                                <p class="texto-detalhes"><?php echo $pedidoProduto['quantidade'] ?>x <?php echo $produto['nome_produto'] ?></p>
+                                                <p class="texto-detalhes">R$<?php echo number_format($pedidoProduto['quantidade'] * $produto['preco_produto'], 2, ",", "."); ?> </p>
+                                            </div>
+                                    <?php
+                                        }
+                                    }
 
-                        <div class="secoes-detalhes-principais">
-                            <label class="titulo-label">Total</label>
-                            <p class="texto-detalhes">R$10,50</p>
-                        </div>
-
-                        <div class="secoes-detalhes-principais detalhes">
-                            <label class="label-detalhes" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Detalhes</label>
+                                    ?>
+                                    <div class="div-total">
+                                        <label class="titulo-label">Total: </label>
+                                        <p class="texto-detalhes">R$<?php echo number_format(($pedidos['preco_total'] + $pedidos['preco_frete']), 2, ",", "."); ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detalhes-endereco">
+                                <div>
+                                    <?php
+                                    $sqlEndereco = "SELECT * FROM tb_endereco where fk_id_usuario = $pedidos[id_usuario] LIMIT 1";
+                                    $resultado = mysqli_query($conexao, $sqlEndereco);
+                                    $resultadoInfoEndereco = mysqli_fetch_array($resultado);
+                                    ?>
+                                    <label class="titulo-label">Endereço (Número, rua, complemento, bairro, cidade, estado, CEP)</label>
+                                    <p class="texto-detalhes"><?php echo $resultadoInfoEndereco['nm_recebedor'] ?></p>
+                                    <p class="texto-detalhes"><?php echo $resultadoInfoEndereco['numero'] ?>, <?php echo $resultadoInfoEndereco['rua'] ?>, <?php echo $resultadoInfoEndereco['complemento'] ?>, <?php echo $resultadoInfoEndereco['bairro'] ?>, <?php echo $resultadoInfoEndereco['cidade'] ?>, <?php echo $resultadoInfoEndereco['estado'] ?>, <?php echo $resultadoInfoEndereco['cep'] ?> </p>
+                                </div>
+                                <div class="div-frete">
+                                    <label class="titulo-label">Frete: R$<?php echo $pedidos['frete']; ?></label>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="detalhes-extras collapse" id="collapseExample">
-                        <div class="detalhes-produto">
-                            <div class="produtos-comprados">
-                                <div class="div-compras">
-                                    <label class="titulo-label">Produtos</label>
-                                    <label class="titulo-label">Valor</label>
-                                </div>
-                                <div class="div-compras">
-                                    <p class="texto-detalhes">2x Pulseira Verde Pet</p>
-                                    <p class="texto-detalhes">R$20,00</p>
-                                </div>
-                                <div class="div-compras">
-                                    <p class="texto-detalhes">1x Pulseira Verde Pet</p>
-                                    <p class="texto-detalhes">R$1020,00</p>
-                                </div>
-                                <div class="div-total">
-                                    <label class="titulo-label">Total: </label>
-                                    <p class="texto-detalhes">R$100.020</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="detalhes-endereco">
-                            <div>
-                                <label class="titulo-label">Endereço (Número, rua, bairro, cidade, estado, CEP)</label>
-                                <p class="texto-detalhes">Anna Santelli Martiore</p>
-                                <p class="texto-detalhes">654, Rua Ciclano, Monte Castelo, Tubarão, SC, XXXXX-XXX </p>
-                            </div>
-                            <div class="div-frete">
-                                <label class="titulo-label">Frete: R$10,00</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </div>
