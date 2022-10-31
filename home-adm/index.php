@@ -59,11 +59,10 @@ $PorcentagemEmail = $PorcentagemEmail / $resultadoEmail['valor_mes_anterior'];
 //Vendas por dia
 $sqlVendasDia = "SELECT COUNT(*) AS vendasDia FROM tb_produto_pedido a 
 INNER JOIN tb_produtos b ON b.id_produtos = a.id_produto
-INNER JOIN tb_usuario_pedido c ON c.id_usuario = a.id_usuario WHERE DATE_FORMAT(c.data_pedido, '%d') = (SELECT MAX(DATE_FORMAT(c.data_pedido, '%d')) FROM tb_usuario_pedido)";
+INNER JOIN tb_usuario_pedido c ON a.fk_id_pedido = c.id_usuario_pedido WHERE DATE_FORMAT(c.data_pedido, '%d') = (SELECT MAX(DATE_FORMAT(c.data_pedido, '%d')) FROM tb_usuario_pedido)";
 $resultadoVendasDia = mysqli_query($conexao,$sqlVendasDia);
 $resultadoVendasDia = mysqli_fetch_array($resultadoVendasDia);
 //Venda na semana
-// FAZER AMANHÃ
 //Vendas por mês
 $sqlVendasMes = "SELECT a.nome_mes,a.numero_mes, 
 CASE WHEN COUNT(b.id_usuario) = 1 THEN 1 ELSE COUNT(b.id_usuario) END 
@@ -72,11 +71,24 @@ LEFT JOIN tb_usuario_pedido b ON a.id_mes = (SELECT MAX(DATE_FORMAT(data_pedido,
 WHERE numero_mes <= 10 AND numero_mes >= 10-5 GROUP BY id_mes";
 $resultadoVendasMes = mysqli_query($conexao,$sqlVendasMes);
 $resultadoVendasMes = mysqli_fetch_all($resultadoVendasMes);
-// var_dump($resultadoVendasMes);
-// var_dump($resultadoVendasMes[0][2]);
-// exit();
-
-
+//DIA MÁXIMO LUCRO
+$sqlDiaMAXlucro = "SELECT MAX(DATE_FORMAT(data_pedido,'%d')) AS dia FROM tb_usuario_pedido";
+$resultadoDiaMAXlucro = mysqli_query($conexao, $sqlDiaMAXlucro);
+$resultadoDiaMAXlucro = mysqli_fetch_array($resultadoDiaMAXlucro);
+$DiaMAX = $resultadoDiaMAXlucro['dia'] ?? 0;
+//LUCRO DIARIO
+$sqlLucroDiario = "SELECT sum(c.preco_total) AS lucroDiario FROM tb_produto_pedido a 
+INNER JOIN tb_produtos b ON b.id_produtos = a.id_produto
+INNER JOIN tb_usuario_pedido c ON a.fk_id_pedido = c.id_usuario_pedido 
+WHERE DATE_FORMAT(c.data_pedido, '%d') <= $DiaMAX and DATE_FORMAT(c.data_pedido, '%d') >= $DiaMAX-6";
+$resultadoLucroDiario = mysqli_query($conexao,$sqlLucroDiario);
+$resultadoLucroDiario = mysqli_fetch_array($resultadoLucroDiario);
+//LUCRO SEMANAL
+$sqlLucroSemanal = "SELECT sum(c.preco_total) AS lucroSemanal FROM tb_produto_pedido a 
+INNER JOIN tb_produtos b ON b.id_produtos = a.id_produto
+INNER JOIN tb_usuario_pedido c ON a.fk_id_pedido = c.id_usuario_pedido WHERE DATE_FORMAT(c.data_pedido, '%d') = (SELECT MAX(DATE_FORMAT(c.data_pedido, '%d')) FROM tb_usuario_pedido)";
+$resultadoLucroSemanal = mysqli_query($conexao,$sqlLucroSemanal);
+$resultadoLucroSemanal = mysqli_fetch_array($resultadoLucroSemanal);
 ?>
 <input type="text" id="maiorMes" style="display: none;" value="<?php echo $maiorMes ?>">
 
@@ -113,16 +125,16 @@ $resultadoVendasMes = mysqli_fetch_all($resultadoVendasMes);
             <div class="dados">
                 <div class="dados-tabelas">
                     <div class="tabela">
-                        <h3 class="tabela-numero"><?php echo $resultadoVisitasTotal[0] ?></h3>
+                        <h3 class="tabela-numero"><?php echo $resultadoVisitaSemanal['visitaSemanal'] ?></h3>
                         <p class="tabela-titulo">Visitas</p>
                         <div class="tabela-conjunto_porcentagem">
                             <ion-icon class="tabela-icone_porcentagem" name="caret-up-outline"></ion-icon>
-                            <p class="tabela-porcentagem"><?php  echo $resultadoVisitaSemanal['visitaSemanal']?></p>
+                            <p class="tabela-porcentagem"><?php echo $resultadoVisitasTotal[0] ?></p>
                         </div>
                     </div>
 
                     <div class="tabela">
-                        <h3 class="tabela-numero"><?php echo $resultadoVendasDia['vendasDia']?></h3>
+                        <h3 class="tabela-numero"><?php echo $resultadoVendasDia['vendasDia'] ?></h3>
                         <p class="tabela-titulo">Vendas</p>
                         <div class="tabela-conjunto_porcentagem">
                             <ion-icon class="tabela-icone_porcentagem" name="caret-up-outline"></ion-icon>
@@ -131,20 +143,20 @@ $resultadoVendasMes = mysqli_fetch_all($resultadoVendasMes);
                     </div>
 
                     <div class="tabela">
-                        <h3 class="tabela-numero">R$X.XXX</h3>
+                        <h3 class="tabela-numero">R$<?php echo $resultadoLucroSemanal['lucroSemanal'] ?></h3>
                         <p class="tabela-titulo">Lucros</p>
                         <div class="tabela-conjunto_porcentagem">
                             <ion-icon class="tabela-icone_porcentagem" name="caret-up-outline"></ion-icon>
-                            <p class="tabela-porcentagem">XXX</p>
+                            <p class="tabela-porcentagem">R$<?php echo $resultadoLucroDiario['lucroDiario'] ?></p>
                         </div>
                     </div>
 
                     <div class="tabela">
-                        <h3 class="tabela-numero"><?php echo isset($quantidadeEmail) ? $quantidadeEmail : '0'  ?></h3>
+                        <h3 class="tabela-numero"><?php echo isset($resultadoInscritosSemanal['inscritosSemanal']) ? $resultadoInscritosSemanal['inscritosSemanal'] : '0'  ?></h3>
                         <p class="tabela-titulo">Inscritos</p>
                         <div class="tabela-conjunto_porcentagem">
                             <ion-icon class="tabela-icone_porcentagem" name="caret-up-outline"></ion-icon>
-                            <p class="tabela-porcentagem"><?php echo isset($resultadoInscritosSemanal['inscritosSemanal']) ? $resultadoInscritosSemanal['inscritosSemanal'] : '0' ?></p>
+                            <p class="tabela-porcentagem"><?php echo isset($quantidadeEmail) ? $quantidadeEmail : '0'  ?></p>
                         </div>
                     </div>
                 </div>
