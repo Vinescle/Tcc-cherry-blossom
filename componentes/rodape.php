@@ -43,7 +43,7 @@
         <div class="noticias-coluna-tres">
             <h4 class="texto-footer-input">SE INSCREVA PARA RECEBER NOVIDADES!</h4>
             <form class="form-enviar-email" action="./componentes/emailnoticias.php" method="POST">
-                <input type="email" name="email-noticias" placeholder="Digite seu email">
+                <input style="color: #323232;" type="email" name="email-noticias" placeholder="Digite seu email">
                 <input class="botao-enviar-email" type="submit" value="Cadastrar-se">
             </form>
         </div>
