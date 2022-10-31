@@ -2,7 +2,7 @@
 $page = 'carrinho';
 include '../conexao.php';
 include '../verifica-logado.php';
-session_start();
+// session_start();
 $id = $_SESSION['id_usuario'];
 $sql = "SELECT * FROM tb_usuarios WHERE id_usuario = $id";
 $resultado = mysqli_query($conexao, $sql);

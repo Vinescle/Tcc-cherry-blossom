@@ -244,7 +244,6 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                             <?php
                                             if ($resultadoInfo['fk_id_endereco'] == 0) {
                                             ?>
-                                                <option value="0" selected></option>
                                             <?php
                                             }
                                             ?>
@@ -261,7 +260,6 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                             <?php
                                             if ($resultadoInfo['fk_id_endereco'] == 0) {
                                             ?>
-                                                <option value="0" selected></option>
                                             <?php
                                             }
                                             ?>
@@ -333,8 +331,8 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
         const selectEstado = document.querySelector("#estado");
         const selectCidade = document.querySelector("#cidade");
 
-        const estadoPreenchido = "<?php echo $resultadoInfoEndereco['estado'] ?>";
-        const cidadePreenchida = "<?php echo $resultadoInfoEndereco['cidade'] ?>";
+        const estadoPreenchido = "<?php echo !empty($resultadoInfoEndereco['estado']) ? $resultadoInfoEndereco['estado'] : '' ?>";
+        const cidadePreenchida = "<?php echo !empty($resultadoInfoEndereco['cidade']) ? $resultadoInfoEndereco['cidade'] : '' ?>";
 
         async function listarEstados() {
             const response = await axios.get(
@@ -374,14 +372,20 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
 
         window.onload = async function() {
             await listarEstados();
-            if (cidadePreenchida != "")
+            if (cidadePreenchida != ""){
                 await listarCidades({
                     value: estadoPreenchido
                 });
-            else
-                await listarCidades("AC");
+            }
+            else{
+                await listarCidades({
+                    value: "AC"
+                });
+            }
+
 
         }
+
     </script>
 </body>
 

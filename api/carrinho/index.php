@@ -1,6 +1,9 @@
 <?php
-include '../../conexao.php';
-include '../../verifica-logado.php';
+if (empty($carregado)) {
+    include '../../conexao.php';
+    include '../../verifica-logado.php';
+}
+
 ?>
 
 <div class="div-pedidos">

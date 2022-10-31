@@ -67,9 +67,9 @@ $resultadoPedidos = mysqli_query($conexao, $sqlPedidos);
                             <div class="secoes-detalhes-principais">
                                 <label class="titulo-label">Status</label>
                                 <?php
-                                if (!empty($pedidos['data_confirmacao'])) {
+                                if (!empty($pedidos['data_confirmacao']) && $pedidos['data_confirmacao'] != '0000-00-00 00:00:00') {
                                     echo '<p class="texto-detalhes">CONFIRMADO</p>';
-                                } else if (!empty($pedidos['data_cancelamento'])) {
+                                } else if (!empty($pedidos['data_cancelamento']) && $pedidos['data_cancelamento'] != '0000-00-00 00:00:00') {
                                     echo '<p class="texto-detalhes">CANCELADO</p>';
                                 } else {
                                     echo '<p class="texto-detalhes">PROCESSANDO</p>';

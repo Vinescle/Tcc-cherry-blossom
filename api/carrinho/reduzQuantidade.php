@@ -1,6 +1,7 @@
 <?php
 include '../../conexao.php';
 include '../../verifica-logado.php';
+$carregado = true;
 
 if (!empty($_SESSION['carrinho'])) {
     foreach ($_SESSION['carrinho'] as $key => $produto) {
