@@ -93,7 +93,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="call-outline"></ion-icon>
                                         </button>
-                                        <input id="telefone" onkeyup="mascaraFone(event)" class="input-conjunto" type="text" name="telefone_usuario" maxlength="15" value="<?php echo $resultadoInfo['telefone'] ?>">
+                                        <input id="telefone" onkeyup="mascaraFone(event)" class="input-conjunto" type="text" name="telefone_usuario" maxlength="15" value="<?php echo $resultadoInfo['telefone'] ? $resultadoInfo['telefone'] : '' ?>">
                                     </div>
                                 </div>
                             </div>

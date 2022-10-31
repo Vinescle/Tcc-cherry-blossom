@@ -24,6 +24,12 @@ $sqlProdutosPopulares = "SELECT fk_id_produto, b.nome_produto, COUNT(*) AS quant
 INNER JOIN tb_produtos b ON a.fk_id_produto = b.id_produtos GROUP BY fk_id_produto ORDER BY COUNT(*) DESC";
 $resultadoProdutosPopulares = mysqli_query($conexao, $sqlProdutosPopulares);
 
+$sqlProdutosVendidos = "SELECT id_produto, c.nome_produto, COUNT(*) AS quantidadeComprada FROM tb_produto_pedido a
+INNER JOIN tb_usuario_pedido b ON a.fk_id_pedido = b.id_usuario_pedido
+INNER JOIN tb_produtos c ON  c.id_produtos = a.id_produto GROUP BY id_produto
+ORDER BY COUNT(*) DESC LIMIT 4";
+$resultadoProdutosVendidos = mysqli_query($conexao,$sqlProdutosVendidos);
+
 
 try {
     $resultadoProdutos = mysqli_query($conexao, $sql);
@@ -118,25 +124,16 @@ try {
                             <th class="tabela-destaques_titulo" colspan="2">Mais Vendidos</th>
                         </tr>
 
-                        <tr>
-                            <td class="tabela-destaques_id">1</td>
-                            <td class="tabela-destaques_conteudo">Xiuaua mimadinho de miami</td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-destaques_id">2</td>
-                            <td class="tabela-destaques_conteudo">Pulseira pais e amo</td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-destaques_id">3</td>
-                            <td class="tabela-destaques_conteudo">Pulseira pais e amo</td>
-                        </tr>
-
-                        <tr>
-                            <td class="tabela-destaques_id">4</td>
-                            <td class="tabela-destaques_conteudo">Xiuaua mimadinho de miami</td>
-                        </tr>
+                        <?php
+                        while ($ProdutosVendidos = mysqli_fetch_array($resultadoProdutosVendidos)) {
+                        ?>
+                            <tr>
+                                <td class="tabela-destaques_id"><?php echo $ProdutosVendidos['id_produto']?></td>
+                                <td class="tabela-destaques_conteudo"><?php echo $ProdutosVendidos['nome_produto']?></td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
                     </table>
 
                     <table class="tabela-destaques">

@@ -53,3 +53,5 @@ try {
 } catch (Exception $e) {
     echo "Erro ao enviar a mensagem: {$mail->ErrorInfo}";
 }
+
+header("location: $rota");
