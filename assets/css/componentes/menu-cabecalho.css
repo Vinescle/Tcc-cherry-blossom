@@ -51,6 +51,8 @@
   font-family: 'Inter';
   font-weight: 400;
   padding-top: 0.25em;
+  display: block;
+  width: 100%;
 }
 
 .login-texto,

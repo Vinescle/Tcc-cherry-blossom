@@ -7,20 +7,6 @@ $resultadoCategorias = mysqli_query($conexao, $sqlCategorias);
 
 $categorias = $resultadoCategorias->fetch_all(MYSQLI_ASSOC);
 
-if (isset($_GET['pesquisaProduto'])) {
-    $sqlBuscaProduto = "SELECT b.fk_id_marcas,
-    a.id_produtos,
-    a.nome_produto
-    FROM tb_produtos a
-    INNER JOIN tb_marcas_produtos b ON b.fk_id_produtos = a.id_produtos
-    WHERE a.nome_produto LIKE '%$_GET[pesquisaProduto]%'
-    OR a.descricao_produto LIKE '%$_GET[pesquisaProduto]%'";
-    $resultadoBusca = mysqli_query($conexao, $sqlBuscaProduto);
-    $resultadoBusca = mysqli_fetch_array($resultadoBusca);
-    $sql = "SELECT * FROM tb_marcas_produtos WHERE fk_id_produtos = $resultadoBusca[1] LIMIT 1";
-    $pesquisaProduto = mysqli_query($conexao, $sql);
-    $pesquisaProduto = mysqli_fetch_assoc($pesquisaProduto);
-}
 $sqlProdutos = "SELECT a.id_produtos,
 a.nome_produto,
 a.descricao_produto,
@@ -38,14 +24,16 @@ INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria
 INNER JOIN tb_marcas_produtos f on f.fk_id_produtos = a.id_produtos
 INNER JOIN tb_marcas g ON g.id_marca = f.fk_id_marcas ";
 
-
+if (!empty($_GET['pesquisaProduto'])) {
+    $sqlProdutos .= "WHERE a.nome_produto like '%$_GET[pesquisaProduto]%' ";
+} else if (!empty($_GET['marca'])) {
+    $sqlProdutos .= "WHERE f.fk_id_marcas = $_GET[marca] ";
+} else if (!empty($_GET['categoria'] && empty($_GET['marca']))) {
+    $sqlProdutos .= "WHERE d.fk_id_categoria = $_GET[categoria] ";
+}
 
 if (!empty($_GET['marca'])) {
-    $sqlProdutos .= "WHERE f.fk_id_marcas = $_GET[marca] ";
-} else if (isset($pesquisaProduto)) {
-    $sqlProdutos .= "WHERE f.fk_id_marcas = $pesquisaProduto[fk_id_marcas] ";
-} else {
-    header("Location: $rota");
+    $sqlProdutos .= "AND d.fk_id_marcas = $_GET[marca] ";
 }
 
 if (!empty($_GET['categoria'])) {
@@ -61,13 +49,15 @@ if (!empty($_GET['categoria']) && !empty($_GET['sub_categorias'])) {
 
 $sqlProdutos .= "GROUP BY a.id_produtos";
 
-if(isset($_GET['preco'])){
-    if($_GET['preco'] == 'maior'){
+if (isset($_GET['preco'])) {
+    if ($_GET['preco'] == 'maior') {
         $sqlProdutos .= " ORDER BY a.preco_produto DESC";
-    }else{
+    } else {
         $sqlProdutos .= " ORDER BY a.preco_produto ASC";
     }
 }
+
+
 
 $resultadoProdutos = mysqli_query($conexao, $sqlProdutos);
 $resultadoMarcas = mysqli_query($conexao, $sqlProdutos);
@@ -101,7 +91,7 @@ $resultadoMarcas = mysqli_query($conexao, $sqlProdutos);
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             padding: 12px 16px;
-            z-index: 1; 
+            z-index: 1;
         }
 
         .dropdown:hover .dropdown-content {
@@ -126,9 +116,11 @@ $resultadoMarcas = mysqli_query($conexao, $sqlProdutos);
                     if (isset($_GET['marca'])) {
                         $resultadoNomeMarcas = mysqli_fetch_array($resultadoMarcas);
                     ?>
-                        <label class="label-titulo-filtro"><?php echo "Marca: $resultadoNomeMarcas[nome_marca]"; ?></label>
+                        <label class="label-titulo-filtro"><?php if (!empty($_GET['marca'])) {
+                                                                echo "Marca: $resultadoNomeMarcas[nome_marca]";
+                                                            } ?></label>
                     <?php
-                    } else if (isset($pesquisaProduto['fk_id_marcas'])) {
+                    } else if (!empty($_GET['pesquisaProduto'])) {
                     ?>
                         <label class="label-titulo-filtro"><?php echo "Pesquisa: $_GET[pesquisaProduto]"; ?></label>
                     <?php
@@ -209,18 +201,18 @@ $resultadoMarcas = mysqli_query($conexao, $sqlProdutos);
             <div class="conjunto-principal w-80">
                 <div class="tags">
                     <div class="div-preco dropdown">
-                        <label class="label-preco">Ordenar por 
-                        <?php 
-                            if(isset($_GET['preco']) and $_GET['preco'] == 'maior'){
-                                echo '<Strong>maior preco</Strong>';
-                            }else if(isset($_GET['preco']) and $_GET['preco'] != 'maior'){
-                                echo '<Strong>menor preco</Strong>';
+                        <label class="label-preco">Ordenar por
+                            <?php
+                            if (isset($_GET['preco']) and $_GET['preco'] == 'maior') {
+                                echo '<Strong>Maior preço</Strong>';
+                            } else if (isset($_GET['preco']) and $_GET['preco'] != 'maior') {
+                                echo '<Strong>Menor preço</Strong>';
                             }
-                        ?>
+                            ?>
                         </label>
                         <div class="dropdown-content">
-                            <a href="./pesquisa.php?marca=<?php echo isset($_GET['marca']) ? $_GET['marca'] : $pesquisaProduto['fk_id_marcas']; ?>&preco=maior" class="label-preco negrito">Maior preço</a>
-                            <a href="./pesquisa.php?marca=<?php echo isset($_GET['marca']) ? $_GET['marca'] : $pesquisaProduto['fk_id_marcas']; ?>&preco=menor" class="label-preco negrito" class="label-preco negrito">Menor preço</a>
+                            <a href="<?php echo basename($_SERVER['REQUEST_URI']); ?>&preco=maior" class="label-preco negrito">Maior preço</a>
+                            <a href="<?php echo basename($_SERVER['REQUEST_URI']); ?>&preco=menor" class="label-preco negrito" class="label-preco negrito">Menor preço</a>
                         </div>
                     </div>
                     <ion-icon class="icone-dropdown" name="chevron-down-outline"></ion-icon>

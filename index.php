@@ -95,13 +95,11 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                 </div>
             </div>
         </main>
-
         <div class="bola-whatsapp">
-            <a class="link-whatsapp" href="https://api.whatsapp.com/send?phone=5548998384729">
+            <a href="<?php echo $configAdm['url_whatsapp'] ?>" target="_blank">
                 <ion-icon class="logo-whatsapp" name="logo-whatsapp"></ion-icon>
             </a>
         </div>
-
         <div class="container-loja">
             <div>
                 <div class="texto">
