@@ -41,14 +41,15 @@ main {
 .texto {
     color: #323232;
     font-family: 'Inter';
-    font-size: 14px;
+    font-size: 1rem;
+    line-height: 1.2rem;
     font-weight: 400;
-
-    margin: 1rem 0;
+    margin-bottom: .2rem;
 }
 
 /* Imagens */
 
 .imagens {
     width: 100%;
+    margin-bottom: 1rem;
 }

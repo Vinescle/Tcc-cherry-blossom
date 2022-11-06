@@ -38,9 +38,9 @@ include '../conexao.php';
                 <img class="imagens" src="../assets/imagens/site/papercraft.png">
                 <div id="hamabead"></div>
 
-                <p class="texto">Papercraft é um método de construir objetos tridimensionais utilizando papel, uma arte parecida com o origami, mas se diferencia por utilizar dobraduras, cortes, colagem, moldagem e até mesmo criação de camadas. Apesar de parecerem frágeis por serem de papel, as peças são feitas com papéis mais grossos e possuem um acabamento em verniz e goma laca, os tornando mais resistentes.</p>
+                <p class="texto">&nbsp;&nbsp;&nbsp;&nbsp;Papercraft é um método de construir objetos tridimensionais utilizando papel, uma arte parecida com o origami, mas se diferencia por utilizar dobraduras, cortes, colagem, moldagem e até mesmo criação de camadas. Apesar de parecerem frágeis por serem de papel, as peças são feitas com papéis mais grossos e possuem um acabamento em verniz e goma laca, os tornando mais resistentes.</p>
 
-                <p class="texto">Qualquer coisa pode se transformar em um papercraft, tendo diferentes tamanhos e servindo para diversas finalidades.</p>
+                <p class="texto">&nbsp;&nbsp;&nbsp;&nbsp;Qualquer coisa pode se transformar em um papercraft, tendo diferentes tamanhos e servindo para diversas finalidades.</p>
             </div>
 
             <div class="div-hamaBeads">
@@ -51,7 +51,7 @@ include '../conexao.php';
                 <img class="imagens" src="../assets/imagens/site/hama-beads.png">
                 <div id="macrame"></div>
 
-                <p class="texto">Hama beads são objetos feitos utilizando pequenas peças plásticas unidas, podendo-se criar qualquer coisa em um estilo pixel art. Com eles, podem ser criados diversos objetos, como acessórios, decorações, porta-copos, chaveiros e quadros.</p>
+                <p class="texto">&nbsp;&nbsp;&nbsp;&nbsp;Hama beads são objetos feitos utilizando pequenas peças plásticas unidas, podendo-se criar qualquer coisa em um estilo pixel art. Com eles, podem ser criados diversos objetos, como acessórios, decorações, porta-copos, chaveiros e quadros.</p>
             </div>
 
             <div class="div-macrame">
@@ -62,7 +62,7 @@ include '../conexao.php';
                 <img class="imagens" src="../assets/imagens/site/macrame.png">
                 <div id="miçanga"></div>
 
-                <p class="texto">O macramê é uma técnica de tecelagem manual que utiliza nós para criar diferentes tipos de peças. Vários tipos de fios são usados, dando origem a diferentes itens, desde peças de roupas até itens decorativos.</p>
+                <p class="texto">&nbsp;&nbsp;&nbsp;&nbsp;O macramê é uma técnica de tecelagem manual que utiliza nós para criar diferentes tipos de peças. Vários tipos de fios são usados, dando origem a diferentes itens, desde peças de roupas até itens decorativos.</p>
             </div>
 
             <div class="div-micanga">
@@ -72,7 +72,7 @@ include '../conexao.php';
 
                 <img class="imagens" src="../assets/imagens/site//micanga.png">
 
-                <p class="texto">Miçangas são pequenos objetos decorativos de diferentes tamanhos, texturas, acabamentos, cores e materiais, podendo ser de pedra, osso, cerâmica, madeira, borracha, concha, plástico ou vidro. Geralmente são utilizadas na produção de acessórios.</p>
+                <p class="texto">&nbsp;&nbsp;&nbsp;&nbsp;Miçangas são pequenos objetos decorativos de diferentes tamanhos, texturas, acabamentos, cores e materiais, podendo ser de pedra, osso, cerâmica, madeira, borracha, concha, plástico ou vidro. Geralmente são utilizadas na produção de acessórios.</p>
             </div>
         </div>
     </main>
