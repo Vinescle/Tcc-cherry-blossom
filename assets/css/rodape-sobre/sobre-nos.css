@@ -6,7 +6,7 @@ main {
     display: flex;
     justify-content: center;
 
-    margin: 1.5rem 0 2.5rem 0 ;
+    margin: 1.5rem 0 2.5rem 0;
 }
 
 /* Conteudo Principal */
@@ -22,22 +22,24 @@ main {
 .titulo-pagina {
     color: #323232;
     font-family: 'Inter';
-    font-size: 18px;
+    font-size: 1.1rem;
     font-weight: 700;
+    text-align: center;
 }
 
 .conteudo-texto {
     display: flex;
     flex-direction: column;
 
-    gap: 1rem;
 }
 
 .texto {
     color: #323232;
     font-family: 'Inter';
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 400;
+    line-height: 1.7rem;
+    margin-bottom: .2rem;
 }
 
 /* Imagem */
@@ -61,8 +63,7 @@ main {
 
     color: #323232;
     font-family: 'Inter';
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 700;
-
-    margin: 10px 0;
+    margin-bottom: 0;
 }

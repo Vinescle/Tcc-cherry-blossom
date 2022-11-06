@@ -26,7 +26,7 @@ include '../conexao.php';
     <?php
     include('../componentes/menu-cabecalho.php');
     ?>
-    
+
     <main>
         <div class="conteudo-principal">
             <div class="div-titulo">
@@ -34,13 +34,13 @@ include '../conexao.php';
             </div>
 
             <div class="conteudo-texto">
-                <p class="texto">A Cherry Blossom surgiu em 2020 durante a quarentena da COVID-19. O que antes era tédio, acabou se tornando arte através da pesquisa e experimentação de algumas formas de arte. Os resultados obtidos através dessas experiências eram vibrantes e traziam um sentimento de felicidade, era bom ver a ideia se tornando algo tocável.</p>
+                <p class="texto">&nbsp;&nbsp;&nbsp;&nbsp;A Cherry Blossom surgiu em 2020 durante a quarentena da COVID-19. O que antes era tédio, acabou se tornando arte através da pesquisa e experimentação de algumas formas de arte. Os resultados obtidos através dessas experiências eram vibrantes e traziam um sentimento de felicidade, era bom ver a ideia se tornando algo tocável.</p>
 
-                <p class="texto">Cherry Blossom é uma loja de artesanatos focada em explorar diversos tipos de arte e levar essas experiências aos consumidores de todo o país através de um serviço de qualidade.</p>
+                <p class="texto">&nbsp;&nbsp;&nbsp;&nbsp;Cherry Blossom é uma loja de artesanatos focada em explorar diversos tipos de arte e levar essas experiências aos consumidores de todo o país através de um serviço de qualidade.</p>
 
-                <p class="texto">Muito mais que artesanatos, a Cherry Blossom aborda temas através da arte, como a educação, a natureza, a cultura, o universo geek, dentre outros, e através desses temas, traz conhecimento e entretenimento.</p>
+                <p class="texto">&nbsp;&nbsp;&nbsp;&nbsp;Muito mais que artesanatos, a Cherry Blossom aborda temas através da arte, como a educação, a natureza, a cultura, o universo geek, dentre outros, e através desses temas, traz conhecimento e entretenimento.</p>
 
-                <p class="texto">Oferecemos peças padronizadas e customizadas, todas feitas cuidadosamente, visando a qualidade e satisfação do cliente.</p>
+                <p class="texto">&nbsp;&nbsp;&nbsp;&nbsp;Oferecemos peças padronizadas e customizadas, todas feitas cuidadosamente, visando a qualidade e satisfação do cliente.</p>
             </div>
 
             <div class="conteudo-slogan">
