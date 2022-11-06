@@ -17,7 +17,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 $nomeProduto = $_GET['nomeProduto'];
-$sql = "SELECT * FROM tb_email_para_notificar";
+$sql = "SELECT * FROM tb_usuarios WHERE receber_email = 1";
 $resultado = mysqli_query($conexao, $sql);
 
 
@@ -30,7 +30,7 @@ try {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = $configAdm['email_sugestoes']; //Insira o email de testes 
+        $mail->Username = $configAdm['email_usuario']; //Insira o email de testes 
         $mail->Password = $configAdm['senha']; //Insira sua senha de testes 
         $mail->Port = 587;
 
