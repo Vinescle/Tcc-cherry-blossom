@@ -163,8 +163,8 @@ input:checked+label:before {
 .popup-conteudo {
   position: relative;
   background-color: #FCFFD7;
-  width: 730px;
-  height: 400px;
+  width: 45rem;
+  height: 27rem;
   border-radius: 30px;
   margin: 60px;
 }
@@ -176,6 +176,7 @@ input:checked+label:before {
   position: absolute;
   top: 5%;
   left: 92%;
+  color: #323232;
 }
 
 .popup-config {
@@ -195,6 +196,7 @@ input:checked+label:before {
 .popup-icone-svg {
   margin: 4vh 0 0 0;
   font-size: 90px;
+  color: #323232;
 }
 
 .popup-titulo {
@@ -294,3 +296,9 @@ input:checked+label:before {
 }
 
 @media screen and (max-width: 512px) {}
+
+.flex-centro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

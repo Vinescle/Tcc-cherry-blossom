@@ -52,12 +52,14 @@
 
 <div class="modal fade" id="modalSugestao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-dialog">
+        <div class="modal-dialog flex-centro">
             <div class="modal-content">
                 <div class="popup-conteudo">
-                    <div class="popup-fechar"><button class="popup-icone-close">
+                    <div class="popup-fechar">
+                        <button class="popup-icone-close" data-bs-dismiss="modal" aria-label="Close">
                             <ion-icon id='fechar' name="close-outline">
-                        </button></ion-icon>
+                        </button>
+                        </ion-icon>
                     </div>
                     <div class="popup-config">
                         <div class="popup-cabecalho">
