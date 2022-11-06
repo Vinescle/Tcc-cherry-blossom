@@ -9,10 +9,10 @@ $resultado = mysqli_query($conexao, $sqlDeletaImagem);
 $resultadoDeletaImagem = mysqli_fetch_array($resultado);
 
 try {
-    unlink("../../assets/imagens/storage/banner/" . $resultadoDeletaImagem['url_banner']);
+    if (!empty($resultadoDeletaImagem['url_banner']))
+        unlink("../../assets/imagens/storage/banner/" . $resultadoDeletaImagem['url_banner']);
 } catch (Exception $e) {
 }
-
 
 //Operação normal
 
@@ -28,9 +28,13 @@ if (!empty($_FILES['banner']['name'])) $banner = $_FILES['banner'];
 
 $Nomebanner = addslashes(md5($banner['tmp_name']) . "-" . $banner['name']);
 
-$sql = "UPDATE `tb_adm_config` SET `email_sugestoes`='$email',`senha`='$senha'
-,`url_whatsapp`='$whatsapp',`url_instagram`='$instagram',`url_facebook`='$facebook'
-,`url_twitter`='$twitter',`url_tiktok`='$tiktok ',`url_banner`='$Nomebanner' WHERE id_config = 1";
+if (!empty($resultadoDeletaImagem)) {
+    $sql = "UPDATE `tb_adm_config` SET `email_sugestoes`='$email',`senha`='$senha'
+    ,`url_whatsapp`='$whatsapp',`url_instagram`='$instagram',`url_facebook`='$facebook'
+    ,`url_twitter`='$twitter',`url_tiktok`='$tiktok ',`url_banner`='$Nomebanner' WHERE id_config = 1";
+} else {
+    $sql = "INSERT INTO tb_adm_config (email_sugestoes, senha, url_whatsapp, url_instagram, url_facebook, url_twitter, url_tiktok, url_banner) VALUES ('$email', '$senha', '$whatsapp', '$instagram', '$facebook', '$twitter', '$tiktok', '$Nomebanner')";
+}
 
 mysqli_query($conexao, $sql);
 

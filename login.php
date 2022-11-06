@@ -14,7 +14,7 @@ include './conexao.php';
 </head>
 
 <body>
-    <main>
+    <main style="display: flex; align-items: center; justify-content: center; height: 100vh;">
         <div class="conteiner">
             <div class="conteiner-titulo">
                 <p>Login</p>
