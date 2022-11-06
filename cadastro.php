@@ -88,7 +88,7 @@ if (isset($_SESSION['nome'])) {
                             <label class="input-text">Confirmar Senha</label>
                         </div>
                         <div type="button" class="input-container">
-                            <button class="botao-input login-button-input" style="background-color:red;">
+                            <button class="botao-input login-button-input" style="background-color: red !important;">
                                 <ion-icon class="icone-input md hydrated fonte-2-rem" name="lock-closed-outline" role="img" aria-label="person-circle-outline"></ion-icon>
                             </button>
                             <input class="input-conjunto fonte-2-rem login-input" type="password" name="senhaConfirma" style="border: 1px solid red;" placeholder="Senha incorreta!!" autofocus required>
