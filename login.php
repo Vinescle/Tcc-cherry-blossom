@@ -10,6 +10,7 @@ include './conexao.php';
     <meta charset="UTF-8">
     <title>Cherry Blossom - Cadastro</title>
     <link href="<?php echo $rota; ?>/assets/css/base.css" rel="stylesheet">
+    <link href="<?php echo $rota; ?>/assets/css/base-adm.css" rel="stylesheet">
     <link href="<?php echo $rota; ?>/assets/css/cadastro.css" rel="stylesheet">
 </head>
 
@@ -19,27 +20,27 @@ include './conexao.php';
             <div class="conteiner-titulo">
                 <p>Login</p>
             </div>
-            <form action="./verificaLogin.php" method="post">
-                <div class="input">
+            <form action="./verificaLogin.php" method="post" style="width: 80%;">
+                <div class="input w-100">
                     <div>
                         <label class="input-text">E-mail</label>
                     </div>
-                    <div class="input-corpo">
-                        <button class="input-button" type="submit" disabled>
-                            <ion-icon class="icon-config carta" name="mail-outline"></ion-icon>
+                    <div class="input-container">
+                        <button class="botao-input login-button-input">
+                            <ion-icon class="icone-input md hydrated fonte-2-rem" name="mail-outline" role="img" aria-label="person circle outline"></ion-icon>
                         </button>
-                        <input class="config-tamanho" type="email" name="email">
+                        <input class="input-conjunto fonte-2-rem login-input" type="email" name="email">
                     </div>
                 </div>
-                <div class="input">
+                <div class="input w-100">
                     <div>
                         <label class="input-text">Senha</label>
                     </div>
-                    <div class="input-corpo">
-                        <button class="input-button" disabled>
-                            <ion-icon class="icon-config" name="lock-open-outline"></ion-icon>
+                    <div class="input-container">
+                        <button class="botao-input login-button-input">
+                            <ion-icon class="icone-input md hydrated fonte-2-rem" name="lock-open-outline" role="img" aria-label="person circle outline"></ion-icon>
                         </button>
-                        <input class="config-tamanho" type="password" name="senha">
+                        <input class="input-conjunto fonte-2-rem login-input" type="password" name="senha">
                     </div>
                 </div>
                 <div class="form-end">
