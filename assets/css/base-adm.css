@@ -17,7 +17,7 @@
 
   outline: none;
 
-  background: url('http://localhost/tcc/tcc-cherry-blossom/assets/icones/lupaRosa.svg');
+  background: url('http://localhost/Tcc-cherry-blossom-master/assets/icones/lupaRosa.svg');
   background-position: 0.5em;
   background-size: 16px;
   background-repeat: no-repeat;
@@ -44,7 +44,7 @@
 }
 
 .tabela-checkbox_conteudo input:checked+label:before {
-  background-image: url('http://localhost/tcc/tcc-cherry-blossom/assets/icones/checked.svg');
+  background-image: url('http://localhost/Tcc-cherry-blossom-master/assets/icones/checked.svg');
   background-color: #FF84F0;
 }
 
