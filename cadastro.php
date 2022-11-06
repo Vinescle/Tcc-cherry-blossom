@@ -140,11 +140,11 @@ if (isset($_SESSION['nome'])) {
                         </div>
                         <div class="checkbox">
                             <input type="checkbox" name="Termos" required>
-                            <span>Declaro que li e concordo com os <a href="#">termos de uso </a>e <a href="#">políticas de<br>
+                            <span>Declaro que li e concordo com os <a href="<?php echo $rota; ?>/rodape-sobre/termos.php" target="_blank">termos de uso </a>e <a href="<?php echo $rota; ?>/rodape-sobre/politicaPrivacidade.php" target="_blank">políticas de<br>
                                     privacidade.</a></span>
                         </div>
                     </div>
-                    <div class="form-end">
+                    <div class=" form-end">
                         <div class="form-end-submit">
                             <input type="submit" value="Cadastrar">
                         </div>
