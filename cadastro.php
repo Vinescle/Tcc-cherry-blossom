@@ -135,7 +135,8 @@ if (isset($_SESSION['nome'])) {
                     <div class="div-checkbox">
                         <div class="checkbox">
                             <input type="checkbox" name="receberEmails">
-                            <span>Desejo receber emails sobre futuras ofertas e novos produtos.</span>
+                            <span>Desejo receber e-mails sobre futuras ofertas e novos produtos.</span>
+
                         </div>
                         <div class="checkbox">
                             <input type="checkbox" name="Termos" required>
