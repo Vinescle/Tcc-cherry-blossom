@@ -113,7 +113,6 @@ $produto = $resultadoProduto->fetch_all(MYSQLI_ASSOC)[0];
                         <label class="titulo-produto"><?php echo $produto['nome_produto'] ?></label>
 
                         <div class="conjunto-estatisticas">
-                            <label class="texto-estatisticas separador-estatisticas">|</label>
                             <label class="texto-estatisticas">XX Vendidos</label>
                         </div>
                     </div>
