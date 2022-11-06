@@ -223,3 +223,14 @@ main {
   width: 100%;
   height: 100%;
 }
+
+@media screen and (max-width: 1368px) {
+
+  .bola-whatsapp {
+    right: 3rem;
+
+    width: 8rem;
+    height: 8rem;
+  }
+
+}

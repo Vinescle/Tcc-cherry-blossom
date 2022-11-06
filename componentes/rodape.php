@@ -1,7 +1,7 @@
 <footer class="rodape">
     <div class="coluna-um">
         <img class="logo" src="<?php echo $rota; ?>/assets/imagens/logo.png" alt="logo-cherry-blossom" width="98px">
-        <h3 class="coluna-um-link"><a class="clickSugestao" type="button" data-bs-toggle="modal" data-bs-target="#modalSugestao">SUGESTÃO DO PRODUTO</a></h3>
+        <h3 class="coluna-um-link"><a class="clickSugestao" type="button" data-bs-toggle="modal" data-bs-target="#modalSugestao">SUGERIR PRODUTO</a></h3>
         <h3 class="coluna-um-link"><a href="<?php echo $configAdm['url_whatsapp']; ?>">FALE COM O VENDEDOR</a></h3>
         <h4 class="coluna-um-redes-sociais">Acompanhe nossas redes sociais</h4>
         <div class="redes-sociais">
@@ -17,7 +17,6 @@
             <a href="<?php echo $configAdm['url_tiktok']; ?>">
                 <ion-icon class="icone" name="logo-tiktok"></ion-icon>
             </a>
-
         </div>
     </div>
     <div class="coluna-dois">
@@ -66,7 +65,7 @@
                             <div class="popup-icone">
                                 <ion-icon class="popup-icone-svg" name="brush-outline"></ion-icon>
                             </div>
-                            <p class="popup-titulo">Sugestão de Produto</p>
+                            <p class="popup-titulo">Sugerir Produto</p>
                             <p class="popup-texto">Compartilhe suas ideias para temas e produtos!</p>
                         </div>
                         <form class="popup-form" action="<?php echo $rota ?>/enviaSugestaoProduto.php" method="POST">
