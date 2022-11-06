@@ -28,7 +28,7 @@
             <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php">O que é Papercraft?</a></p>
             <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php">O que é Hama Beads?</a></p>
             <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php">O que é Macramê?</a></p>
-            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php">O que é miçanga?</a></p>
+            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php">O que é Miçanga?</a></p>
         </div>
     </div>
     <div class="coluna-tres">
