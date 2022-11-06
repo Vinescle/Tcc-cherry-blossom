@@ -35,6 +35,7 @@ main {
     font-weight: bold;
     text-align: center;
     margin: 20px 0 10px 0;
+    color: #323232;
 }
 
 .config-tamanho {
@@ -53,6 +54,7 @@ main {
     font-weight: 700;
     margin-left: 14px;
     font-family: 'Inter', sans-serif;
+    color: #323232;
 }
 
 .input-corpo {
@@ -71,6 +73,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 100%;
 }
 
 .icon-config {

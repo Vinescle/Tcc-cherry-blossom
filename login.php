@@ -21,23 +21,23 @@ include './conexao.php';
                 <p>Login</p>
             </div>
             <form action="./verificaLogin.php" method="post" style="width: 80%;">
-                <div class="input w-100">
+                <div class="input">
                     <div>
                         <label class="input-text">E-mail</label>
                     </div>
                     <div class="input-container">
-                        <button class="botao-input login-button-input">
+                        <button type="button" class="botao-input login-button-input">
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="mail-outline" role="img" aria-label="person circle outline"></ion-icon>
                         </button>
                         <input class="input-conjunto fonte-2-rem login-input" type="email" name="email">
                     </div>
                 </div>
-                <div class="input w-100">
+                <div class="input">
                     <div>
                         <label class="input-text">Senha</label>
                     </div>
                     <div class="input-container">
-                        <button class="botao-input login-button-input">
+                        <button type="button" class="botao-input login-button-input">
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="lock-open-outline" role="img" aria-label="person circle outline"></ion-icon>
                         </button>
                         <input class="input-conjunto fonte-2-rem login-input" type="password" name="senha">

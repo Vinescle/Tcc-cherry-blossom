@@ -33,6 +33,7 @@ main {
     font-weight: bold;
     text-align: center;
     margin: 20px 0 10px 0;
+    color: #323232;
 }
 
 .config-tamanho {
@@ -55,6 +56,7 @@ main {
     font-weight: 700;
     margin-left: 14px;
     font-family: 'Inter', sans-serif;
+    color: #323232;
 }
 
 .input-corpo {
@@ -73,6 +75,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 100%;
 }
 
 .icon-config {
@@ -102,14 +105,15 @@ form {
 }
 
 .input-eyes {
+    top: 25%;
     border: none;
     background: transparent;
     position: absolute;
-    top: 12px;
-    left: 670px;
+    right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 1rem;
 }
 
 .div-checkbox {
@@ -126,6 +130,13 @@ form {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 20px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    padding: 0 .505rem;
+    margin: 0;
+    color: #515151;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23515151" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
 }
 
 .checkbox input[type="checkbox"] {
