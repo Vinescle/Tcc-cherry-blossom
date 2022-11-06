@@ -7,24 +7,6 @@ $resultadoCategoriasMenu = mysqli_query($conexao, $sqlCategoriasMenu);
     <div class="cabecalho-logo">
         <a href="<?php echo $rota; ?>"><img src="<?php echo $rota; ?>/assets/imagens/logo.png" class="logo-menu"></a>
         <div class="cabecalho-menu">
-            <!-- <div class="dropdown-center">
-                <button class="limpa-botao" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
-                    <img src="<?php echo $rota; ?>/assets/icones/menu.svg" class="icones-cabecalho_menu" id="checkboxMenu">
-                    <h2 class="botao-menu">MENU</h2>
-                </button>
-                <ul class="dropdown-menu">
-                    <label class="titulo-categorias">Categorias</label>
-                    <?php
-                    //while ($resultado = mysqli_fetch_array($resultadoCategoriasMenu)) {
-                    ?>
-                        <label class="titulo-texto"><a href='<?php echo $rota . '/pesquisa.php?categoria=' . $resultado['id_categoria'] ?>'> <?php echo $resultado['nome_categoria'] ?></a></label>
-                    <?php
-                    //}
-                    ?>
-                </ul>
-            </div> -->
-
-
             <div class="dropdown">
                 <a class="limpa-botao toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
                     <img src="<?php echo $rota; ?>/assets/icones/menu.svg" class="icones-cabecalho_menu" id="checkboxMenu">
