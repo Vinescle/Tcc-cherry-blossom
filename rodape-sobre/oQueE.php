@@ -23,6 +23,8 @@ include '../conexao.php';
 </head>
 
 <body>
+    <div id="papercraft"></div>
+
     <?php
     include('../componentes/menu-cabecalho.php');
     ?>
@@ -34,6 +36,7 @@ include '../conexao.php';
                 </div>
 
                 <img class="imagens" src="../assets/imagens/site/papercraft.png">
+                <div id="hamabead"></div>
 
                 <p class="texto">Papercraft é um método de construir objetos tridimensionais utilizando papel, uma arte parecida com o origami, mas se diferencia por utilizar dobraduras, cortes, colagem, moldagem e até mesmo criação de camadas. Apesar de parecerem frágeis por serem de papel, as peças são feitas com papéis mais grossos e possuem um acabamento em verniz e goma laca, os tornando mais resistentes.</p>
 
@@ -46,6 +49,7 @@ include '../conexao.php';
                 </div>
 
                 <img class="imagens" src="../assets/imagens/site/hama-beads.png">
+                <div id="macrame"></div>
 
                 <p class="texto">Hama beads são objetos feitos utilizando pequenas peças plásticas unidas, podendo-se criar qualquer coisa em um estilo pixel art. Com eles, podem ser criados diversos objetos, como acessórios, decorações, porta-copos, chaveiros e quadros.</p>
             </div>
@@ -56,6 +60,7 @@ include '../conexao.php';
                 </div>
 
                 <img class="imagens" src="../assets/imagens/site/macrame.png">
+                <div id="miçanga"></div>
 
                 <p class="texto">O macramê é uma técnica de tecelagem manual que utiliza nós para criar diferentes tipos de peças. Vários tipos de fios são usados, dando origem a diferentes itens, desde peças de roupas até itens decorativos.</p>
             </div>

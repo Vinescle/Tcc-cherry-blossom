@@ -25,10 +25,10 @@
             <h3 class="colunas-titulos">AJUDA E SUPORTE</h3>
         </div>
         <div class="texto-coluna-dois">
-            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php">O que é Papercraft?</a></p>
-            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php">O que é Hama Beads?</a></p>
-            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php">O que é Macramê?</a></p>
-            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php">O que é Miçanga?</a></p>
+            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php#papercraft">O que é Papercraft?</a></p>
+            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php#hamabead">O que é Hama Beads?</a></p>
+            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php#macrame">O que é Macramê?</a></p>
+            <p class="texto-colunas"><a href="<?php echo $rota; ?>/rodape-sobre/oQueE.php#miçanga">O que é Miçanga?</a></p>
         </div>
     </div>
     <div class="coluna-tres">
