@@ -23,20 +23,21 @@ $resultado = mysqli_query($conexao, $sql);
 
 $mail = new PHPMailer(true);
 
-try {
-    // Essa parte está pronta, só precisamos do email que irá gerar as mensagens!!!
-    while ($resultadoEmail = mysqli_fetch_array($resultado)) {
+
+// Essa parte está pronta, só precisamos do email que irá gerar as mensagens!!!
+while ($resultadoEmail = mysqli_fetch_array($resultado)) {
+    try {
         // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = $configAdm['email_usuario']; //Insira o email de testes 
+        $mail->Username = $configAdm['email_sugestoes']; //Insira o email de testes 
         $mail->Password = $configAdm['senha']; //Insira sua senha de testes 
         $mail->Port = 587;
 
         //EMAIL - FROM
-        $mail->setFrom($configAdm['email_sugestoes']);
-        $mail->addAddress($resultadoEmail['descricao_email']);
+        $mail->setFrom($resultadoEmail['email_usuario']);
+        $mail->addAddress($resultadoEmail['email_usuario']);
         $mail->isHTML(true);
         $mail->Subject = 'Um novo produto novo novo mega novo - Cherry Blossom';
         $mail->Body = 'venha ver o novo produto novo novo: ' . $nomeProduto;
@@ -47,11 +48,14 @@ try {
         } else {
             // echo "Erro ao enviar o email:{$mail->ErrorInfo}";
         }
-
-        header("location: $rota");
+    } catch (Exception $e) {
+        echo "<br>";
+        echo "Erro ao enviar a mensagem: {$mail->ErrorInfo}";
+        var_dump($e);
+        var_dump($e);
+        echo "<br>";
     }
-} catch (Exception $e) {
-    echo "Erro ao enviar a mensagem: {$mail->ErrorInfo}";
 }
+
 
 header("location: $rota");
