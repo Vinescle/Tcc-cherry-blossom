@@ -113,9 +113,6 @@ $produto = $resultadoProduto->fetch_all(MYSQLI_ASSOC)[0];
                         <label class="titulo-produto"><?php echo $produto['nome_produto'] ?></label>
 
                         <div class="conjunto-estatisticas">
-                            <label class="texto-estatisticas">0.0</label>
-                            <label class="texto-estatisticas separador-estatisticas">|</label>
-                            <label class="texto-estatisticas">XX Avaliações</label>
                             <label class="texto-estatisticas separador-estatisticas">|</label>
                             <label class="texto-estatisticas">XX Vendidos</label>
                         </div>
@@ -215,6 +212,7 @@ $produto = $resultadoProduto->fetch_all(MYSQLI_ASSOC)[0];
     include('./imports.php');
     ?>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
     <script>
         const quantidade = document.querySelector('#quantidade');
 
