@@ -3,7 +3,16 @@ include './conexao.php';
 
 // session_start();
 
-$verifica = false;
+$verificaSenha = false;
+$verificaEmail = false;
+
+if (isset($_GET['senhaIncorreta'])) {
+    $verificaSenha = true;
+}
+
+if (isset($_GET['emailDuplicado'])) {
+    $verificaEmail = true;
+}
 
 if (isset($_SESSION['nome'])) {
     $nome = $_SESSION['nome'];
@@ -12,7 +21,6 @@ if (isset($_SESSION['nome'])) {
     $nascimento = $_SESSION['nascimento'];
     $cpf = $_SESSION['cpf'];
     $receberEmails = $_SESSION['receberEmails'];
-    $verifica = true;
 } else {
     $nome = "";
     $email = "";
@@ -58,10 +66,10 @@ if (isset($_SESSION['nome'])) {
                         <label class="input-text">E-mail</label>
                     </div>
                     <div class="input-container">
-                        <button type="button" class="botao-input login-button-input">
+                        <button type="button" class="botao-input login-button-input" <?php echo $verificaEmail ? "style='background-color:red !important;'" : "" ?>>
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="mail-outline" role="img" aria-label="person-circle-outline"></ion-icon>
                         </button>
-                        <input class="input-conjunto fonte-2-rem login-input" type="email" value='<?php echo $email ?>' name="email" required>
+                        <input class="input-conjunto fonte-2-rem login-input" type="email" value='<?php echo $email ?>' name="email" required <?php echo $verificaEmail ? "style='border: 1px solid red !important;' placeholder='Email já cadastrado'" : "" ?>>
                     </div>
                 </div>
                 <div class="input">
@@ -82,7 +90,7 @@ if (isset($_SESSION['nome'])) {
                 <div class="input">
                     <?php
 
-                    if ($verifica) {
+                    if ($verificaSenha) {
                     ?>
                         <div>
                             <label class="input-text">Confirmar Senha</label>
@@ -155,7 +163,7 @@ if (isset($_SESSION['nome'])) {
             </form>
         </div>
         <?php
-        if ($verifica) {
+        if ($verificaSenha) {
         ?>
             <script src="../js/checagemSenha.js"></script>
         <?php
@@ -171,6 +179,12 @@ if (isset($_SESSION['nome'])) {
     </main>
 </body>
 <?php
+$_SESSION['nome'] = "";
+$_SESSION['email'] = "";
+$_SESSION['senha'] = "";
+$_SESSION['nascimento'] = "";
+$_SESSION['cpf'] = "";
+$_SESSION['receberEmails'] = "";
 session_destroy();
 ?>
 
