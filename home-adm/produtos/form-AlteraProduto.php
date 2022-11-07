@@ -14,9 +14,6 @@ $resultadoMarcas = mysqli_query($conexao, $sql);
 $sql = "SELECT * FROM tb_categoria";
 $resultadoCategorias = mysqli_query($conexao, $sql);
 
-$sql = "SELECT * FROM tb_sub_categoria";
-$resultadoSubCategoria = mysqli_query($conexao, $sql);
-
 $id = $_GET['idproduto'][0];
 $sqlProduto = "SELECT a.id_produtos,
 a.nome_produto,
@@ -158,7 +155,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                     <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="pricetag-outline"></ion-icon>
                                     </button>
-                                    <select class="input-conjunto input-tiktok" name="idcategoria">
+                                    <select id="categoria" onchange="listarSubCategorias()" class="input-conjunto input-tiktok" name="idcategoria">
                                         <?php
                                         while ($resultado = mysqli_fetch_array($resultadoCategorias)) {
                                             if ($resultado['id_categoria'] == $resultadoProduto['id_categoria']) {
@@ -188,25 +185,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                     <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="pricetags-outline"></ion-icon>
                                     </button>
-                                    <select class="input-conjunto input-tiktok" name="idsubcategoria">
-                                        <?php
-                                        while ($resultado = mysqli_fetch_array($resultadoSubCategoria)) {
-                                            if ($resultado['id_sub_categoria'] == $resultadoProduto['id_sub_categoria']) {
-                                        ?>
-                                                <option selected value="<?php echo $resultado['id_sub_categoria']; ?>">
-                                                    <?php echo $resultado['nome_sub_categoria']; ?>
-                                                </option>
-                                            <?php
-                                            } else {
-                                            ?>
-                                                ?>
-                                                <option value="<?php echo $resultado['id_sub_categoria']; ?>">
-                                                    <?php echo $resultado['nome_sub_categoria']; ?>
-                                                </option>
-                                        <?php
-                                            }
-                                        }
-                                        ?>
+                                    <select id="subcategoria" class="input-conjunto input-tiktok" name="idsubcategoria">
                                     </select>
                                 </div>
                             </div>
@@ -283,11 +262,12 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                             $caminhoProduto = $resultadoImagemProduto[0][1];
                                         ?>
                                             <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output" alt="Imagem produto" style="width:200px;">
-                                            <input type="file" method="POST" name="imagemProduto-1" value="<?php echo $caminhoProduto ?>" onchange="previewImagem(event)">
+                                            <input type="file" method="POST" name="imagemProduto-1" class="imagemProduto-1" value="<?php echo $caminhoProduto ?>" onchange="previewImagem(event)">
                                         <?php
                                         } else {
                                         ?>
                                             <ion-icon class="input-icone_botao input-icone_botao_1" name="add-outline"></ion-icon>
+                                            <input type="file" method="POST" name="imagemProduto-1" class="imagemProduto-1" onchange="previewImagem1(event)">
                                         <?php } ?>
                                     </button>
                                 </div>
@@ -299,11 +279,12 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                             $caminhoProduto = $resultadoImagemProduto[1][1];
                                         ?>
                                             <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output2" alt="Imagem produto" style="width:200px;">
-                                            <input type="file" method="POST" name="imagemProduto-2" value="<?php echo $caminhoProduto ?>" onchange="previewImagem2(event)">
+                                            <input type="file" method="POST" name="imagemProduto-2" class="imagemProduto-2" value="<?php echo $caminhoProduto ?>" onchange="previewImagem2(event)">
                                         <?php
                                         } else {
                                         ?>
                                             <ion-icon class="input-icone_botao input-icone_botao_2" name="add-outline"></ion-icon>
+                                            <input type="file" method="POST" name="imagemProduto-2" class="imagemProduto-2" onchange="previewImagem2(event)">
                                         <?php } ?>
                                     </button>
                                 </div>
@@ -315,11 +296,12 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                             $caminhoProduto = $resultadoImagemProduto[2][1];
                                         ?>
                                             <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output3" alt="Imagem produto" style="width:200px;">
-                                            <input type="file" method="POST" name="imagemProduto-3" value="<?php echo $caminhoProduto ?>" onchange="previewImagem3(event)">
+                                            <input type="file" method="POST" name="imagemProduto-3" class="imagemProduto-3" value="<?php echo $caminhoProduto ?>" onchange="previewImagem3(event)">
                                         <?php
                                         } else {
                                         ?>
                                             <ion-icon class="input-icone_botao input-icone_botao_3" name="add-outline"></ion-icon>
+                                            <input type="file" method="POST" name="imagemProduto-3" class="imagemProduto-3" onchange="previewImagem3(event)">
                                         <?php } ?>
                                     </button>
                                 </div>
@@ -331,10 +313,11 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                             $caminhoProduto = $resultadoImagemProduto[3][1];
                                         ?>
                                             <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output4" alt="Imagem produto" style="width:200px;">
-                                            <input type="file" method="POST" name="imagemProduto-4" value="<?php echo $caminhoProduto ?>" onchange="previewImagem4(event)">
+                                            <input type="file" method="POST" name="imagemProduto-4" class="imagemProduto-4" value="<?php echo $caminhoProduto ?>" onchange="previewImagem4(event)">
                                         <?php
                                         } else {
                                         ?>
+                                            <input type="file" method="POST" name="imagemProduto-4" class="imagemProduto-4" onchange="previewImagem4(event)">
                                             <ion-icon class="input-icone_botao input-icone_botao_4" name="add-outline"></ion-icon>
                                         <?php } ?>
                                     </button>
@@ -347,11 +330,12 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                             $caminhoProduto = $resultadoImagemProduto[4][1];
                                         ?>
                                             <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output5" alt="Imagem produto" style="width:200px;">
-                                            <input type="file" method="POST" name="imagemProduto-5" value="<?php echo $caminhoProduto ?>" onchange="previewImagem5(event)">
+                                            <input type="file" method="POST" name="imagemProduto-5" class="imagemProduto-5" value="<?php echo $caminhoProduto ?>" onchange="previewImagem5(event)">
                                         <?php
                                         } else {
                                         ?>
                                             <ion-icon class="input-icone_botao input-icone_botao_5" name="add-outline"></ion-icon>
+                                            <input type="file" method="POST" name="imagemProduto-5" class="imagemProduto-5" onchange="previewImagem5(event)">
                                         <?php } ?>
                                     </button>
                                 </div>
@@ -400,7 +384,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                 input_icone_botao_2.classList.add('oculta');
             })
 
-            function previewImagem3(event)  {
+            function previewImagem3(event) {
                 var output3 = document.getElementById('output3');
                 output3.src = URL.createObjectURL(event.target.files[0]);
                 output3.onload = function() {
@@ -435,6 +419,31 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
             imagemProduto_5.addEventListener('change', function(e) {
                 input_icone_botao_5.classList.add('oculta');
             })
+            // $resultadoProduto['id_sub_categoria']
+
+            const selectCategoria = document.querySelector("#categoria");
+            const selectSubcategoria = document.querySelector("#subcategoria");
+
+            async function listarSubCategorias() {
+                const response = await axios.get(
+                    `<?php echo $rota ?>/api/subcategorias.php?categoria=${selectCategoria.value}`
+                );
+                subcategoria.innerHTML = '';
+                if (response.data) {
+                    response.data.forEach((subcategoria) => {
+                        const option = document.createElement("option");
+                        option.innerHTML = subcategoria.nome_sub_categoria;
+                        option.value = subcategoria.id_sub_categoria;
+                        if (subcategoria.id_sub_categoria == <?php echo $resultadoProduto['id_sub_categoria'] ?>)
+                            option.setAttribute("selected", "selected");
+
+                        selectSubcategoria.appendChild(option);
+                    });
+                }
+            }
+            window.onload = async function() {
+                await listarSubCategorias();
+            }
         </script>
         <?php
         include('../../imports.php');

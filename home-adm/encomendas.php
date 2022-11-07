@@ -137,7 +137,6 @@ $resultadoPedidos = mysqli_query($conexao, $sqlPedidos);
     <?php
     include('../imports.php');
     ?>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         async function concluirPedido(input) {
             const idPedido = input.value;

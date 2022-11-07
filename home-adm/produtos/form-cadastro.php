@@ -8,9 +8,6 @@ $resultadoMarcas = mysqli_query($conexao, $sql);
 
 $sql = "SELECT * FROM tb_categoria";
 $resultadoCategorias = mysqli_query($conexao, $sql);
-
-$sql = "SELECT * FROM tb_sub_categoria";
-$resultadoSubCategoria = mysqli_query($conexao, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -127,7 +124,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                                     <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="pricetag-outline"></ion-icon>
                                     </button>
-                                    <select class="input-conjunto input-tiktok" name="idcategoria">
+                                    <select id="categoria" onchange="listarSubCategorias()" class="input-conjunto input-tiktok" name="idcategoria">
                                         <?php
                                         while ($resultado = mysqli_fetch_array($resultadoCategorias)) {
                                             if ($resultado['id_categoria'] == $resultadoProduto['id_categoria']) {
@@ -157,25 +154,7 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
                                     <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="pricetags-outline"></ion-icon>
                                     </button>
-                                    <select class="input-conjunto input-tiktok" name="idsubcategoria">
-                                        <?php
-                                        while ($resultado = mysqli_fetch_array($resultadoSubCategoria)) {
-                                            if ($resultado['id_sub_categoria'] == $resultadoProduto['id_sub_categoria']) {
-                                        ?>
-                                                <option selected value="<?php echo $resultado['id_sub_categoria']; ?>">
-                                                    <?php echo $resultado['nome_sub_categoria']; ?>
-                                                </option>
-                                            <?php
-                                            } else {
-                                            ?>
-                                                ?>
-                                                <option value="<?php echo $resultado['id_sub_categoria']; ?>">
-                                                    <?php echo $resultado['nome_sub_categoria']; ?>
-                                                </option>
-                                        <?php
-                                            }
-                                        }
-                                        ?>
+                                    <select id="subcategoria" class="input-conjunto input-tiktok" name="idsubcategoria">
                                     </select>
                                 </div>
                             </div>
@@ -368,6 +347,26 @@ $resultadoSubCategoria = mysqli_query($conexao, $sql);
             imagemProduto_5.addEventListener('change', function(e) {
                 input_icone_botao_5.classList.add('oculta');
             })
+
+            const selectCategoria = document.querySelector("#categoria");
+            const selectSubcategoria = document.querySelector("#subcategoria");
+
+            async function listarSubCategorias() {
+                const response = await axios.get(
+                    `<?php echo $rota ?>/api/subcategorias.php?categoria=${selectCategoria.value}`
+                );
+                subcategoria.innerHTML = '';
+
+                response.data.forEach((subcategoria) => {
+                    const option = document.createElement("option");
+                    option.innerHTML = subcategoria.nome_sub_categoria;
+                    option.value = subcategoria.id_sub_categoria;
+                    selectSubcategoria.appendChild(option);
+                });
+            }
+            window.onload = async function() {
+                await listarSubCategorias();
+            }
         </script>
 </body>
 

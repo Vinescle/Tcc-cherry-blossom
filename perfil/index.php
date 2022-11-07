@@ -326,7 +326,6 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
     <?php
     include('../imports.php');
     ?>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         const selectEstado = document.querySelector("#estado");
         const selectCidade = document.querySelector("#cidade");
@@ -372,20 +371,16 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
 
         window.onload = async function() {
             await listarEstados();
-            if (cidadePreenchida != ""){
+            if (cidadePreenchida != "") {
                 await listarCidades({
                     value: estadoPreenchido
                 });
-            }
-            else{
+            } else {
                 await listarCidades({
                     value: "AC"
                 });
             }
-
-
         }
-
     </script>
 </body>
 

@@ -108,7 +108,6 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
     <?php
     include('../imports.php');
     ?>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         const containerProdutosCarrinho = document.querySelector("#carrinho-container");
 
