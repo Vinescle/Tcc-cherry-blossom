@@ -129,37 +129,38 @@ if (isset($_SESSION['nome'])) {
                             <input style="font-family: 'Inter';" class="input-conjunto fonte-2-rem login-input" type="date" value='<?php echo $nascimento ?>' name="nascimento" required minlength="10" maxlength="10">
                         </div>
                     </div>
-                    <div class="input">
-                        <div>
-                            <label class="input-text">CPF</label>
-                        </div>
-                        <div class="input-container">
-                            <button type="button" class="botao-input login-button-input">
-                                <ion-icon class="icone-input md hydrated fonte-2-rem" name="document-text-outline" role="img" aria-label="person-circle-outline"></ion-icon>
-                            </button>
-                            <input id="cpf" class="input-conjunto fonte-2-rem login-input" type="text" value='<?php echo $cpf ?>' name="cpf" minlength="14" maxlength="14" required>
-                        </div>
+                </div>
+                <div class="input">
+                    <div>
+                        <label class="input-text">CPF</label>
                     </div>
-                    <div class="div-checkbox">
-                        <div class="checkbox">
-                            <input type="checkbox" name="receberEmails">
-                            <span>Desejo receber e-mails sobre futuras ofertas e novos produtos.</span>
+                    <div class="input-container">
+                        <button type="button" class="botao-input login-button-input">
+                            <ion-icon class="icone-input md hydrated fonte-2-rem" name="document-text-outline" role="img" aria-label="person-circle-outline"></ion-icon>
+                        </button>
+                        <input id="cpf" class="input-conjunto fonte-2-rem login-input" type="text" value='<?php echo $cpf ?>' name="cpf" minlength="14" maxlength="14" required>
+                    </div>
+                </div>
+                <div class="div-checkbox">
+                    <div class="checkbox">
+                        <input type="checkbox" name="receberEmails">
+                        <span>Desejo receber e-mails sobre futuras ofertas e novos produtos.</span>
 
-                        </div>
-                        <div class="checkbox">
-                            <input type="checkbox" name="Termos" required>
-                            <span>Declaro que li e concordo com os <a href="<?php echo $rota; ?>/rodape-sobre/termos.php" target="_blank">termos de uso </a>e <a href="<?php echo $rota; ?>/rodape-sobre/politicaPrivacidade.php" target="_blank">políticas de<br>
-                                    privacidade.</a></span>
-                        </div>
                     </div>
-                    <div class=" form-end">
-                        <div class="form-end-submit">
-                            <input type="submit" value="Cadastrar">
-                        </div>
-                        <div class="form-end-text">
-                            <p>Já tem uma conta? Faça <a href="<?php echo $rota ?>/login.php">login</a></p>
-                        </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="Termos" required>
+                        <span>Declaro que li e concordo com os <a href="<?php echo $rota; ?>/rodape-sobre/termos.php" target="_blank">termos de uso </a>e <a href="<?php echo $rota; ?>/rodape-sobre/politicaPrivacidade.php" target="_blank">políticas de<br>
+                                privacidade.</a></span>
                     </div>
+                </div>
+                <div class=" form-end">
+                    <div class="form-end-submit">
+                        <input type="submit" value="Cadastrar">
+                    </div>
+                    <div class="form-end-text">
+                        <p>Já tem uma conta? Faça <a href="<?php echo $rota ?>/login.php">login</a></p>
+                    </div>
+                </div>
             </form>
         </div>
         <?php
