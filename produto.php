@@ -83,6 +83,12 @@ $produto = $resultadoProduto->fetch_all(MYSQLI_ASSOC)[0];
                                 $i++;
                             }
                             ?>
+                            <?php
+                            if (!empty($produto['visualizacao_url'])) {
+                                echo "<button class='botao-3d botao-texto' data-bs-toggle='modal' data-bs-target='#modal-vizualizacao'>3D</button>";
+                            }
+                            ?>
+
                         </div>
                         <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -187,11 +193,6 @@ $produto = $resultadoProduto->fetch_all(MYSQLI_ASSOC)[0];
                 </div>
             </div>
             <div>
-                <?php
-                if (!empty($produto['visualizacao_url'])) {
-                    echo "<iframe src='$produto[visualizacao_url]' width='500' height='500'></iframe>";
-                }
-                ?>
             </div>
             <div>
                 <span class="titulo-descricao">Descrição: </span>
@@ -208,12 +209,36 @@ $produto = $resultadoProduto->fetch_all(MYSQLI_ASSOC)[0];
 
             </div>
         </div>
+        <?php
+        if (!empty($produto['visualizacao_url'])) {
+        ?>
+            <div class="modal" id="modal-vizualizacao" tabindex="-1" aria-labelledby="modal-vizualizacao" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-dialog flex-centro">
+                        <div class="modal-content">
+                            <div class="popup-3d-view">
+                                <button class="popup-icone-close fechar-modal-3d" data-bs-dismiss="modal" aria-label="Close">
+                                    <ion-icon id='fechar' name="close-outline"></ion-icon>
+                                </button>
+
+                                <div class="popup-config">
+
+                                    <iframe style="width: 100%; aspect-ratio: 1/1; border-radius: 30px;" src="<?php echo $produto['visualizacao_url'] ?>" frameborder="0"></iframe>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
     </main>
 
     <?php
     include('./componentes/rodape.php');
     ?>
-
     <?php
     include('./imports.php');
     ?>
