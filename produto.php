@@ -187,6 +187,13 @@ $produto = $resultadoProduto->fetch_all(MYSQLI_ASSOC)[0];
                 </div>
             </div>
             <div>
+                <?php
+                if (!empty($produto['visualizacao_url'])) {
+                    echo "<iframe src='$produto[visualizacao_url]' width='500' height='500'></iframe>";
+                }
+                ?>
+            </div>
+            <div>
                 <span class="titulo-descricao">Descrição: </span>
                 <p>
                     <?php echo $produto['descricao_produto'] ?>
