@@ -26,7 +26,7 @@ include './conexao.php';
                         <label class="input-text">E-mail</label>
                     </div>
                     <div class="input-container">
-                        <button type="button" class="botao-input login-button-input">
+                        <button type="button" class="botao-input login-button-input" <?php echo !empty($_GET['erro']) ? 'style="background: red !important;"' : '' ?>>
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="mail-outline" role="img" aria-label="person circle outline"></ion-icon>
                         </button>
                         <input class="input-conjunto fonte-2-rem login-input" type="email" name="email">
@@ -37,7 +37,7 @@ include './conexao.php';
                         <label class="input-text">Senha</label>
                     </div>
                     <div class="input-container">
-                        <button type="button" class="botao-input login-button-input">
+                        <button type="button" class="botao-input login-button-input" <?php echo !empty($_GET['erro']) ? 'style="background: red !important;"' : '' ?>>
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="lock-open-outline" role="img" aria-label="person circle outline"></ion-icon>
                         </button>
                         <input class="input-conjunto fonte-2-rem login-input" type="password" name="senha">
@@ -47,6 +47,14 @@ include './conexao.php';
                     <div class="form-end-submit">
                         <input type="submit" value="Entrar">
                     </div>
+                    <?php
+                    if (!empty($_GET['erro'])) {
+                        echo '<div class="mensagem-erro">';
+                        echo 'Dados inválidos!';
+                        echo '</div>';
+                    }
+                    ?>
+
                     <div class="form-end-text">
                         <p>Ainda não tem uma conta? <a href="<?php echo $rota; ?>/cadastro.php">Cadastre-se</a></p>
                     </div>

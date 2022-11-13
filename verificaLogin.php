@@ -24,5 +24,5 @@ if (password_verify($senha, $senhaCriptografia)) {
     $_SESSION['id_usuario'] = $linha['id_usuario'];
     header("location: $rota");
 } else {
-    header('location:login.php');
+    header('location:login.php?erro=dados-invalidos');
 }
