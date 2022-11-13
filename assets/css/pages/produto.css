@@ -10,6 +10,13 @@
   padding: .5rem;
 }
 
+.botao-3d {
+  z-index: 2;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  position: absolute;
+}
+
 
 main {
   width: 100%;
@@ -197,4 +204,19 @@ label {
 
 .container-compra ion-icon {
   font-size: 1.5rem;
+}
+
+.popup-3d-view {
+  position: relative;
+  background-color: #fff;
+  width: 45rem;
+  aspect-ratio: 1/1;
+  border-radius: 30px;
+  margin: 60px;
+}
+
+.fechar-modal-3d {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
