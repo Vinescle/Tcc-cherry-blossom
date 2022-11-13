@@ -84,7 +84,7 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                                     <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="newspaper-outline"></ion-icon>
                                     </button>
-                                    <textarea class="input-conjunto input-tiktok" name="descricaoProduto" cols="30" rows="10"></textarea>
+                                    <textarea class="input-conjunto-descricao input-tiktok" name="descricaoProduto" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
                         </div>

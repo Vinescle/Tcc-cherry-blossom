@@ -108,11 +108,11 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                 </div>
 
                 <div class="agrupamento">
+                    <div class="label-dadosBasicos">
+                        <label class="label-titulo">Alterar Senha</label>
+                    </div>
                     <form action="./senha/alteraSenha.php" method="POST">
                         <input type="text" style="display: none;" name="email_usuario" value="<?php echo $resultadoInfo['email_usuario'] ?>">
-                        <div class="label-dadosBasicos">
-                            <label class="label-titulo">Alterar Senha</label>
-                        </div>
 
                         <div class="conjunto-dadosBasicos">
                             <div class="conjunto-divs">
