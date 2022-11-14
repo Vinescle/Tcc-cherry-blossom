@@ -122,13 +122,6 @@
   text-align: center;
 }
 
-
-
-.tabela-principal_titulo input:checked+label:before {
-  background-image: url('../../src-icons/checked.svg');
-  background-color: #FF84F0;
-}
-
 /* Porcentagem tabela */
 
 .tabela-principal_tituloProduto {
