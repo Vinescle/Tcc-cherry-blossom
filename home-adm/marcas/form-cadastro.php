@@ -47,7 +47,7 @@ include '../../verifica-logado.php';
                                 <button class="botao-input" disabled="">
                                     <ion-icon class="icone-input md hydrated" name="balloon-outline"></ion-icon>
                                 </button>
-                                <input class="input-conjunto input-tiktok" type="text" name="nomeMarca">
+                                <input class="input-conjunto input-tiktok" type="text" name="nomeMarca" required>
                             </div>
 
                             <label class="input-texto">Ícone</label>
@@ -57,7 +57,7 @@ include '../../verifica-logado.php';
                                         <button class="botao-banner" id="botao-banner">
                                             <img id="output" style="width:200px;">
                                             <ion-icon class="input-icone_botao" name="add-outline"></ion-icon>
-                                            <input type="file" name="iconUrl" class="iconImg" onchange="previewImagem(event)">
+                                            <input type="file" name="iconUrl" class="iconImg" onchange="previewImagem(event)" required>
                                         </button>
                                     </div>
 

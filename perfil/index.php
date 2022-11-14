@@ -83,7 +83,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="newspaper-outline"></ion-icon>
                                         </button>
-                                        <input class="input-conjunto" type="text" name="cpf_usuario" value="<?php echo $resultadoInfo['cpf_usuario'] ?>">
+                                        <input class="input-conjunto" type="text" name="cpf_usuario" value="<?php echo $resultadoInfo['cpf_usuario'] ?>" minlength="14" maxlength="14">
                                     </div>
                                 </div>
 

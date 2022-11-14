@@ -1,7 +1,12 @@
 <?php
-var_dump($_GET);
+// var_dump($_GET);
 $page = 'categorias';
 include '../../conexao.php';
+
+if(count($_GET) == 0){
+    echo "<script> alert('Nenhum item foi selecionado'); window.location.href='$rota/home-adm/categorias.php';</script>";
+}
+
 if(count($_GET['idCategoria']) > 1){
     echo "<script> alert('Selecione apenas um item'); window.location.href='$rota/home-adm/categorias.php';</script>"; 
     // header("location:$rota/home-adm/gerenciar.php");

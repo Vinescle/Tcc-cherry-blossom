@@ -3,8 +3,7 @@ $page = 'home';
 include '../conexao.php';
 include '../verifica-logado.php';
 $sqlVisitasTotal = "SELECT COUNT(*) FROM tb_log_visitas 
-WHERE DATE_FORMAT(data_visita,'%d') = (SELECT MAX(DATE_FORMAT(data_visita,'%d')) FROM tb_log_visitas)
-AND DATE_FORMAT(data_visita,'%m') = (SELECT MAX(DATE_FORMAT(data_visita,'%m')) FROM tb_log_visitas)";
+WHERE DATE_FORMAT(data_visita,'%d') = (SELECT MAX(DATE_FORMAT(data_visita,'%d')) FROM tb_log_visitas WHERE  DATE_FORMAT(data_visita,'%m') = (SELECT MAX(DATE_FORMAT(data_visita,'%m')) FROM tb_log_visitas))";
 $resultadoVisitasTotal = mysqli_query($conexao, $sqlVisitasTotal);
 $resultadoVisitasTotal = mysqli_fetch_array($resultadoVisitasTotal);
 
@@ -55,6 +54,12 @@ $sqlEmailMesAnterior = "SELECT CASE WHEN count(*) = 0 THEN 1 END as valor_mes_an
 FROM tb_email_para_notificar WHERE DATE_FORMAT(data_cadastro,'%m') = (SELECT MAX(DATE_FORMAT(data_cadastro,'%m')) - 1 FROM tb_email_para_notificar);";
 $resultadoEmail = mysqli_query($conexao,$sqlEmailMesAnterior);
 $resultadoEmail = mysqli_fetch_array($resultadoEmail);
+
+if($resultadoEmail['valor_mes_anterior'] != null){
+    $resultadoEmail['valor_mes_anterior'] = $resultadoEmail['valor_mes_anterior'];
+}else{
+    $resultadoEmail['valor_mes_anterior'] = 1;
+}
 $PorcentagemEmail = $PorcentagemEmail / $resultadoEmail['valor_mes_anterior'];
 //Vendas por dia
 $sqlVendasDia = "SELECT COUNT(*) AS vendasDia FROM tb_produto_pedido a 

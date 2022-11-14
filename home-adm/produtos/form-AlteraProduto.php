@@ -251,7 +251,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                     <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="wallet-outline"></ion-icon>
                                     </button>
-                                    <input class="input-conjunto input-tiktok" name="URLProduto" required="" type="text" value="<?php echo $resultadoProduto['visualizacao_url'] ?>">
+                                    <input class="input-conjunto input-tiktok" name="URLProduto" type="text" value="<?php echo $resultadoProduto['visualizacao_url'] ?>">
                                 </div>
                             </div>
                         </div>

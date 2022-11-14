@@ -247,7 +247,9 @@ $produto = $resultadoProduto->fetch_all(MYSQLI_ASSOC)[0];
         const quantidade = document.querySelector('#quantidade');
 
         function aumenta() {
-            quantidade = quantidade.value++;
+            if(quantidade.value < 10){
+                quantidade = quantidade.value++;
+            }
         }
 
         function diminui() {

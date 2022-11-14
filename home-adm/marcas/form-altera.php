@@ -1,6 +1,11 @@
 <?php
 $page = 'marcas';
 include '../../conexao.php';
+
+if(count($_GET) == 0){
+    echo "<script> alert('Nenhum item foi selecionado'); window.location.href='$rota/home-adm/marcas.php';</script>";
+}
+
 if (count($_GET['idcheckbox']) > 1) {
     echo "<script> alert('Selecione apenas um item'); window.location.href='$rota/home-adm/marcas.php';</script>";
     // header("location:$rota/home-adm/gerenciar.php");
@@ -52,7 +57,7 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
                                 <button class="botao-input" disabled="">
                                     <ion-icon class="icone-input md hydrated" name="balloon-outline"></ion-icon>
                                 </button>
-                                <input class="input-conjunto input-tiktok" value="<?php echo $resultadoMarca['nome_marca']; ?>" type="text" name="nomeMarca">
+                                <input class="input-conjunto input-tiktok" value="<?php echo $resultadoMarca['nome_marca']; ?>" type="text" name="nomeMarca" required>
                             </div>
 
                             <label class="input-texto">Ícone</label>
@@ -64,7 +69,7 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
                                             if (!empty($resultadoMarca['icon_url'])) {
                                                 $iconeMarca = $resultadoMarca['icon_url']
                                             ?>
-                                                <input type="file" name="iconUrl" value="<?php echo $resultadoMarca['icon_url']; ?>" class="iconImg" onchange="previewImagem(event)">
+                                                <input type="file" name="iconUrl" value="<?php echo $resultadoMarca['icon_url']; ?>" class="iconImg" onchange="previewImagem(event)" required>
 
                                                 <img src="../../assets/imagens/storage/marcas/<?php echo $iconeMarca ?>" alt="icone da marca" style="width:200px;" id="output">
                                             <?php

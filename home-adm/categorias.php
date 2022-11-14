@@ -13,8 +13,13 @@ if (isset($pagina) || isset($_GET['pagina'])) {
 
 include '../conexao.php';
 include '../verifica-logado.php';
-$sqlCategorias = "SELECT * FROM tb_categoria LIMIT $limit,4";
+if(isset($_GET['pesquisaCategoria'])){
+    $sqlCategorias = "SELECT * FROM tb_categoria WHERE nome_categoria LIKE '%$_GET[pequisaCategoria]%' LIMIT $limit,4";
+}else{
+    $sqlCategorias = "SELECT * FROM tb_categoria LIMIT $limit,4";
+}
 $resultadoCategoria = mysqli_query($conexao, $sqlCategorias);
+
 
 if (isset($_GET['id_categoria'])) {
     $subLimit = 0;
@@ -22,6 +27,11 @@ if (isset($_GET['id_categoria'])) {
     $sqlsubCategorias = "SELECT * FROM tb_sub_categoria a INNER JOIN tb_categoria b ON a.fk_id_categoria = b.id_categoria WHERE b.id_categoria = $idsubcategoria LIMIT $subLimit,4";
     $resultadoSubCategoria = mysqli_query($conexao, $sqlsubCategorias);
 } else {
+    if(isset($_GET['pesquisaSubcategoria'])){
+        $sqlCategorias = "SELECT * FROM tb_sub_categoria WHERE nome_sub_categoria LIKE '%$_GET[pesquisaSubcategoria]%' LIMIT $limit,4";
+    }else{
+        $sqlCategorias = "SELECT * FROM tb_sub_categoria LIMIT $limit,4";
+    }
     $sqlsubCategorias = "SELECT * FROM tb_sub_categoria";
     $resultadoSubCategoria = mysqli_query($conexao, $sqlsubCategorias);
 }
@@ -67,7 +77,7 @@ if (isset($_GET['id_categoria'])) {
                                     <div class="formulario-gerenciamento">
                                         <button class="botao-enviar" type="submit">
                                         </button>
-                                        <input class="botao-pesquisa_produtos config-gerenciamento" type="TEXT" name="pesquisa">
+                                        <input class="botao-pesquisa_produtos config-gerenciamento" type="TEXT" name="pesquisaCategoria">
                                     </div>
                                 </form>
                             </div>
@@ -148,7 +158,7 @@ if (isset($_GET['id_categoria'])) {
                                     <div class="formulario-gerenciamento">
                                         <button class="botao-enviar" type="submit">
                                         </button>
-                                        <input class="botao-pesquisa_produtos config-gerenciamento" type="TEXT">
+                                        <input class="botao-pesquisa_produtos config-gerenciamento" type="TEXT" name="pesquisaSubcategoria">
                                     </div>
                                 </form>
                             </div>
