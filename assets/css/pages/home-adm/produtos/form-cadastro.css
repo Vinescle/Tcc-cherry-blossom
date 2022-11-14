@@ -368,15 +368,13 @@ ion-icon {
 
 /* Botão que apaga imagens*/
 
-.div-lixeira {
-  background-color: transparent;
-  border: none;
-}
-
 .botao-lixeira {
   display: flex;
   justify-self: end;
-  align-self: flex-end;
+
+  position: absolute;
+  top: 8.5rem;
+  right: .5rem;
   
   padding: .5rem 1rem;
   

@@ -231,9 +231,7 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                                         <img id="output" style="max-width: 200PX; aspect-ratio: 1/1;">
                                         <ion-icon class="input-icone_botao input-icone_botao_1" name="add-outline"></ion-icon>
                                         <input type="file" id="input-icone_botao_1" method="POST" name="imagemProduto-1" class="imagemProduto-1" onchange="previewImagem(event)">
-                                    </button>
 
-                                    <button class="div-lixeira">
                                         <div class="botao-lixeira">
                                             <img class="icone-lixeira" src="../../assets/icones/lixeira.svg">
                                         </div>
@@ -245,6 +243,10 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                                         <img id="output2" style="max-width: 200PX; aspect-ratio: 1/1;">
                                         <ion-icon class="input-icone_botao input-icone_botao_2" name="add-outline"></ion-icon>
                                         <input type="file" method="POST" name="imagemProduto-2" class="imagemProduto-2" accept="image/*" onchange="previewImagem2(event)">
+
+                                        <div class="botao-lixeira">
+                                            <img class="icone-lixeira" src="../../assets/icones/lixeira.svg">
+                                        </div>
                                     </button>
                                 </div>
 
@@ -253,6 +255,10 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                                         <img id="output3" style="max-width: 200PX; aspect-ratio: 1/1;">
                                         <ion-icon class="input-icone_botao input-icone_botao_3" name="add-outline"></ion-icon>
                                         <input type="file" method="POST" name="imagemProduto-3" class="imagemProduto-3" accept="image/*" onchange="previewImagem3(event)">
+
+                                        <div class="botao-lixeira">
+                                            <img class="icone-lixeira" src="../../assets/icones/lixeira.svg">
+                                        </div>
                                     </button>
                                 </div>
 
@@ -261,6 +267,10 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                                         <img id="output4" style="max-width: 200PX; aspect-ratio: 1/1;">
                                         <ion-icon class="input-icone_botao input-icone_botao_4" name="add-outline"></ion-icon>
                                         <input type="file" method="POST" name="imagemProduto-4" class="imagemProduto-4" accept="image/*" onchange="previewImagem4(event)">
+
+                                        <div class="botao-lixeira">
+                                            <img class="icone-lixeira" src="../../assets/icones/lixeira.svg">
+                                        </div>
                                     </button>
                                 </div>
 
@@ -269,6 +279,10 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                                         <img id="output5" style="max-width: 200PX; aspect-ratio: 1/1;">
                                         <ion-icon class="input-icone_botao input-icone_botao_5" name="add-outline"></ion-icon>
                                         <input type="file" method="POST" name="imagemProduto-5" class="imagemProduto-5" accept="image/*" onchange="previewImagem5(event)">
+
+                                        <div class="botao-lixeira">
+                                            <img class="icone-lixeira" src="../../assets/icones/lixeira.svg">
+                                        </div>
                                     </button>
                                 </div>
                             </div>
