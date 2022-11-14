@@ -227,7 +227,7 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                                 <div class="conjunto-imagens">
 
                                     <button class="botao-banner" type="button">
-                                        <img id="output" style="max-width: 200PX;">
+                                        <img id="output" style="max-width: 200PX; aspect-ratio: 1/1;">
                                         <ion-icon class="input-icone_botao input-icone_botao_1" name="add-outline"></ion-icon>
                                         <input type="file" method="POST" name="imagemProduto-1" class="imagemProduto-1" onchange="previewImagem(event)">
                                     </button>
@@ -235,7 +235,7 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
 
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
-                                        <img id="output2" style="max-width: 200PX;">
+                                        <img id="output2" style="max-width: 200PX; aspect-ratio: 1/1;">
                                         <ion-icon class="input-icone_botao input-icone_botao_2" name="add-outline"></ion-icon>
                                         <input type="file" method="POST" name="imagemProduto-2" class="imagemProduto-2" accept="image/*" onchange="previewImagem2(event)">
                                     </button>
@@ -243,7 +243,7 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
 
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
-                                        <img id="output3" style="max-width: 200PX;">
+                                        <img id="output3" style="max-width: 200PX; aspect-ratio: 1/1;">
                                         <ion-icon class="input-icone_botao input-icone_botao_3" name="add-outline"></ion-icon>
                                         <input type="file" method="POST" name="imagemProduto-3" class="imagemProduto-3" accept="image/*" onchange="previewImagem3(event)">
                                     </button>
@@ -251,7 +251,7 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
 
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
-                                        <img id="output4" style="max-width: 200PX;">
+                                        <img id="output4" style="max-width: 200PX; aspect-ratio: 1/1;">
                                         <ion-icon class="input-icone_botao input-icone_botao_4" name="add-outline"></ion-icon>
                                         <input type="file" method="POST" name="imagemProduto-4" class="imagemProduto-4" accept="image/*" onchange="previewImagem4(event)">
                                     </button>
@@ -259,7 +259,7 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
 
                                 <div class="conjunto-imagens">
                                     <button class="botao-banner" type="button">
-                                        <img id="output5" style="max-width: 200PX;">
+                                        <img id="output5" style="max-width: 200PX; aspect-ratio: 1/1;">
                                         <ion-icon class="input-icone_botao input-icone_botao_5" name="add-outline"></ion-icon>
                                         <input type="file" method="POST" name="imagemProduto-5" class="imagemProduto-5" accept="image/*" onchange="previewImagem5(event)">
                                     </button>

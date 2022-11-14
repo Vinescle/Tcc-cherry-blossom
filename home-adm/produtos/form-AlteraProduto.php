@@ -261,7 +261,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                         if (isset($resultadoImagemProduto[0][1])) {
                                             $caminhoProduto = $resultadoImagemProduto[0][1];
                                         ?>
-                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output" alt="Imagem produto" style="width:200px;">
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output" alt="Imagem produto" style="width:200px; aspect-ratio: 1/1;">
                                             <input type="file" method="POST" name="imagemProduto-1" class="imagemProduto-1" value="<?php echo $caminhoProduto ?>" onchange="previewImagem(event)">
                                         <?php
                                         } else {
@@ -278,7 +278,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                         if (isset($resultadoImagemProduto[1][1])) {
                                             $caminhoProduto = $resultadoImagemProduto[1][1];
                                         ?>
-                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output2" alt="Imagem produto" style="width:200px;">
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output2" alt="Imagem produto" style="width:200px; aspect-ratio: 1/1;">
                                             <input type="file" method="POST" name="imagemProduto-2" class="imagemProduto-2" value="<?php echo $caminhoProduto ?>" onchange="previewImagem2(event)">
                                         <?php
                                         } else {
@@ -295,7 +295,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                         if (isset($resultadoImagemProduto[2][1])) {
                                             $caminhoProduto = $resultadoImagemProduto[2][1];
                                         ?>
-                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output3" alt="Imagem produto" style="width:200px;">
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output3" alt="Imagem produto" style="width:200px; aspect-ratio: 1/1;">
                                             <input type="file" method="POST" name="imagemProduto-3" class="imagemProduto-3" value="<?php echo $caminhoProduto ?>" onchange="previewImagem3(event)">
                                         <?php
                                         } else {
@@ -312,7 +312,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                         if (isset($resultadoImagemProduto[3][1])) {
                                             $caminhoProduto = $resultadoImagemProduto[3][1];
                                         ?>
-                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output4" alt="Imagem produto" style="width:200px;">
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output4" alt="Imagem produto" style="width:200px; aspect-ratio: 1/1;">
                                             <input type="file" method="POST" name="imagemProduto-4" class="imagemProduto-4" value="<?php echo $caminhoProduto ?>" onchange="previewImagem4(event)">
                                         <?php
                                         } else {
@@ -329,7 +329,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                         if (isset($resultadoImagemProduto[4][1])) {
                                             $caminhoProduto = $resultadoImagemProduto[4][1];
                                         ?>
-                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output5" alt="Imagem produto" style="width:200px;">
+                                            <img src="../../assets/imagens/storage/produtos/<?php echo $caminhoProduto; ?>" id="output5" alt="Imagem produto" style="width:200px; aspect-ratio: 1/1;">
                                             <input type="file" method="POST" name="imagemProduto-5" class="imagemProduto-5" value="<?php echo $caminhoProduto ?>" onchange="previewImagem5(event)">
                                         <?php
                                         } else {
