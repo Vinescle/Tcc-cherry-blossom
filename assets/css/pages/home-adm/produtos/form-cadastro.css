@@ -365,3 +365,27 @@ ion-icon {
   display: flex;
   gap: 2.5rem;
 }
+
+/* Botão que apaga imagens*/
+
+.div-lixeira {
+  background-color: transparent;
+  border: none;
+}
+
+.botao-lixeira {
+  display: flex;
+  justify-self: end;
+  align-self: flex-end;
+  
+  padding: .5rem 1rem;
+  
+  background-color: #FF84F0;
+
+  border-radius: 20px;
+}
+
+.icone-lixeira {
+  width: 20px;
+  height: 20px;
+}

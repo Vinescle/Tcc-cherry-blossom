@@ -225,11 +225,16 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                             <label class="input-texto">Imagens</label>
                             <div class="imagens">
                                 <div class="conjunto-imagens">
-
                                     <button class="botao-banner" type="button">
                                         <img id="output" style="max-width: 200PX; aspect-ratio: 1/1;">
                                         <ion-icon class="input-icone_botao input-icone_botao_1" name="add-outline"></ion-icon>
                                         <input type="file" method="POST" name="imagemProduto-1" class="imagemProduto-1" onchange="previewImagem(event)">
+                                    </button>
+
+                                    <button class="div-lixeira">
+                                        <div class="botao-lixeira">
+                                            <img class="icone-lixeira" src="../../assets/icones/lixeira.svg">
+                                        </div>
                                     </button>
                                 </div>
 
