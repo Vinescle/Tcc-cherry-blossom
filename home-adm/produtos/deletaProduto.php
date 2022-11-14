@@ -1,5 +1,8 @@
 <?php
 
+if (count($_GET) == 0){
+    echo "<script> alert('Nenhum item foi selecionado'); window.location.href='../gerenciar.php';</script>";
+}
 include '../../conexao.php';
 
 $idproduto = $_GET['idproduto'];

@@ -42,8 +42,10 @@ foreach ($imagensProduto as $imagemProduto) {
     move_uploaded_file($imagemProduto['tmp_name'], "../../assets/imagens/storage/produtos/$nomeImagem");
 }
 
-$sqlMarcasEProdutos = "INSERT INTO tb_marcas_produtos(fk_id_produtos, fk_id_marcas) VALUES ($ultimoIdProdutos,$idMarca)";
-mysqli_query($conexao, $sqlMarcasEProdutos);
+if($idMarca != null || $idMarca != 0){
+    $sqlMarcasEProdutos = "INSERT INTO tb_marcas_produtos(fk_id_produtos, fk_id_marcas) VALUES ($ultimoIdProdutos,$idMarca)";
+    mysqli_query($conexao, $sqlMarcasEProdutos);
+}
 
 $sqlSubCategoriaEProdutos = "INSERT INTO tb_produtos_sub_categorias(fk_id_produtos, fk_id_sub_categorias) VALUES ($ultimoIdProdutos,$idsubcategoria)";
 mysqli_query($conexao, $sqlSubCategoriaEProdutos);

@@ -58,7 +58,7 @@ if (isset($_SESSION['nome'])) {
                         <button type="button" class="botao-input login-button-input">
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="person-circle-outline" role="img" aria-label="person-circle-outline"></ion-icon>
                         </button>
-                        <input class="input-conjunto fonte-2-rem login-input" type="text" value='<?php echo $nome ?>' name="nome" required autocomplete="disabled">
+                        <input class="input-conjunto fonte-2-rem login-input" type="text" value='<?php echo $nome ?>' name="nome" required autocomplete="disabled" pattern="[a-zA-Z0]+">
                     </div>
                 </div>
                 <div class="input">
@@ -111,7 +111,7 @@ if (isset($_SESSION['nome'])) {
                             <button type="button" class="botao-input login-button-input">
                                 <ion-icon class="icone-input md hydrated fonte-2-rem" name="lock-closed-outline" role="img" aria-label="person-circle-outline"></ion-icon>
                             </button>
-                            <input class="input-conjunto fonte-2-rem login-input" type="password" name="senhaConfirma" required>
+                            <input class="input-conjunto fonte-2-rem login-input" type="password" value="<?php echo isset($_SESSION['senhaConfirma']) ? $_SESSION['senhaConfirma'] : ""  ?>" name="senhaConfirma" required>
                         </div>
                     <?php
                     }
@@ -135,10 +135,10 @@ if (isset($_SESSION['nome'])) {
                         <label class="input-text">CPF</label>
                     </div>
                     <div class="input-container">
-                        <button type="button" class="botao-input login-button-input">
-                            <ion-icon class="icone-input md hydrated fonte-2-rem" name="document-text-outline" role="img" aria-label="person-circle-outline"></ion-icon>
+                        <button type="button" class="botao-input login-button-input" <?php echo isset($_GET['cpfIncorreto']) ? "style='background-color:red !important;'" : "" ?>>
+                            <ion-icon class="icone-input md hydrated fonte-2-rem" <?php echo isset($_GET['cpfIncorreto']) ? "style='background-color:red !important;'" : "" ?> name="document-text-outline" role="img" aria-label="person-circle-outline"></ion-icon>
                         </button>
-                        <input id="cpf" class="input-conjunto fonte-2-rem login-input" type="text" value='<?php echo $cpf ?>' name="cpf" minlength="14" maxlength="14" required>
+                        <input id="cpf" class="input-conjunto fonte-2-rem login-input" <?php echo isset($_GET['cpfIncorreto']) ? "style='border: 1px solid red !important;' placeholder='CPF inválido'" : "" ?> type="text" value='<?php echo $cpf ?>' name="cpf" minlength="14" maxlength="14" required>
                     </div>
                 </div>
                 <div class="div-checkbox">

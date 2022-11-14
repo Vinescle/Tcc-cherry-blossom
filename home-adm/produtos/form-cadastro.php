@@ -98,6 +98,7 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                                         <ion-icon class="icone-input md hydrated" name="balloon-outline"></ion-icon>
                                     </button>
                                     <select class="input-conjunto input-tiktok" name="idmarca">
+                                        <option value="0">Sem marca</option>
                                         <?php while ($resultado = mysqli_fetch_array($resultadoMarcas)) {
                                             if ($resultado['id_marca'] == $resultadoProduto['fk_id_marcas']) {
                                         ?>
@@ -216,7 +217,7 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                                     <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="wallet-outline"></ion-icon>
                                     </button>
-                                    <input class="input-conjunto input-tiktok" name="URLProduto" required="" type="text">
+                                    <input class="input-conjunto input-tiktok" name="URLProduto" type="text">
                                 </div>
                             </div>
                         </div>
@@ -225,10 +226,11 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                             <label class="input-texto">Imagens</label>
                             <div class="imagens">
                                 <div class="conjunto-imagens">
-                                    <button class="botao-banner" type="button">
+
+                                    <button class="botao-banner" for="input-icone_botao_1" type="button">
                                         <img id="output" style="max-width: 200PX; aspect-ratio: 1/1;">
                                         <ion-icon class="input-icone_botao input-icone_botao_1" name="add-outline"></ion-icon>
-                                        <input type="file" method="POST" name="imagemProduto-1" class="imagemProduto-1" onchange="previewImagem(event)">
+                                        <input type="file" id="input-icone_botao_1" method="POST" name="imagemProduto-1" class="imagemProduto-1" onchange="previewImagem(event)">
                                     </button>
 
                                     <button class="div-lixeira">

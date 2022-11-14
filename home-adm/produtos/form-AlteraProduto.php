@@ -1,6 +1,9 @@
 <?php
 $page = 'gerenciar';
 include '../../conexao.php';
+if (count($_GET) == 0){
+    echo "<script> alert('Nenhum item foi selecionado'); window.location.href='$rota/home-adm/gerenciar.php';</script>";
+}
 if (count($_GET['idproduto']) > 1) {
     echo "<script> alert('Selecione apenas um item'); window.location.href='$rota/home-adm/gerenciar.php';</script>";
     // header("location:$rota/home-adm/gerenciar.php");
@@ -31,7 +34,7 @@ d.id_sub_categoria,
 f.fk_id_marcas,
 b.url
 FROM tb_produtos a
-INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto
+LEFT JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto
 INNER JOIN tb_produtos_sub_categorias c ON c.fk_id_produtos = a.id_produtos
 INNER JOIN tb_sub_categoria d ON d.id_sub_categoria = c.fk_id_sub_categorias
 INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria
@@ -104,7 +107,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                     <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="wallet-outline"></ion-icon>
                                     </button>
-                                    <input class="input-conjunto input-tiktok" name="precoPromocional" placeholder="Preço promocional" required="" type="text" value="<?php echo $resultadoProduto['preco_fora_promocao'] ?>">
+                                    <input class="input-conjunto input-tiktok" name="precoPromocional" placeholder="Preço promocional" type="text" value="<?php echo $resultadoProduto['preco_fora_promocao'] ?>">
                                 </div>
                             </div>
                         </div>
@@ -129,6 +132,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                         <ion-icon class="icone-input md hydrated" name="balloon-outline"></ion-icon>
                                     </button>
                                     <select class="input-conjunto input-tiktok" name="idmarca">
+                                        <option value="0">Sem Marca</option>
                                         <?php while ($resultado = mysqli_fetch_array($resultadoMarcas)) {
                                             if ($resultado['id_marca'] == $resultadoProduto['fk_id_marcas']) {
                                         ?>
@@ -247,7 +251,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                     <button class="botao-input">
                                         <ion-icon class="icone-input md hydrated" name="wallet-outline"></ion-icon>
                                     </button>
-                                    <input class="input-conjunto input-tiktok" name="URLProduto" required="" type="text" value="<?php echo $resultadoProduto['visualizacao_url'] ?>">
+                                    <input class="input-conjunto input-tiktok" name="URLProduto" type="text" value="<?php echo $resultadoProduto['visualizacao_url'] ?>">
                                 </div>
                             </div>
                         </div>

@@ -8,6 +8,9 @@ if (isset($_GET['deslogar'])) {
 }
 
 
+
+
+
 // CONFIGURAÇÕES E INSERTS DAS TABELAS DE VISITAS
 $sqlVisita = "INSERT INTO tb_log_visitas (data_visita) VALUES (NOW())";
 mysqli_query($conexao, $sqlVisita);
@@ -31,13 +34,14 @@ a.preco_produto,
 a.qtd_produto,
 b.url,
 e.nome_categoria,
-d.nome_sub_categoria
+d.nome_sub_categoria,
+(select count(*) from tb_produto_popular f where a.id_produtos = f.fk_id_produto) as destaqueContagem
 FROM tb_produtos a
-INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto
+LEFT JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto
 INNER JOIN tb_produtos_sub_categorias c ON c.fk_id_produtos = a.id_produtos
 INNER JOIN tb_sub_categoria d ON d.id_sub_categoria = c.fk_id_sub_categorias
 INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria
-GROUP BY a.id_produtos
+GROUP BY a.id_produtos ORDER BY  destaqueContagem DESC
 LIMIT 8";
 $resultadoDestaques = mysqli_query($conexao, $sqlDestaques);
 
@@ -50,7 +54,7 @@ b.url,
 e.nome_categoria,
 d.nome_sub_categoria
 FROM tb_produtos a
-INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto
+LEFT JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto
 INNER JOIN tb_produtos_sub_categorias c ON c.fk_id_produtos = a.id_produtos
 INNER JOIN tb_sub_categoria d ON d.id_sub_categoria = c.fk_id_sub_categorias
 INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria 

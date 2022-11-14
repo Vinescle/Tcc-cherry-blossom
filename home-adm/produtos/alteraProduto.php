@@ -6,12 +6,15 @@ $idproduto = $_POST['idproduto'];
 
 $idMarca = $_POST['idmarca'];
 
-$sqlMarca = "SELECT * FROM tb_marcas_produtos WHERE fk_id_produtos = $idproduto";
-$resultadoMarca = mysqli_query($conexao, $sqlMarca);
-$resultadoMarca = mysqli_fetch_array($resultadoMarca);
-if ($resultadoMarca['fk_id_marcas'] != $idMarca) {
-    $sql = "UPDATE `tb_marcas_produtos` SET `fk_id_marcas`=$idMarca WHERE fk_id_produtos = $idproduto";
-    mysqli_query($conexao, $sql);
+if($idMarca != null || $idMarca != 0){
+    $sqlMarca = "SELECT * FROM tb_marcas_produtos WHERE fk_id_produtos = $idproduto";
+    $resultadoMarca = mysqli_query($conexao, $sqlMarca);
+    $resultadoMarca = mysqli_fetch_array($resultadoMarca);
+    if ($resultadoMarca['fk_id_marcas'] != $idMarca) {
+        $sql = "UPDATE `tb_marcas_produtos` SET `fk_id_marcas`=$idMarca WHERE fk_id_produtos = $idproduto";
+        mysqli_query($conexao, $sql);
+    }
+
 }
 
 $idcategoria = $_POST['idcategoria'];
