@@ -162,7 +162,7 @@ input[type=number] {
 }
 
 input:checked+label:before {
-  background-image: url('http://localhost/Tcc-cherry-blossom-master/assets/icones/checked.svg');
+  background-image: url('http://localhost/tcc-cherry-blossom/assets/icones/checked.svg');
   background-color: #FF84F0;
 }
 

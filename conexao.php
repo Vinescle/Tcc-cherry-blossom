@@ -10,9 +10,7 @@ define('DB', 'cherry_blossom');
 // define('SENHA', '123.456');
 // define('DB', 'ist');
 
-// $rota = 'http://localhost/tcc-cherry-blossom';
-// $rota = 'http://localhost/Tcc-cherry-blossom-master';
-$rota = 'http://localhost/tcc/Tcc-cherry-blossom';
+$rota = 'http://localhost/tcc-cherry-blossom';
 // $rota = 'http://localhost';
 // alterar rota também no arquivo /assets/css/base-adm.css e /assets/css/base.css
 
