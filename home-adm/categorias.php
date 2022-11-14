@@ -63,11 +63,11 @@ if (isset($_GET['id_categoria'])) {
                     <div class="filtros">
                         <div class="conjunto-filtro-botoes">
                             <div class="cabecalho-pesquisa">
-                                <form>
+                                <form action="?" method="get">
                                     <div class="formulario-gerenciamento">
                                         <button class="botao-enviar" type="submit">
                                         </button>
-                                        <input class="botao-pesquisa_produtos config-gerenciamento" type="TEXT">
+                                        <input class="botao-pesquisa_produtos config-gerenciamento" type="TEXT" name="pesquisa">
                                     </div>
                                 </form>
                             </div>

@@ -17,6 +17,18 @@ $cpf = preg_replace('/[^0-9]/', '', $_POST['cpf']);
 $receberEmails = $_POST['receberEmails'];
 $Termos = $_POST['Termos'];
 
+if(strlen($cpf) < 10){
+    $_SESSION['nome'] = $nome;
+    $_SESSION['email'] = $email;
+    $_SESSION['senha'] = $senha;
+    $_SESSION['senhaConfirma'] = $senhaConfirma;
+    $_SESSION['nascimento'] = $nascimento;
+    $_SESSION['cpf'] = $_POST['cpf'];
+    $_SESSION['receberEmails'] = $receberEmails;
+    header('location: ./cadastro.php?cpfIncorreto=1');
+    exit();
+}
+
 
 if ($receberEmails == "on") {
     $receberEmails = 1;

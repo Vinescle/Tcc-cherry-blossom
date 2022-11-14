@@ -13,12 +13,24 @@ if (isset($pagina) || isset($_GET['pagina'])) {
 
 include '../conexao.php';
 include '../verifica-logado.php';
-$sql = "SELECT a.id_produtos, a.nome_produto, a.preco_produto, a.qtd_produto, b.nome_marca, c.nome_categoria FROM tb_produtos a
+
+if (isset($_GET['pesquisa'])) {
+
+    $sql = "SELECT a.id_produtos, a.nome_produto, a.preco_produto, a.qtd_produto, b.nome_marca, c.nome_categoria FROM tb_produtos a
+    INNER JOIN tb_marcas_produtos marcasRE ON a.id_produtos = marcasRE.fk_id_produtos
+    LEFT JOIN tb_marcas b ON b.id_marca = marcasRE.fk_id_marcas
+    INNER JOIN tb_produtos_sub_categorias subcategoriasRE ON a.id_produtos = subcategoriasRE.fk_id_produtos
+    INNER JOIN tb_sub_categoria subcategorias  ON subcategorias.id_sub_categoria = subcategoriasRE.fk_id_sub_categorias
+    INNER JOIN tb_categoria c ON c.id_categoria = subcategorias.fk_id_categoria WHERE a.nome_produto LIKE '%$_GET[pesquisa]%' GROUP BY a.id_produtos LIMIT $limit,8";
+} else {
+
+    $sql = "SELECT a.id_produtos, a.nome_produto, a.preco_produto, a.qtd_produto, b.nome_marca, c.nome_categoria FROM tb_produtos a
     INNER JOIN tb_marcas_produtos marcasRE ON a.id_produtos = marcasRE.fk_id_produtos
     LEFT JOIN tb_marcas b ON b.id_marca = marcasRE.fk_id_marcas
     INNER JOIN tb_produtos_sub_categorias subcategoriasRE ON a.id_produtos = subcategoriasRE.fk_id_produtos
     INNER JOIN tb_sub_categoria subcategorias  ON subcategorias.id_sub_categoria = subcategoriasRE.fk_id_sub_categorias
     INNER JOIN tb_categoria c ON c.id_categoria = subcategorias.fk_id_categoria GROUP BY a.id_produtos LIMIT $limit,8";
+}
 
 $sqlProdutosPopulares = "SELECT fk_id_produto, b.nome_produto, COUNT(*) AS quantidade_acessos FROM tb_produto_popular a 
 INNER JOIN tb_produtos b ON a.fk_id_produto = b.id_produtos GROUP BY fk_id_produto ORDER BY COUNT(*) DESC";
@@ -28,7 +40,7 @@ $sqlProdutosVendidos = "SELECT id_produto, c.nome_produto, COUNT(*) AS quantidad
 INNER JOIN tb_usuario_pedido b ON a.fk_id_pedido = b.id_usuario_pedido
 INNER JOIN tb_produtos c ON  c.id_produtos = a.id_produto GROUP BY id_produto
 ORDER BY COUNT(*) DESC LIMIT 4";
-$resultadoProdutosVendidos = mysqli_query($conexao,$sqlProdutosVendidos);
+$resultadoProdutosVendidos = mysqli_query($conexao, $sqlProdutosVendidos);
 
 
 try {
@@ -71,11 +83,11 @@ try {
                 <div class="conteudo-acoes">
                     <div class="grupo-filtro">
                         <div class="cabecalho-pesquisa">
-                            <form>
+                            <form action="?" method="get">
                                 <div class="formulario-gerenciamento">
                                     <button class="botao-enviar" type="submit">
                                     </button>
-                                    <input class="botao-pesquisa_produtos config-gerenciamento" type="TEXT">
+                                    <input class="botao-pesquisa_produtos config-gerenciamento" type="TEXT" name="pesquisa">
                                 </div>
                             </form>
                         </div>
@@ -125,13 +137,25 @@ try {
                         </tr>
 
                         <?php
+                        $contadorMaidVendidos = 0;
                         while ($ProdutosVendidos = mysqli_fetch_array($resultadoProdutosVendidos)) {
+                            $contadorMaidVendidos += 1;
                         ?>
                             <tr>
-                                <td class="tabela-destaques_id"><?php echo $ProdutosVendidos['id_produto']?></td>
-                                <td class="tabela-destaques_conteudo"><?php echo $ProdutosVendidos['nome_produto']?></td>
+                                <td class="tabela-destaques_id"><?php echo $ProdutosVendidos['id_produto'] ?></td>
+                                <td class="tabela-destaques_conteudo"><?php echo $ProdutosVendidos['nome_produto'] ?></td>
                             </tr>
+                            <?php
+                        }
+                        if ($contadorMaidVendidos < 5) {
+                            for ($i = $contadorMaidVendidos; $i < 5; $i++) {
+                            ?>
+                                <tr>
+                                    <td class="tabela-destaques_id">00</td>
+                                    <td class="tabela-destaques_conteudo">Sem produtos para este cargo</td>
+                                </tr>
                         <?php
+                            }
                         }
                         ?>
                     </table>
@@ -142,13 +166,25 @@ try {
                         </tr>
 
                         <?php
+                        $contadorMaisPopulares = 0;
                         while ($ProdutosPopulares = mysqli_fetch_array($resultadoProdutosPopulares)) {
+                            $contadorMaisPopulares += 1;
                         ?>
                             <tr>
-                                <td class="tabela-destaques_id"><?php echo $ProdutosPopulares['fk_id_produto']?></td>
-                                <td class="tabela-destaques_conteudo"><?php echo $ProdutosPopulares['nome_produto']?></td>
+                                <td class="tabela-destaques_id"><?php echo $ProdutosPopulares['fk_id_produto'] ?></td>
+                                <td class="tabela-destaques_conteudo"><?php echo $ProdutosPopulares['nome_produto'] ?></td>
                             </tr>
+                            <?php
+                        }
+                        if ($contadorMaisPopulares < 5) {
+                            for ($i = $contadorMaisPopulares; $i < 5; $i++) {
+                            ?>
+                                <tr>
+                                    <td class="tabela-destaques_id">00</td>
+                                    <td class="tabela-destaques_conteudo">Sem produtos para este cargo</td>
+                                </tr>
                         <?php
+                            }
                         }
                         ?>
                     </table>

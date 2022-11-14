@@ -13,6 +13,6 @@ $fk_id_mes = $resultadoUltimoId[0];
 $sqlUltimo = "UPDATE tb_email_para_notificar SET fk_id_mes = $fk_id_mes WHERE id_email = $ultimoId";
 mysqli_query($conexao, $sqlUltimo);
 
-header("Location: ../index.php");
+echo "<script> alert('Email Cadastrado com sucesso!!'); window.location.href='$rota';</script>";
 
 ?>
