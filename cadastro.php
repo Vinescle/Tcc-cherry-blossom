@@ -36,14 +36,14 @@ if (isset($_SESSION['nome'])) {
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/reset.css">
+    <link href="<?php echo $rota; ?>/assets/imagens/logo.png" rel="shortcut icon" />
     <title>Cherry Blossom - Cadastro</title>
     <link href="<?php echo $rota; ?>/assets/css/base.css" rel="stylesheet">
     <link href="<?php echo $rota; ?>/assets/css/base-adm.css" rel="stylesheet">
     <link href="<?php echo $rota; ?>/assets/css/cadastro.css" rel="stylesheet">
 </head>
 
-<body onload="checar()">
+<body>
     <main>
         <div class="conteiner">
             <div class="conteiner-titulo">
@@ -55,10 +55,10 @@ if (isset($_SESSION['nome'])) {
                         <label class="input-text">Nome Completo</label>
                     </div>
                     <div class="input-container">
-                        <button type="button" class="botao-input login-button-input">
+                        <button type="button" disabled class="botao-input login-button-input">
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="person-circle-outline" role="img" aria-label="person-circle-outline"></ion-icon>
                         </button>
-                        <input class="input-conjunto fonte-2-rem login-input" type="text" value='<?php echo $nome ?>' name="nome" required autocomplete="disabled" pattern="[a-zA-Z0]+">
+                        <input class="input-conjunto fonte-2-rem login-input" type="text" value='<?php echo $nome ?>' id='input-nome' name="nome" required autocomplete="disabled">
                     </div>
                 </div>
                 <div class="input">
@@ -66,18 +66,19 @@ if (isset($_SESSION['nome'])) {
                         <label class="input-text">E-mail</label>
                     </div>
                     <div class="input-container">
-                        <button type="button" class="botao-input login-button-input" <?php echo $verificaEmail ? "style='background-color:red !important;'" : "" ?>>
+                        <button type="button" disabled class="botao-input login-button-input" <?php echo $verificaEmail ? "style='background-color:red !important;'" : "" ?>>
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="mail-outline" role="img" aria-label="person-circle-outline"></ion-icon>
                         </button>
-                        <input class="input-conjunto fonte-2-rem login-input" type="email" value='<?php echo $email ?>' name="email" required <?php echo $verificaEmail ? "style='border: 1px solid red !important;' placeholder='Email já cadastrado'" : "" ?>>
+                        <input class="input-conjunto fonte-2-rem login-input" type="email" value='<?php echo $email ?>' name="email" required>
                     </div>
+                    <?php echo $verificaEmail ? "<div class='mensagem-erro'>Email já cadastrado'</div>" : "" ?>
                 </div>
                 <div class="input">
                     <div>
                         <label class="input-text">Senha</label>
                     </div>
                     <div class="input-container" style="position: relative;">
-                        <button type="button" class="botao-input login-button-input">
+                        <button type="button" disabled class="botao-input login-button-input">
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="lock-open-outline" role="img" aria-label="person-circle-outline"></ion-icon>
                         </button>
                         <input id="senha" class="input-conjunto fonte-2-rem login-input" type="password" value='<?php echo $senha ?>' name="senha" required minlength="8" maxlength="35">
@@ -88,34 +89,16 @@ if (isset($_SESSION['nome'])) {
                     </div>
                 </div>
                 <div class="input">
-                    <?php
-
-                    if ($verificaSenha) {
-                    ?>
-                        <div>
-                            <label class="input-text">Confirmar Senha</label>
-                        </div>
-                        <div type="button" class="input-container">
-                            <button class="botao-input login-button-input" style="background-color: red !important;">
-                                <ion-icon class="icone-input md hydrated fonte-2-rem" name="lock-closed-outline" role="img" aria-label="person-circle-outline"></ion-icon>
-                            </button>
-                            <input class="input-conjunto fonte-2-rem login-input" type="password" name="senhaConfirma" style="border: 1px solid red;" placeholder="Senha incorreta!!" autofocus required>
-                        </div>
-                    <?php
-                    } else {
-                    ?>
-                        <div>
-                            <label class="input-text">Confirmar Senha</label>
-                        </div>
-                        <div class="input-container">
-                            <button type="button" class="botao-input login-button-input">
-                                <ion-icon class="icone-input md hydrated fonte-2-rem" name="lock-closed-outline" role="img" aria-label="person-circle-outline"></ion-icon>
-                            </button>
-                            <input class="input-conjunto fonte-2-rem login-input" type="password" value="<?php echo isset($_SESSION['senhaConfirma']) ? $_SESSION['senhaConfirma'] : ""  ?>" name="senhaConfirma" required>
-                        </div>
-                    <?php
-                    }
-                    ?>
+                    <div>
+                        <label class="input-text">Confirmar Senha</label>
+                    </div>
+                    <div class="input-container">
+                        <button type="button" disabled class="botao-input login-button-input" <?php echo $verificaSenha ? 'style="background-color: red !important;"' : '' ?>>
+                            <ion-icon class="icone-input md hydrated fonte-2-rem" name="lock-closed-outline" role="img" aria-label="person-circle-outline"></ion-icon>
+                        </button>
+                        <input class="input-conjunto fonte-2-rem login-input" type="password" value="<?php echo isset($_SESSION['senhaConfirma']) ? $_SESSION['senhaConfirma'] : ""  ?>" name="senhaConfirma" id="senhaConfirma" required>
+                    </div>
+                    <?php echo $verificaSenha ? "<div class='mensagem-erro'>Confirmação de senha incorreta!</div>" : "" ?>
                 </div>
                 <div class="input">
                     <div>
@@ -123,7 +106,7 @@ if (isset($_SESSION['nome'])) {
                     </div>
                     <div class="input-corpo">
                         <div class="input-container">
-                            <button type="button" class="botao-input login-button-input">
+                            <button type="button" disabled class="botao-input login-button-input">
                                 <ion-icon class="icone-input md hydrated fonte-2-rem" name="calendar-outline" role="img" aria-label="person-circle-outline"></ion-icon>
                             </button>
                             <input style="font-family: 'Inter';" class="input-conjunto fonte-2-rem login-input" type="date" value='<?php echo $nascimento ?>' name="nascimento" required minlength="10" maxlength="10">
@@ -135,7 +118,7 @@ if (isset($_SESSION['nome'])) {
                         <label class="input-text">CPF</label>
                     </div>
                     <div class="input-container">
-                        <button type="button" class="botao-input login-button-input" <?php echo isset($_GET['cpfIncorreto']) ? "style='background-color:red !important;'" : "" ?>>
+                        <button type="button" disabled class="botao-input login-button-input" <?php echo isset($_GET['cpfIncorreto']) ? "style='background-color:red !important;'" : "" ?>>
                             <ion-icon class="icone-input md hydrated fonte-2-rem" <?php echo isset($_GET['cpfIncorreto']) ? "style='background-color:red !important;'" : "" ?> name="document-text-outline" role="img" aria-label="person-circle-outline"></ion-icon>
                         </button>
                         <input id="cpf" class="input-conjunto fonte-2-rem login-input" <?php echo isset($_GET['cpfIncorreto']) ? "style='border: 1px solid red !important;' placeholder='CPF inválido'" : "" ?> type="text" value='<?php echo $cpf ?>' name="cpf" minlength="14" maxlength="14" required>
@@ -163,20 +146,22 @@ if (isset($_SESSION['nome'])) {
                 </div>
             </form>
         </div>
-        <?php
-        if ($verificaSenha) {
-        ?>
-            <script src="../js/checagemSenha.js"></script>
-        <?php
-        }
-        ?>
         <script src="<?php echo $rota; ?>/assets/js/senhaIcon.js"></script>
-        <script src="<?php echo $rota; ?>/assets/js/mascaraData.js"></script>
         <script src="<?php echo $rota; ?>/assets/js/mascaraSenha.js"></script>
-        <script src="<?php echo $rota; ?>/assets/js/checagemSenha.js"></script>
         <?php
         include('./imports.php');
         ?>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+        <script>
+            $("#input-nome").mask('A', {
+                translation: {
+                    A: {
+                        pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/g,
+                        recursive: true
+                    },
+                },
+            });
+        </script>
     </main>
 </body>
 <?php

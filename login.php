@@ -9,6 +9,7 @@ include './conexao.php';
 <head>
     <meta charset="UTF-8">
     <title>Cherry Blossom - Cadastro</title>
+    <link href="<?php echo $rota; ?>/assets/imagens/logo.png" rel="shortcut icon" />
     <link href="<?php echo $rota; ?>/assets/css/base.css" rel="stylesheet">
     <link href="<?php echo $rota; ?>/assets/css/base-adm.css" rel="stylesheet">
     <link href="<?php echo $rota; ?>/assets/css/cadastro.css" rel="stylesheet">
@@ -26,7 +27,7 @@ include './conexao.php';
                         <label class="input-text">E-mail</label>
                     </div>
                     <div class="input-container">
-                        <button type="button" class="botao-input login-button-input" <?php echo !empty($_GET['erro']) ? 'style="background: red !important;"' : '' ?>>
+                        <button type="button" disabled class="botao-input login-button-input" <?php echo !empty($_GET['erro']) ? 'style="background: red !important;"' : '' ?>>
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="mail-outline" role="img" aria-label="person circle outline"></ion-icon>
                         </button>
                         <input class="input-conjunto fonte-2-rem login-input" type="email" name="email">
@@ -37,7 +38,7 @@ include './conexao.php';
                         <label class="input-text">Senha</label>
                     </div>
                     <div class="input-container">
-                        <button type="button" class="botao-input login-button-input" <?php echo !empty($_GET['erro']) ? 'style="background: red !important;"' : '' ?>>
+                        <button type="button" disabled class="botao-input login-button-input" <?php echo !empty($_GET['erro']) ? 'style="background: red !important;"' : '' ?>>
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="lock-open-outline" role="img" aria-label="person circle outline"></ion-icon>
                         </button>
                         <input class="input-conjunto fonte-2-rem login-input" type="password" name="senha">

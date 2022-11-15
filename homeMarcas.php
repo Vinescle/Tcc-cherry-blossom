@@ -1,9 +1,9 @@
 <?php
 include './conexao.php';
 
-if(isset($_GET['nomeMarca'])){
+if (isset($_GET['nomeMarca'])) {
     $sqlMarcas = "SELECT * FROM tb_marcas WHERE nome_marca LIKE '%$_GET[nomeMarca]%' LIMIT 25";
-}else{
+} else {
     $sqlMarcas = "SELECT * FROM tb_marcas LIMIT 25";
 }
 $resultadoMarcas = mysqli_query($conexao, $sqlMarcas);
