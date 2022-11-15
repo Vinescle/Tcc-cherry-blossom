@@ -14,18 +14,18 @@
   width: calc(100% - 40px);
 }
 
+.formulario {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
 /* Icones formulário */
 
 ion-icon {
   font-size: 20px;
 }
-
-
-
-
-
-
-
 
 /* Banner */
 
@@ -124,4 +124,26 @@ ion-icon {
   border-radius: 13px;
 
   overflow: hidden;
+}
+
+/* Lixeira banner */
+
+.botao-lixeira {
+  display: flex;
+  justify-self: end;
+
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+
+  padding: .5rem 1rem;
+
+  background-color: #FF84F0;
+
+  border-radius: 20px;
+}
+
+.icone-lixeira {
+  width: 20px;
+  height: 20px;
 }

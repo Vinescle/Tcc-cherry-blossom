@@ -39,7 +39,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
 
         <div class="conteudo-principal">
             <div class="main">
-                <form style="width: 100%;" action="./admConfig/configAdmGrava.php" method="POST" enctype="multipart/form-data">
+                <form class="formulario" action="./admConfig/configAdmGrava.php" method="POST" enctype="multipart/form-data">
                     <div class="w-100">
                         <label class="input-texto">E-mail destinatário de sugestões</label>
                         <div class="input-container">
@@ -55,7 +55,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                             <button class="botao-input" disabled="">
                                 <ion-icon class="icone-input md hydrated" name="logo-google"></ion-icon>
                             </button>
-                            <input id="senha" class="input-conjunto input-tiktok cantos-quadrados sem-borda-esquerda" type="password" name="senha" required value="<?php echo $configAdm['senha'] ?>">
+                            <input id="senha" class="input-conjunto input-tiktok" type="password" name="senha" required value="<?php echo $configAdm['senha'] ?>">
                             <div class="icon-input-final" style="cursor:pointer;">
                                 <ion-icon id="senhaIcon" class="icon-eyes" name="eye-off-outline"></ion-icon>
                             </div>
@@ -125,8 +125,11 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                                 <?php
                                 }
                                 ?>
-                                <input type="file" name="banner" required value="<?php echo $rota; ?>/assets/imagens/storage/banners/<?php echo $configAdm['url_banner']?>" onchange="previewImagem(event)">
+                                <input type="file" name="banner" required value="<?php echo $rota; ?>/assets/imagens/storage/banners/<?php echo $configAdm['url_banner'] ?>" onchange="previewImagem(event)">
 
+                                <div class="botao-lixeira">
+                                    <img class="icone-lixeira" src="../assets/icones/lixeira.svg">
+                                </div>
                             </button>
                         </div>
                     </div>
@@ -152,7 +155,6 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                 URL.revokeObjectURL(output.src)
             }
         };
-
     </script>
     <?php
     include('../imports.php');
