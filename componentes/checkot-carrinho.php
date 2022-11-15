@@ -34,6 +34,9 @@ foreach ($carrinhoProdutos as $key => $produto) {
     }
 
     while ($row = mysqli_fetch_array($queryProduto)) {
+        $quantidadeRestante = $row['qtd_produto'] - $produto['quantidade'];
+        if ($quantidadeRestante < 0)
+            $quantidadeRestante = 0;
         $precoTotal += $row['preco_produto'] * $produto['quantidade'];
         $produtos[] = [
             'price_data' => [
@@ -47,6 +50,9 @@ foreach ($carrinhoProdutos as $key => $produto) {
             ],
             'quantity' => $produto['quantidade'],
         ];
+
+        $sqlBaixaEstoque = "UPDATE tb_produtos SET qtd_produto = $quantidadeRestante WHERE id_produtos = $produto[produto]";
+        $queryBaixaEstoque = mysqli_query($conexao, $sqlBaixaEstoque);
 
         $sqlProdutos[] = "INSERT INTO tb_produto_pedido (id_usuario,id_produto,quantidade,fk_id_pedido) VALUES ('$_SESSION[id_usuario]','$produto[produto]',' $produto[quantidade]',";
     }

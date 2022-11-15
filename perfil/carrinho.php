@@ -168,7 +168,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                 const labelOpcoes = document.createElement("label");
                 labelOpcoes.classList.add("texto-label");
 
-                labelOpcoes.innerHTML = `R$${frete.Valor} - ${(frete.Codigo == 40010 ? 'Sedex' : "Pac")} (1 a ${frete.PrazoEntrega} dias úteis)`
+                labelOpcoes.innerHTML = `R$${frete.Valor} - ${(frete.Codigo == 40010 ? 'Sedex' : "Pac")} (Até ${frete.PrazoEntrega} dias úteis)`
 
                 center.appendChild(labelOpcoes);
 
