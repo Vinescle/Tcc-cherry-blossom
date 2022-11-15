@@ -63,6 +63,9 @@ if (isset($_GET['preco'])) {
 $resultadoProdutos = mysqli_query($conexao, $sqlProdutos);
 $resultadoMarcas = mysqli_query($conexao, $sqlProdutos);
 
+$sqlMarca = "SELECT * FROM tb_marcas WHERE id_marca = $_GET[marca]";
+$resultadoMarcasDedicado = mysqli_query($conexao, $sqlMarca);
+$resultadoMarcasDedicado = mysqli_fetch_array($resultadoMarcasDedicado);
 
 ?>
 
@@ -118,7 +121,8 @@ $resultadoMarcas = mysqli_query($conexao, $sqlProdutos);
                         $resultadoNomeMarcas = mysqli_fetch_array($resultadoMarcas);
                     ?>
                         <label class="label-titulo-filtro"><?php if (!empty($_GET['marca'])) {
-                                                                echo "Marca: $resultadoNomeMarcas[nome_marca]";
+                                                                echo "Marca: ";
+                                                                echo !empty($resultadoNomeMarcas['nome_marca']) ? $resultadoNomeMarcas['nome_marca'] : $resultadoMarcasDedicado['nome_marca'];
                                                             } ?></label>
                     <?php
                     } else if (!empty($_GET['pesquisaProduto'])) {
