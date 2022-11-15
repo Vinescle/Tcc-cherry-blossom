@@ -102,7 +102,7 @@ include '../verifica-logado.php';
                     <?php
                         $sql = "SELECT * FROM tb_marcas LIMIT $limit,32";
                     $resultado = mysqli_query($conexao, $sql);
-                    if($resultado->num_rows === 0){
+                    if($resultado->num_rows === 0  && $pagina > 0){
                         
                         header('location:./marcas.php?pagina='.$pagina - 1);
                     }

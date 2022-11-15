@@ -46,7 +46,7 @@ $resultadoProdutosVendidos = mysqli_query($conexao, $sqlProdutosVendidos);
 
 try {
     $resultadoProdutos = mysqli_query($conexao, $sql);
-    if($resultadoProdutos->num_rows === 0){
+    if($resultadoProdutos->num_rows === 0 && $pagina > 0){
         $pagina -= 1;
         header('location:./gerenciar.php?pagina='.$pagina);
     }
