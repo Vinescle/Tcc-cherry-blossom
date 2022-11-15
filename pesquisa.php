@@ -194,12 +194,12 @@ if (!empty($_GET['categoria'])) {
                     }
                     ?>
                     <div class="input-salvar">
-                        <button class="botao-salvar">
+                        <button class="botao-texto w-100">
                             Filtrar
                         </button>
                     </div>
                     <div class="input-salvar">
-                        <a class="botao-salvar" href="<?php echo $rota ?>/pesquisa.php?marca=<?php echo isset($_GET['marca']) ? $_GET['marca'] : $pesquisaProduto['fk_id_marcas']  ?>">
+                        <a class="botao-texto w-100" href="<?php echo $rota ?>/pesquisa.php?marca=<?php echo isset($_GET['marca']) ? $_GET['marca'] : $pesquisaProduto['fk_id_marcas']  ?>">
                             Limpar
                         </a>
                     </div>
