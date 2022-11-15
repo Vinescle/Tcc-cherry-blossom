@@ -230,7 +230,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                 <label class="input-texto">Peso</label>
                                 <div class="input-container">
                                     <button class="botao-input">
-                                        <label class="icone-input md hydrated bold">cm</label>
+                                        <label class="icone-input md hydrated bold">kg</label>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="pesoProduto" required type="text" value="<?php echo $resultadoProduto['peso_produto'] ?>">
                                 </div>
