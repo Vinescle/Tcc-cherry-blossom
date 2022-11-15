@@ -69,7 +69,7 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
                                             if (!empty($resultadoMarca['icon_url'])) {
                                                 $iconeMarca = $resultadoMarca['icon_url']
                                             ?>
-                                                <input type="file" name="iconUrl" value="<?php echo $resultadoMarca['icon_url']; ?>" class="iconImg" onchange="previewImagem(event)" required>
+                                                <input type="file" name="iconUrl" value="<?php echo $resultadoMarca['icon_url']; ?>" class="iconImg" onchange="previewImagem(event)">
 
                                                 <img src="../../assets/imagens/storage/marcas/<?php echo $iconeMarca ?>" alt="icone da marca" style="width:200px;" id="output">
                                             <?php
