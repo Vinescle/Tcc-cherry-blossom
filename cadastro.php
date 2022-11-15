@@ -121,7 +121,7 @@ if (isset($_SESSION['nome'])) {
                         <button type="button" disabled class="botao-input login-button-input" <?php echo isset($_GET['cpfIncorreto']) ? "style='background-color:red !important;'" : "" ?>>
                             <ion-icon class="icone-input md hydrated fonte-2-rem" <?php echo isset($_GET['cpfIncorreto']) ? "style='background-color:red !important;'" : "" ?> name="document-text-outline" role="img" aria-label="person-circle-outline"></ion-icon>
                         </button>
-                        <input id="cpf" class="input-conjunto fonte-2-rem login-input" <?php echo isset($_GET['cpfIncorreto']) ? "style='border: 1px solid red !important;' placeholder='CPF inválido'" : "" ?> type="text" value='<?php echo $cpf ?>' name="cpf" minlength="11" maxlength="11" required>
+                        <input id="cpf" class="input-conjunto fonte-2-rem login-input" <?php echo isset($_GET['cpfIncorreto']) ? "style='border: 1px solid red !important;' placeholder='CPF inválido'" : "" ?> type="text" value='<?php echo $cpf ?>' name="cpf" required>
                     </div>
                 </div>
                 <div class="div-checkbox">
@@ -147,7 +147,6 @@ if (isset($_SESSION['nome'])) {
             </form>
         </div>
         <script src="<?php echo $rota; ?>/assets/js/senhaIcon.js"></script>
-        <script src="<?php echo $rota; ?>/assets/js/mascaraSenha.js"></script>
         <?php
         include('./imports.php');
         ?>
@@ -160,6 +159,9 @@ if (isset($_SESSION['nome'])) {
                         recursive: true
                     },
                 },
+            });
+            $("#cpf").mask('000.000.000-00', {
+                reverse: true
             });
         </script>
     </main>
