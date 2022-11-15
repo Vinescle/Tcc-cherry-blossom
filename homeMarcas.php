@@ -23,6 +23,7 @@ $resultadoMarcas = mysqli_query($conexao, $sqlMarcas);
     <link href="<?php echo $rota; ?>/assets/css/componentes/rodape.css" rel="stylesheet">
 
     <link href="<?php echo $rota; ?>/assets/css/homeMarcas.css" rel="stylesheet">
+    <link href="<?php echo $rota; ?>/assets/css/componentes/marcas.css" rel="stylesheet">
 
     <title>Cherry - Marcas</title>
 </head>
@@ -42,23 +43,26 @@ $resultadoMarcas = mysqli_query($conexao, $sqlMarcas);
 
             </div>
 
-            <div class="marcas-container">
+            <div class="marcas">
                 <?php
                 while ($resultadoMarcasFinal = mysqli_fetch_array($resultadoMarcas)) {
                 ?>
-                    <a href="<?php echo $rota; ?>/pesquisa.php?marca=<?php echo $resultadoMarcasFinal['id_marca']; ?>">
+                    <label for="">
                         <div class="bolas-marcas">
-                            <div class="marca-circulo" style="background-color: <?php echo $resultadoMarcasFinal['cor_marca']; ?>">
-                                <div class="marca-overlay"></div>
-                                <label class="label-marca" for="checkbox-<?php echo $resultadoBolas['id_marca'] ?>">
-                                    <?php echo $resultadoMarcasFinal['nome_marca'] ?>
-                                </label>
-                                <div>
-                                    <img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoMarcasFinal['icon_url'] ?>" class="imagem-marcas">
+                            <a href="<?php echo $rota; ?>/pesquisa.php?marca=<?php echo $resultadoMarcasFinal['id_marca']; ?>">
+
+                                <div class="marca-circulo" style="background-color: <?php echo $resultadoMarcasFinal['cor_marca']; ?>">
+                                    <div class="marca-overlay"></div>
+                                    <label class="label-marca" for="checkbox-<?php echo $resultadoBolas['id_marca'] ?>">
+                                        <?php echo $resultadoMarcasFinal['nome_marca'] ?>
+                                    </label>
+                                    <div>
+                                        <img src="<?php echo $rota; ?>/assets/imagens/storage/marcas/<?php echo $resultadoMarcasFinal['icon_url'] ?>" class="imagem-marcas">
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    </a>
+                    </label>
                 <?php
                 }
                 ?>

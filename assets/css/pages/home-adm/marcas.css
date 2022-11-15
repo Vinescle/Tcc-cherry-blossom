@@ -73,15 +73,12 @@
 .marca-circulo {
   display: flex;
   align-items: center;
-  justify-content: center;
 
   border-radius: 1000px;
   width: 100px;
   height: 100px;
   background: #A5FF7B;
   overflow: hidden;
-
-  transition: 0.5s;
 }
 
 .marca-imagem {

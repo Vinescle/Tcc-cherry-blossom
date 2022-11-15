@@ -48,9 +48,6 @@ main {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
-    gap: 4.4%;
-
     /* gap: 0.85rem; */
 }
 
