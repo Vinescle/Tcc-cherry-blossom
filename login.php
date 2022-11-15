@@ -30,7 +30,7 @@ include './conexao.php';
                         <button type="button" disabled class="botao-input login-button-input" <?php echo !empty($_GET['erro']) ? 'style="background: red !important;"' : '' ?>>
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="mail-outline" role="img" aria-label="person circle outline"></ion-icon>
                         </button>
-                        <input class="input-conjunto fonte-2-rem login-input" type="email" name="email">
+                        <input class="input-conjunto fonte-2-rem login-input" type="email" name="email" <?php echo !empty($_GET['erro']) ? 'style="border: solid 1px red !important;"' : '' ?>>
                     </div>
                 </div>
                 <div class="input">
@@ -41,7 +41,7 @@ include './conexao.php';
                         <button type="button" disabled class="botao-input login-button-input" <?php echo !empty($_GET['erro']) ? 'style="background: red !important;"' : '' ?>>
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="lock-open-outline" role="img" aria-label="person circle outline"></ion-icon>
                         </button>
-                        <input class="input-conjunto fonte-2-rem login-input" type="password" name="senha">
+                        <input class="input-conjunto fonte-2-rem login-input" type="password" name="senha" <?php echo !empty($_GET['erro']) ? 'style="border: solid 1px red !important;"' : '' ?>>
                     </div>
                 </div>
                 <div class="form-end">

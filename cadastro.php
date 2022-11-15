@@ -69,7 +69,7 @@ if (isset($_SESSION['nome'])) {
                         <button type="button" disabled class="botao-input login-button-input" <?php echo $verificaEmail ? "style='background-color:red !important;'" : "" ?>>
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="mail-outline" role="img" aria-label="person-circle-outline"></ion-icon>
                         </button>
-                        <input class="input-conjunto fonte-2-rem login-input" type="email" value='<?php echo $email ?>' name="email" required>
+                        <input class="input-conjunto fonte-2-rem login-input" type="email" <?php echo $verificaEmail ? 'style="border: solid 1px red !important;"' : '' ?> value='<?php echo $email ?>' name="email" required>
                     </div>
                     <?php echo $verificaEmail ? "<div class='mensagem-erro'>Email já cadastrado!</div>" : "" ?>
                 </div>
@@ -96,7 +96,7 @@ if (isset($_SESSION['nome'])) {
                         <button type="button" disabled class="botao-input login-button-input" <?php echo $verificaSenha ? 'style="background-color: red !important;"' : '' ?>>
                             <ion-icon class="icone-input md hydrated fonte-2-rem" name="lock-closed-outline" role="img" aria-label="person-circle-outline"></ion-icon>
                         </button>
-                        <input class="input-conjunto fonte-2-rem login-input" type="password" value="<?php echo isset($_SESSION['senhaConfirma']) ? $_SESSION['senhaConfirma'] : ""  ?>" name="senhaConfirma" id="senhaConfirma" required>
+                        <input class="input-conjunto fonte-2-rem login-input" <?php echo $verificaSenha ? 'style="border: solid 1px red !important;"' : '' ?> type="password" value="<?php echo isset($_SESSION['senhaConfirma']) ? $_SESSION['senhaConfirma'] : ""  ?>" name="senhaConfirma" id="senhaConfirma" required>
                     </div>
                     <?php echo $verificaSenha ? "<div class='mensagem-erro'>Confirmação de senha incorreta!</div>" : "" ?>
                 </div>
