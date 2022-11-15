@@ -56,7 +56,6 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="nomeProduto" required type="text">
                                 </div>
-
                             </div>
                             <div class="w-100">
                                 <label class="input-texto">Preço</label>
