@@ -112,7 +112,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                         <label class="label-titulo">Alterar Senha</label>
                     </div>
                     <form action="./senha/alteraSenha.php" method="POST">
-                        <input type="text" style="display: none;" name="email_usuario" value="<?php echo $resultadoInfo['email_usuario'] ?>">
+                        <input required type="text" style="display: none;" name="email_usuario" value="<?php echo $resultadoInfo['email_usuario'] ?>">
 
                         <div class="conjunto-dadosBasicos">
                             <div class="conjunto-divs">
@@ -126,7 +126,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                                 <button class="botao-input" style="background-color: red;">
                                                     <ion-icon class="icone-input" name="lock-closed-outline" style="background-color: red;"></ion-icon>
                                                 </button>
-                                                <input class="input-conjunto" type="text" name="senhaAtual" style="border-color: red;" placeholder="*Senha incorreta*">
+                                                <input required class="input-conjunto" type="text" name="senhaAtual" style="border-color: red;" placeholder="*Senha incorreta*">
                                             </div>
                                         </div>
 
@@ -136,7 +136,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                                 <button class="botao-input" style="background-color: red;">
                                                     <ion-icon class="icone-input" name="lock-open-outline" style="background-color: red;"></ion-icon>
                                                 </button>
-                                                <input class="input-conjunto" type="text" name="novaSenha" style="border-color: red;">
+                                                <input required class="input-conjunto" type="text" name="novaSenha" style="border-color: red;">
                                             </div>
                                         </div>
                                     <?php
@@ -218,7 +218,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="person-circle-outline"></ion-icon>
                                         </button>
-                                        <input class="input-conjunto" type="text" name="nomeRecebedor" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['nm_recebedor'] : " "; ?>">
+                                        <input required class="input-conjunto" type="text" name="nomeRecebedor" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['nm_recebedor'] : " "; ?>">
                                     </div>
                                 </div>
 
@@ -228,7 +228,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="location-outline"></ion-icon>
                                         </button>
-                                        <input class="input-conjunto" id="frete-input" type="text" name="CEP" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['cep'] : " "; ?>">
+                                        <input required class="input-conjunto" id="frete-input" type="text" name="CEP" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['cep'] : " "; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -240,7 +240,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input" disabled="">
                                             <ion-icon class="icone-input md hydrated" name="map-outline"></ion-icon>
                                         </button>
-                                        <select class="input-conjunto input-tiktok" name="idestado" id="estado" onchange="listarCidades(this)">
+                                        <select required class="input-conjunto input-tiktok" name="idestado" id="estado" onchange="listarCidades(this)">
                                             <?php
                                             if ($resultadoInfo['fk_id_endereco'] == 0) {
                                             ?>
@@ -256,7 +256,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input" disabled="">
                                             <ion-icon class="icone-input md hydrated" name="business-outline"></ion-icon>
                                         </button>
-                                        <select class="input-conjunto input-tiktok" name="idcidade" id="cidade">
+                                        <select required class="input-conjunto input-tiktok" name="idcidade" id="cidade">
                                             <?php
                                             if ($resultadoInfo['fk_id_endereco'] == 0) {
                                             ?>
@@ -275,7 +275,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="trail-sign-outline"></ion-icon>
                                         </button>
-                                        <input class="input-conjunto" type="text" name="bairro" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['bairro'] : " "; ?>">
+                                        <input required class="input-conjunto" type="text" name="bairro" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['bairro'] : " "; ?>">
                                     </div>
                                 </div>
 
@@ -285,7 +285,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="footsteps-outline"></ion-icon>
                                         </button>
-                                        <input class="input-conjunto" type="text" name="rua" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['rua'] : " "; ?>">
+                                        <input required class="input-conjunto" type="text" name="rua" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['rua'] : " "; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -297,7 +297,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="home-outline"></ion-icon>
                                         </button>
-                                        <input class="input-conjunto" type="text" name="numero" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['numero'] : " "; ?>">
+                                        <input required class="input-conjunto" type="text" name="numero" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['numero'] : " "; ?>">
                                     </div>
                                 </div>
 
@@ -307,7 +307,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="flag-outline"></ion-icon>
                                         </button>
-                                        <input class="input-conjunto" type="text" name="complemento" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['complemento'] : " "; ?>">
+                                        <input required class="input-conjunto" type="text" name="complemento" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['complemento'] : " "; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -404,7 +404,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                 },
             },
         });
-        $("#cpf").mask('000.000.000-00', {
+        $("#cpf-perfil").mask('000.000.000-00', {
             reverse: true
         });
         $("#frete-input").mask('00000-000');
