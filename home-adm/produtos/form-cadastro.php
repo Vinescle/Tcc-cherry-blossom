@@ -232,7 +232,7 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                                         <input type="file" id="input-icone_botao_1" method="POST" name="imagemProduto-1" class="imagemProduto-1" onchange="previewImagem(event)">
 
                                         <div class="botao-lixeira">
-                                            <img class="icone-lixeira" src="../../assets/icones/lixeira.svg">
+                                            <img class="icone-lixeira" src="../../assets/icones/lixeira.svg" id="lixeira-produto_1">
                                         </div>
                                     </button>
                                 </div>
@@ -307,6 +307,9 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
             const input_icone_botao_4 = document.querySelector('.input-icone_botao_4');
             const input_icone_botao_5 = document.querySelector('.input-icone_botao_5');
 
+            const botao_lixeira_1 = document.querySelector('#lixeira-produto_1');
+
+
             var previewImagem = function(event) {
                 var output = document.getElementById('output');
                 output.src = URL.createObjectURL(event.target.files[0]);
@@ -314,6 +317,17 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                     URL.revokeObjectURL(output.src)
                 }
             };
+
+            
+            botao_lixeira_1.addEventListener('click',function(e){
+                output.src = null;
+                URL.revokeObjectURL(output.src);
+                output.classList.add('oculta');
+                input_icone_botao_1.reset();
+                //Aqui não tá funcionando
+                input_icone_botao_1.classList.remove('oculta');
+            })
+
             const imagemProduto_1 = document.querySelector('.imagemProduto-1');
             imagemProduto_1.addEventListener('change', function(e) {
                 input_icone_botao_1.classList.add('oculta');

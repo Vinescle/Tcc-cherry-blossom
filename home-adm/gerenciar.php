@@ -19,17 +19,17 @@ if (isset($_GET['pesquisa'])) {
     $sql = "SELECT a.id_produtos, a.nome_produto, a.preco_produto, a.qtd_produto, b.nome_marca, c.nome_categoria FROM tb_produtos a
     INNER JOIN tb_marcas_produtos marcasRE ON a.id_produtos = marcasRE.fk_id_produtos
     LEFT JOIN tb_marcas b ON b.id_marca = marcasRE.fk_id_marcas
-    INNER JOIN tb_produtos_sub_categorias subcategoriasRE ON a.id_produtos = subcategoriasRE.fk_id_produtos
-    INNER JOIN tb_sub_categoria subcategorias  ON subcategorias.id_sub_categoria = subcategoriasRE.fk_id_sub_categorias
-    INNER JOIN tb_categoria c ON c.id_categoria = subcategorias.fk_id_categoria WHERE a.nome_produto LIKE '%$_GET[pesquisa]%' GROUP BY a.id_produtos LIMIT $limit,8";
+    LEFT JOIN tb_produtos_sub_categorias subcategoriasRE ON a.id_produtos = subcategoriasRE.fk_id_produtos
+    LEFT JOIN tb_sub_categoria subcategorias  ON subcategorias.id_sub_categoria = subcategoriasRE.fk_id_sub_categorias
+    LEFT JOIN tb_categoria c ON c.id_categoria = subcategorias.fk_id_categoria WHERE a.nome_produto LIKE '%$_GET[pesquisa]%' GROUP BY a.id_produtos LIMIT $limit,8";
 } else {
 
     $sql = "SELECT a.id_produtos, a.nome_produto, a.preco_produto, a.qtd_produto, b.nome_marca, c.nome_categoria FROM tb_produtos a
     INNER JOIN tb_marcas_produtos marcasRE ON a.id_produtos = marcasRE.fk_id_produtos
     LEFT JOIN tb_marcas b ON b.id_marca = marcasRE.fk_id_marcas
-    INNER JOIN tb_produtos_sub_categorias subcategoriasRE ON a.id_produtos = subcategoriasRE.fk_id_produtos
-    INNER JOIN tb_sub_categoria subcategorias  ON subcategorias.id_sub_categoria = subcategoriasRE.fk_id_sub_categorias
-    INNER JOIN tb_categoria c ON c.id_categoria = subcategorias.fk_id_categoria GROUP BY a.id_produtos LIMIT $limit,8";
+    LEFT JOIN tb_produtos_sub_categorias subcategoriasRE ON a.id_produtos = subcategoriasRE.fk_id_produtos
+    LEFT JOIN tb_sub_categoria subcategorias  ON subcategorias.id_sub_categoria = subcategoriasRE.fk_id_sub_categorias
+    LEFT JOIN tb_categoria c ON c.id_categoria = subcategorias.fk_id_categoria GROUP BY a.id_produtos LIMIT $limit,8";
 
 }
 
