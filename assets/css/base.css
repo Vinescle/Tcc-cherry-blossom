@@ -111,6 +111,7 @@ a:hover {
 .center {
   display: flex;
   align-items: center;
+  gap: .5rem;
 }
 
 .limpa-style {
