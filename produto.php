@@ -29,15 +29,21 @@ $sqlImagens = "SELECT * FROM tb_imagem_produtos WHERE fk_id_produto = $idProduto
 
 $sqlMarcas = "SELECT * FROM tb_marcas_produtos d INNER JOIN tb_marcas e ON e.id_marca = d.fk_id_marcas WHERE d.fk_id_produtos = $idProduto";
 
+$sqlContagem = "SELECT count(*) as vendidos FROM tb_produto_pedido WHERE id_produto = $idProduto";
+
+
 $resultadoProduto = mysqli_query($conexao, $sqlProduto);
 $resultadoImagens = mysqli_query($conexao, $sqlImagens);
 $resultadoMarcas = mysqli_query($conexao, $sqlMarcas);
+$resultadoContagem = mysqli_query($conexao, $sqlContagem);
 
 $imagens = $resultadoImagens->fetch_all(MYSQLI_ASSOC);
 $marcas = $resultadoMarcas->fetch_all(MYSQLI_ASSOC);
 $produto = $resultadoProduto->fetch_all(MYSQLI_ASSOC)[0];
+$contagem = $resultadoContagem->fetch_all(MYSQLI_ASSOC)[0];
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -122,7 +128,7 @@ $produto = $resultadoProduto->fetch_all(MYSQLI_ASSOC)[0];
                         <label class="titulo-produto"><?php echo $produto['nome_produto'] ?></label>
 
                         <div class="conjunto-estatisticas">
-                            <label class="texto-estatisticas">XX Vendidos</label>
+                            <label class="texto-estatisticas"><?php echo $contagem['vendidos'] ?> Vendidos</label>
                         </div>
                     </div>
 
