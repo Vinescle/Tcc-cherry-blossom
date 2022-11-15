@@ -11,7 +11,7 @@ $resultadoVisitasTotal = mysqli_fetch_array($resultadoVisitasTotal);
 $sqlMaiorMês = "SELECT MAX(DATE_FORMAT(data_visita,'%m'))
 FROM tb_log_visitas WHERE (SELECT MAX(DATE_FORMAT(data_visita,'%m')) FROM tb_log_visitas) = 
 (SELECT MAX(DATE_FORMAT(data_visita,'%m')) FROM tb_log_visitas)";
-$resultadoMesMais = mysqli_query($conexao,$sqlMaiorMês);
+$resultadoMesMais = mysqli_query($conexao, $sqlMaiorMês);
 $resultadoMesMais = mysqli_fetch_array($resultadoMesMais);
 $maiorMes = $resultadoMesMais[0];
 // ARRAY DE ULTIMOS MESES
@@ -20,7 +20,7 @@ CASE WHEN COUNT(a.nome_mes) = 1 THEN 0 ELSE COUNT(a.nome_mes) END
 FROM tb_meses a 
 LEFT JOIN tb_log_visitas b ON a.id_mes = b.fk_id_mes
 WHERE numero_mes <= $maiorMes AND numero_mes >= $maiorMes-5 group BY nome_mes ORDER BY a.numero_mes";
-$resultadoUltimosMeses = mysqli_query($conexao,$sqlUltimosMeses);
+$resultadoUltimosMeses = mysqli_query($conexao, $sqlUltimosMeses);
 $resultadoUltimosMeses = mysqli_fetch_all($resultadoUltimosMeses);
 // VISITAS SEMANAIS
 $sqlDiaMAX = "SELECT DATE_FORMAT(now(),'%d') AS dia from tb_usuarios limit 1";
@@ -30,7 +30,7 @@ $DiaMAX = $resultadoDiaMAX['dia'];
 $sqlVisitaSemanal = "SELECT COUNT(*) AS visitaSemanal, date_format(data_visita, '%d') as dia FROM tb_log_visitas
 WHERE date_format(data_visita, '%d') <= $DiaMAX 
 AND date_format(data_visita, '%d') >= $DiaMAX-6";
-$resultadoVisitaSemanal = mysqli_query($conexao,$sqlVisitaSemanal);
+$resultadoVisitaSemanal = mysqli_query($conexao, $sqlVisitaSemanal);
 $resultadoVisitaSemanal = mysqli_fetch_array($resultadoVisitaSemanal);
 //INSCRITOS SEMANAIS
 $sqlDiaMAX = "SELECT MAX(date_format(data_cadastro, '%d')) AS dia FROM tb_email_para_notificar";
@@ -40,24 +40,24 @@ $DiaMAX = $resultadoDiaMAX['dia'] ?? 0;
 $sqlInscritosSemanal = "SELECT COUNT(*) AS inscritosSemanal, date_format(data_cadastro, '%d') as dia FROM tb_email_para_notificar
 WHERE date_format(data_cadastro, '%d') <= $DiaMAX 
 AND date_format(data_cadastro, '%d') >= $DiaMAX-6";
-$resultadoInscritosSemanal = mysqli_query($conexao,$sqlInscritosSemanal);
+$resultadoInscritosSemanal = mysqli_query($conexao, $sqlInscritosSemanal);
 $resultadoInscritosSemanal = mysqli_fetch_array($resultadoInscritosSemanal);
 
 // SQL EMAIL DASHBOARD
 $sql = "SELECT COUNT(*) FROM tb_email_para_notificar 
 WHERE fk_id_mes = (SELECT MAX(DATE_FORMAT(data_cadastro,'%m')) FROM tb_email_para_notificar)";
-$resultadoEmail = mysqli_query($conexao,$sql);
+$resultadoEmail = mysqli_query($conexao, $sql);
 $resultadoEmail = mysqli_fetch_array($resultadoEmail);
 $quantidadeEmail = $resultadoEmail[0];
-$PorcentagemEmail = $resultadoEmail[0]*100;
+$PorcentagemEmail = $resultadoEmail[0] * 100;
 $sqlEmailMesAnterior = "SELECT CASE WHEN count(*) = 0 THEN 1 END as valor_mes_anterior
 FROM tb_email_para_notificar WHERE DATE_FORMAT(data_cadastro,'%m') = (SELECT MAX(DATE_FORMAT(data_cadastro,'%m')) - 1 FROM tb_email_para_notificar);";
-$resultadoEmail = mysqli_query($conexao,$sqlEmailMesAnterior);
+$resultadoEmail = mysqli_query($conexao, $sqlEmailMesAnterior);
 $resultadoEmail = mysqli_fetch_array($resultadoEmail);
 
-if($resultadoEmail['valor_mes_anterior'] != null){
+if ($resultadoEmail['valor_mes_anterior'] != null) {
     $resultadoEmail['valor_mes_anterior'] = $resultadoEmail['valor_mes_anterior'];
-}else{
+} else {
     $resultadoEmail['valor_mes_anterior'] = 1;
 }
 $PorcentagemEmail = $PorcentagemEmail / $resultadoEmail['valor_mes_anterior'];
@@ -67,7 +67,7 @@ INNER JOIN tb_produtos b ON b.id_produtos = a.id_produto
 INNER JOIN tb_usuario_pedido c ON a.fk_id_pedido = c.id_usuario_pedido 
 WHERE DATE_FORMAT(c.data_pedido, '%d') = (SELECT MAX(DATE_FORMAT(c.data_pedido, '%d')) FROM tb_usuario_pedido)
 AND DATE_FORMAT(c.data_pedido, '%m') = $maiorMes";
-$resultadoVendasDia = mysqli_query($conexao,$sqlVendasDia);
+$resultadoVendasDia = mysqli_query($conexao, $sqlVendasDia);
 $resultadoVendasDia = mysqli_fetch_array($resultadoVendasDia);
 //Venda na semana
 //Vendas por mês
@@ -76,7 +76,7 @@ CASE WHEN COUNT(b.id_usuario) = 1 THEN 1 ELSE COUNT(b.id_usuario) END
 FROM tb_meses a 
 LEFT JOIN tb_usuario_pedido b ON a.id_mes = (SELECT MAX(DATE_FORMAT(data_pedido,'%m')) FROM tb_usuario_pedido)
 WHERE numero_mes <= $maiorMes AND numero_mes >= $maiorMes-5 GROUP BY id_mes";
-$resultadoVendasMes = mysqli_query($conexao,$sqlVendasMes);
+$resultadoVendasMes = mysqli_query($conexao, $sqlVendasMes);
 $resultadoVendasMes = mysqli_fetch_all($resultadoVendasMes);
 //DIA MÁXIMO LUCRO
 $sqlDiaMAXlucro = "SELECT MAX(DATE_FORMAT(data_pedido,'%d')) AS dia FROM tb_usuario_pedido";
@@ -88,13 +88,13 @@ $sqlLucroDiario = "SELECT sum(c.preco_total) AS lucroDiario FROM tb_produto_pedi
 INNER JOIN tb_produtos b ON b.id_produtos = a.id_produto
 INNER JOIN tb_usuario_pedido c ON a.fk_id_pedido = c.id_usuario_pedido 
 WHERE DATE_FORMAT(c.data_pedido, '%d') <= $DiaMAX and DATE_FORMAT(c.data_pedido, '%d') >= $DiaMAX-6";
-$resultadoLucroDiario = mysqli_query($conexao,$sqlLucroDiario);
+$resultadoLucroDiario = mysqli_query($conexao, $sqlLucroDiario);
 $resultadoLucroDiario = mysqli_fetch_array($resultadoLucroDiario);
 //LUCRO SEMANAL
 $sqlLucroSemanal = "SELECT sum(c.preco_total) AS lucroSemanal FROM tb_produto_pedido a 
 INNER JOIN tb_produtos b ON b.id_produtos = a.id_produto
 INNER JOIN tb_usuario_pedido c ON a.fk_id_pedido = c.id_usuario_pedido WHERE DATE_FORMAT(c.data_pedido, '%d') = (SELECT MAX(DATE_FORMAT(c.data_pedido, '%d')) FROM tb_usuario_pedido)";
-$resultadoLucroSemanal = mysqli_query($conexao,$sqlLucroSemanal);
+$resultadoLucroSemanal = mysqli_query($conexao, $sqlLucroSemanal);
 $resultadoLucroSemanal = mysqli_fetch_array($resultadoLucroSemanal);
 ?>
 <input type="text" id="maiorMes" style="display: none;" value="<?php echo $maiorMes ?>">
@@ -145,7 +145,7 @@ $resultadoLucroSemanal = mysqli_fetch_array($resultadoLucroSemanal);
                         <p class="tabela-titulo">Vendas</p>
                         <div class="tabela-conjunto_porcentagem">
                             <ion-icon class="tabela-icone_porcentagem" name="caret-up-outline"></ion-icon>
-                            <p class="tabela-porcentagem"><?php echo $resultadoVendasDia['vendasDia']?></p>
+                            <p class="tabela-porcentagem"><?php echo $resultadoVendasDia['vendasDia'] ?></p>
                         </div>
                     </div>
 
@@ -179,15 +179,15 @@ $resultadoLucroSemanal = mysqli_fetch_array($resultadoLucroSemanal);
                             console.log(UltimosMeses);
                             const mes = document.querySelector('#maiorMes');
                             console.log(mes.defaultValue);
-                                var labels = [
-                                    UltimosMeses[0][0], 
-                                    UltimosMeses[1][0], 
-                                    UltimosMeses[2][0], 
-                                    UltimosMeses[3][0], 
-                                    UltimosMeses[4][0],
-                                    UltimosMeses[5][0],
+                            var labels = [
+                                UltimosMeses[0][0],
+                                UltimosMeses[1][0],
+                                UltimosMeses[2][0],
+                                UltimosMeses[3][0],
+                                UltimosMeses[4][0],
+                                UltimosMeses[5][0],
                             ];
-                            console.log(labels); 
+                            console.log(labels);
 
                             const data = {
                                 labels: labels,
@@ -243,10 +243,10 @@ $resultadoLucroSemanal = mysqli_fetch_array($resultadoLucroSemanal);
                         <script>
                             var UltimosMesesVendas = <?php echo json_encode($resultadoVendasMes); ?>;
                             const labelse = [
-                                UltimosMesesVendas[0][1], 
-                                UltimosMesesVendas[1][1], 
-                                UltimosMesesVendas[2][1], 
-                                UltimosMesesVendas[3][1], 
+                                UltimosMesesVendas[0][1],
+                                UltimosMesesVendas[1][1],
+                                UltimosMesesVendas[2][1],
+                                UltimosMesesVendas[3][1],
                                 UltimosMesesVendas[4][1],
                                 UltimosMesesVendas[5][1],
                             ];

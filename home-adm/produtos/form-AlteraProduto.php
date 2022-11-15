@@ -1,7 +1,7 @@
 <?php
 $page = 'gerenciar';
 include '../../conexao.php';
-if (count($_GET) == 0){
+if (count($_GET) == 0) {
     echo "<script> alert('Nenhum item foi selecionado'); window.location.href='$rota/home-adm/gerenciar.php';</script>";
 }
 if (count($_GET['idproduto']) > 1) {
@@ -200,7 +200,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                 <label class="input-texto">Largura</label>
                                 <div class="input-container">
                                     <button class="botao-input">
-                                        <ion-icon class="icone-input md hydrated" name="color-palette-outline"></ion-icon>
+                                        <label class="icone-input md hydrated bold">cm</label>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="larguraProduto" required="" type="text" value="<?php echo $resultadoProduto['largura_produto'] ?>">
                                 </div>
@@ -210,7 +210,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                 <label class="input-texto">Comprimento</label>
                                 <div class="input-container">
                                     <button class="botao-input">
-                                        <label class="icone-input md hydrated">$</label>
+                                        <label class="icone-input md hydrated bold">cm</label>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="profundidadeProduto" required type="text" value="<?php echo $resultadoProduto['profundidade_produto'] ?>">
                                 </div>
@@ -219,7 +219,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                 <label class="input-texto">Altura</label>
                                 <div class="input-container">
                                     <button class="botao-input">
-                                        <ion-icon class="icone-input md hydrated" name="wallet-outline"></ion-icon>
+                                        <label class="icone-input md hydrated bold">cm</label>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="alturaProduto" required type="text" value="<?php echo $resultadoProduto['altura_produto'] ?>">
                                 </div>
@@ -230,7 +230,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                 <label class="input-texto">Peso</label>
                                 <div class="input-container">
                                     <button class="botao-input">
-                                        <ion-icon class="icone-input md hydrated" name="color-palette-outline"></ion-icon>
+                                        <label class="icone-input md hydrated bold">cm</label>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="pesoProduto" required type="text" value="<?php echo $resultadoProduto['peso_produto'] ?>">
                                 </div>
@@ -240,7 +240,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                 <label class="input-texto">Estoque</label>
                                 <div class="input-container">
                                     <button class="botao-input">
-                                        <label class="icone-input md hydrated">$</label>
+                                        <ion-icon class="icone-input md hydrated" name="cube-outline"></ion-icon>
                                     </button>
                                     <input class="input-conjunto input-tiktok" value="<?php echo $resultadoProduto['qtd_produto'] ?>" name="quantidadeProduto" required type="text">
                                 </div>
@@ -249,7 +249,7 @@ $resultadoImagemProduto = mysqli_fetch_all($resultadoImagemProduto);
                                 <label class="input-texto">Link da Visualização 3D</label>
                                 <div class="input-container">
                                     <button class="botao-input">
-                                        <ion-icon class="icone-input md hydrated" name="wallet-outline"></ion-icon>
+                                        <ion-icon class="icone-input md hydrated" name="prism-outline"></ion-icon>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="URLProduto" type="text" value="<?php echo $resultadoProduto['visualizacao_url'] ?>">
                                 </div>

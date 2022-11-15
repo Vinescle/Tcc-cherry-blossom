@@ -19,6 +19,10 @@ a:hover {
   color: #515151;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .coluna {
   margin-left: 8%;
 }
