@@ -14,6 +14,9 @@ if (isset($_GET['adicionar'])) {
         'produto' => $_GET['produto'],
         'quantidade' => intval($_GET['quantidade'])
     );
+    if (!empty($_GET['comprar']))
+        header("location: $rota/perfil/carrinho.php");
+
     echo "<script>alert('O produto foi adicionado ao carrinho!'); window.location.href = '$rota/produto.php?produto=$idProduto'</script>";
 }
 
@@ -185,7 +188,7 @@ $produto = $resultadoProduto->fetch_all(MYSQLI_ASSOC)[0];
                             <button type="submit" class="botao-texto min-width-botao margem-direita">
                                 <ion-icon class="icone-input md hydrated" name="cart-outline"></ion-icon>Adicionar ao Carrinho
                             </button>
-                            <button type="button" class="botao-texto min-width-botao">
+                            <button type="submit" class="botao-texto min-width-botao" name="comprar" value="comprar">
                                 <ion-icon class="icone-input md hydrated" name="card-outline"></ion-icon>Comprar
                             </button>
                         </div>
@@ -247,7 +250,7 @@ $produto = $resultadoProduto->fetch_all(MYSQLI_ASSOC)[0];
         const quantidade = document.querySelector('#quantidade');
 
         function aumenta() {
-            if(quantidade.value < 10){
+            if (quantidade.value < 10) {
                 quantidade = quantidade.value++;
             }
         }
