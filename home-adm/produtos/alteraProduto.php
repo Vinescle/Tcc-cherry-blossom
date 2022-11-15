@@ -6,7 +6,7 @@ $idproduto = $_POST['idproduto'];
 
 $idMarca = $_POST['idmarca'];
 
-if($idMarca != null || $idMarca != 0){
+if ($idMarca != null || $idMarca != 0) {
     $sqlMarca = "SELECT * FROM tb_marcas_produtos WHERE fk_id_produtos = $idproduto";
     $resultadoMarca = mysqli_query($conexao, $sqlMarca);
     $resultadoMarca = mysqli_fetch_array($resultadoMarca);
@@ -14,7 +14,6 @@ if($idMarca != null || $idMarca != 0){
         $sql = "UPDATE `tb_marcas_produtos` SET `fk_id_marcas`=$idMarca WHERE fk_id_produtos = $idproduto";
         mysqli_query($conexao, $sql);
     }
-
 }
 
 $idcategoria = $_POST['idcategoria'];
@@ -33,7 +32,7 @@ if ($resultadoSubCategoria['fk_id_sub_categorias'] != $idsubcategoria) {
 $nomeProduto = $_POST['nomeProduto'];
 $descricaoProduto = $_POST['descricaoProduto'];
 $precoProduto = $_POST['precoProduto'];
-$precoPromocional = $_POST['precoPromocional'];
+$precoPromocional = !empty($_POST['precoPromocional']) ? $_POST['precoPromocional'] : 0;
 $quantidadeProduto = $_POST['quantidadeProduto'];
 $URLProduto = $_POST['URLProduto'];
 $quantidadeProduto = $_POST['quantidadeProduto'];
@@ -76,7 +75,6 @@ foreach ($imagensProduto as $imagemProduto) {
     move_uploaded_file($imagemProduto['tmp_name'], "../../assets/imagens/storage/produtos/$nomeImagem");
 }
 
-mysqli_query($conexao,$sql);
+mysqli_query($conexao, $sql);
 
 header('Location:../gerenciar.php');
-

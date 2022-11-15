@@ -61,7 +61,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="person-circle-outline"></ion-icon>
                                         </button>
-                                        <input class="input-conjunto" type="text" name="nome_usuario" value="<?php echo $resultadoInfo['nome_usuario'] ?>" required>
+                                        <input class="input-conjunto" type="text" name="nome_usuario" value="<?php echo $resultadoInfo['nome_usuario'] ?>" id="input-nome" required>
                                     </div>
                                 </div>
 
@@ -327,10 +327,6 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
     include('../imports.php');
     ?>
     <script>
-        $("#cpf-perfil").mask('000.000.000-00', {
-            reverse: true
-        });
-
         const selectEstado = document.querySelector("#estado");
         const selectCidade = document.querySelector("#cidade");
 
@@ -399,6 +395,18 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                 document.getElementById("form-perfil").submit();
             }
         }
+
+        $("#input-nome").mask('A', {
+            translation: {
+                A: {
+                    pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/g,
+                    recursive: true
+                },
+            },
+        });
+        $("#cpf").mask('000.000.000-00', {
+            reverse: true
+        });
     </script>
 </body>
 
