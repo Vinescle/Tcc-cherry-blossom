@@ -5,7 +5,7 @@ $page = 'marcas';
 $limit = 0;
 if (isset($pagina) || isset($_GET['pagina'])) {
     $pagina = $_GET['pagina'];
-    if ($pagina < 0) {
+    if ($pagina <= 1) {
         header('location:../home-adm/marcas.php');
     }
     $limit = $limit + 32;
@@ -102,6 +102,11 @@ include '../verifica-logado.php';
                     <?php
                         $sql = "SELECT * FROM tb_marcas LIMIT $limit,32";
                     $resultado = mysqli_query($conexao, $sql);
+                    if($resultado->num_rows === 0){
+                        
+                        header('location:./marcas.php?pagina='.$pagina - 1);
+                    }
+                
 
                     try {
                         while ($resultadoBolas = mysqli_fetch_array($resultado)) {
