@@ -97,7 +97,6 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                                         <ion-icon class="icone-input md hydrated" name="balloon-outline"></ion-icon>
                                     </button>
                                     <select class="input-conjunto input-tiktok" name="idmarca">
-                                        <option value="0">Sem marca</option>
                                         <?php while ($resultado = mysqli_fetch_array($resultadoMarcas)) {
                                             if ($resultado['id_marca'] == $resultadoProduto['fk_id_marcas']) {
                                         ?>
