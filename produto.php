@@ -128,7 +128,7 @@ $contagem = $resultadoContagem->fetch_all(MYSQLI_ASSOC)[0];
                         <label class="titulo-produto"><?php echo $produto['nome_produto'] ?></label>
 
                         <div class="conjunto-estatisticas">
-                            <label class="texto-estatisticas"><?php echo $contagem['vendidos'] ?> Vendidos</label>
+                            <label class="texto-estatisticas"><?php echo $contagem['vendidos'] ?? 0 ?> Vendidos</label>
                         </div>
                     </div>
 
