@@ -198,11 +198,11 @@ $produto = $resultadoProduto->fetch_all(MYSQLI_ASSOC)[0];
             <div>
             </div>
             <div>
-                <span class="titulo-descricao">Descrição: </span>
+                <span class="titulo-descricao bold">Descrição: </span>
                 <p>
                     <?php echo $produto['descricao_produto'] ?>
                 </p>
-                <span class="titulo-descricao">Marca:
+                <span class="titulo-descricao"><b>Marca:</b>
                     <?php
                     foreach ($marcas as $marca) {
                         echo $marca['nome_marca'];
