@@ -71,7 +71,7 @@ if (isset($_SESSION['nome'])) {
                         </button>
                         <input class="input-conjunto fonte-2-rem login-input" type="email" value='<?php echo $email ?>' name="email" required>
                     </div>
-                    <?php echo $verificaEmail ? "<div class='mensagem-erro'>Email já cadastrado'</div>" : "" ?>
+                    <?php echo $verificaEmail ? "<div class='mensagem-erro'>Email já cadastrado</div>" : "" ?>
                 </div>
                 <div class="input">
                     <div>
