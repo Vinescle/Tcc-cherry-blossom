@@ -52,7 +52,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                     <div class="label-dadosBasicos">
                         <label class="label-titulo">Dados Básicos</label>
                     </div>
-                    <form action="./dados basicos/alteraDados.php" method="POST">
+                    <form action="./dados basicos/alteraDados.php" id="form-perfil" method="POST" onsubmit="return validateForm()">
                         <div class="conjunto-dadosBasicos">
                             <div class="conjunto-divs">
                                 <div class="w-160">
@@ -61,7 +61,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="person-circle-outline"></ion-icon>
                                         </button>
-                                        <input class="input-conjunto" type="text" name="nome_usuario" value="<?php echo $resultadoInfo['nome_usuario'] ?>">
+                                        <input class="input-conjunto" type="text" name="nome_usuario" value="<?php echo $resultadoInfo['nome_usuario'] ?>" required>
                                     </div>
                                 </div>
 
@@ -71,7 +71,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="mail-outline"></ion-icon>
                                         </button>
-                                        <input class="input-conjunto" type="text" name="email_usuario" value="<?php echo $resultadoInfo['email_usuario'] ?>">
+                                        <input class="input-conjunto" type="text" name="email_usuario" value="<?php echo $resultadoInfo['email_usuario'] ?>" required>
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="newspaper-outline"></ion-icon>
                                         </button>
-                                        <input class="input-conjunto" type="text" name="cpf_usuario" value="<?php echo $resultadoInfo['cpf_usuario'] ?>" minlength="14" maxlength="14">
+                                        <input id="cpf-perfil" class="input-conjunto" type="text" name="cpf_usuario" value="<?php echo $resultadoInfo['cpf_usuario'] ?>" minlength="14" required>
                                     </div>
                                 </div>
 
@@ -93,7 +93,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="call-outline"></ion-icon>
                                         </button>
-                                        <input id="telefone" onkeyup="mascaraFone(event)" class="input-conjunto" type="text" name="telefone_usuario" maxlength="15" value="<?php echo $resultadoInfo['telefone'] ? $resultadoInfo['telefone'] : '' ?>">
+                                        <input id="telefone" onkeyup="mascaraFone(event)" class="input-conjunto" type="text" required name="telefone_usuario" maxlength="15" value="<?php echo $resultadoInfo['telefone'] ? $resultadoInfo['telefone'] : '' ?>">
                                     </div>
                                 </div>
                             </div>
@@ -327,6 +327,10 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
     include('../imports.php');
     ?>
     <script>
+        $("#cpf-perfil").mask('000.000.000-00', {
+            reverse: true
+        });
+
         const selectEstado = document.querySelector("#estado");
         const selectCidade = document.querySelector("#cidade");
 
@@ -379,6 +383,20 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                 await listarCidades({
                     value: "AC"
                 });
+            }
+        }
+
+        function validateForm() {
+            event.preventDefault()
+            var errors = false;
+            if (document.getElementById("cpf-perfil").value.length != 14) {
+                errors = true;
+                alert("CPF deve conter 14 caracteres!");
+            } else {
+                errors = false;
+            }
+            if (errors == false) {
+                document.getElementById("form-perfil").submit();
             }
         }
     </script>

@@ -150,7 +150,6 @@ if (isset($_SESSION['nome'])) {
         <?php
         include('./imports.php');
         ?>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
         <script>
             $("#input-nome").mask('A', {
                 translation: {
