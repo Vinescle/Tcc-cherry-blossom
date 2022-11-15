@@ -63,7 +63,8 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                             ?>
                                 <div class="conjunto-label-input" style="margin-left: 10px;">
                                     <p class="texto-detalhes">Recebedor: <?php echo $resultadoInfoEndereco['nm_recebedor'] ?></p>
-                                    <p class="texto-detalhes"><?php echo $resultadoInfoEndereco['cep'] ?> - <?php echo $resultadoInfoEndereco['rua'] ?>, <?php echo $resultadoInfoEndereco['numero'] ?> - <?php echo $resultadoInfoEndereco['complemento'] ?>, <?php echo $resultadoInfoEndereco['bairro'] ?>, <?php echo $resultadoInfoEndereco['cidade'] ?> - <?php echo $resultadoInfoEndereco['estado'] ?></p>
+                                    <p class="texto-detalhes"><?php echo $resultadoInfoEndereco['rua'] ?>, <?php echo $resultadoInfoEndereco['numero'] ?> (<?php echo $resultadoInfoEndereco['complemento'] ?>), <?php echo $resultadoInfoEndereco['bairro'] ?>, <?php echo $resultadoInfoEndereco['cidade'] ?>, <?php echo $resultadoInfoEndereco['estado'] ?> - <?php echo $resultadoInfoEndereco['cep'] ?></p>
+
                                 </div>
                             <?php
                             } else {
