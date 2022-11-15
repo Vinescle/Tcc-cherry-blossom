@@ -6,7 +6,7 @@ session_start();
 $id = $_SESSION['id_usuario'];
 $fk_id_endereco = $_POST['fk_id_endereco'];
 $nomeRecebedor = $_POST['nomeRecebedor'];
-$CEP = $_POST['CEP'];
+$CEP = preg_replace('[0-9]', '', $_POST['CEP']);
 $estado = $_POST['idestado'];
 $cidade = $_POST['idcidade'];
 $bairro = $_POST['bairro'];

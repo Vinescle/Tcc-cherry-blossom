@@ -29,7 +29,8 @@ if (!empty($_GET['cep'])) {
     $resultado = mysqli_query($conexao, $sqlEndereco);
     $resultadoInfoEndereco = mysqli_fetch_array($resultado);
 
-    $cepDestino = $resultadoInfoEndereco['cep'];
+    $cepDestino = preg_replace('[0-9]', '', $resultadoInfoEndereco['cep']);
+    // $cepDestino = $resultadoInfoEndereco['cep'];
 
     foreach ($_SESSION['carrinho'] as $key => $produto) {
         $sqlProduto = "SELECT * FROM tb_produtos WHERE id_produtos = $produto[produto]";

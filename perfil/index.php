@@ -228,7 +228,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
                                         <button class="botao-input">
                                             <ion-icon class="icone-input" name="location-outline"></ion-icon>
                                         </button>
-                                        <input class="input-conjunto" type="text" name="CEP" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['cep'] : " "; ?>">
+                                        <input class="input-conjunto" id="frete-input" type="text" name="CEP" value="<?php echo isset($resultadoInfoEndereco) ?  $resultadoInfoEndereco['cep'] : " "; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -407,6 +407,7 @@ if ($resultadoInfo['fk_id_endereco'] != 0) {
         $("#cpf").mask('000.000.000-00', {
             reverse: true
         });
+        $("#frete-input").mask('00000-000');
     </script>
 </body>
 
