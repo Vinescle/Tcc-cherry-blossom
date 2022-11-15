@@ -6,7 +6,7 @@ main {
     display: flex;
     justify-content: center;
 
-    margin: 1.5rem 0 2.5rem 0 ;
+    margin: 1.5rem 0 2.5rem 0;
 }
 
 .conteudo-principal {
@@ -21,7 +21,6 @@ main {
 
 .input-pesquisa {
     font-size: 16px;
-    color: #FF84F0;
     font-family: 'Inter';
     font-weight: 500;
 
