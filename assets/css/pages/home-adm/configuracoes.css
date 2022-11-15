@@ -141,6 +141,7 @@ ion-icon {
   background-color: #FF84F0;
 
   border-radius: 20px;
+  z-index: 5;
 }
 
 .icone-lixeira {
