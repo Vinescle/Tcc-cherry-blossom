@@ -43,13 +43,13 @@ include '../conexao.php';
 
                 <p class="texto">&nbsp;&nbsp;&nbsp;&nbsp;É concedida permissão para baixar temporariamente uma cópia dos materiais (informações ou software) no site Cherry Blossom , apenas para visualização transitória pessoal e não comercial. Esta é a concessão de uma licença, não uma transferência de título e, sob esta licença, você não pode:</p>
 
-                <ul>
-                    <li class="texto">Modificar ou copiar os materiais;</li>
-                    <li class="texto">Usar os materiais para qualquer finalidade comercial ou para exibição pública (comercial ou não comercial);</li>
-                    <li class="texto">Tentar descompilar ou fazer engenharia reversa de qualquer software contido no site Cherry Blossom;</li>
-                    <li class="texto">Remover quaisquer direitos autorais ou outras notações de propriedade dos materiais;</li>
-                    <li class="texto">Transferir os materiais para outra pessoa ou 'espelhe' os materiais em qualquer outro servidor.</li>
-                </ul>
+                <ol>
+                    <li style="display: list-item !important;" class="texto">Modificar ou copiar os materiais;</li>
+                    <li style="display: list-item !important;" class="texto">Usar os materiais para qualquer finalidade comercial ou para exibição pública (comercial ou não comercial);</li>
+                    <li style="display: list-item !important;" class="texto">Tentar descompilar ou fazer engenharia reversa de qualquer software contido no site Cherry Blossom;</li>
+                    <li style="display: list-item !important;" class="texto">Remover quaisquer direitos autorais ou outras notações de propriedade dos materiais;</li>
+                    <li style="display: list-item !important;" class="texto">Transferir os materiais para outra pessoa ou 'espelhe' os materiais em qualquer outro servidor.</li>
+                </ol>
             </div>
 
             <div class="div-isencao">
