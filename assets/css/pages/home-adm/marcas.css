@@ -141,6 +141,7 @@
   transition: 0.5s;
 
   cursor: pointer;
+  text-align: center;
 }
 
 .marca-circulo:hover>.label-marca {
