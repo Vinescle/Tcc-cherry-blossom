@@ -19,7 +19,9 @@ if(isset($_GET['pesquisaCategoria'])){
     $sqlCategorias = "SELECT * FROM tb_categoria LIMIT $limit,4";
 }
 $resultadoCategoria = mysqli_query($conexao, $sqlCategorias);
-if($resultadoCategoria->num_rows === 0){
+// var_dump($resultadoCategoria);
+// exit();
+if($resultadoCategoria->num_rows === 0 && $resultadoCategoria->field_count === 0){
     $pagina -= 1;
     header('location:./categorias.php?pagina='.$pagina);
 }
