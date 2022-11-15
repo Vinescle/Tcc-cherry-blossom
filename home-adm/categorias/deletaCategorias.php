@@ -11,7 +11,9 @@ $i = 0;
 
 while($i < count($idCategoria)){
     $sql = "DELETE FROM tb_categoria WHERE id_categoria = ".$idCategoria[$i];
+    $sqlDeletesubcategoria = "DELETE FROM tb_sub_categoria where fk_id_Categoria = ".$idCategoria[$i]; 
     mysqli_query($conexao,$sql);
+    mysqli_query($conexao,$sqlDeletesubcategoria);
     $i++;
 }
 
