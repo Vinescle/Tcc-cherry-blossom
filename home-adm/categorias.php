@@ -131,7 +131,7 @@ if (isset($_GET['id_categoria'])) {
                             ?>
                                 <td class="tabela-principal_checkbox">
                                     <div class="tabela-checkbox_conteudo">
-                                        <input name="idCategoria[]" value="<?php echo $resultado['id_categoria']; ?>" id="checkbox-conteudo-cat<?php echo $resultado['id_categoria']; ?>" type="checkbox">
+                                        <input name="idCategoria[]" class="checkbox-categoria" value="<?php echo $resultado['id_categoria']; ?>" id="checkbox-conteudo-cat<?php echo $resultado['id_categoria']; ?>" type="checkbox">
                                         <label for="checkbox-conteudo-cat<?php echo $resultado['id_categoria']; ?>"></label>
                                     </div>
                                 </td>

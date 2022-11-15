@@ -33,13 +33,13 @@ if (isset($_GET['pesquisa'])) {
 }
 
 $sqlProdutosPopulares = "SELECT fk_id_produto, b.nome_produto, COUNT(*) AS quantidade_acessos FROM tb_produto_popular a 
-INNER JOIN tb_produtos b ON a.fk_id_produto = b.id_produtos GROUP BY fk_id_produto ORDER BY COUNT(*) DESC";
+INNER JOIN tb_produtos b ON a.fk_id_produto = b.id_produtos GROUP BY fk_id_produto ORDER BY COUNT(*) DESC LIMIT 5";
 $resultadoProdutosPopulares = mysqli_query($conexao, $sqlProdutosPopulares);
 
 $sqlProdutosVendidos = "SELECT id_produto, c.nome_produto, COUNT(*) AS quantidadeComprada FROM tb_produto_pedido a
 INNER JOIN tb_usuario_pedido b ON a.fk_id_pedido = b.id_usuario_pedido
 INNER JOIN tb_produtos c ON  c.id_produtos = a.id_produto GROUP BY id_produto
-ORDER BY COUNT(*) DESC LIMIT 4";
+ORDER BY COUNT(*) DESC LIMIT 5";
 $resultadoProdutosVendidos = mysqli_query($conexao, $sqlProdutosVendidos);
 
 

@@ -19,11 +19,11 @@ $sqlUltimosMeses = "SELECT a.nome_mes,a.numero_mes,
 CASE WHEN COUNT(a.nome_mes) = 1 THEN 0 ELSE COUNT(a.nome_mes) END 
 FROM tb_meses a 
 LEFT JOIN tb_log_visitas b ON a.id_mes = b.fk_id_mes
-WHERE numero_mes <= 10 AND numero_mes >= 10-5 group BY nome_mes ORDER BY a.numero_mes";
+WHERE numero_mes <= $maiorMes AND numero_mes >= $maiorMes-5 group BY nome_mes ORDER BY a.numero_mes";
 $resultadoUltimosMeses = mysqli_query($conexao,$sqlUltimosMeses);
 $resultadoUltimosMeses = mysqli_fetch_all($resultadoUltimosMeses);
 // VISITAS SEMANAIS
-$sqlDiaMAX = "SELECT MAX(date_format(data_visita, '%d')) AS dia FROM tb_log_visitas";
+$sqlDiaMAX = "SELECT DATE_FORMAT(now(),'%d') AS dia from tb_usuarios limit 1";
 $resultadoDiaMAX = mysqli_query($conexao, $sqlDiaMAX);
 $resultadoDiaMAX = mysqli_fetch_array($resultadoDiaMAX);
 $DiaMAX = $resultadoDiaMAX['dia'];
@@ -64,7 +64,9 @@ $PorcentagemEmail = $PorcentagemEmail / $resultadoEmail['valor_mes_anterior'];
 //Vendas por dia
 $sqlVendasDia = "SELECT COUNT(*) AS vendasDia FROM tb_produto_pedido a 
 INNER JOIN tb_produtos b ON b.id_produtos = a.id_produto
-INNER JOIN tb_usuario_pedido c ON a.fk_id_pedido = c.id_usuario_pedido WHERE DATE_FORMAT(c.data_pedido, '%d') = (SELECT MAX(DATE_FORMAT(c.data_pedido, '%d')) FROM tb_usuario_pedido)";
+INNER JOIN tb_usuario_pedido c ON a.fk_id_pedido = c.id_usuario_pedido 
+WHERE DATE_FORMAT(c.data_pedido, '%d') = (SELECT MAX(DATE_FORMAT(c.data_pedido, '%d')) FROM tb_usuario_pedido)
+AND DATE_FORMAT(c.data_pedido, '%m') = $maiorMes";
 $resultadoVendasDia = mysqli_query($conexao,$sqlVendasDia);
 $resultadoVendasDia = mysqli_fetch_array($resultadoVendasDia);
 //Venda na semana
@@ -73,7 +75,7 @@ $sqlVendasMes = "SELECT a.nome_mes,a.numero_mes,
 CASE WHEN COUNT(b.id_usuario) = 1 THEN 1 ELSE COUNT(b.id_usuario) END 
 FROM tb_meses a 
 LEFT JOIN tb_usuario_pedido b ON a.id_mes = (SELECT MAX(DATE_FORMAT(data_pedido,'%m')) FROM tb_usuario_pedido)
-WHERE numero_mes <= 10 AND numero_mes >= 10-5 GROUP BY id_mes";
+WHERE numero_mes <= $maiorMes AND numero_mes >= $maiorMes-5 GROUP BY id_mes";
 $resultadoVendasMes = mysqli_query($conexao,$sqlVendasMes);
 $resultadoVendasMes = mysqli_fetch_all($resultadoVendasMes);
 //DIA MÁXIMO LUCRO
