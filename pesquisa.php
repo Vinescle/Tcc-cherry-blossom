@@ -24,6 +24,7 @@ INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria
 INNER JOIN tb_marcas_produtos f on f.fk_id_produtos = a.id_produtos
 INNER JOIN tb_marcas g ON g.id_marca = f.fk_id_marcas ";
 $filtrandoMarca = false;
+
 if (!empty($_GET['pesquisaProduto'])) {
     $sqlProdutos .= "WHERE a.nome_produto like '%$_GET[pesquisaProduto]%' ";
 } else if (!empty($_GET['marca'])) {
@@ -64,9 +65,10 @@ $resultadoProdutos = mysqli_query($conexao, $sqlProdutos);
 $resultadoMarcas = mysqli_query($conexao, $sqlProdutos);
 
 $sqlMarca = "SELECT * FROM tb_marcas WHERE id_marca = $_GET[marca]";
-$resultadoMarcasDedicado = mysqli_query($conexao, $sqlMarca);
-$resultadoMarcasDedicado = mysqli_fetch_array($resultadoMarcasDedicado);
-
+if (!empty($_GET['categoria'])) {
+    $resultadoMarcasDedicado = mysqli_query($conexao, $sqlMarca);
+    $resultadoMarcasDedicado = mysqli_fetch_array($resultadoMarcasDedicado);
+}
 ?>
 
 <!DOCTYPE html>
