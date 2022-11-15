@@ -30,6 +30,7 @@ if (isset($_GET['pesquisa'])) {
     INNER JOIN tb_produtos_sub_categorias subcategoriasRE ON a.id_produtos = subcategoriasRE.fk_id_produtos
     INNER JOIN tb_sub_categoria subcategorias  ON subcategorias.id_sub_categoria = subcategoriasRE.fk_id_sub_categorias
     INNER JOIN tb_categoria c ON c.id_categoria = subcategorias.fk_id_categoria GROUP BY a.id_produtos LIMIT $limit,8";
+
 }
 
 $sqlProdutosPopulares = "SELECT fk_id_produto, b.nome_produto, COUNT(*) AS quantidade_acessos FROM tb_produto_popular a 
@@ -45,6 +46,12 @@ $resultadoProdutosVendidos = mysqli_query($conexao, $sqlProdutosVendidos);
 
 try {
     $resultadoProdutos = mysqli_query($conexao, $sql);
+    var_dump($resultadoProdutos);
+    if($resultadoProdutos->num_rows === 0){
+        $pagina -= 1;
+        header('location:./gerenciar.php?pagina='.$pagina);
+    }
+
 } catch (\Throwable $th) {
     //throw $th;
 }

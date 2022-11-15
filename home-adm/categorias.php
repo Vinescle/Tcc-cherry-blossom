@@ -19,6 +19,10 @@ if(isset($_GET['pesquisaCategoria'])){
     $sqlCategorias = "SELECT * FROM tb_categoria LIMIT $limit,4";
 }
 $resultadoCategoria = mysqli_query($conexao, $sqlCategorias);
+if($resultadoCategoria->num_rows === 0){
+    $pagina -= 1;
+    header('location:./categorias.php?pagina='.$pagina);
+}
 
 
 if (isset($_GET['id_categoria'])) {
@@ -26,6 +30,10 @@ if (isset($_GET['id_categoria'])) {
     $idsubcategoria = $_GET['id_categoria'];
     $sqlsubCategorias = "SELECT * FROM tb_sub_categoria a INNER JOIN tb_categoria b ON a.fk_id_categoria = b.id_categoria WHERE b.id_categoria = $idsubcategoria LIMIT $subLimit,4";
     $resultadoSubCategoria = mysqli_query($conexao, $sqlsubCategorias);
+    if($resultadoSubCategoria->num_rows === 0){
+        $pagina -= 1;
+        header('location:./categorias.php?pagina='.$pagina);
+    }
 } else {
     if(isset($_GET['pesquisaSubcategoria'])){
         $sqlCategorias = "SELECT * FROM tb_sub_categoria WHERE nome_sub_categoria LIKE '%$_GET[pesquisaSubcategoria]%' LIMIT $limit,4";
@@ -34,6 +42,10 @@ if (isset($_GET['id_categoria'])) {
     }
     $sqlsubCategorias = "SELECT * FROM tb_sub_categoria";
     $resultadoSubCategoria = mysqli_query($conexao, $sqlsubCategorias);
+    if($resultadoSubCategoria->num_rows === 0){
+        $pagina -= 1;
+        header('location:./categorias.php?pagina='.$pagina);
+    }
 }
 
 
