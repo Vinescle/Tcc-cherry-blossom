@@ -123,6 +123,19 @@ include '../../verifica-logado.php';
         <?php
         include('../../imports.php');
         ?>
+
+        <script>
+            $('#input-cor').mask('SAAAAAA', {
+                'translation': {
+                    S: {
+                        pattern: /[#]/
+                    },
+                    A: {
+                        pattern: /[A-Fa-f0-9]/
+                    }
+                }
+            });
+        </script>
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 $page = 'marcas';
 include '../../conexao.php';
 
-if(count($_GET) == 0){
+if (count($_GET) == 0) {
     echo "<script> alert('Nenhum item foi selecionado'); window.location.href='$rota/home-adm/marcas.php';</script>";
 }
 
@@ -139,6 +139,16 @@ $resultadoMarca = mysqli_fetch_array($resultadoMarca);
             iconImg.addEventListener('change', function(e) {
                 input_icone_botao.classList.add('oculta');
             })
+            $('#input-cor').mask('SAAAAAA', {
+                'translation': {
+                    S: {
+                        pattern: /[#]/
+                    },
+                    A: {
+                        pattern: /[A-Fa-f0-9]/
+                    }
+                }
+            });
         </script>
         <?php
         include('../../imports.php');
