@@ -154,9 +154,6 @@ $contagem = $resultadoContagem->fetch_all(MYSQLI_ASSOC)[0];
                         <?php
                         }
                         ?>
-
-
-                        <label class="texto-parcela">Em 10x R$<?php echo number_format($produto['preco_produto'] / 10, 2, ",", ".") ?> (Sem juros)</label>
                     </div>
 
                     <div class="conjunto-input-frete">
