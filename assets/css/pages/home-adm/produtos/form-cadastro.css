@@ -373,11 +373,11 @@ ion-icon {
   justify-self: end;
 
   position: absolute;
-  top: 8.5rem;
-  right: .5rem;
-  
+  right: 0.5rem;
+  bottom: 0.5rem;
+
   padding: .5rem 1rem;
-  
+
   background-color: #FF84F0;
 
   border-radius: 20px;
