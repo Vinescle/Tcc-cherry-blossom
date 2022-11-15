@@ -23,16 +23,17 @@ INNER JOIN tb_sub_categoria d ON d.id_sub_categoria = c.fk_id_sub_categorias
 INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria
 INNER JOIN tb_marcas_produtos f on f.fk_id_produtos = a.id_produtos
 INNER JOIN tb_marcas g ON g.id_marca = f.fk_id_marcas ";
-
+$filtrandoMarca = false;
 if (!empty($_GET['pesquisaProduto'])) {
     $sqlProdutos .= "WHERE a.nome_produto like '%$_GET[pesquisaProduto]%' ";
 } else if (!empty($_GET['marca'])) {
     $sqlProdutos .= "WHERE f.fk_id_marcas = $_GET[marca] ";
+    $filtrandoMarca = true;
 } else if (!empty($_GET['categoria'] && empty($_GET['marca']))) {
     $sqlProdutos .= "WHERE d.fk_id_categoria = $_GET[categoria] ";
 }
 
-if (!empty($_GET['marca'])) {
+if (!empty($_GET['marca']) && !$filtrandoMarca) {
     $sqlProdutos .= "AND d.fk_id_marcas = $_GET[marca] ";
 }
 
