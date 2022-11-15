@@ -29,7 +29,7 @@ $sqlImagens = "SELECT * FROM tb_imagem_produtos WHERE fk_id_produto = $idProduto
 
 $sqlMarcas = "SELECT * FROM tb_marcas_produtos d INNER JOIN tb_marcas e ON e.id_marca = d.fk_id_marcas WHERE d.fk_id_produtos = $idProduto";
 
-$sqlContagem = "SELECT count(*) as vendidos FROM tb_produto_pedido WHERE id_produto = $idProduto";
+$sqlContagem = "SELECT sum(quantidade) as vendidos FROM tb_produto_pedido WHERE id_produto = $idProduto";
 
 
 $resultadoProduto = mysqli_query($conexao, $sqlProduto);
