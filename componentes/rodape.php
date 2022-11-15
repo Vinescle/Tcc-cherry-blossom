@@ -44,7 +44,7 @@
             <form class="form-enviar-email" action="./componentes/emailnoticias.php" method="POST">
                 <input class="input-enviar-email" type="email" name="email-noticias" placeholder="Digite seu email">
                 <button class="botao-enviar-email" type="submit">
-                    <img class="icone-enviar" src="./assets/icones/enviar.svg">
+                    <img class="icone-enviar" src="<?php echo $rota; ?>/assets/icones/enviar.svg">
                 </button>
             </form>
         </div>
