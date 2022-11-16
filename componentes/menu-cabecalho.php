@@ -41,7 +41,7 @@ $resultadoCategoriasMenu = mysqli_query($conexao, $sqlCategoriasMenu);
     </div>
     </div>
     <div class="cabecalho-pesquisa">
-        <form action="<?php echo $rota ?>/pesquisa.php" method="GET">
+        <form style="margin: 0;" action="<?php echo $rota ?>/pesquisa.php" method="GET">
             <div class="formulario-pesquisa">
                 <button class="botao-enviar" type="submit"></button>
                 <input required class="botao-pesquisa" type="TEXT" name="pesquisaProduto">
