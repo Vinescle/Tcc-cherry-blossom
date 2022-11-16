@@ -21,6 +21,13 @@
   gap: .75rem;
 }
 
+/* Inputs */
+
+.input-senha-google {
+  border-right: none;
+  border-radius: 0;
+}
+
 /* Icones formulário */
 
 ion-icon {
