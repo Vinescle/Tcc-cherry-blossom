@@ -107,7 +107,7 @@ if (!empty($_GET['categoria'])) {
         }
     </style>
 
-    <title>Cherry Blossom - Home</title>
+    <title>Cherry Blossom</title>
 </head>
 
 <body>

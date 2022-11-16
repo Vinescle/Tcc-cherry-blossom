@@ -18,7 +18,7 @@ include '../conexao.php';
     <link href="<?php echo $rota; ?>/assets/css/componentes/rodape.css" rel="stylesheet">
     <link href="<?php echo $rota; ?>/assets/css/rodape-sobre/sobre-nos.css" rel="stylesheet">
 
-    <title>Cherry Blossom - Home</title>
+    <title>Cherry Blossom</title>
 </head>
 
 <body>

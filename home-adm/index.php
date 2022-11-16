@@ -106,7 +106,7 @@ $resultadoLucroSemanal = mysqli_fetch_array($resultadoLucroSemanal);
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="<?php echo $rota; ?>/assets/imagens/logo.png" rel="shortcut icon" />
+    <link href="<?php echo $rota; ?>/assets/imagens/logo.png" rel="shortcut icon"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link href="<?php echo $rota; ?>/assets/css/base.css" rel="stylesheet">
     <link href="<?php echo $rota; ?>/assets/css/base-adm.css" rel="stylesheet">

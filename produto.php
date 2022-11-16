@@ -63,7 +63,7 @@ $contagem = $resultadoContagem->fetch_all(MYSQLI_ASSOC)[0];
     <link href="<?php echo $rota; ?>/assets/css/componentes/rodape.css" rel="stylesheet">
 
 
-    <title>Cherry Blossom - Home</title>
+    <title>Cherry Blossom</title>
 </head>
 
 <body>
