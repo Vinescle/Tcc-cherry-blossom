@@ -17,7 +17,7 @@ main {
     display: flex;
     flex-direction: column;
 
-    gap: 1rem;
+    gap: .75rem;
 }
 
 .div-titulo {
