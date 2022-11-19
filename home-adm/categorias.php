@@ -14,9 +14,9 @@ if (isset($pagina) || isset($_GET['pagina'])) {
 include '../conexao.php';
 include '../verifica-logado.php';
 if(isset($_GET['pesquisaCategoria'])){
-    $sqlCategorias = "SELECT * FROM tb_categoria WHERE nome_categoria LIKE '%$_GET[pequisaCategoria]%' LIMIT $limit,4";
+    $sqlCategorias = "SELECT * FROM tb_categoria WHERE nome_categoria LIKE '%$_GET[pequisaCategoria]%' LIMIT $limit,6";
 }else{
-    $sqlCategorias = "SELECT * FROM tb_categoria LIMIT $limit,4";
+    $sqlCategorias = "SELECT * FROM tb_categoria LIMIT $limit,6";
 }
 $resultadoCategoria = mysqli_query($conexao, $sqlCategorias);
 // var_dump($resultadoCategoria);

@@ -178,15 +178,17 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                         while ($resultadoMaisVendidosFinal = mysqli_fetch_array($resultadoMaisVendidos)) {
                         ?>
                             <div class="destaques-produtos">
-                                <img class="foto-produtos" src="<?php echo $rota; ?>/assets/imagens/storage/produtos/<?php echo $resultadoMaisVendidosFinal[5]; ?>">
-                                <div class="espacamento-produto">
-                                    <p class="tag-produto"><?php echo $resultadoMaisVendidosFinal['nome_categoria'] ?> > <?php echo $resultadoMaisVendidosFinal['nome_sub_categoria'] ?></p>
-                                    <h3 class="titulo-produto"><?php echo $resultadoMaisVendidosFinal['nome_produto'] ?></h3>
-                                    <div class="conjunto-preco-comprar">
-                                        <p class="preco-produto">R$<?php echo $resultadoMaisVendidosFinal['preco_produto'] ?></p>
-                                        <button class="botao-comprar"><a href="<?php echo $rota . '/produto.php?produto=' . $resultadoMaisVendidosFinal['id_produtos'] ?>">Comprar</a></button>
+                                <a href="<?php echo $rota . '/produto.php?produto=' . $resultadoMaisVendidosFinal['id_produtos'] ?>">
+                                    <img class="foto-produtos" src="<?php echo $rota; ?>/assets/imagens/storage/produtos/<?php echo $resultadoMaisVendidosFinal[5]; ?>">
+                                    <div class="espacamento-produto">
+                                        <p class="tag-produto"><?php echo $resultadoMaisVendidosFinal['nome_categoria'] ?> > <?php echo $resultadoMaisVendidosFinal['nome_sub_categoria'] ?></p>
+                                        <h3 class="titulo-produto"><?php echo $resultadoMaisVendidosFinal['nome_produto'] ?></h3>
+                                        <div class="conjunto-preco-comprar">
+                                            <p class="preco-produto">R$<?php echo $resultadoMaisVendidosFinal['preco_produto'] ?></p>
+                                            <button class="botao-comprar">Comprar</button>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         <?php
                         }

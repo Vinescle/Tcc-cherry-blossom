@@ -194,7 +194,7 @@ $resultadoCategorias = mysqli_query($conexao, $sql);
                                 <label class="input-texto">Peso</label>
                                 <div class="input-container">
                                     <button class="botao-input">
-                                        <label class="icone-input md hydrated bold">kg</label>
+                                        <label class="icone-input md hydrated bold">g</label>
                                     </button>
                                     <input class="input-conjunto input-tiktok" name="pesoProduto" required type="text">
                                 </div>
