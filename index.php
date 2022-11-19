@@ -101,7 +101,7 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                 <ion-icon class="logo-whatsapp" name="logo-whatsapp"></ion-icon>
             </a>
         </div>
-        
+
         <div class="container-loja">
             <div>
                 <div class="texto">
@@ -147,15 +147,17 @@ $configAdm = mysqli_fetch_array($resultadoConfigAdm);
                     while ($resultadoDestaquesFinal = mysqli_fetch_array($resultadoDestaques)) {
                     ?>
                         <div class="destaques-produtos">
-                            <img class="foto-produtos" src="<?php echo $rota; ?>/assets/imagens/storage/produtos/<?php echo $resultadoDestaquesFinal[5]; ?>">
-                            <div class="espacamento-produto">
-                                <p class="tag-produto"><?php echo $resultadoDestaquesFinal['nome_categoria'] ?> > <?php echo $resultadoDestaquesFinal['nome_sub_categoria'] ?></p>
-                                <h3 class="titulo-produto"><?php echo $resultadoDestaquesFinal['nome_produto'] ?></h3>
-                                <div class="conjunto-preco-comprar">
-                                    <p class="preco-produto">R$<?php echo number_format($resultadoDestaquesFinal['preco_produto'], 2, ",", ".") ?></p>
-                                    <button class="botao-comprar"><a href="<?php echo $rota . '/produto.php?produto=' . $resultadoDestaquesFinal['id_produtos'] ?>">Comprar</a></button>
+                            <a href="<?php echo $rota . '/produto.php?produto=' . $resultadoDestaquesFinal['id_produtos'] ?>">
+                                <img class="foto-produtos" src="<?php echo $rota; ?>/assets/imagens/storage/produtos/<?php echo $resultadoDestaquesFinal[5]; ?>">
+                                <div class="espacamento-produto">
+                                    <p class="tag-produto"><?php echo $resultadoDestaquesFinal['nome_categoria'] ?> > <?php echo $resultadoDestaquesFinal['nome_sub_categoria'] ?></p>
+                                    <h3 class="titulo-produto"><?php echo $resultadoDestaquesFinal['nome_produto'] ?></h3>
+                                    <div class="conjunto-preco-comprar">
+                                        <p class="preco-produto">R$<?php echo number_format($resultadoDestaquesFinal['preco_produto'], 2, ",", ".") ?></p>
+                                        <button class="botao-comprar">Comprar</button>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     <?php
                     }
