@@ -15,7 +15,8 @@ a.qtd_produto,
 b.url,
 e.nome_categoria,
 d.nome_sub_categoria,
-g.nome_marca
+g.nome_marca,
+g.id_marca
 FROM tb_produtos a
 INNER JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto
 INNER JOIN tb_produtos_sub_categorias c ON c.fk_id_produtos = a.id_produtos
@@ -60,9 +61,9 @@ if (isset($_GET['preco'])) {
 }
 
 
-
 $resultadoProdutos = mysqli_query($conexao, $sqlProdutos);
 $resultadoMarcas = mysqli_query($conexao, $sqlProdutos);
+var_dump($resultadoMarcas);
 
 if (!empty($_GET['categoria'])) {
     $sqlMarca = "SELECT * FROM tb_marcas WHERE id_marca = $_GET[marca]";

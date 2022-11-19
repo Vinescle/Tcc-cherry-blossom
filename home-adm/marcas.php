@@ -51,11 +51,11 @@ include '../verifica-logado.php';
                 <div class="conteudo-acoes">
                     <div class="grupo-filtro">
                         <div class="cabecalho-pesquisa">
-                            <form>
+                            <form action="?" method="GET">
                                 <div class="formulario-gerenciamento">
                                     <button class="botao-enviar" type="submit">
                                     </button>
-                                    <input class="botao-pesquisa_produtos config-gerenciamento" type="TEXT">
+                                    <input class="botao-pesquisa_produtos config-gerenciamento" name="pesquisa" type="TEXT">
                                 </div>
                             </form>
                         </div>
@@ -100,8 +100,13 @@ include '../verifica-logado.php';
             <form action="./marcas/deletemarca.php" method="GET" id="form">
                 <div class="marcas">
                     <?php
+                    if(isset($_GET['pesquisa'])){
+                        $sql = "SELECT * FROM tb_marcas WHERE nome_marca LIKE '%$_GET[pesquisa]%' LIMIT $limit,32";
+                    }else{
                         $sql = "SELECT * FROM tb_marcas LIMIT $limit,32";
+                    }
                     $resultado = mysqli_query($conexao, $sql);
+
                     if($resultado->num_rows === 0  && $pagina > 0){
                         
                         header('location:./marcas.php?pagina='.$pagina - 1);
