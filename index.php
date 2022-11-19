@@ -7,10 +7,6 @@ if (isset($_GET['deslogar'])) {
     session_destroy();
 }
 
-
-
-
-
 // CONFIGURAÇÕES E INSERTS DAS TABELAS DE VISITAS
 $sqlVisita = "INSERT INTO tb_log_visitas (data_visita) VALUES (NOW())";
 mysqli_query($conexao, $sqlVisita);
@@ -21,7 +17,6 @@ $resultadoUltimoId = mysqli_fetch_array($resultadoUltimoId);
 $fk_id_mes = $resultadoUltimoId[0];
 $sqlUltimaVisita = "UPDATE tb_log_visitas SET fk_id_mes = $fk_id_mes WHERE id_log_visita = $ultimoIdVisita";
 mysqli_query($conexao, $sqlUltimaVisita);
-
 
 
 $sqlMarcas = "SELECT * FROM tb_marcas LIMIT 7";
@@ -58,6 +53,7 @@ LEFT JOIN tb_imagem_produtos b ON a.id_produtos = b.fk_id_produto
 INNER JOIN tb_produtos_sub_categorias c ON c.fk_id_produtos = a.id_produtos
 INNER JOIN tb_sub_categoria d ON d.id_sub_categoria = c.fk_id_sub_categorias
 INNER JOIN tb_categoria e ON e.id_categoria = d.fk_id_categoria 
+INNER JOIN tb_produto_pedido f ON f.id_produto = a.id_produtos
 GROUP BY id_produtos
 LIMIT 4";
 $resultadoMaisVendidos = mysqli_query($conexao, $sqlMaisVendidos);
