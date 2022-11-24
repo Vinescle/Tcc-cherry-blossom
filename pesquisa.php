@@ -63,7 +63,6 @@ if (isset($_GET['preco'])) {
 
 $resultadoProdutos = mysqli_query($conexao, $sqlProdutos);
 $resultadoMarcas = mysqli_query($conexao, $sqlProdutos);
-var_dump($resultadoMarcas);
 
 if (!empty($_GET['categoria'])) {
     $sqlMarca = "SELECT * FROM tb_marcas WHERE id_marca = $_GET[marca]";
